@@ -10,9 +10,9 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "${minecraft_version}-1.0.0"
+version = "${minecraft_version}-${mod_version}"
 group = "gregicadditions"
-archivesBaseName = "gregicadditions"
+archivesBaseName = "GregicAdditions"
 
 sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
@@ -20,13 +20,12 @@ compileJava {
 }
 
 minecraft {
-    version = "${minecraft_version}-14.23.4.2727"
+    version = "${minecraft_version}-14.23.4.2729"
     runDir = "run"
     mappings = "snapshot_20171003"
 
-    useDepAts = true
     replace("@VERSION@",project.version)
-    replaceIn "GregicAdditions.java"
+    replaceIn("GregicAdditions.java")
 }
 
 repositories {

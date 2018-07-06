@@ -20,3 +20,4 @@ build
 # other
 run
 libs
+gradle/wrapper/gradle-wrapper.properties
