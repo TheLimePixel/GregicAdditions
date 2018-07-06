@@ -1,0 +1,16 @@
+[
+{
+  "modid": "gtadditions",
+  "name": "Gregic Additions",
+  "description": "A mod adding GT5U features to GTCE.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["TheEmosewaPixel"],
+  "credits": "The developers of GT5U, the developers of GTCE and GregoriusT.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": ["gregtech"]
+}
+]
