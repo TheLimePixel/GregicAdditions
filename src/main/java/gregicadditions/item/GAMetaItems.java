@@ -1,6 +1,7 @@
 package gregicadditions.item;
 
 import gregtech.api.items.metaitem.MetaItem;
+import gregtech.api.items.toolitem.ToolMetaItem;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -84,9 +85,14 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem RAM_WAFER;
     public static MetaItem<?>.MetaValueItem SILICON_WAFER;
     public static MetaItem<?>.MetaValueItem SOC_WAFER;
+
+    public static MetaItem<?>.MetaValueItem TOOL_TEST;
+
     public static void init() {
         GAMetaItem item = new GAMetaItem();
         item.setRegistryName("ga_meta_item");
+        GAMetaTool tool = new GAMetaTool();
+        tool.setRegistryName("ga_meta_tool");
     }
 
     public static void registerOreDict() {
@@ -101,6 +107,8 @@ public class GAMetaItems {
         for (MetaItem<?> item : ITEMS) {
             if (item instanceof GAMetaItem)
                 ((GAMetaItem) item).registerRecipes();
+            if (item instanceof GAMetaTool)
+                ((GAMetaTool) item).registerRecipes();
         }
     }
 }
