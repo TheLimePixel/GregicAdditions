@@ -18,6 +18,7 @@ public class GARemovedRecipes {
     public static void postInit() {
         for (Material m : IngotMaterial.MATERIAL_REGISTRY) {
 
+            //Foil recipes
             removeRecipesByInputs(RecipeMaps.BENDER_RECIPES,
                     OreDictUnifier.get(OrePrefix.plate, m),
                     IntCircuitIngredient.getIntegratedCircuit(0));
