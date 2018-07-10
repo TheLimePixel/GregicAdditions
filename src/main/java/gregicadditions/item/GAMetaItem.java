@@ -1,9 +1,10 @@
 package gregicadditions.item;
 
 import gregtech.api.items.materialitem.MaterialMetaItem;
-import gregtech.api.recipes.RecipeMaps;
-import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
+import net.minecraft.item.ItemStack;
+
+import java.util.Arrays;
 
 public class GAMetaItem extends MaterialMetaItem {
 
@@ -90,8 +91,23 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.RAM_WAFER = addItem(70, "wafer.ram");
         GAMetaItems.SILICON_WAFER = addItem(71, "wafer.silicon");
         GAMetaItems.SOC_WAFER = addItem(72, "wafer.soc");
-}
+    }
 
     public void registerRecipes() {
+    }
+
+    public boolean hasContainerItem(ItemStack stack) {
+
+        int[] idsToKeepInGrid = new int[]{
+                GAMetaItems.NANO_ASSEMBLY.getStackForm().getMetadata(),
+                GAMetaItems.NANOCPU_WAFER.getStackForm().getMetadata()};
+
+        if (Arrays.asList(idsToKeepInGrid).contains(stack.getMetadata()))
+            return true;
+        return false;
+    }
+
+    public ItemStack getContainerItem(ItemStack stack) {
+        return stack;
     }
 }
