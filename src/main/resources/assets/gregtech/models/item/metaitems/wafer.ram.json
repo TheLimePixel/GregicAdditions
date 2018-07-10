@@ -2,6 +2,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "gregtech:items/metaitems/item.test"
+    "layer0": "gregtech:items/metaitems/wafer.ram"
   }
 }

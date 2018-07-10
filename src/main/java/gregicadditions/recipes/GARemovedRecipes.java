@@ -26,7 +26,7 @@ public class GARemovedRecipes {
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {
-        List<ItemStack> inputs = new ArrayList();
+        List<ItemStack> inputs = new ArrayList<>();
         for (ItemStack s : itemInputs)
             inputs.add(s);
         map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, inputs, Collections.EMPTY_LIST));
