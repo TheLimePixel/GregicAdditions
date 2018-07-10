@@ -30,6 +30,11 @@ public class GregicAdditions {
 
     private static Logger logger;
 
+    public GregicAdditions()
+    {
+        new GAMaterials();
+    }
+
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
