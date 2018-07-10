@@ -1,6 +1,7 @@
 package gregicadditions;
 
 import gregicadditions.item.GAMetaItems;
+import gregicadditions.machines.GATileEntities;
 import gregicadditions.recipes.GARecipeAddition;
 import gregicadditions.recipes.GARecipeRemoval;
 import net.minecraftforge.fml.common.Mod;
@@ -41,6 +42,7 @@ public class GregicAdditions {
 
         GAEnums.preInit();
         GAMetaItems.init();
+        GATileEntities.init();
     }
 
     @EventHandler
