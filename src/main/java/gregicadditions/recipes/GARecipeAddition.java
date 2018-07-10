@@ -14,12 +14,13 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class GARecipeAddition {
     public static void postInit() {
         //GTNH Bricks
         ModHandler.addSmeltingRecipe(GAMetaItems.COMPRESSED_COKE_CLAY.getStackForm(),GAMetaItems.COKE_BRICK.getStackForm());
-        ModHandler.removeFurnaceSmelting(new ItemStack(Items.CLAY_BALL));
+        ModHandler.removeFurnaceSmelting(new ItemStack(Items.CLAY_BALL, 1, OreDictionary.WILDCARD_VALUE));
         ModHandler.addSmeltingRecipe(GAMetaItems.COMPRESSED_CLAY.getStackForm(),new ItemStack(Items.BRICK));
         RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(200).EUt(8).inputs(new ItemStack(Items.CLAY_BALL),new ItemStack(Blocks.SAND,2)).outputs(GAMetaItems.COKE_BRICK.getStackForm()).buildAndRegister();
         RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(200).EUt(2).inputs(new ItemStack(Items.CLAY_BALL)).notConsumable(MetaItems.SHAPE_MOLD_INGOT).outputs(new ItemStack(Items.BRICK)).buildAndRegister();
