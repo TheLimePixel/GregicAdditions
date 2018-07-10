@@ -6,7 +6,6 @@ import gregtech.api.recipes.ModHandler;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Materials;
-import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.MetaBlocks;
@@ -30,6 +29,9 @@ public class GARecipeAddition {
         ModHandler.addShapelessRecipe("jungle_form",GAMetaItems.JUNGLE_FORM.getStackForm(),MetaItems.PLANK_JUNGLE.getStackForm(),ToolDictNames.craftingToolKnife);
         ModHandler.addShapelessRecipe("oak_form",GAMetaItems.OAK_FORM.getStackForm(),MetaItems.PLANK_OAK.getStackForm(),ToolDictNames.craftingToolKnife);
         ModHandler.addShapelessRecipe("spruce_form",GAMetaItems.SPRUCE_FORM.getStackForm(),MetaItems.PLANK_SPRUCE.getStackForm(),ToolDictNames.craftingToolKnife);
+        ModHandler.addShapelessRecipe("clay_brick",GAMetaItems.COMPRESSED_CLAY.getStackForm(),new ItemStack(Items.CLAY_BALL),"formWood");
+        ModHandler.addShapedRecipe("eight_clay_brick",GAMetaItems.COMPRESSED_CLAY.getStackForm(8),"BBB","BFB","BBB",'B',new ItemStack(Items.CLAY_BALL),'F',"formWood");
+        ModHandler.addShapedRecipe("coke_brick",GAMetaItems.COMPRESSED_COKE_CLAY.getStackForm(3),"BBB","SFS","SSS",'B',new ItemStack(Items.CLAY_BALL),'S',new ItemStack(Blocks.SAND),'F',"formWood");
 
         //GT5U Old Primitive Brick Processing
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:casing_primitive_bricks"));

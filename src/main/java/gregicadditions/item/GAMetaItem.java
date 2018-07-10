@@ -17,7 +17,6 @@ public class GAMetaItem extends MaterialMetaItem {
     }
 
     public void registerSubItems() {
-
         GAMetaItems.NANO_ASSEMBLY = addItem(0, "assembly.nano");
         GAMetaItems.INTEGRATED_ASSEMBLY = addItem(1, "assembly.normal");
         GAMetaItems.WETWARE_ASSEMBLY = addItem(2, "assembly.wetware");
@@ -90,13 +89,12 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.RAM_WAFER = addItem(69, "wafer.ram");
         GAMetaItems.SILICON_WAFER = addItem(70, "wafer.silicon");
         GAMetaItems.SOC_WAFER = addItem(71, "wafer.soc");
-        GAMetaItems.ACACIA_FORM = addItem(66, "form.acacia");
-        GAMetaItems.BIRCH_FORM = addItem(67, "form.birch");
-        GAMetaItems.DARK_OAK_FORM = addItem(68, "form.darkoak");
-        GAMetaItems.JUNGLE_FORM = addItem(69, "form.jungle");
-        GAMetaItems.OAK_FORM = addItem(70, "form.oak");
-        GAMetaItems.SPRUCE_FORM = addItem(71, "form.spruce");
-
+        GAMetaItems.ACACIA_FORM = addItem(66, "form.acacia").addOreDict("formWood");
+        GAMetaItems.BIRCH_FORM = addItem(67, "form.birch").addOreDict("formWood");
+        GAMetaItems.DARK_OAK_FORM = addItem(68, "form.darkoak").addOreDict("formWood");
+        GAMetaItems.JUNGLE_FORM = addItem(69, "form.jungle").addOreDict("formWood");
+        GAMetaItems.OAK_FORM = addItem(70, "form.oak").addOreDict("formWood");
+        GAMetaItems.SPRUCE_FORM = addItem(71, "form.spruce").addOreDict("formWood");
     }
 
     public boolean hasContainerItem(ItemStack stack) {
