@@ -77,6 +77,9 @@ metaitem.form.jungle.name=Jungle Brick Form
 metaitem.form.oak.name=Oak Brick Form
 metaitem.form.spruce.name=Spruce Brick Form
 
+metaitem.tool.test.name=%s Test Tool
+
+item.material.oreprefix.plateCurved=Curved %s Plate
 metaitem.circuit.parts.advanced.name=Microprocessor
 metaitem.circuit.integrated.name=Programmed Circuit
 metaitem.circuit.basic.name=Integrated Logic Circuit

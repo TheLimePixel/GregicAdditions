@@ -16,8 +16,7 @@ import org.apache.logging.log4j.Logger;
         version = GregicAdditions.VERSION,
         dependencies = "required-after:gregtech"
 )
-public class GregicAdditions
-{
+public class GregicAdditions {
     public static final String MODID = "gtadditions";
     public static final String NAME = "Gregic Additions";
     public static final String VERSION = "@VERSION@";
@@ -32,15 +31,16 @@ public class GregicAdditions
     private static Logger logger;
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
+    public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
 
+        GAEnums.preInit();
         GAMetaItems.init();
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent event) {}
+    public void init(FMLInitializationEvent event) {
+    }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {

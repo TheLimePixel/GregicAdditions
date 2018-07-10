@@ -1,16 +1,25 @@
 package gregicadditions.item;
 
 import gregtech.api.items.materialitem.MaterialMetaItem;
-import gregtech.api.recipes.RecipeMaps;
-import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
+import net.minecraft.item.ItemStack;
+
+import java.util.Arrays;
 
 public class GAMetaItem extends MaterialMetaItem {
 
+    public GAMetaItem() {
+        super(OrePrefix.valueOf("plateCurved"), null, null, null,
+                null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null);
+    }
+
     public void registerSubItems() {
 
-        GAMetaItems.NANO_ASSEMBLY = addItem(1, "assembly.nano");
-        GAMetaItems.INTEGRATED_ASSEMBLY = addItem(0, "assembly.normal");
+        GAMetaItems.NANO_ASSEMBLY = addItem(0, "assembly.nano");
+        GAMetaItems.INTEGRATED_ASSEMBLY = addItem(1, "assembly.normal");
         GAMetaItems.WETWARE_ASSEMBLY = addItem(2, "assembly.wetware");
         GAMetaItems.COATED_BOARD = addItem(3, "board.coated");
         GAMetaItems.EPOXY_BAORD = addItem(4, "board.epoxy");
@@ -87,5 +96,26 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.JUNGLE_FORM = addItem(69, "form.jungle");
         GAMetaItems.OAK_FORM = addItem(70, "form.oak");
         GAMetaItems.SPRUCE_FORM = addItem(71, "form.spruce");
+
+    }
+
+    public boolean hasContainerItem(ItemStack stack) {
+
+        int[] idsToKeepInGrid = new int[]{
+                GAMetaItems.ACACIA_FORM.getStackForm().getMetadata(),
+                GAMetaItems.BIRCH_FORM.getStackForm().getMetadata(),
+                GAMetaItems.DARK_OAK_FORM.getStackForm().getMetadata(),
+                GAMetaItems.JUNGLE_FORM.getStackForm().getMetadata(),
+                GAMetaItems.OAK_FORM.getStackForm().getMetadata(),
+                GAMetaItems.SPRUCE_FORM.getStackForm().getMetadata()
+        };
+
+        if (Arrays.asList(idsToKeepInGrid).contains(stack.getMetadata()))
+            return true;
+        return false;
+    }
+
+    public ItemStack getContainerItem(ItemStack stack) {
+        return stack;
     }
 }
