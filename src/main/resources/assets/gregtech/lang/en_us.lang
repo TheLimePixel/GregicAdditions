@@ -77,6 +77,19 @@ metaitem.form.jungle.name=Jungle Brick Form
 metaitem.form.oak.name=Oak Brick Form
 metaitem.form.spruce.name=Spruce Brick Form
 
+gregtech.machine.circuit_assembler.lv.name=Basic Circuit Assembling Machine
+gregtech.machine.circuit_assembler.mv.name=Advanced Circuit Assembling Machine
+gregtech.machine.circuit_assembler.hv.name=Advanced Circuit Assembling Machine II
+gregtech.machine.circuit_assembler.ev.name=Advanced Circuit Assembling Machine III
+
+gregtech.machine.cluster_mill.lv.name=Basic Cluster Mill
+gregtech.machine.cluster_mill.mv.name=Advanced Cluster Mill
+gregtech.machine.cluster_mill.hv.name=Advanced Cluster Mill II
+gregtech.machine.cluster_mill.ev.name=Advanced Cluster Mill III
+
+gregtech.machine.coke_oven.name=Coke Oven
+tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
+
 metaitem.tool.test.name=%s Test Tool
 
 material.brick=Brick
