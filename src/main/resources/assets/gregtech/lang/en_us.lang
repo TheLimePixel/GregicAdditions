@@ -1,3 +1,5 @@
 metaitem.item.test.name=Test Item
 
 metaitem.tool.test.name=%s Test Tool
+
+item.material.oreprefix.plateCurved=Curved %s Plate

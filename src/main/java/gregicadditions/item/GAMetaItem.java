@@ -7,6 +7,14 @@ import gregtech.api.unification.ore.OrePrefix;
 
 public class GAMetaItem extends MaterialMetaItem {
 
+    public GAMetaItem() {
+        super(OrePrefix.valueOf("plateCurved"), null, null, null,
+                null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null,
+                null, null, null, null, null, null, null);
+    }
+
     public void registerSubItems() {
         GAMetaItems.ITEM_TEST = addItem(0, "item.test");
     }
