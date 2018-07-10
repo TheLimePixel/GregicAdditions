@@ -18,7 +18,7 @@ public class GAMetaItem extends MaterialMetaItem {
 
     public void registerSubItems() {
 
-        GAMetaItems.NANO_ASSEMBLY = addItem(1, "assembly.nano");
+        GAMetaItems.NANO_ASSEMBLY = addItem(1, "assembly.nano").addOreDict("assemblyNano");
         GAMetaItems.INTEGRATED_ASSEMBLY = addItem(0, "assembly.normal");
         GAMetaItems.WETWARE_ASSEMBLY = addItem(2, "assembly.wetware");
         GAMetaItems.COATED_BOARD = addItem(3, "board.coated");
