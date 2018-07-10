@@ -3,6 +3,7 @@ package gregicadditions.item;
 import gregtech.api.items.materialitem.MaterialMetaItem;
 import gregtech.api.unification.ore.OrePrefix;
 import net.minecraft.item.ItemStack;
+import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;
 
@@ -89,12 +90,12 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.RAM_WAFER = addItem(69, "wafer.ram");
         GAMetaItems.SILICON_WAFER = addItem(70, "wafer.silicon");
         GAMetaItems.SOC_WAFER = addItem(71, "wafer.soc");
-        GAMetaItems.ACACIA_FORM = addItem(66, "form.acacia").addOreDict("formWood");
-        GAMetaItems.BIRCH_FORM = addItem(67, "form.birch").addOreDict("formWood");
-        GAMetaItems.DARK_OAK_FORM = addItem(68, "form.darkoak").addOreDict("formWood");
-        GAMetaItems.JUNGLE_FORM = addItem(69, "form.jungle").addOreDict("formWood");
-        GAMetaItems.OAK_FORM = addItem(70, "form.oak").addOreDict("formWood");
-        GAMetaItems.SPRUCE_FORM = addItem(71, "form.spruce").addOreDict("formWood");
+        GAMetaItems.ACACIA_FORM = addItem(66, "form.acacia").addOreDict("formWood").setMaxStackSize(1);
+        GAMetaItems.BIRCH_FORM = addItem(67, "form.birch").addOreDict("formWood").setMaxStackSize(1);
+        GAMetaItems.DARK_OAK_FORM = addItem(68, "form.darkoak").addOreDict("formWood").setMaxStackSize(1);
+        GAMetaItems.JUNGLE_FORM = addItem(69, "form.jungle").addOreDict("formWood").setMaxStackSize(1);
+        GAMetaItems.OAK_FORM = addItem(70, "form.oak").addOreDict("formWood").setMaxStackSize(1);
+        GAMetaItems.SPRUCE_FORM = addItem(71, "form.spruce").addOreDict("formWood").setMaxStackSize(1);
     }
 
     public boolean hasContainerItem(ItemStack stack) {
@@ -108,12 +109,12 @@ public class GAMetaItem extends MaterialMetaItem {
                 GAMetaItems.SPRUCE_FORM.getStackForm().getMetadata()
         };
 
-        if (Arrays.asList(idsToKeepInGrid).contains(stack.getMetadata()))
+        if (ArrayUtils.contains(idsToKeepInGrid, stack.getMetadata()))
             return true;
         return false;
     }
 
     public ItemStack getContainerItem(ItemStack stack) {
-        return stack;
+                return stack.copy();
     }
 }
