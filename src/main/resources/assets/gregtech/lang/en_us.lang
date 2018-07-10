@@ -79,6 +79,9 @@ metaitem.form.spruce.name=Spruce Brick Form
 
 metaitem.tool.test.name=%s Test Tool
 
+material.brick=Brick
+material.fireclay=Fireclay
+
 item.material.oreprefix.plateCurved=Curved %s Plate
 metaitem.circuit.parts.advanced.name=Microprocessor
 metaitem.circuit.integrated.name=Programmed Circuit
@@ -91,6 +94,5 @@ metaitem.rubber_drop.name=Sticky Resin
 
 tile.metal_casing.primitive_bricks.name=Fireclay Bricks
 gregtech.machine.primitive_blast_furnace.bronze.tooltip=Structure: 3x3x4 (WxLxH) The entire structure is made out of Fireclay Bricks (32 in total)./nFirst Layer is a 3x3 square./nSecond, third, and fourth layers are hollow, without the middle block./nThis block goes on the middle of any side in the second layer./nThe sides of Blast Furnaces can be shared, if the side does not have a controller./n
-
 
 metaitem.tool.test.name=%s Test Tool

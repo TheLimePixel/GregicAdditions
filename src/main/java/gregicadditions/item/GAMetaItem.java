@@ -32,7 +32,7 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.NAQUADAH_BOULE = addItem(11, "boule.naquadah");
         GAMetaItems.SILICON_BOULE = addItem(12, "boule.silicon");
         GAMetaItems.COKE_BRICK = addItem(13, "brick.coke");
-        GAMetaItems.FIRECLAY_BRICK = addItem(14, "brick.fireclay");
+        GAMetaItems.FIRECLAY_BRICK = addItem(14, "brick.fireclay").addOreDict("ingotFireclay");
         GAMetaItems.ADVANCED_CIRCUIT = addItem(15, "circuit.advanced.regular");
         GAMetaItems.GOOD_CIRCUIT = addItem(16, "circuit.good.regular");
         GAMetaItems.BASIC_CIRCUIT = addItem(17, "circuit.basic.regular");
