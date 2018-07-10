@@ -1,5 +1,6 @@
 package gregicadditions;
 
+import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.machines.GATileEntities;
 import gregicadditions.recipes.GARecipeAddition;
@@ -40,9 +41,12 @@ public class GregicAdditions {
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
 
+
         GAEnums.preInit();
         GAMetaItems.init();
+        GAMetaBlocks.init();
         GATileEntities.init();
+        proxy.preInit();
     }
 
     @EventHandler
