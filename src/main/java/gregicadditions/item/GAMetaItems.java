@@ -67,7 +67,6 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem RAM;
     public static MetaItem<?>.MetaValueItem SOC;
     public static MetaItem<?>.MetaValueItem CRYSTALPROCESSOR;
-    public static MetaItem<?>.MetaValueItem INTEGRATED_PROCESSOR;
     public static MetaItem<?>.MetaValueItem NANOPROCESSOR;
     public static MetaItem<?>.MetaValueItem QUANTUMPROCESSOR;
     public static MetaItem<?>.MetaValueItem WETWAREPROCESSOR;
@@ -85,6 +84,12 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem RAM_WAFER;
     public static MetaItem<?>.MetaValueItem SILICON_WAFER;
     public static MetaItem<?>.MetaValueItem SOC_WAFER;
+    public static MetaItem<?>.MetaValueItem ACACIA_FORM;
+    public static MetaItem<?>.MetaValueItem BIRCH_FORM;
+    public static MetaItem<?>.MetaValueItem DARK_OAK_FORM;
+    public static MetaItem<?>.MetaValueItem JUNGLE_FORM;
+    public static MetaItem<?>.MetaValueItem OAK_FORM;
+    public static MetaItem<?>.MetaValueItem SPRUCE_FORM;
 
     public static MetaItem<?>.MetaValueItem TOOL_TEST;
 
@@ -100,15 +105,6 @@ public class GAMetaItems {
             if (item instanceof GAMetaItem) {
                 ((GAMetaItem) item).registerOreDict();
             }
-        }
-    }
-
-    public static void registerRecipes() {
-        for (MetaItem<?> item : ITEMS) {
-            if (item instanceof GAMetaItem)
-                ((GAMetaItem) item).registerRecipes();
-            if (item instanceof GAMetaTool)
-                ((GAMetaTool) item).registerRecipes();
         }
     }
 }
