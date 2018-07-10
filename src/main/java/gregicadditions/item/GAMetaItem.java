@@ -64,26 +64,28 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.RAM = addItem(52, "plate.ram");
         GAMetaItems.SOC = addItem(53, "plate.soc");
         GAMetaItems.CRYSTALPROCESSOR = addItem(54, "processor.crystal");
-        GAMetaItems.INTEGRATED_PROCESSOR = addItem(55, "processor.integrated");
-        GAMetaItems.NANOPROCESSOR = addItem(56, "processor.nano");
-        GAMetaItems.QUANTUMPROCESSOR = addItem(57, "processor.quantum");
-        GAMetaItems.WETWAREPROCESSOR = addItem(68, "processor.wetware");
-        GAMetaItems.ASOC_WAFER = addItem(59, "wafer.asoc");
-        GAMetaItems.LOGIC_CIRCUIT_WAFER = addItem(60, "wafer.circuit");
-        GAMetaItems.CPU_WAFER = addItem(61, "wafer.cpu");
-        GAMetaItems.GLOWSTONE_WAFER = addItem(62, "wafer.glowstone");
-        GAMetaItems.HPIC_WAFER = addItem(63, "wafer.hpic");
-        GAMetaItems.NAND_WAFER = addItem(64, "wafer.nand");
-        GAMetaItems.NANOCPU_WAFER = addItem(65, "wafer.nanocpu");
-        GAMetaItems.NAQUADAH_WAFER = addItem(66, "wafer.naquadah");
-        GAMetaItems.NOR_WAFER = addItem(67, "wafer.nor");
-        GAMetaItems.PIC_WAFER = addItem(68, "wafer.pic");
-        GAMetaItems.QBIT_CPU_WAFER = addItem(69, "wafer.qbit");
-        GAMetaItems.RAM_WAFER = addItem(70, "wafer.ram");
-        GAMetaItems.SILICON_WAFER = addItem(71, "wafer.silicon");
-        GAMetaItems.SOC_WAFER = addItem(72, "wafer.soc");
-}
-
-    public void registerRecipes() {
+        GAMetaItems.NANOPROCESSOR = addItem(55, "processor.nano");
+        GAMetaItems.QUANTUMPROCESSOR = addItem(56, "processor.quantum");
+        GAMetaItems.WETWAREPROCESSOR = addItem(67, "processor.wetware");
+        GAMetaItems.ASOC_WAFER = addItem(58, "wafer.asoc");
+        GAMetaItems.LOGIC_CIRCUIT_WAFER = addItem(59, "wafer.circuit");
+        GAMetaItems.CPU_WAFER = addItem(60, "wafer.cpu");
+        GAMetaItems.GLOWSTONE_WAFER = addItem(61, "wafer.glowstone");
+        GAMetaItems.HPIC_WAFER = addItem(62, "wafer.hpic");
+        GAMetaItems.NAND_WAFER = addItem(63, "wafer.nand");
+        GAMetaItems.NANOCPU_WAFER = addItem(64, "wafer.nanocpu");
+        GAMetaItems.NAQUADAH_WAFER = addItem(65, "wafer.naquadah");
+        GAMetaItems.NOR_WAFER = addItem(66, "wafer.nor");
+        GAMetaItems.PIC_WAFER = addItem(67, "wafer.pic");
+        GAMetaItems.QBIT_CPU_WAFER = addItem(68, "wafer.qbit");
+        GAMetaItems.RAM_WAFER = addItem(69, "wafer.ram");
+        GAMetaItems.SILICON_WAFER = addItem(70, "wafer.silicon");
+        GAMetaItems.SOC_WAFER = addItem(71, "wafer.soc");
+        GAMetaItems.ACACIA_FORM = addItem(66, "form.acacia");
+        GAMetaItems.BIRCH_FORM = addItem(67, "form.birch");
+        GAMetaItems.DARK_OAK_FORM = addItem(68, "form.darkoak");
+        GAMetaItems.JUNGLE_FORM = addItem(69, "form.jungle");
+        GAMetaItems.OAK_FORM = addItem(70, "form.oak");
+        GAMetaItems.SPRUCE_FORM = addItem(71, "form.spruce");
     }
 }

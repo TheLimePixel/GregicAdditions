@@ -31,7 +31,7 @@ metaitem.component.smd.transistor.name=SMD Transistor
 metaitem.component.transistor.name=Transistor
 metaitem.compressed.clay.name=Unfired Clay Brick
 metaitem.compressed.coke.clay.name=Unfired Coke Oven Brick
-metaitem.compressed.fireclay.name=Unfired Fireclay Brick
+metaitem.compressed.fireclay.name=Compressed Fireclay
 metaitem.computer.crystal.name=Ultimate Crystalcomputer
 metaitem.computer.nano.name=Elite Nanocomputer
 metaitem.computer.quantum.name=Master Quantumcomputer
@@ -53,7 +53,6 @@ metaitem.plate.qbit.name=QBit Processing Unit
 metaitem.plate.ram.name=Random Acccess Memory Chip
 metaitem.plate.soc.name=SoC
 metaitem.processor.crystal.name=Crystalprocessor
-metaitem.processor.integrated.name=Integrated Processor
 metaitem.processor.nano.name=Nanoprocessor
 metaitem.processor.quantum.name=Quantumprocessor
 metaitem.processor.wetware.name=Wetwareprocessor
@@ -71,12 +70,24 @@ metaitem.wafer.qbit.name=QBit Wafer
 metaitem.wafer.ram.name=Random Acccess Memory Chip (wafer)
 metaitem.wafer.silicon.name=Wafer
 metaitem.wafer.soc.name=SoC Wafer
+metaitem.form.acacia.name=Acacia Brick Form
+metaitem.form.birch.name=Birch Brick Form
+metaitem.form.darkoak.name=Dark Oak Brick Form
+metaitem.form.jungle.name=Jungle Brick Form
+metaitem.form.oak.name=Oak Brick Form
+metaitem.form.spruce.name=Spruce Brick Form
 
 metaitem.circuit.parts.advanced.name=Microprocessor
 metaitem.circuit.integrated.name=Programmed Circuit
 metaitem.circuit.basic.name=Integrated Logic Circuit
-taitem.circuit.advanced.name=Integrated Processor
+metaitem.circuit.advanced.name=Integrated Processor
 metaitem.circuit.master.name=Crystalprocessor Assembly
 metaitem.circuit.elite.name=Quantumprocessor Assembly
+
+metaitem.rubber_drop.name=Sticky Resin
+
+tile.metal_casing.primitive_bricks.name=Fireclay Bricks
+gregtech.machine.primitive_blast_furnace.bronze.tooltip=Structure: 3x3x4 (WxLxH) The entire structure is made out of Fireclay Bricks (32 in total)./nFirst Layer is a 3x3 square./nSecond, third, and fourth layers are hollow, without the middle block./nThis block goes on the middle of any side in the second layer./nThe sides of Blast Furnaces can be shared, if the side does not have a controller./n
+
 
 metaitem.tool.test.name=%s Test Tool
