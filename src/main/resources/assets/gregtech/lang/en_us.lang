@@ -72,17 +72,14 @@ metaitem.wafer.ram.name=Random Acccess Memory Chip (wafer)
 metaitem.wafer.silicon.name=Wafer
 metaitem.wafer.soc.name=SoC Wafer
 
-<<<<<<< HEAD
 metaitem.tool.test.name=%s Test Tool
 
 item.material.oreprefix.plateCurved=Curved %s Plate
-=======
 metaitem.circuit.parts.advanced.name=Microprocessor
 metaitem.circuit.integrated.name=Programmed Circuit
 metaitem.circuit.basic.name=Integrated Logic Circuit
-taitem.circuit.advanced.name=Integrated Processor
+metaitem.circuit.advanced.name=Integrated Processor
 metaitem.circuit.master.name=Crystalprocessor Assembly
 metaitem.circuit.elite.name=Quantumprocessor Assembly
 
 metaitem.tool.test.name=%s Test Tool
->>>>>>> c7dda98cd53b1582075724ee74e085c432bd52e3
