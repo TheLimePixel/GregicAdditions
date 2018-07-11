@@ -7,6 +7,7 @@ import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.ore.OrePrefix;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class GAMachineRecipeRemoval {
                     OreDictUnifier.get(OrePrefix.plate, m),
                     IntCircuitIngredient.getIntegratedCircuit(0));
         }
+        removeRecipesByInputs(RecipeMaps.MACERATOR_RECIPES,new ItemStack(Items.BRICK));
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {

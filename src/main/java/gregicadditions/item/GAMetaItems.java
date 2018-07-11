@@ -108,4 +108,11 @@ public class GAMetaItems {
             }
         }
     }
+
+    public static void registerRecipes() {
+        for (MetaItem<?> item : ITEMS) {
+            if (item instanceof GAMetaTool)
+                ((GAMetaTool) item).registerRecipes();
+        }
+    }
 }

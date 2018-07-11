@@ -21,13 +21,16 @@ public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> 
     public void registerRecipes() {
         for (Material material : IngotMaterial.MATERIAL_REGISTRY) {
             if (material instanceof IngotMaterial) {
+
                 IngotMaterial toolMaterial = (IngotMaterial) material;
                 SolidMaterial handleMaterial = toolMaterial.handleMaterial == null ? Materials.Wood : toolMaterial.handleMaterial;
-                ModHandler.addShapedRecipe(String.format("hammer_%s", material.toString()),
+
+                ModHandler.addShapedRecipe(String.format("cylinder_%s", material.toString()),
                         ((ToolMetaItem<?>.MetaToolValueItem) GAMetaItems.BENDING_CYLINDER).getStackForm(toolMaterial,handleMaterial),
                         "sfh", "XXX", "XXX",
                         'X', new UnificationEntry(OrePrefix.ingot, toolMaterial));
-                ModHandler.addShapedRecipe(String.format("hammer_%s", material.toString()),
+
+                ModHandler.addShapedRecipe(String.format("small_cylinder_%s", material.toString()),
                         ((ToolMetaItem<?>.MetaToolValueItem) GAMetaItems.SMALL_BENDING_CYLINDER).getStackForm(toolMaterial,handleMaterial),
                         "sfh", "XXX",
                         'X', new UnificationEntry(OrePrefix.ingot, toolMaterial));
