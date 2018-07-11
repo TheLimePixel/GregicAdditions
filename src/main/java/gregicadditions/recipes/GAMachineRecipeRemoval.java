@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class GARecipeRemoval {
+public class GAMachineRecipeRemoval {
 
     public static void postInit() {
         for (Material m : IngotMaterial.MATERIAL_REGISTRY) {

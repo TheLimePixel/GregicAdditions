@@ -1,6 +1,7 @@
 package gregicadditions.item;
 
-import gregicadditions.tools.ToolTest;
+import gregicadditions.tools.BendingCylinder;
+import gregicadditions.tools.SmallBendingCylinder;
 import gregtech.api.items.toolitem.ToolMetaItem;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.material.Materials;
@@ -9,13 +10,12 @@ import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.material.type.SolidMaterial;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 
 public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> {
 
     public void registerSubItems() {
-        GAMetaItems.TOOL_TEST = addItem(0, "tool.test").setToolStats(new ToolTest()).addOreDict("craftingToolTest");
+        GAMetaItems.BENDING_CYLINDER = addItem(0, "tool.bending_cylinder").setToolStats(new BendingCylinder()).addOreDict("craftingToolBendingCylinder");
+        GAMetaItems.SMALL_BENDING_CYLINDER = addItem(1, "tool.bending_cylinder_small").setToolStats(new SmallBendingCylinder()).addOreDict("craftingToolBendingCylinderSmall");
     }
 
     public void registerRecipes() {
@@ -24,13 +24,14 @@ public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> 
                 IngotMaterial toolMaterial = (IngotMaterial) material;
                 SolidMaterial handleMaterial = toolMaterial.handleMaterial == null ? Materials.Wood : toolMaterial.handleMaterial;
                 ModHandler.addShapedRecipe(String.format("hammer_%s", material.toString()),
-                        ((ToolMetaItem<?>.MetaToolValueItem) GAMetaItems.TOOL_TEST).getStackForm(toolMaterial, handleMaterial),
-                        "XX ", "XS ", "  S",
-                        'X', new UnificationEntry(OrePrefix.ingot, toolMaterial),
-                        'S', new UnificationEntry(OrePrefix.stick, handleMaterial));
+                        ((ToolMetaItem<?>.MetaToolValueItem) GAMetaItems.BENDING_CYLINDER).getStackForm(toolMaterial,handleMaterial),
+                        "sfh", "XXX", "XXX",
+                        'X', new UnificationEntry(OrePrefix.ingot, toolMaterial));
+                ModHandler.addShapedRecipe(String.format("hammer_%s", material.toString()),
+                        ((ToolMetaItem<?>.MetaToolValueItem) GAMetaItems.SMALL_BENDING_CYLINDER).getStackForm(toolMaterial,handleMaterial),
+                        "sfh", "XXX",
+                        'X', new UnificationEntry(OrePrefix.ingot, toolMaterial));
             }
         }
-
-        ModHandler.addShapedRecipe("dirtDiamondTest", new ItemStack(Items.DIAMOND), "D", "T", 'D', "dirt", 'T', "craftingToolTest");
     }
 }

@@ -62,10 +62,49 @@ public class GARecipeAddition {
         ModHandler.addShapedRecipe("fireclay_bricks", MetaBlocks.METAL_CASING.getItemVariant(BlockMetalCasing.MetalCasingType.PRIMITIVE_BRICKS), "BB", "BB", 'B', GAMetaItems.FIRECLAY_BRICK.getStackForm());
         ModHandler.addSmeltingRecipe(GAMetaItems.COMPRESSED_FIRECLAY.getStackForm(), GAMetaItems.FIRECLAY_BRICK.getStackForm());
 
+        //GT6 Bending
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:iron_bucket"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:compass"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:clock"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:iron_helmet"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:iron_chestplate"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:iron_leggings"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:iron_boots"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:gold_helmet"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:gold_chestplate"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:gold_leggings"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:gol_boots"));
+
         //Wood To Pulp
         ModHandler.addShapelessRecipe("log_to_pulp", OreDictUnifier.get(OrePrefix.dust, Materials.Wood, 1), "logWood", ToolDictNames.craftingToolMortar);
 
+        //GT5U Slabs Are Made With A Saw
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:stone_slab"));
+        ModHandler.addShapedRecipe("stone_slab",new ItemStack(Blocks.STONE_SLAB,2),"sS",'S',new ItemStack(Blocks.STONE));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:sandstone_slab"));
+        ModHandler.addShapedRecipe("sandstone_slab",new ItemStack(Blocks.STONE_SLAB,2,1),"sS",'S',new ItemStack(Blocks.SANDSTONE));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:cobblestone_slab"));
+        ModHandler.addShapedRecipe("cobblestone_slab",new ItemStack(Blocks.STONE_SLAB,2,3),"sC",'C',new ItemStack(Blocks.COBBLESTONE));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:brick_slab"));
+        ModHandler.addShapedRecipe("brick_slab",new ItemStack(Blocks.STONE_SLAB,2,4),"sB",'B',new ItemStack(Blocks.BRICK_BLOCK));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:stone_brick_slab"));
+        ModHandler.addShapedRecipe("stone_brick_slab",new ItemStack(Blocks.STONE_SLAB,2,5),"sB",'B',new ItemStack(Blocks.STONEBRICK));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:nether_brick_slab"));
+        ModHandler.addShapedRecipe("nether_brick_slab",new ItemStack(Blocks.STONE_SLAB,2,6),"sB",'B',new ItemStack(Blocks.NETHER_BRICK));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:quartz_slab"));
+        ModHandler.addShapedRecipe("quartz_slab",new ItemStack(Blocks.STONE_SLAB,2,7),"sQ",'Q',new ItemStack(Blocks.QUARTZ_BLOCK));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:oak_wooden_slab"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:spruce_wooden_slab"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:birch_wooden_slab"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:jungle_wooden_slab"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:acacia_wooden_slab"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:dark_oak_wooden_slab"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:red_sandstone_slab"));
+        ModHandler.addShapedRecipe("red_sandstone_slab",new ItemStack(Blocks.STONE_SLAB2,2),"sS",'S',new ItemStack(Blocks.RED_SANDSTONE));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:purpur_slab"));
+        ModHandler.addShapedRecipe("purpur",new ItemStack(Blocks.PURPUR_SLAB,2),"sP",'P',new ItemStack(Blocks.PURPUR_BLOCK));
 
+        //Coke Oven Recipes
         GARecipeMaps.COKE_OVEN_RECIPES.add(new CokeOvenRecipe(CountableIngredient.from("dirt"), new ItemStack(Items.DIAMOND), new FluidStack(FluidRegistry.WATER, 50), 400));
     }
 }

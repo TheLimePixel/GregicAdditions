@@ -90,12 +90,15 @@ gregtech.machine.cluster_mill.ev.name=Advanced Cluster Mill III
 gregtech.machine.coke_oven.name=Coke Oven
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 
-metaitem.tool.test.name=%s Test Tool
+metaitem.tool.bending_cylinder.name=%s Bending Cylinder
+metaitem.tool.bending_cylinder_small.name=%s Small Bending Cylinder
 
 material.brick=Brick
 material.fireclay=Fireclay
 
 item.material.oreprefix.plateCurved=Curved %s Plate
+item.material.oreprefix.ingotDouble=%s Double Ingot
+
 metaitem.circuit.parts.advanced.name=Microprocessor
 metaitem.circuit.integrated.name=Programmed Circuit
 metaitem.circuit.basic.name=Integrated Logic Circuit

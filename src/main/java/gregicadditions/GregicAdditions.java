@@ -4,7 +4,7 @@ import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.machines.GATileEntities;
 import gregicadditions.recipes.GARecipeAddition;
-import gregicadditions.recipes.GARecipeRemoval;
+import gregicadditions.recipes.GAMachineRecipeRemoval;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -55,7 +55,7 @@ public class GregicAdditions {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        GARecipeRemoval.postInit();
+        GAMachineRecipeRemoval.postInit();
         GARecipeAddition.postInit();
     }
 }

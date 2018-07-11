@@ -114,7 +114,8 @@ public class GAMetaItem extends MaterialMetaItem {
         return false;
     }
 
+
     public ItemStack getContainerItem(ItemStack stack) {
-                return stack.copy();
+        return stack.copy();
     }
 }
