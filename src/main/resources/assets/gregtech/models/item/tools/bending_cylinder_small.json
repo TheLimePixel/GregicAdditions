@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer1": "gregtech:items/void",
+    "layer0": "gregtech:items/void",
     "layer1": "gregtech:items/void",
     "layer2": "gregtech:items/tools/bending_cylinder_small",
     "layer3": "gregtech:items/void"

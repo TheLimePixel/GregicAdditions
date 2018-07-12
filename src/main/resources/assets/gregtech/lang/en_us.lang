@@ -93,6 +93,10 @@ tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 metaitem.tool.bending_cylinder.name=%s Bending Cylinder
 metaitem.tool.bending_cylinder_small.name=%s Small Bending Cylinder
 
+recipemap.cluster_mill.name=Cluster Mill
+recipemap.clrcuit_assembler.name=Circuit Assembler
+recipemap.coke_oven.name=Coke Oven
+
 material.brick=Brick
 material.fireclay=Fireclay
 

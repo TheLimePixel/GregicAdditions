@@ -29,6 +29,6 @@ public class GAMaterials {
                 gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_FINE_WIRE;
 
         Brick = new DustMaterial(700,"brick",0xB75A40,MaterialIconSet.ROUGH,1,ImmutableList.of(),Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
-        Fireclay = new DustMaterial(699,"fireclay",0x928073,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Clay,1),new MaterialStack(Brick,1)),Material.MatFlags.DISABLE_DECOMPOSITION);
+        Fireclay = new DustMaterial(699,"fireclay",0x928073,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Clay,1),new MaterialStack(Brick,1)),Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
     }
 }

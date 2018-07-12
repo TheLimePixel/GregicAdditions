@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class GAMetaItem extends MaterialMetaItem {
 
     public GAMetaItem() {
-        super(OrePrefix.valueOf("plateCurved"), null, null, null,
+        super(OrePrefix.valueOf("plateCurved"), OrePrefix.valueOf("ingotDouble"), null, null,
                 null, null, null, null, null, null, null,
                 null, null, null, null, null, null, null,
                 null, null, null, null, null, null, null,
