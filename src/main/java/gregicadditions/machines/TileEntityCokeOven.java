@@ -233,7 +233,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
         return ModularUI.builder(GuiTextures.BRONZE_BACKGROUND, 176, 166)
                 //.image(11, 12, 17, 50, GuiTextures.PATTERN_BRONZE_BLAST_FURNACE)
                 .widget(new SlotWidget(importItems, 0, 33, 24, true, true)
-                        .setBackgroundTexture(GuiTextures.BRONZE_SLOT, GuiTextures.BRONZE_INGOT_OVERLAY))
+                        .setBackgroundTexture(GuiTextures.BRONZE_SLOT, GuiTextures.BRONZE_FURNACE_OVERLAY))
                 .progressBar(this::getProgressScaled, 58, 24, 20, 15, GuiTextures.BRONZE_BLAST_FURNACE_PROGRESS_BAR, ProgressWidget.MoveType.HORIZONTAL)
                 .widget(new SlotWidget(exportItems, 0, 85, 24, true, false)
                         .setBackgroundTexture(GuiTextures.BRONZE_SLOT, GuiTextures.BRONZE_INGOT_OVERLAY))

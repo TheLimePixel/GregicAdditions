@@ -46,6 +46,8 @@ public class CommonProxy {
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
 
         GAMetaItems.registerOreDict();
+
+        GAMetaItems.registerRecipes();
     }
 
 

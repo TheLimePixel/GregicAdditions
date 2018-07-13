@@ -91,7 +91,8 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem OAK_FORM;
     public static MetaItem<?>.MetaValueItem SPRUCE_FORM;
 
-    public static MetaItem<?>.MetaValueItem TOOL_TEST;
+    public static MetaItem<?>.MetaValueItem BENDING_CYLINDER;
+    public static MetaItem<?>.MetaValueItem SMALL_BENDING_CYLINDER;
 
     public static void init() {
         GAMetaItem item = new GAMetaItem();
@@ -105,6 +106,13 @@ public class GAMetaItems {
             if (item instanceof GAMetaItem) {
                 ((GAMetaItem) item).registerOreDict();
             }
+        }
+    }
+
+    public static void registerRecipes() {
+        for (MetaItem<?> item : ITEMS) {
+            if (item instanceof GAMetaTool)
+                ((GAMetaTool) item).registerRecipes();
         }
     }
 }

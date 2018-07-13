@@ -77,9 +77,32 @@ metaitem.form.jungle.name=Jungle Brick Form
 metaitem.form.oak.name=Oak Brick Form
 metaitem.form.spruce.name=Spruce Brick Form
 
-metaitem.tool.test.name=%s Test Tool
+gregtech.machine.circuit_assembler.lv.name=Basic Circuit Assembling Machine
+gregtech.machine.circuit_assembler.mv.name=Advanced Circuit Assembling Machine
+gregtech.machine.circuit_assembler.hv.name=Advanced Circuit Assembling Machine II
+gregtech.machine.circuit_assembler.ev.name=Advanced Circuit Assembling Machine III
+
+gregtech.machine.cluster_mill.lv.name=Basic Cluster Mill
+gregtech.machine.cluster_mill.mv.name=Advanced Cluster Mill
+gregtech.machine.cluster_mill.hv.name=Advanced Cluster Mill II
+gregtech.machine.cluster_mill.ev.name=Advanced Cluster Mill III
+
+gregtech.machine.coke_oven.name=Coke Oven
+tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
+
+metaitem.tool.bending_cylinder.name=%s Bending Cylinder
+metaitem.tool.bending_cylinder_small.name=%s Small Bending Cylinder
+
+recipemap.cluster_mill.name=Cluster Mill
+recipemap.clrcuit_assembler.name=Circuit Assembler
+recipemap.coke_oven.name=Coke Oven
+
+material.brick=Brick
+material.fireclay=Fireclay
 
 item.material.oreprefix.plateCurved=Curved %s Plate
+item.material.oreprefix.ingotDouble=%s Double Ingot
+
 metaitem.circuit.parts.advanced.name=Microprocessor
 metaitem.circuit.integrated.name=Programmed Circuit
 metaitem.circuit.basic.name=Integrated Logic Circuit
@@ -91,6 +114,5 @@ metaitem.rubber_drop.name=Sticky Resin
 
 tile.metal_casing.primitive_bricks.name=Fireclay Bricks
 gregtech.machine.primitive_blast_furnace.bronze.tooltip=Structure: 3x3x4 (WxLxH) The entire structure is made out of Fireclay Bricks (32 in total)./nFirst Layer is a 3x3 square./nSecond, third, and fourth layers are hollow, without the middle block./nThis block goes on the middle of any side in the second layer./nThe sides of Blast Furnaces can be shared, if the side does not have a controller./n
-
 
 metaitem.tool.test.name=%s Test Tool
