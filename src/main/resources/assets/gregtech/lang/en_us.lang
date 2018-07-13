@@ -109,6 +109,7 @@ metaitem.circuit.basic.name=Integrated Logic Circuit
 metaitem.circuit.advanced.name=Integrated Processor
 metaitem.circuit.master.name=Crystalprocessor Assembly
 metaitem.circuit.elite.name=Quantumprocessor Assembly
+metaitem.circuit.data.name=Workstation
 
 metaitem.rubber_drop.name=Sticky Resin
 
