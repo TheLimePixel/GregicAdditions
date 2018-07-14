@@ -10,7 +10,7 @@ import gregtech.api.unification.stack.MaterialStack;
 public class GAMaterials {
     public static DustMaterial Brick;
     public static DustMaterial Fireclay;
-    public static DustMaterial PhosphorousPentoxide;
+    public static DustMaterial PhosphorusPentoxide;
     public static FluidMaterial PhosphoricAcid;
     public static FluidMaterial PolyvinylAcetate;
     public static FluidMaterial Phenol;
@@ -36,8 +36,6 @@ public class GAMaterials {
     public static FluidMaterial CarbonMonoxde;
     public static FluidMaterial CetaneBoostedDiesel;
     public static FluidMaterial DilutedSulfuricAcid;
-    public static FluidMaterial LiquidAir;
-    public static FluidMaterial NobleGases;
     public static DustMaterial SodiumBisulfate;
     public static FluidMaterial Chloroform;
     public static FluidMaterial DilutedHydrochloricAcid;
@@ -62,8 +60,7 @@ public class GAMaterials {
     public static FluidMaterial FermentedBiomass;
     public static DustMaterial Potash;
     public static DustMaterial SodaAsh;
-    public static FluidMaterial HydroflouricAcid;
-    public static FluidMaterial NitrogenDioxide;
+    public static FluidMaterial HydrofluoricAcid;
     public static FluidMaterial NitricOxide;
     public static FluidMaterial MethylAcetate;
     public static FluidMaterial Ethenone;
@@ -74,7 +71,7 @@ public class GAMaterials {
     public static DustMaterial Meat;
     public static DustMaterial CookedMeat;
     public static FluidMaterial VinylAcetate;
-    public static IngotMaterial GalliumArsenade;
+    public static IngotMaterial GalliumArsenide;
     public static IngotMaterial PolyphenyleneSulfide;
     public static FluidMaterial NickelSulfateSolution;
     public static FluidMaterial BlueVitriolSolution;
@@ -100,10 +97,10 @@ public class GAMaterials {
                 gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_FOIL |
                 gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_FINE_WIRE;
 
-        Brick = new DustMaterial(1000,"brick",0xB75A40,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Aluminium,4),new MaterialStack(Materials.Silicon,3),new MaterialStack(Materials.Oxygen,12)),Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
-        Fireclay = new DustMaterial(999,"fireclay",0x928073,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Clay,1),new MaterialStack(Brick,1)),Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
-        PhosphorousPentoxide = new DustMaterial(997,"prosphorous_pentoxide",0x7c7d00,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Phosphor,4),new MaterialStack(Materials.Oxygen,10)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        PhosphoricAcid = new FluidMaterial(996,"phosphoric_acid",0xaeae10,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Hydrogen,3),new MaterialStack(Materials.Phosphor,4)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        Brick = new DustMaterial(999,"brick",0xB75A40,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Aluminium,4),new MaterialStack(Materials.Silicon,3),new MaterialStack(Materials.Oxygen,12)),Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
+        Fireclay = new DustMaterial(998,"fireclay",0x928073,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Clay,1),new MaterialStack(Brick,1)),Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
+        PhosphorusPentoxide = new DustMaterial(997,"phosphorus_pentoxide",0x7c7d00,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Phosphorus,4),new MaterialStack(Materials.Oxygen,10)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        PhosphoricAcid = new FluidMaterial(996,"phosphoric_acid",0xaeae10,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Hydrogen,3),new MaterialStack(Materials.Phosphorus,4)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         PolyvinylAcetate = new FluidMaterial(995,"polyvinyl_acetate",0xc87e4c,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,4),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Oxygen,2)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
         Phenol = new FluidMaterial(994,"phenol",0x654027,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,6),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Oxygen,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         BisphenolA = new FluidMaterial(993,"bisphenol_b",0xa5870e,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,15),new MaterialStack(Materials.Hydrogen,16),new MaterialStack(Materials.Oxygen,2)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
@@ -128,8 +125,6 @@ public class GAMaterials {
         CarbonMonoxde = new FluidMaterial(974,"carbon_monoxide",0x19436c,MaterialIconSet.GAS,ImmutableList.of(new MaterialStack(Materials.Carbon,1),new MaterialStack(Materials.Oxygen,1)),FluidMaterial.MatFlags.STATE_GAS | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         CetaneBoostedDiesel = new FluidMaterial(973,"cetane_boosted_diesel",0xc1cf31,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         DilutedSulfuricAcid = new FluidMaterial(972,"diluted_sulfuric_acid",0x986526,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Hydrogen,2),new MaterialStack(Materials.Sulfur,1),new MaterialStack(Materials.Oxygen,4)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
-        LiquidAir = new FluidMaterial(971,"liquid_air",0x89a5c0,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Nitrogen,40),new MaterialStack(Materials.Oxygen,11),new MaterialStack(Materials.Argon,1),new MaterialStack(GAMaterials.NobleGases,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_CENTRIFUGING);
-        NobleGases = new FluidMaterial(970,"noble_gases",0x88a4bf,MaterialIconSet.GAS,ImmutableList.of(new MaterialStack(Materials.CarbonDioxide,21),new MaterialStack(Materials.Helium,9),new MaterialStack(Materials.Methane,3),new MaterialStack(Materials.Deuterium,1)),FluidMaterial.MatFlags.STATE_GAS | Material.MatFlags.DECOMPOSITION_BY_CENTRIFUGING);
         SodiumBisulfate = new DustMaterial(969,"sodium_bisulfate",0x002833,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Sodium,1),new MaterialStack(Materials.Hydrogen,1),new MaterialStack(Materials.Sulfur,1),new MaterialStack(Materials.Oxygen,4)),Material.MatFlags.DISABLE_DECOMPOSITION);
         Chloroform = new FluidMaterial(968,"chloroform",0x702e80,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,1),new MaterialStack(Materials.Hydrogen,1),new MaterialStack(Materials.Chlorine,3)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         DilutedHydrochloricAcid = new FluidMaterial(967,"diluted_hydrochloric_acid",0x7c8684,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Hydrogen,1),new MaterialStack(Materials.Chlorine,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
@@ -154,8 +149,7 @@ public class GAMaterials {
         FermentedBiomass = new FluidMaterial(948,"fermented_biomass",0x3f4b0d,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         Potash = new DustMaterial(947,"potash",0x4d2a23,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Potassium,2),new MaterialStack(Materials.Oxygen,1)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         SodaAsh = new DustMaterial(946,"soda_ash",0x757588,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Sodium,2),new MaterialStack(Materials.Carbon,1),new MaterialStack(Materials.Oxygen,3)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        HydroflouricAcid = new FluidMaterial(945,"hydroflouric_acid",0x0e6f87,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Hydrogen,1),new MaterialStack(Materials.Fluorine,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        NitrogenDioxide = new FluidMaterial(944,"nitrogen_dioxide",0x85fcff,MaterialIconSet.GAS,ImmutableList.of(new MaterialStack(Materials.Nitrogen,1),new MaterialStack(Materials.Oxygen,2)),FluidMaterial.MatFlags.STATE_GAS | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        HydrofluoricAcid = new FluidMaterial(945,"hydrofluoric_acid",0x0e6f87,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Hydrogen,1),new MaterialStack(Materials.Fluorine,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         NitricOxide = new FluidMaterial(943,"nitric_oxide",0x679cb8,MaterialIconSet.GAS,ImmutableList.of(new MaterialStack(Materials.Nitrogen,1),new MaterialStack(Materials.Oxygen,1)),FluidMaterial.MatFlags.STATE_GAS | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         MethylAcetate = new FluidMaterial(942,"methyl_acetate",0xbd9f8e,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,3),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Oxygen,2)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         Ethenone = new FluidMaterial(941,"ethenone",0x1b1b41,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,2),new MaterialStack(Materials.Hydrogen,2),new MaterialStack(Materials.Oxygen,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
@@ -166,7 +160,7 @@ public class GAMaterials {
         Meat = new DustMaterial(936,"meat",0xc14c4c,MaterialIconSet.SAND,1,ImmutableList.of(),Material.MatFlags.DISABLE_DECOMPOSITION);
         CookedMeat = new DustMaterial(935,"cooked_meat",0x712d0f,MaterialIconSet.SAND,1,ImmutableList.of(),Material.MatFlags.DISABLE_DECOMPOSITION);
         VinylAcetate = new FluidMaterial(934,"vinyl_acetate",0xc8916c,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,4),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Oxygen,2)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        GalliumArsenade = new IngotMaterial(933,"gallium_arsenade",0x727272,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Arsenic,1),new MaterialStack(Materials.Gallium,1)),Material.MatFlags.DECOMPOSITION_BY_CENTRIFUGING | DustMaterial.MatFlags.GENERATE_PLATE,(Element)null,1200);
+        GalliumArsenide = new IngotMaterial(933,"gallium_arsenide",0x727272,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Arsenic,1),new MaterialStack(Materials.Gallium,1)),Material.MatFlags.DECOMPOSITION_BY_CENTRIFUGING | DustMaterial.MatFlags.GENERATE_PLATE,(Element)null,1200);
         PolyphenyleneSulfide = new IngotMaterial(932,"polyphenylene_sulfide",0x856a00,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Carbon,6),new MaterialStack(Materials.Hydrogen,4),new MaterialStack(Materials.Sulfur,1)),Material.MatFlags.DISABLE_DECOMPOSITION);
         NickelSulfateSolution = new FluidMaterial(931,"nickel_sulfate_water_solution",0x3eb640,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         BlueVitriolSolution = new FluidMaterial(930,"blue_vitriol_water_solution",0x48a5c0,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
@@ -177,6 +171,6 @@ public class GAMaterials {
         Butane = new FluidMaterial(925,"butane",0x8f3624,MaterialIconSet.GAS,ImmutableList.of(new MaterialStack(Materials.Carbon,4),new MaterialStack(Materials.Hydrogen,10)),FluidMaterial.MatFlags.STATE_GAS | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         CalciumAcetate = new FluidMaterial(924,"calcium_acetate",0xae9f91,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Calcium,1),new MaterialStack(Materials.Carbon,2),new MaterialStack(Materials.Oxygen,4),new MaterialStack(Materials.Hydrogen,6)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         Cumene = new FluidMaterial(923,"cumene",0x4b250c,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,9),new MaterialStack(Materials.Hydrogen,12)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        IndiumGalliumPhosphide = new IngotMaterial(922,"indium_gallium_phosphide",0x7d6d94,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Indium,1),new MaterialStack(Materials.Gallium,1),new MaterialStack(Materials.Phosphor,1)),Material.MatFlags.DECOMPOSITION_BY_CENTRIFUGING | DustMaterial.MatFlags.GENERATE_PLATE);
+        IndiumGalliumPhosphide = new IngotMaterial(922,"indium_gallium_phosphide",0x7d6d94,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Indium,1),new MaterialStack(Materials.Gallium,1),new MaterialStack(Materials.Phosphorus,1)),Material.MatFlags.DECOMPOSITION_BY_CENTRIFUGING | DustMaterial.MatFlags.GENERATE_PLATE);
     }
 }
