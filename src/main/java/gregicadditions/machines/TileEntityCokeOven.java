@@ -208,7 +208,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
 
     @Override
     protected FluidTankList createExportFluidHandler() {
-        return new FluidTankList(new FluidTank(4000));
+        return new FluidTankList(new FluidTank(64000));
     }
 
     @Override
@@ -236,9 +236,9 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
                         .setBackgroundTexture(GuiTextures.BRONZE_SLOT, GuiTextures.BRONZE_FURNACE_OVERLAY))
                 .progressBar(this::getProgressScaled, 58, 24, 20, 15, GuiTextures.BRONZE_BLAST_FURNACE_PROGRESS_BAR, ProgressWidget.MoveType.HORIZONTAL)
                 .widget(new SlotWidget(exportItems, 0, 85, 24, true, false)
-                        .setBackgroundTexture(GuiTextures.BRONZE_SLOT, GuiTextures.BRONZE_INGOT_OVERLAY))
+                        .setBackgroundTexture(GuiTextures.BRONZE_SLOT, GATextures.COAL_OVERLAY))
                 .widget(new TankWidget(exportFluids.getTankAt(0), 102, 23, 18, 18)
-                        .setBackgroundTexture(GuiTextures.FLUID_SLOT))
+                        .setBackgroundTexture(GATextures.BRONZE_FLUID_SLOT))
                 .bindPlayerInventory(entityPlayer.inventory, GuiTextures.BRONZE_SLOT)
                 .build(getHolder(), entityPlayer);
     }

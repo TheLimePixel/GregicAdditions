@@ -5,15 +5,15 @@ import gregicadditions.tools.SmallBendingCylinder;
 import gregtech.api.items.toolitem.ToolMetaItem;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.OreDictUnifier;
-import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.DustMaterial;
 import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.material.type.Material;
-import gregtech.api.unification.material.type.SolidMaterial;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.items.MetaItems;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> {
 
@@ -39,7 +39,6 @@ public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> 
                         'X', new UnificationEntry(OrePrefix.ingot, toolMaterial));
 
                 //GT6 Wrench Recipe
-                ModHandler.removeRecipes(MetaItems.WRENCH.getStackForm(toolMaterial, null));
                 if (!OreDictUnifier.get(OrePrefix.plate, material).isEmpty())
                     ModHandler.addShapedRecipe(String.format("wrench_%s", material.toString()),
                             MetaItems.WRENCH.getStackForm(toolMaterial, null),

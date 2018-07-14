@@ -1,6 +1,7 @@
 package gregicadditions;
 
 import gregtech.api.GTValues;
+import gregtech.api.unification.material.MaterialIconSet;
 import gregtech.api.unification.material.MaterialIconType;
 import gregtech.api.unification.material.type.DustMaterial;
 import gregtech.api.unification.material.type.IngotMaterial;
@@ -13,6 +14,8 @@ public class GAEnums {
     public static void preInit() {
         EnumHelper.addEnum(MaterialIconType.class, "plateCurved", new Class[0]);
         EnumHelper.addEnum(MaterialIconType.class, "ingotDouble", new Class[0]);
+
+        EnumHelper.addEnum(MaterialIconSet.class, "COKE", new Class[0]);
 
         EnumHelper.addEnum(OrePrefix.class, "plateCurved",
                 new Class[]{String.class, long.class, Material.class, MaterialIconType.class, long.class, Condition.class},

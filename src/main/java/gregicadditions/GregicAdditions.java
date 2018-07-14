@@ -35,6 +35,7 @@ public class GregicAdditions {
 
     public GregicAdditions()
     {
+        GAEnums.preInit();
         new GAMaterials();
     }
 
@@ -43,7 +44,6 @@ public class GregicAdditions {
         logger = event.getModLog();
 
 
-        GAEnums.preInit();
         GAMetaItems.init();
         GAMetaBlocks.init();
         GATileEntities.init();

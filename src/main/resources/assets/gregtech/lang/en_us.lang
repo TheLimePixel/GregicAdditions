@@ -12,7 +12,7 @@ metaitem.boule.silicon.name=Monocrystalline Silicon Boule
 metaitem.boule.glowstone.name=Glowstone doped Monocrystalline Silicon Boule
 metaitem.boule.naquadah.name=Naquadah doped Monocrystalline Silicon Boule
 metaitem.brick.coke.name=Coke Oven Brick
-metaitem.brick.fireclay.name=Fireclay Brick
+metaitem.brick.fireclay.name=Firebrick
 metaitem.circuit.advanced.regular.name=Advanced Circuit
 metaitem.circuit.good.regular.name=Good Integrated Circuit
 metaitem.circuit.basic.regular.name=Basic Circuit
@@ -99,6 +99,7 @@ recipemap.coke_oven.name=Coke Oven
 
 material.brick=Brick
 material.fireclay=Fireclay
+material.coke=Coal Coke
 material.phosphorus_pentoxide=Phosphorus Pentoxide
 material.phosphoric_acid=Prosphoric Acid
 material.polyvinyl_acetate=Polyvinyl Acetate
@@ -173,6 +174,7 @@ material.butane=Butane
 material.calcium_acetate=Calcium Acetate
 material.cumene=Cumene
 material.indium_gallium_phosphide=Indium Gallium Phosphide
+material.platinum_group_sludge=Platinum Group Sludge
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp
@@ -247,10 +249,11 @@ metaitem.circuit.advanced.name=Integrated Processor
 metaitem.circuit.master.name=Crystalprocessor Assembly
 metaitem.circuit.elite.name=Quantumprocessor Assembly
 metaitem.circuit.data.name=Workstation
+metaitem.circuit.board.elite.name=Neuro Processing Unit
 
 metaitem.rubber_drop.name=Sticky Resin
 
-tile.metal_casing.primitive_bricks.name=Fireclay Bricks
-gregtech.machine.primitive_blast_furnace.bronze.tooltip=Structure: 3x3x4 (WxLxH) The entire structure is made out of Fireclay Bricks (32 in total)./nFirst Layer is a 3x3 square./nSecond, third, and fourth layers are hollow, without the middle block./nThis block goes on the middle of any side in the second layer./nThe sides of Blast Furnaces can be shared, if the side does not have a controller./n
+tile.metal_casing.primitive_bricks.name=Firebricks
+gregtech.machine.primitive_blast_furnace.bronze.tooltip=Structure: 3x3x4 (WxLxH) The entire structure is made out of Firebricks (32 in total)./nFirst Layer is a 3x3 square./nSecond, third, and fourth layers are hollow, without the middle block./nThis block goes on the middle of any side in the second layer./nThe sides of Blast Furnaces can be shared, if the side does not have a controller./n
 
 metaitem.tool.test.name=%s Test Tool
