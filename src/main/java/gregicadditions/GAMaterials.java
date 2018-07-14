@@ -15,7 +15,6 @@ public class GAMaterials {
     public static FluidMaterial PolyvinylAcetate;
     public static FluidMaterial Phenol;
     public static FluidMaterial BisphenolA;
-    public static IngotMaterial EpoxyResin;
     public static IngotMaterial ReinforcedEpoxyResin;
     public static IngotMaterial BorosilicateGlass;
     public static IngotMaterial PolyvinylChloride;
@@ -103,12 +102,11 @@ public class GAMaterials {
 
         Brick = new DustMaterial(1000,"brick",0xB75A40,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Aluminium,4),new MaterialStack(Materials.Silicon,3),new MaterialStack(Materials.Oxygen,12)),Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
         Fireclay = new DustMaterial(999,"fireclay",0x928073,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Clay,1),new MaterialStack(Brick,1)),Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
-        PhosphorousPentoxide = new DustMaterial(998,"prosphorous_pentoxide",0x7c7d00,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Phosphor,4),new MaterialStack(Materials.Oxygen,10)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        PhosphoricAcid = new FluidMaterial(997,"phosphoric_acid",0xaeae10,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Hydrogen,3),new MaterialStack(Materials.Phosphor,4)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        PolyvinylAcetate = new FluidMaterial(996,"polyvinyl_acetate",0xc87e4c,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,4),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Oxygen,2)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
-        Phenol = new FluidMaterial(995,"phenol",0x654027,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,6),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Oxygen,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        BisphenolA = new FluidMaterial(994,"bisphenol_b",0xa5870e,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,15),new MaterialStack(Materials.Hydrogen,16),new MaterialStack(Materials.Oxygen,2)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        EpoxyResin = new IngotMaterial(993,"epoxy_resin",0x9c6d10,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Carbon,6),new MaterialStack(Materials.Hydrogen,4),new MaterialStack(Materials.Oxygen,1)),DustMaterial.MatFlags.GENERATE_PLATE, (Element)null,6.0F, 32);
+        PhosphorousPentoxide = new DustMaterial(997,"prosphorous_pentoxide",0x7c7d00,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Phosphor,4),new MaterialStack(Materials.Oxygen,10)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        PhosphoricAcid = new FluidMaterial(996,"phosphoric_acid",0xaeae10,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Hydrogen,3),new MaterialStack(Materials.Phosphor,4)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        PolyvinylAcetate = new FluidMaterial(995,"polyvinyl_acetate",0xc87e4c,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,4),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Oxygen,2)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        Phenol = new FluidMaterial(994,"phenol",0x654027,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,6),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Oxygen,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        BisphenolA = new FluidMaterial(993,"bisphenol_b",0xa5870e,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,15),new MaterialStack(Materials.Hydrogen,16),new MaterialStack(Materials.Oxygen,2)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         ReinforcedEpoxyResin = new IngotMaterial(992,"reinforced_epoxy_resin",0x72500b,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Carbon,6),new MaterialStack(Materials.Hydrogen,4),new MaterialStack(Materials.Oxygen,1)),DustMaterial.MatFlags.GENERATE_PLATE, (Element)null,6.0F, 64);
         BorosilicateGlass = new IngotMaterial(991,"borosilicate_glass",0xccd7cc,MaterialIconSet.METALLIC,1,ImmutableList.of(new MaterialStack(Materials.Boron,1),new MaterialStack(Materials.SiliconDioxide,7)),Material.MatFlags.DISABLE_DECOMPOSITION);
         PolyvinylChloride = new IngotMaterial(990,"polyvinyl_chloride",0x99a4a4,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Carbon,2),new MaterialStack(Materials.Hydrogen,3),new MaterialStack(Materials.Chlorine,1)),EXT_METAL | IngotMaterial.MatFlags.GENERATE_FOIL);
