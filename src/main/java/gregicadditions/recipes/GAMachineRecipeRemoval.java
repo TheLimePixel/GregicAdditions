@@ -69,19 +69,19 @@ public class GAMachineRecipeRemoval {
                     OreDictUnifier.get(OrePrefix.plate, Materials.Plastic));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.foil, Materials.Platinum),
-                    OreDictUnifier.get(OrePrefix.lens, MarkerMaterials.Color.Red));
+                    OreDictUnifier.get(OrePrefix.lens, Materials.Ruby));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.foil, Materials.Gold),
-                    OreDictUnifier.get(OrePrefix.lens, MarkerMaterials.Color.Red));
+                    OreDictUnifier.get(OrePrefix.lens, Materials.Ruby));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.foil, Materials.Electrum),
-                    OreDictUnifier.get(OrePrefix.lens, MarkerMaterials.Color.Red));
+                    OreDictUnifier.get(OrePrefix.lens, Materials.Ruby));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.foil, Materials.Copper),
-                    OreDictUnifier.get(OrePrefix.lens, MarkerMaterials.Color.Red));
+                    OreDictUnifier.get(OrePrefix.lens, Materials.Ruby));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.foil, Materials.AnnealedCopper),
-                    OreDictUnifier.get(OrePrefix.lens, MarkerMaterials.Color.Red));
+                    OreDictUnifier.get(OrePrefix.lens, Materials.Ruby));
             removeRecipesByInputs(RecipeMaps.FORMING_PRESS_RECIPES,
                     OreDictUnifier.get(OrePrefix.plate, Materials.Lapis),
                     OreDictUnifier.get(OrePrefix.dust, Materials.Glowstone));
@@ -93,10 +93,10 @@ public class GAMachineRecipeRemoval {
                     OreDictUnifier.get(OrePrefix.lens, Materials.Diamond));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.plate, Materials.Emerald),
-                    OreDictUnifier.get(OrePrefix.lens, MarkerMaterials.Color.Lime));
+                    OreDictUnifier.get(OrePrefix.lens, Materials.Emerald));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.plate, Materials.Olivine),
-                    OreDictUnifier.get(OrePrefix.lens, MarkerMaterials.Color.Lime));
+                    OreDictUnifier.get(OrePrefix.lens, Materials.Emerald));
             removeRecipesByInputs(RecipeMaps.FORMING_PRESS_RECIPES,
                     MetaItems.CIRCUIT_PARTS_WIRING_ELITE.getStackForm(4),
                     MetaItems.EMPTY_BOARD_ELITE.getStackForm());
