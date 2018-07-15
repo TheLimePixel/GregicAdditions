@@ -96,6 +96,13 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.JUNGLE_FORM = addItem(69, "form.jungle").addOreDict("formWood").setMaxStackSize(1);
         GAMetaItems.OAK_FORM = addItem(70, "form.oak").addOreDict("formWood").setMaxStackSize(1);
         GAMetaItems.SPRUCE_FORM = addItem(71, "form.spruce").addOreDict("formWood").setMaxStackSize(1);
+        GAMetaItems.BIO_CHAFF = addItem(72, "bio.chaff");
+        GAMetaItems.RAW_CARBON_FIBERS = addItem(73,"carbon.fibers");
+        GAMetaItems.MIXED_METAL_PLATE = addItem(74,"plate.mixed.metal");
+        GAMetaItems.ADVANCED_ALLOY_PLATE = addItem(75,"plate.advanced.alloy");
+        GAMetaItems.RAW_CRYSTAL_CHIP = addItem(76,"crystal.raw");
+        GAMetaItems.CRYSTAL_CPU = addItem(77,"crystal.cpu");
+        GAMetaItems.CRYSTAL_SOC = addItem(78,"crystal.soc");
     }
 
     public boolean hasContainerItem(ItemStack stack) {

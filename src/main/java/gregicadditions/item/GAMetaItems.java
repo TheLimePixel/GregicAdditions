@@ -90,6 +90,13 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem JUNGLE_FORM;
     public static MetaItem<?>.MetaValueItem OAK_FORM;
     public static MetaItem<?>.MetaValueItem SPRUCE_FORM;
+    public static MetaItem<?>.MetaValueItem BIO_CHAFF;
+    public static MetaItem<?>.MetaValueItem RAW_CARBON_FIBERS;
+    public static MetaItem<?>.MetaValueItem ADVANCED_ALLOY_PLATE;
+    public static MetaItem<?>.MetaValueItem MIXED_METAL_PLATE;
+    public static MetaItem<?>.MetaValueItem RAW_CRYSTAL_CHIP;
+    public static MetaItem<?>.MetaValueItem CRYSTAL_CPU;
+    public static MetaItem<?>.MetaValueItem CRYSTAL_SOC;
 
     public static MetaItem<?>.MetaValueItem BENDING_CYLINDER;
     public static MetaItem<?>.MetaValueItem SMALL_BENDING_CYLINDER;
