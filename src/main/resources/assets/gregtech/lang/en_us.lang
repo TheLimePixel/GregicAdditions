@@ -171,7 +171,7 @@ metaitem.tool.bending_cylinder.name=%s Bending Cylinder
 metaitem.tool.bending_cylinder_small.name=%s Small Bending Cylinder
 
 recipemap.cluster_mill.name=Cluster Mill
-recipemap.clrcuit_assembler.name=Circuit Assembler
+recipemap.circuit_assembler.name=Circuit Assembler
 recipemap.coke_oven.name=Coke Oven
 
 material.brick=Brick

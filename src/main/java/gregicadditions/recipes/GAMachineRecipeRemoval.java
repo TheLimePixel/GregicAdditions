@@ -5,7 +5,6 @@ import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
-import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.DustMaterial;
 import gregtech.api.unification.material.type.IngotMaterial;
@@ -109,6 +108,12 @@ public class GAMachineRecipeRemoval {
             removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
                     MetaItems.CIRCUIT_PARTS_CRYSTAL_CHIP_ELITE.getStackForm(18),
                     MetaItems.CIRCUIT_ELITE.getStackForm(2));
+            removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
+                    MetaItems.CIRCUIT_PARTS_CRYSTAL_CHIP_MASTER.getStackForm(18),
+                    MetaItems.CIRCUIT_MASTER.getStackForm(2));
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
+                MetaItems.ENERGY_LAPOTRONIC_ORB.getStackForm(8),
+                OreDictUnifier.get(OrePrefix.plate,Materials.Europium,4));
 
             for (MaterialStack stack : solderingList) {
                 IngotMaterial material = (IngotMaterial) stack.material;

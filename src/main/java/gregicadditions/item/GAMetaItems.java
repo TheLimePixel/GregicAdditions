@@ -16,7 +16,7 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem INTEGRATED_ASSEMBLY;
     public static MetaItem<?>.MetaValueItem WETWARE_ASSEMBLY;
     public static MetaItem<?>.MetaValueItem COATED_BOARD;
-    public static MetaItem<?>.MetaValueItem EPOXY_BAORD;
+    public static MetaItem<?>.MetaValueItem EPOXY_BOARD;
     public static MetaItem<?>.MetaValueItem FIBER_BOARD;
     public static MetaItem<?>.MetaValueItem MULTILAYER_FIBER_BOARD;
     public static MetaItem<?>.MetaValueItem PHENOLIC_BOARD;

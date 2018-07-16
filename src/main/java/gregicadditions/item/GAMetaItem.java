@@ -22,7 +22,7 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.INTEGRATED_ASSEMBLY = addItem(1, "assembly.normal");
         GAMetaItems.WETWARE_ASSEMBLY = addItem(2, "assembly.wetware");
         GAMetaItems.COATED_BOARD = addItem(3, "board.coated");
-        GAMetaItems.EPOXY_BAORD = addItem(4, "board.epoxy");
+        GAMetaItems.EPOXY_BOARD = addItem(4, "board.epoxy");
         GAMetaItems.FIBER_BOARD = addItem(5, "board.fiber-reinforced");
         GAMetaItems.MULTILAYER_FIBER_BOARD = addItem(6, "board.multilayer.fiber-reinforced");
         GAMetaItems.PHENOLIC_BOARD = addItem(7, "board.phenolic");
@@ -75,7 +75,7 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.CRYSTALPROCESSOR = addItem(54, "processor.crystal");
         GAMetaItems.NANOPROCESSOR = addItem(55, "processor.nano");
         GAMetaItems.QUANTUMPROCESSOR = addItem(56, "processor.quantum");
-        GAMetaItems.WETWAREPROCESSOR = addItem(67, "processor.wetware");
+        GAMetaItems.WETWAREPROCESSOR = addItem(57, "processor.wetware");
         GAMetaItems.ASOC_WAFER = addItem(58, "wafer.asoc");
         GAMetaItems.LOGIC_CIRCUIT_WAFER = addItem(59, "wafer.circuit");
         GAMetaItems.CPU_WAFER = addItem(60, "wafer.cpu");
@@ -90,19 +90,19 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.RAM_WAFER = addItem(69, "wafer.ram");
         GAMetaItems.SILICON_WAFER = addItem(70, "wafer.silicon");
         GAMetaItems.SOC_WAFER = addItem(71, "wafer.soc");
-        GAMetaItems.ACACIA_FORM = addItem(66, "form.acacia").addOreDict("formWood").setMaxStackSize(1);
-        GAMetaItems.BIRCH_FORM = addItem(67, "form.birch").addOreDict("formWood").setMaxStackSize(1);
-        GAMetaItems.DARK_OAK_FORM = addItem(68, "form.darkoak").addOreDict("formWood").setMaxStackSize(1);
-        GAMetaItems.JUNGLE_FORM = addItem(69, "form.jungle").addOreDict("formWood").setMaxStackSize(1);
-        GAMetaItems.OAK_FORM = addItem(70, "form.oak").addOreDict("formWood").setMaxStackSize(1);
-        GAMetaItems.SPRUCE_FORM = addItem(71, "form.spruce").addOreDict("formWood").setMaxStackSize(1);
-        GAMetaItems.BIO_CHAFF = addItem(72, "bio.chaff");
-        GAMetaItems.RAW_CARBON_FIBERS = addItem(73,"carbon.fibers");
-        GAMetaItems.MIXED_METAL_PLATE = addItem(74,"plate.mixed.metal");
-        GAMetaItems.ADVANCED_ALLOY_PLATE = addItem(75,"plate.advanced.alloy");
-        GAMetaItems.RAW_CRYSTAL_CHIP = addItem(76,"crystal.raw");
-        GAMetaItems.CRYSTAL_CPU = addItem(77,"crystal.cpu");
-        GAMetaItems.CRYSTAL_SOC = addItem(78,"crystal.soc");
+        GAMetaItems.ACACIA_FORM = addItem(72, "form.acacia").addOreDict("formWood").setMaxStackSize(1);
+        GAMetaItems.BIRCH_FORM = addItem(73, "form.birch").addOreDict("formWood").setMaxStackSize(1);
+        GAMetaItems.DARK_OAK_FORM = addItem(74, "form.darkoak").addOreDict("formWood").setMaxStackSize(1);
+        GAMetaItems.JUNGLE_FORM = addItem(75, "form.jungle").addOreDict("formWood").setMaxStackSize(1);
+        GAMetaItems.OAK_FORM = addItem(76, "form.oak").addOreDict("formWood").setMaxStackSize(1);
+        GAMetaItems.SPRUCE_FORM = addItem(77, "form.spruce").addOreDict("formWood").setMaxStackSize(1);
+        GAMetaItems.BIO_CHAFF = addItem(78, "bio.chaff");
+        GAMetaItems.RAW_CARBON_FIBERS = addItem(79,"carbon.fibers");
+        GAMetaItems.MIXED_METAL_PLATE = addItem(80,"plate.mixed.metal");
+        GAMetaItems.ADVANCED_ALLOY_PLATE = addItem(81,"plate.advanced.alloy");
+        GAMetaItems.RAW_CRYSTAL_CHIP = addItem(82,"crystal.raw");
+        GAMetaItems.CRYSTAL_CPU = addItem(83,"crystal.cpu");
+        GAMetaItems.CRYSTAL_SOC = addItem(84,"crystal.soc");
     }
 
     public boolean hasContainerItem(ItemStack stack) {
