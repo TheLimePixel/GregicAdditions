@@ -252,6 +252,8 @@ material.calcium_acetate=Calcium Acetate
 material.cumene=Cumene
 material.indium_gallium_phosphide=Indium Gallium Phosphide
 material.platinum_group_sludge=Platinum Group Sludge
+material.ferrite_mixture=Ferrite Mixture
+material.nickel_zinc_ferrite=Nickel Zinc Ferrite
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp

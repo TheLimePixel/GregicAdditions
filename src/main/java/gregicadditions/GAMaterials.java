@@ -85,6 +85,8 @@ public class GAMaterials {
     public static FluidMaterial Cumene;
     public static IngotMaterial IndiumGalliumPhosphide;
     public static DustMaterial PlatinumGroupSludge;
+    public static DustMaterial FerriteMixture;
+    public static IngotMaterial NickelZincFerrite;
 
     static {
         long STD_SOLID = DustMaterial.MatFlags.GENERATE_PLATE |
@@ -176,5 +178,7 @@ public class GAMaterials {
         Cumene = new FluidMaterial(925,"cumene",0x4b250c,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,9),new MaterialStack(Materials.Hydrogen,12)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         IndiumGalliumPhosphide = new IngotMaterial(924,"indium_gallium_phosphide",0x7d6d94,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Indium,1),new MaterialStack(Materials.Gallium,1),new MaterialStack(Materials.Phosphorus,1)),Material.MatFlags.DECOMPOSITION_BY_CENTRIFUGING | DustMaterial.MatFlags.GENERATE_PLATE);
         PlatinumGroupSludge = new DustMaterial(923,"platinum_group_sludge",0x001300,MaterialIconSet.POWDER,1,ImmutableList.of(),Material.MatFlags.DISABLE_DECOMPOSITION);
+        FerriteMixture = new DustMaterial(922,"ferrite_mixture",0x959595,MaterialIconSet.METALLIC,1,ImmutableList.of(new MaterialStack(Materials.Nickel,1),new MaterialStack(Materials.Zinc,1),new MaterialStack(Materials.Iron,4)),Material.MatFlags.DISABLE_DECOMPOSITION);
+        NickelZincFerrite = new IngotMaterial(921,"nickel_zinc_ferrite",0x2f2f2f,MaterialIconSet.METALLIC,0,ImmutableList.of(new MaterialStack(Materials.Nickel,1),new MaterialStack(Materials.Zinc,1),new MaterialStack(Materials.Iron,4),new MaterialStack(Materials.Oxygen,8)),EXT_METAL,(Element)null,1500);
     }
 }
