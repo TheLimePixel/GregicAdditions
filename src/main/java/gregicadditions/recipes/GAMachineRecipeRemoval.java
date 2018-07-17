@@ -5,6 +5,7 @@ import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
+import gregtech.api.unification.material.MarkerMaterials.Color;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.DustMaterial;
 import gregtech.api.unification.material.type.IngotMaterial;
@@ -68,19 +69,19 @@ public class GAMachineRecipeRemoval {
                     OreDictUnifier.get(OrePrefix.plate, Materials.Plastic));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.foil, Materials.Platinum),
-                    OreDictUnifier.get(OrePrefix.lens, Materials.Ruby));
+                    OreDictUnifier.get(OrePrefix.craftingLens, Color.Red));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.foil, Materials.Gold),
-                    OreDictUnifier.get(OrePrefix.lens, Materials.Ruby));
+                    OreDictUnifier.get(OrePrefix.craftingLens, Color.Red));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.foil, Materials.Electrum),
-                    OreDictUnifier.get(OrePrefix.lens, Materials.Ruby));
+                    OreDictUnifier.get(OrePrefix.craftingLens, Color.Red));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.foil, Materials.Copper),
-                    OreDictUnifier.get(OrePrefix.lens, Materials.Ruby));
+                    OreDictUnifier.get(OrePrefix.craftingLens, Color.Red));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.foil, Materials.AnnealedCopper),
-                    OreDictUnifier.get(OrePrefix.lens, Materials.Ruby));
+                    OreDictUnifier.get(OrePrefix.craftingLens, Color.Red));
             removeRecipesByInputs(RecipeMaps.FORMING_PRESS_RECIPES,
                     OreDictUnifier.get(OrePrefix.plate, Materials.Lapis),
                     OreDictUnifier.get(OrePrefix.dust, Materials.Glowstone));
@@ -92,10 +93,10 @@ public class GAMachineRecipeRemoval {
                     OreDictUnifier.get(OrePrefix.lens, Materials.Diamond));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.plate, Materials.Emerald),
-                    OreDictUnifier.get(OrePrefix.lens, Materials.Emerald));
+                    OreDictUnifier.get(OrePrefix.craftingLens, Color.Lime));
             removeRecipesByInputs(RecipeMaps.LASER_ENGRAVER_RECIPES,
                     OreDictUnifier.get(OrePrefix.plate, Materials.Olivine),
-                    OreDictUnifier.get(OrePrefix.lens, Materials.Emerald));
+                    OreDictUnifier.get(OrePrefix.craftingLens, Color.Lime));
             removeRecipesByInputs(RecipeMaps.FORMING_PRESS_RECIPES,
                     MetaItems.CIRCUIT_PARTS_WIRING_ELITE.getStackForm(4),
                     MetaItems.EMPTY_BOARD_ELITE.getStackForm());
@@ -158,6 +159,11 @@ public class GAMachineRecipeRemoval {
                                 MetaItems.CIRCUIT_DATA.getStackForm()},
                         new FluidStack[]{material.getFluid(72 * multiplier)});
         }
+
+        //Circuit Rabbit Hole-Related Recipe Removal
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES,
+                new ItemStack[]{OreDictUnifier.get(OrePrefix.dust,Materials.Silicon)},
+                new FluidStack[]{Materials.Epichlorhydrin.getFluid(144)});
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {

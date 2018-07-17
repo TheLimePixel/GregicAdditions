@@ -22,7 +22,7 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem PHENOLIC_BOARD;
     public static MetaItem<?>.MetaValueItem PLASTIC_BOARD;
     public static MetaItem<?>.MetaValueItem WETWARE_BOARD;
-    public static MetaItem<?>.MetaValueItem GLOSTONE_BOULE;
+    public static MetaItem<?>.MetaValueItem GLOWSTONE_BOULE;
     public static MetaItem<?>.MetaValueItem NAQUADAH_BOULE;
     public static MetaItem<?>.MetaValueItem SILICON_BOULE;
     public static MetaItem<?>.MetaValueItem COKE_BRICK;

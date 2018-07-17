@@ -51,7 +51,7 @@ public class GAMaterials {
     public static DustMaterial Polydimethylsiloxane;
     public static FluidMaterial Dimethyldichlorosilane;
     public static FluidMaterial Styrine;
-    public static IngotMaterial Polysterine;
+    public static IngotMaterial Polystyrene;
     public static FluidMaterial Butadiene;
     public static DustMaterial RawStyrineButadieneRubber;
     public static IngotMaterial StyrineButadieneRubber;
@@ -90,6 +90,7 @@ public class GAMaterials {
     public static FluidMaterial IndiumConcentrate;
     public static FluidMaterial LeadZincSolution;
     public static FluidMaterial Tetrafluoroethylene;
+    public static FluidMaterial SaltWater;
 
     static {
         long STD_SOLID = DustMaterial.MatFlags.GENERATE_PLATE |
@@ -147,7 +148,7 @@ public class GAMaterials {
         Polydimethylsiloxane = new DustMaterial(959,"polydimethylsiloxane",0x8c8c8c,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Carbon,2),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Oxygen,1),new MaterialStack(Materials.Silicon,1)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         Dimethyldichlorosilane = new FluidMaterial(958,"dimethyldichlorosilane",0x3e1c47,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,2),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Chlorine,2),new MaterialStack(Materials.Silicon,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         Styrine = new FluidMaterial(957,"styrine",0xa39c95,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,8),new MaterialStack(Materials.Hydrogen,8)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        Polysterine = new IngotMaterial(956,"polystyrine",0x888079,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Carbon,8),new MaterialStack(Materials.Hydrogen,8)),Material.MatFlags.DISABLE_DECOMPOSITION);
+        Polystyrene = new IngotMaterial(956,"polystyrine",0x888079,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Carbon,8),new MaterialStack(Materials.Hydrogen,8)),Material.MatFlags.DISABLE_DECOMPOSITION);
         Butadiene = new FluidMaterial(955,"butadiene",0xb55a10,MaterialIconSet.GAS,ImmutableList.of(new MaterialStack(Materials.Carbon,4),new MaterialStack(Materials.Hydrogen,6)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         RawStyrineButadieneRubber = new DustMaterial(954,"raw_styrine_butadiene_rubber",0x4f3c3a,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Carbon,8),new MaterialStack(Materials.Hydrogen,8),new MaterialStack(GAMaterials.Butadiene,3)),Material.MatFlags.DISABLE_DECOMPOSITION);
         StyrineButadieneRubber = new IngotMaterial(953,"styrine_butadiene_rubber",0x0e0b0a,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Carbon,8),new MaterialStack(Materials.Hydrogen,8),new MaterialStack(GAMaterials.Butadiene,3)),Material.MatFlags.DISABLE_DECOMPOSITION);
@@ -186,5 +187,6 @@ public class GAMaterials {
         IndiumConcentrate = new FluidMaterial(920,"indium_concentrate",0x03214a,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         LeadZincSolution = new FluidMaterial(919,"lead_zinc_solution",0x310902,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Lead,1),new MaterialStack(Materials.Silver,1),new MaterialStack(Materials.Zinc,1),new MaterialStack(Materials.Sulfur,3),new MaterialStack(Materials.Water,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         Tetrafluoroethylene = new FluidMaterial(918,"tetrafluoroethylene",0x676767,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,2),new MaterialStack(Materials.Fluorine,4)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        SaltWater = new FluidMaterial(917,"salt_water",0x0e0ea0,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
     }
 }

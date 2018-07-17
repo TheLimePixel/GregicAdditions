@@ -28,7 +28,7 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.PHENOLIC_BOARD = addItem(7, "board.phenolic");
         GAMetaItems.PLASTIC_BOARD = addItem(8, "board.plastic");
         GAMetaItems.WETWARE_BOARD = addItem(9, "board.wetware");
-        GAMetaItems.GLOSTONE_BOULE = addItem(10, "boule.glowstone");
+        GAMetaItems.GLOWSTONE_BOULE = addItem(10, "boule.glowstone");
         GAMetaItems.NAQUADAH_BOULE = addItem(11, "boule.naquadah");
         GAMetaItems.SILICON_BOULE = addItem(12, "boule.silicon");
         GAMetaItems.COKE_BRICK = addItem(13, "brick.coke");

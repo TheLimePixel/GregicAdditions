@@ -257,6 +257,7 @@ material.nickel_zinc_ferrite=Nickel Zinc Ferrite
 material.indium_concentrate=Indium Concentrate
 material.lead_zinc_solution=Lead-Zinc Solution
 material.tetrafluoroethylene=Tetrafluoroethylene
+material.salt_water=Salt Water
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp
