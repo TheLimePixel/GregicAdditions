@@ -91,6 +91,27 @@ public class GAMaterials {
     public static FluidMaterial LeadZincSolution;
     public static FluidMaterial Tetrafluoroethylene;
     public static FluidMaterial SaltWater;
+    public static FluidMaterial HydroCrackedEthane;
+    public static FluidMaterial HydroCrackedEthylene;
+    public static FluidMaterial HydroCrackedPropene;
+    public static FluidMaterial HydroCrackedLightFuel;
+    public static FluidMaterial HydroCrackedPropane;
+    public static FluidMaterial HydroCrackedButane;
+    public static FluidMaterial HydroCrackedNaphtha;
+    public static FluidMaterial HydroCrackedHeavyFuel;
+    public static FluidMaterial HydroCrackedGas;
+    public static FluidMaterial HydroCrackedButene;
+    public static FluidMaterial HydroCrackedButadiene;
+    public static FluidMaterial SteamCrackedEthane;
+    public static FluidMaterial SteamCrackedEthylene;
+    public static FluidMaterial SteamCrackedPropene;
+    public static FluidMaterial SteamCrackedPropane;
+    public static FluidMaterial SteamCrackedButane;
+    public static FluidMaterial SteamCrackedNaphtha;
+    public static FluidMaterial SteamCrackedGas;
+    public static FluidMaterial SteamCrackedButene;
+    public static FluidMaterial SteamCrackedButadiene;
+    public static FluidMaterial BioGas;
 
     static {
         long STD_SOLID = DustMaterial.MatFlags.GENERATE_PLATE |
@@ -188,5 +209,26 @@ public class GAMaterials {
         LeadZincSolution = new FluidMaterial(919,"lead_zinc_solution",0x310902,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Lead,1),new MaterialStack(Materials.Silver,1),new MaterialStack(Materials.Zinc,1),new MaterialStack(Materials.Sulfur,3),new MaterialStack(Materials.Water,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         Tetrafluoroethylene = new FluidMaterial(918,"tetrafluoroethylene",0x676767,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,2),new MaterialStack(Materials.Fluorine,4)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         SaltWater = new FluidMaterial(917,"salt_water",0x0e0ea0,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        HydroCrackedEthane = new FluidMaterial(916,"hydrocracked_ethane",0x9696bc,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        HydroCrackedEthylene = new FluidMaterial(915,"hydrocracked_ethylene",0xa3a3a0,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        HydroCrackedPropene = new FluidMaterial(914,"hydrocracked_propene",0xbea540,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        HydroCrackedPropane = new FluidMaterial(913,"hydrocracked_propane",0xbea540,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        HydroCrackedLightFuel = new FluidMaterial(912,"hydrocracked_light_fuel",0xb7af08,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        HydroCrackedButane = new FluidMaterial(911,"hydrocracked_butane",0x852c18,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        HydroCrackedNaphtha = new FluidMaterial(910,"hydrocracked_naphtha",0xbfb608,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        HydroCrackedHeavyFuel = new FluidMaterial(909,"hydrocracked_heavy_fuel",16776960,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        HydroCrackedGas = new FluidMaterial(908,"hydrocracked_gas",0xb4b4b4,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        HydroCrackedButene = new FluidMaterial(907,"hydrocracked_butene",0x993e05,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        HydroCrackedButadiene = new FluidMaterial(906,"hydrocracked_butadiene",0xad5203,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        SteamCrackedEthane = new FluidMaterial(905,"steamcracked_ethane",0x9696bc,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        SteamCrackedEthylene = new FluidMaterial(904,"steamcracked_ethylene",0xa3a3a0,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        SteamCrackedPropene = new FluidMaterial(903,"steamocracked_propene",0xbea540,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        SteamCrackedPropane = new FluidMaterial(902,"steamocracked_propane",0xbea540,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        SteamCrackedButane = new FluidMaterial(901,"steamocracked_butane",0x852c18,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        SteamCrackedNaphtha = new FluidMaterial(900,"steamcracked_naphtha",0xbfb608,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        SteamCrackedGas = new FluidMaterial(899,"steamcracked_gas",0xb4b4b4,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        SteamCrackedButene = new FluidMaterial(898,"steamcracked_butene",0x993e05,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        SteamCrackedButadiene = new FluidMaterial(897,"steamcracked_butadiene",0xad5203,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        BioGas = new FluidMaterial(896,"biogas",0x414c11,MaterialIconSet.GAS,ImmutableList.of(),FluidMaterial.MatFlags.STATE_GAS);
     }
 }

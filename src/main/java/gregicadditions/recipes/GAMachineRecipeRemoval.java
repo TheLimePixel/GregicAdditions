@@ -20,7 +20,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidStack;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -161,11 +160,17 @@ public class GAMachineRecipeRemoval {
                                 MetaItems.CIRCUIT_DATA.getStackForm()},
                         new FluidStack[]{material.getFluid(72 * multiplier)});
         }
-
         //Circuit Rabbit Hole-Related Recipe Removal
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES,
                 new ItemStack[]{OreDictUnifier.get(OrePrefix.dust,Materials.Silicon)},
                 new FluidStack[]{Materials.Epichlorhydrin.getFluid(144)});
+
+        //Remove Cracker recipe
+        removeAllRecipes(RecipeMaps.CRACKING_RECIPES);
+        removeAllRecipes(RecipeMaps.DISTILLATION_RECIPES);
+        removeRecipesByInputs(RecipeMaps.DISTILLERY_RECIPES,Materials.CrackedHeavyFuel.getFluid(25));
+        removeRecipesByInputs(RecipeMaps.DISTILLERY_RECIPES,Materials.CrackedLightFuel.getFluid(25));
+
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {
@@ -193,10 +198,11 @@ public class GAMachineRecipeRemoval {
     }
 
     private static void removeAllRecipes(RecipeMap map) {
-        
-        Collection<Recipe> recipes = map.getRecipeList();
 
-        for(Recipe r : recipes)
+        List<Recipe> recipes = new ArrayList();
+        recipes.addAll(map.getRecipeList());
+
+        for (Recipe r : recipes)
             map.removeRecipe(r);
     }
 }

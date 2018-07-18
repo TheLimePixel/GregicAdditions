@@ -16,6 +16,7 @@ import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.*;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
+import gregtech.api.util.GTUtility;
 import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.items.MetaItems;
@@ -24,6 +25,9 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class GARecipeAddition {
 
@@ -57,7 +61,6 @@ public class GARecipeAddition {
         ModHandler.addShapedRecipe("coke_brick", GAMetaItems.COMPRESSED_COKE_CLAY.getStackForm(3), "BBB", "SFS", "SSS", 'B', new ItemStack(Items.CLAY_BALL), 'S', new ItemStack(Blocks.SAND), 'F', "formWood");
         ModHandler.addShapedRecipe("coke_bricks",GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.COKE_OVEN_BRICKS),"BB","BB",'B',GAMetaItems.COKE_BRICK.getStackForm());
         ModHandler.addShapedRecipe("coke_oven",GATileEntities.COKE_OVEN.getStackForm(),"hRS","PBR","dRS",'R',OreDictUnifier.get(OrePrefix.stick,Materials.Iron),'S',OreDictUnifier.get(OrePrefix.screw,Materials.Iron),'P',OreDictUnifier.get(OrePrefix.plate,Materials.Iron),'B',GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.COKE_OVEN_BRICKS));
-
 
         //GT5U Old Primitive Brick Processing
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:casing_primitive_bricks"));
@@ -193,8 +196,283 @@ public class GARecipeAddition {
         ModHandler.removeRecipeByName(new ResourceLocation("minecraft:purpur_slab"));
         ModHandler.addShapedRecipe("purpur",new ItemStack(Blocks.PURPUR_SLAB,2),"sP",'P',new ItemStack(Blocks.PURPUR_BLOCK));
 
+        List<ItemStack> allWoodLogs =  OreDictionary.getOres("logWood").stream()
+                .flatMap(stack -> ModHandler.getAllSubItems(stack).stream())
+                .collect(Collectors.toList());
+
         //Coke Oven Recipes
         GARecipeMaps.COKE_OVEN_RECIPES.add(new CokeOvenRecipe(CountableIngredient.from(OreDictUnifier.get(OrePrefix.gem,Materials.Coal)), OreDictUnifier.get(OrePrefix.gem,GAMaterials.Coke), Materials.Creosote.getFluid(500), 1800));
+        for (ItemStack stack : allWoodLogs) {
+            ItemStack smeltingOutput = ModHandler.getSmeltingOutput(stack);
+            if (!smeltingOutput.isEmpty() && smeltingOutput.getItem() == Items.COAL && smeltingOutput.getMetadata() == 1) {
+                int coalAmount = smeltingOutput.getCount();
+                ModHandler.removeFurnaceSmelting(stack);
+                GARecipeMaps.COKE_OVEN_RECIPES.add(new CokeOvenRecipe(CountableIngredient.from(stack), new ItemStack(Items.COAL, coalAmount, 1), Materials.Creosote.getFluid(500), 1800));
+
+                //Pyrolize Oven Recipes
+                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                        .inputs(GTUtility.copyAmount(16, stack))
+                        .circuitMeta(4)
+                        .outputs(new ItemStack(Items.COAL, 24 * coalAmount, 1))
+                        .fluidOutputs(GAMaterials.WoodVinegar.getFluid(3750 * coalAmount))
+                        .duration(440)
+                        .EUt(64)
+                        .buildAndRegister();
+
+                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                        .inputs(GTUtility.copyAmount(16, stack))
+                        .circuitMeta(3)
+                        .fluidInputs(Materials.Nitrogen.getFluid(400))
+                        .outputs(new ItemStack(Items.COAL, 24, 1))
+                        .fluidOutputs(GAMaterials.WoodVinegar.getFluid(3000))
+                        .duration(200)
+                        .EUt(96)
+                        .buildAndRegister();
+
+                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                        .inputs(GTUtility.copyAmount(16, stack))
+                        .circuitMeta(6)
+                        .outputs(new ItemStack(Items.COAL, 24 * coalAmount, 1))
+                        .fluidOutputs(GAMaterials.WoodGas.getFluid(2000 * coalAmount))
+                        .duration(440)
+                        .EUt(64)
+                        .buildAndRegister();
+
+                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                        .inputs(GTUtility.copyAmount(16, stack))
+                        .circuitMeta(5)
+                        .fluidInputs(Materials.Nitrogen.getFluid(400))
+                        .outputs(new ItemStack(Items.COAL, 24, 1))
+                        .fluidOutputs(GAMaterials.WoodGas.getFluid(1500))
+                        .duration(200)
+                        .EUt(96)
+                        .buildAndRegister();
+
+                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                        .inputs(GTUtility.copyAmount(16, stack))
+                        .circuitMeta(8)
+                        .outputs(new ItemStack(Items.COAL, 24 * coalAmount, 1))
+                        .fluidOutputs(GAMaterials.WoodTar.getFluid(2000 * coalAmount))
+                        .duration(440)
+                        .EUt(64)
+                        .buildAndRegister();
+
+                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                        .inputs(GTUtility.copyAmount(16, stack))
+                        .circuitMeta(7)
+                        .fluidInputs(Materials.Nitrogen.getFluid(400))
+                        .outputs(new ItemStack(Items.COAL, 24, 1))
+                        .fluidOutputs(GAMaterials.WoodTar.getFluid(1500))
+                        .duration(200)
+                        .EUt(96)
+                        .buildAndRegister();
+
+                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                        .inputs(GTUtility.copyAmount(16, stack))
+                        .circuitMeta(10)
+                        .outputs(new ItemStack(Items.COAL, 24 * coalAmount, 1))
+                        .fluidOutputs(GAMaterials.CharcoalByproducts.getFluid(4000 * coalAmount))
+                        .duration(440)
+                        .EUt(64)
+                        .buildAndRegister();
+
+                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                        .inputs(GTUtility.copyAmount(16, stack))
+                        .circuitMeta(9)
+                        .fluidInputs(Materials.Nitrogen.getFluid(400))
+                        .outputs(new ItemStack(Items.COAL, 24, 1))
+                        .fluidOutputs(GAMaterials.CharcoalByproducts.getFluid(4000))
+                        .duration(200)
+                        .EUt(96)
+                        .buildAndRegister();
+            }
+        }
+
+        //Cracker Recipes
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Ethane.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedEthane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Ethylene.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedEthylene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Propene.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedPropene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Propane.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedPropane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Hydrogen.getFluid(2000),Materials.LightFuel.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedLightFuel.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Butane.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedButane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Hydrogen.getFluid(2000),Materials.Naphtha.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedNaphtha.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Hydrogen.getFluid(2000),Materials.HeavyFuel.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedHeavyFuel.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Hydrogen.getFluid(2000),Materials.Gas.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedGas.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Butene.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedButene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Butadiene.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedButadiene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Ethane.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedEthane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Ethylene.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedEthylene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Propene.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedPropene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Propane.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedPropane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Steam.getFluid(2000),Materials.LightFuel.getFluid(1000)).fluidOutputs(Materials.CrackedLightFuel.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Butane.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedButane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Steam.getFluid(2000),Materials.Naphtha.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedNaphtha.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Steam.getFluid(2000),Materials.HeavyFuel.getFluid(1000)).fluidOutputs(Materials.CrackedHeavyFuel.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Steam.getFluid(2000),Materials.Gas.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedGas.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Butene.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedButene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CRACKING_RECIPES.recipeBuilder().duration(40).EUt(120).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Butadiene.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedButadiene.getFluid(1000)).buildAndRegister();
+
+        //Chemical Reactor Cracking
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Ethane.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedEthane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Ethylene.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedEthylene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Propene.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedPropene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Propane.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedPropane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Hydrogen.getFluid(2000),Materials.LightFuel.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedLightFuel.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Butane.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedButane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Hydrogen.getFluid(2000),Materials.Naphtha.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedNaphtha.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Hydrogen.getFluid(2000),Materials.HeavyFuel.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedHeavyFuel.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Hydrogen.getFluid(2000),Materials.Gas.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedGas.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Butene.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedButene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Butadiene.getFluid(1000)).fluidOutputs(GAMaterials.HydroCrackedButadiene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Ethane.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedEthane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Ethylene.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedEthylene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Propene.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedPropene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Propane.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedPropane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Steam.getFluid(2000),Materials.LightFuel.getFluid(1000)).fluidOutputs(Materials.CrackedLightFuel.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Butane.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedButane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Steam.getFluid(2000),Materials.Naphtha.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedNaphtha.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Steam.getFluid(2000),Materials.HeavyFuel.getFluid(1000)).fluidOutputs(Materials.CrackedHeavyFuel.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Steam.getFluid(2000),Materials.Gas.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedGas.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Butene.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedButene.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Steam.getFluid(2000),GAMaterials.Butadiene.getFluid(1000)).fluidOutputs(GAMaterials.SteamCrackedButadiene.getFluid(1000)).buildAndRegister();
+
+        //Distillation Recipes
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).fluidInputs(GAMaterials.HydroCrackedEthane.getFluid(100)).fluidOutputs(Materials.Methane.getFluid(200)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(120).EUt(30).fluidInputs(GAMaterials.SteamCrackedEthane.getFluid(500)).fluidOutputs(Materials.Methane.getFluid(750)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).fluidInputs(GAMaterials.HydroCrackedEthylene.getFluid(100)).fluidOutputs(GAMaterials.Ethane.getFluid(100)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).fluidInputs(GAMaterials.SteamCrackedEthylene.getFluid(1000)).fluidOutputs(Materials.Methane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.HydroCrackedPropene.getFluid(100)).fluidOutputs(GAMaterials.Propane.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.HydroCrackedPropene.getFluid(100)).fluidOutputs(Materials.Methane.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(3).fluidInputs(GAMaterials.HydroCrackedPropene.getFluid(100)).fluidOutputs(GAMaterials.Ethylene.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(180).EUt(30).fluidInputs(GAMaterials.SteamCrackedPropene.getFluid(500)).fluidOutputs(Materials.Methane.getFluid(750)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.HydroCrackedPropane.getFluid(100)).fluidOutputs(Materials.Methane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.HydroCrackedPropane.getFluid(100)).fluidOutputs(GAMaterials.Ethane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(120).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.SteamCrackedPropane.getFluid(500)).fluidOutputs(Materials.Methane.getFluid(875)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.SteamCrackedPropane.getFluid(500)).fluidOutputs(GAMaterials.Ethylene.getFluid(250)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.HydroCrackedLightFuel.getFluid(100)).fluidOutputs(GAMaterials.Butane.getFluid(15)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.HydroCrackedLightFuel.getFluid(100)).fluidOutputs(GAMaterials.Propane.getFluid(20)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(3).fluidInputs(GAMaterials.HydroCrackedLightFuel.getFluid(100)).fluidOutputs(Materials.Naphtha.getFluid(80)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(48).EUt(30).circuitMeta(4).fluidInputs(GAMaterials.HydroCrackedLightFuel.getFluid(200)).fluidOutputs(Materials.Methane.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(48).EUt(30).circuitMeta(5).fluidInputs(GAMaterials.HydroCrackedLightFuel.getFluid(200)).fluidOutputs(GAMaterials.Ethane.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(1).fluidInputs(Materials.CrackedLightFuel.getFluid(1000)).fluidOutputs(Materials.HeavyFuel.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(2).fluidInputs(Materials.CrackedLightFuel.getFluid(1000)).fluidOutputs(GAMaterials.Butadiene.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(3).fluidInputs(Materials.CrackedLightFuel.getFluid(1000)).fluidOutputs(GAMaterials.Ethylene.getFluid(250)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(4).fluidInputs(Materials.CrackedLightFuel.getFluid(1000)).fluidOutputs(Materials.Naphtha.getFluid(100)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(5).fluidInputs(Materials.CrackedLightFuel.getFluid(1000)).fluidOutputs(GAMaterials.Benzene.getFluid(150)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(6).fluidInputs(Materials.CrackedLightFuel.getFluid(1000)).fluidOutputs(Materials.Methane.getFluid(250)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(7).fluidInputs(Materials.CrackedLightFuel.getFluid(1000)).fluidOutputs(Materials.Toluene.getFluid(30)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(8).fluidInputs(Materials.CrackedLightFuel.getFluid(1000)).fluidOutputs(GAMaterials.Butene.getFluid(65)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(9).fluidInputs(Materials.CrackedLightFuel.getFluid(1000)).fluidOutputs(GAMaterials.Propene.getFluid(250)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(10).fluidInputs(Materials.CrackedLightFuel.getFluid(1000)).fluidOutputs(GAMaterials.Propane.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(11).fluidInputs(Materials.CrackedLightFuel.getFluid(1000)).fluidOutputs(GAMaterials.Ethane.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(180).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.HydroCrackedButane.getFluid(75)).fluidOutputs(GAMaterials.Propane.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(180).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.HydroCrackedButane.getFluid(75)).fluidOutputs(Materials.Methane.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(180).EUt(30).circuitMeta(3).fluidInputs(GAMaterials.HydroCrackedButane.getFluid(75)).fluidOutputs(GAMaterials.Ethane.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.SteamCrackedButane.getFluid(100)).fluidOutputs(Materials.Methane.getFluid(200)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(48).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.SteamCrackedButane.getFluid(100)).fluidOutputs(GAMaterials.Ethane.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(48).EUt(30).circuitMeta(3).fluidInputs(GAMaterials.SteamCrackedButane.getFluid(100)).fluidOutputs(GAMaterials.Ethylene.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(48).EUt(30).circuitMeta(4).fluidInputs(GAMaterials.SteamCrackedButane.getFluid(100)).fluidOutputs(GAMaterials.Propane.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.HydroCrackedNaphtha.getFluid(100)).fluidOutputs(GAMaterials.Propane.getFluid(30)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.HydroCrackedNaphtha.getFluid(100)).fluidOutputs(GAMaterials.Ethane.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(3).fluidInputs(GAMaterials.HydroCrackedNaphtha.getFluid(100)).fluidOutputs(Materials.Methane.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(4).fluidInputs(GAMaterials.HydroCrackedNaphtha.getFluid(100)).fluidOutputs(GAMaterials.Butane.getFluid(80)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.SteamCrackedNaphtha.getFluid(1000)).fluidOutputs(GAMaterials.Ethylene.getFluid(500)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.SteamCrackedNaphtha.getFluid(1000)).fluidOutputs(Materials.HeavyFuel.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(3).fluidInputs(GAMaterials.SteamCrackedNaphtha.getFluid(1000)).fluidOutputs(GAMaterials.Butene.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(4).fluidInputs(GAMaterials.SteamCrackedNaphtha.getFluid(1000)).fluidOutputs(GAMaterials.Propane.getFluid(15)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(5).fluidInputs(GAMaterials.SteamCrackedNaphtha.getFluid(1000)).fluidOutputs(GAMaterials.Butadiene.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(6).fluidInputs(GAMaterials.SteamCrackedNaphtha.getFluid(1000)).fluidOutputs(GAMaterials.Propene.getFluid(300)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(7).fluidInputs(GAMaterials.SteamCrackedNaphtha.getFluid(1000)).fluidOutputs(Materials.Methane.getFluid(500)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(8).fluidInputs(GAMaterials.SteamCrackedNaphtha.getFluid(1000)).fluidOutputs(Materials.Toluene.getFluid(20)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(9).fluidInputs(GAMaterials.SteamCrackedNaphtha.getFluid(1000)).fluidOutputs(GAMaterials.Benzene.getFluid(100)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(10).fluidInputs(GAMaterials.SteamCrackedNaphtha.getFluid(1000)).fluidOutputs(GAMaterials.Ethane.getFluid(65)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(11).fluidInputs(GAMaterials.SteamCrackedNaphtha.getFluid(1000)).fluidOutputs(Materials.LightFuel.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.HydroCrackedHeavyFuel.getFluid(100)).fluidOutputs(Materials.LightFuel.getFluid(60)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.HydroCrackedHeavyFuel.getFluid(100)).fluidOutputs(Materials.Naphtha.getFluid(10)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(3).fluidInputs(GAMaterials.HydroCrackedHeavyFuel.getFluid(100)).fluidOutputs(GAMaterials.Butane.getFluid(10)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(4).fluidInputs(GAMaterials.HydroCrackedHeavyFuel.getFluid(100)).fluidOutputs(GAMaterials.Propane.getFluid(10)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(48).EUt(30).circuitMeta(5).fluidInputs(GAMaterials.HydroCrackedHeavyFuel.getFluid(200)).fluidOutputs(Materials.Methane.getFluid(15)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(48).EUt(30).circuitMeta(6).fluidInputs(GAMaterials.HydroCrackedHeavyFuel.getFluid(200)).fluidOutputs(GAMaterials.Ethane.getFluid(15)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(1).fluidInputs(Materials.CrackedHeavyFuel.getFluid(1000)).fluidOutputs(GAMaterials.Ethylene.getFluid(150)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(2).fluidInputs(Materials.CrackedHeavyFuel.getFluid(1000)).fluidOutputs(GAMaterials.Propane.getFluid(10)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(3).fluidInputs(Materials.CrackedHeavyFuel.getFluid(1000)).fluidOutputs(Materials.Toluene.getFluid(80)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(4).fluidInputs(Materials.CrackedHeavyFuel.getFluid(1000)).fluidOutputs(GAMaterials.Propene.getFluid(100)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(5).fluidInputs(Materials.CrackedHeavyFuel.getFluid(1000)).fluidOutputs(GAMaterials.Benzene.getFluid(400)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(6).fluidInputs(Materials.CrackedHeavyFuel.getFluid(1000)).fluidOutputs(Materials.Naphtha.getFluid(125)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(7).fluidInputs(Materials.CrackedHeavyFuel.getFluid(1000)).fluidOutputs(Materials.LightFuel.getFluid(100)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(8).fluidInputs(Materials.CrackedHeavyFuel.getFluid(1000)).fluidOutputs(Materials.Methane.getFluid(150)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(9).fluidInputs(Materials.CrackedHeavyFuel.getFluid(1000)).fluidOutputs(GAMaterials.Ethane.getFluid(15)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(10).fluidInputs(Materials.CrackedHeavyFuel.getFluid(1000)).fluidOutputs(GAMaterials.Butene.getFluid(80)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(11).fluidInputs(Materials.CrackedHeavyFuel.getFluid(1000)).fluidOutputs(GAMaterials.Butadiene.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.HydroCrackedGas.getFluid(100)).fluidOutputs(Materials.Methane.getFluid(140)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.HydroCrackedGas.getFluid(100)).fluidOutputs(Materials.Helium.getFluid(2)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(30).circuitMeta(3).fluidInputs(GAMaterials.HydroCrackedGas.getFluid(100)).fluidOutputs(Materials.Hydrogen.getFluid(134)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(192).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.SteamCrackedGas.getFluid(800)).fluidOutputs(GAMaterials.Ethylene.getFluid(20)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(192).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.SteamCrackedGas.getFluid(800)).fluidOutputs(GAMaterials.Ethane.getFluid(6)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(192).EUt(30).circuitMeta(3).fluidInputs(GAMaterials.SteamCrackedGas.getFluid(800)).fluidOutputs(Materials.Methane.getFluid(914)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(192).EUt(30).circuitMeta(4).fluidInputs(GAMaterials.SteamCrackedGas.getFluid(800)).fluidOutputs(GAMaterials.Propene.getFluid(6)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(192).EUt(30).circuitMeta(5).fluidInputs(GAMaterials.SteamCrackedGas.getFluid(800)).fluidOutputs(Materials.Helium.getFluid(16)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(18).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.HydroCrackedButene.getFluid(75)).fluidOutputs(GAMaterials.Butane.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(18).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.HydroCrackedButene.getFluid(75)).fluidOutputs(Materials.Methane.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(18).EUt(30).circuitMeta(3).fluidInputs(GAMaterials.HydroCrackedButene.getFluid(75)).fluidOutputs(GAMaterials.Ethane.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(18).EUt(30).circuitMeta(4).fluidInputs(GAMaterials.HydroCrackedButene.getFluid(75)).fluidOutputs(GAMaterials.Ethylene.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(18).EUt(30).circuitMeta(5).fluidInputs(GAMaterials.HydroCrackedButene.getFluid(75)).fluidOutputs(GAMaterials.Propene.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(19).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.SteamCrackedButene.getFluid(80)).fluidOutputs(GAMaterials.Ethylene.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(120).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.SteamCrackedButene.getFluid(500)).fluidOutputs(Materials.Methane.getFluid(750)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(3).fluidInputs(GAMaterials.SteamCrackedButene.getFluid(1000)).fluidOutputs(GAMaterials.Propene.getFluid(120)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(180).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.HydroCrackedButadiene.getFluid(75)).fluidOutputs(GAMaterials.Ethylene.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(180).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.HydroCrackedButadiene.getFluid(75)).fluidOutputs(GAMaterials.Butene.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(96).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.SteamCrackedButadiene.getFluid(400)).fluidOutputs(GAMaterials.Ethylene.getFluid(75)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(96).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.SteamCrackedButadiene.getFluid(400)).fluidOutputs(Materials.Methane.getFluid(450)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(240).EUt(30).circuitMeta(3).fluidInputs(GAMaterials.SteamCrackedButadiene.getFluid(1000)).fluidOutputs(GAMaterials.Propene.getFluid(125)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(16).circuitMeta(1).fluidInputs(GAMaterials.DilutedHydrochloricAcid.getFluid(40)).fluidOutputs(GAMaterials.HydrochloricAcid.getFluid(20)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(24).EUt(16).circuitMeta(2).fluidInputs(GAMaterials.DilutedHydrochloricAcid.getFluid(40)).fluidOutputs(Materials.Water.getFluid(20)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(30).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.DilutedSulfuricAcid.getFluid(75)).fluidOutputs(Materials.SulfuricAcid.getFluid(50)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(30).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.DilutedSulfuricAcid.getFluid(75)).fluidOutputs(Materials.Water.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(64).circuitMeta(1).fluidInputs(GAMaterials.WoodVinegar.getFluid(200)).fluidOutputs(Materials.Water.getFluid(100)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(64).circuitMeta(2).fluidInputs(GAMaterials.WoodVinegar.getFluid(200)).fluidOutputs(GAMaterials.Methanol.getFluid(60)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(64).circuitMeta(3).fluidInputs(GAMaterials.WoodVinegar.getFluid(200)).fluidOutputs(GAMaterials.MethylAcetate.getFluid(2)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(64).circuitMeta(4).fluidInputs(GAMaterials.WoodVinegar.getFluid(200)).fluidOutputs(GAMaterials.AceticAcid.getFluid(20)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(64).circuitMeta(5).fluidInputs(GAMaterials.WoodVinegar.getFluid(200)).fluidOutputs(GAMaterials.Acetone.getFluid(10)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(64).circuitMeta(6).fluidInputs(GAMaterials.WoodVinegar.getFluid(200)).fluidOutputs(Materials.Ethanol.getFluid(2)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.WoodGas.getFluid(200)).fluidOutputs(Materials.CarbonDioxide.getFluid(98)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.WoodGas.getFluid(200)).fluidOutputs(Materials.Hydrogen.getFluid(4)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(30).circuitMeta(3).fluidInputs(GAMaterials.WoodGas.getFluid(200)).fluidOutputs(GAMaterials.CarbonMonoxde.getFluid(68)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(30).circuitMeta(4).fluidInputs(GAMaterials.WoodGas.getFluid(200)).fluidOutputs(GAMaterials.Ethylene.getFluid(4)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(64).circuitMeta(5).fluidInputs(GAMaterials.WoodTar.getFluid(200)).fluidOutputs(GAMaterials.Phenol.getFluid(15)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(64).circuitMeta(6).fluidInputs(GAMaterials.WoodTar.getFluid(200)).fluidOutputs(GAMaterials.Benzene.getFluid(70)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(64).circuitMeta(7).fluidInputs(GAMaterials.WoodTar.getFluid(200)).fluidOutputs(Materials.Creosote.getFluid(100)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(64).circuitMeta(8).fluidInputs(GAMaterials.WoodTar.getFluid(200)).fluidOutputs(Materials.Toluene.getFluid(15)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(80).EUt(64).circuitMeta(1).fluidInputs(GAMaterials.CharcoalByproducts.getFluid(1000)).fluidOutputs(GAMaterials.WoodTar.getFluid(250)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(80).EUt(64).circuitMeta(2).fluidInputs(GAMaterials.CharcoalByproducts.getFluid(1000)).fluidOutputs(GAMaterials.WoodVinegar.getFluid(500)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(80).EUt(64).circuitMeta(3).fluidInputs(GAMaterials.CharcoalByproducts.getFluid(1000)).fluidOutputs(GAMaterials.WoodGas.getFluid(250)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(160).EUt(30).circuitMeta(1).fluidInputs(GAMaterials.CalciumAcetate.getFluid(1000)).fluidOutputs(GAMaterials.Acetone.getFluid(1000)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(160).EUt(30).circuitMeta(2).fluidInputs(GAMaterials.CalciumAcetate.getFluid(1000)).fluidOutputs(Materials.CarbonDioxide.getFluid(1000)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(96).fluidInputs(GAMaterials.FishOil.getFluid(24)).fluidOutputs(Materials.Lubricant.getFluid(12)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(8).circuitMeta(1).fluidInputs(GAMaterials.FermentedBiomass.getFluid(10)).fluidOutputs(GAMaterials.BioGas.getFluid(18)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(1400).EUt(8).circuitMeta(2).fluidInputs(GAMaterials.FermentedBiomass.getFluid(1000)).fluidOutputs(GAMaterials.AceticAcid.getFluid(25)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(1400).EUt(8).circuitMeta(3).fluidInputs(GAMaterials.FermentedBiomass.getFluid(1000)).fluidOutputs(Materials.Methane.getFluid(600)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(1400).EUt(8).circuitMeta(4).fluidInputs(GAMaterials.FermentedBiomass.getFluid(1000)).fluidOutputs(Materials.CarbonDioxide.getFluid(400)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(1400).EUt(8).circuitMeta(5).fluidInputs(GAMaterials.FermentedBiomass.getFluid(1000)).fluidOutputs(Materials.Ethanol.getFluid(150)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(1400).EUt(8).circuitMeta(6).fluidInputs(GAMaterials.FermentedBiomass.getFluid(1000)).fluidOutputs(GAMaterials.Ammonia.getFluid(100)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(1400).EUt(8).circuitMeta(7).fluidInputs(GAMaterials.FermentedBiomass.getFluid(1000)).fluidOutputs(GAMaterials.Methanol.getFluid(150)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(1400).EUt(8).circuitMeta(8).fluidInputs(GAMaterials.FermentedBiomass.getFluid(1000)).fluidOutputs(Materials.Water.getFluid(375)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(160).circuitMeta(1).fluidInputs(GAMaterials.Acetone.getFluid(100)).fluidOutputs(Materials.Methane.getFluid(100)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(160).circuitMeta(2).fluidInputs(GAMaterials.Acetone.getFluid(100)).fluidOutputs(GAMaterials.Ethenone.getFluid(100)).buildAndRegister();
+
+        //Fluid Heater Recipes
+        RecipeMaps.FLUID_HEATER_RECIPES.recipeBuilder().duration(16).EUt(30).fluidInputs(GAMaterials.Acetone.getFluid(100)).fluidOutputs(GAMaterials.Ethenone.getFluid(100)).buildAndRegister();
+        RecipeMaps.FLUID_HEATER_RECIPES.recipeBuilder().duration(16).EUt(30).fluidInputs(GAMaterials.CalciumAcetate.getFluid(200)).fluidOutputs(GAMaterials.Acetone.getFluid(200)).buildAndRegister();
+        RecipeMaps.FLUID_HEATER_RECIPES.recipeBuilder().duration(30).EUt(24).fluidInputs(GAMaterials.RawGrowthMedium.getFluid(500)).fluidOutputs(GAMaterials.SterilizedGrowthMedium.getFluid(500)).buildAndRegister();
+
+        //Fermenter Recipe
+        RecipeMaps.FERMENTING_RECIPES.recipeBuilder().duration(150).EUt(2).fluidInputs(Materials.Biomass.getFluid(100)).fluidOutputs(GAMaterials.FermentedBiomass.getFluid(100)).buildAndRegister();
+
+        //Fluid Extractor Recipes
+        RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(160).EUt(4).inputs(new ItemStack(Items.FISH)).fluidOutputs(GAMaterials.FishOil.getFluid(40));
+        RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(160).EUt(4).inputs(new ItemStack(Items.FISH,1,1)).fluidOutputs(GAMaterials.FishOil.getFluid(60));
+        RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(160).EUt(4).inputs(new ItemStack(Items.FISH,1,2)).fluidOutputs(GAMaterials.FishOil.getFluid(70));
+        RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(160).EUt(4).inputs(new ItemStack(Items.FISH,1,3)).fluidOutputs(GAMaterials.FishOil.getFluid(30));
 
         //Circuit Rabbit Hole - Layer 1
         for (MaterialStack stack : solderingList) {
@@ -322,7 +600,6 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(320).EUt(8).fluidInputs(GAMaterials.SulfurTrioxide.getFluid(100),Materials.Water.getFluid(1000)).fluidOutputs(Materials.SulfuricAcid.getFluid(1000)).buildAndRegister();
         RecipeMaps.ELECTROLYZER_RECIPES.recipeBuilder().duration(900).EUt(30).fluidInputs(GAMaterials.NickelSulfateSolution.getFluid(9000)).outputs(OreDictUnifier.get(OrePrefix.dust,Materials.Nickel)).fluidOutputs(Materials.Oxygen.getFluid(1000),Materials.SulfuricAcid.getFluid(8000)).buildAndRegister();
         RecipeMaps.ELECTROLYZER_RECIPES.recipeBuilder().duration(900).EUt(30).fluidInputs(GAMaterials.BlueVitriolSolution.getFluid(9000)).outputs(OreDictUnifier.get(OrePrefix.dust,Materials.Copper)).fluidOutputs(Materials.Oxygen.getFluid(1000),Materials.SulfuricAcid.getFluid(8000)).buildAndRegister();
-        RecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(600).EUt(120).fluidInputs(GAMaterials.DilutedSulfuricAcid.getFluid(3000)).fluidOutputs(Materials.SulfuricAcid.getFluid(2000),Materials.Water.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Air.getFluid(1000), GAMaterials.Tetrafluoroethylene.getFluid(144)).fluidOutputs(Materials.Polytetrafluoroethylene.getFluid(144)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.Tetrafluoroethylene.getFluid(144)).fluidOutputs(Materials.Polytetrafluoroethylene.getFluid(216)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(200).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust,GAMaterials.SodiumHydroxide)).fluidInputs(Materials.Epichlorhydrin.getFluid(1000),GAMaterials.BisphenolA.getFluid(1000)).fluidOutputs(Materials.Epoxid.getFluid(1000),GAMaterials.SaltWater.getFluid(1000)).buildAndRegister();
@@ -333,7 +610,6 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_BATH_RECIPES.recipeBuilder().duration(240).EUt(16).inputs(GAMetaItems.RAW_CARBON_FIBERS.getStackForm()).fluidInputs(Materials.Epoxid.getFluid(144)).outputs(OreDictUnifier.get(OrePrefix.plate,GAMaterials.ReinforcedEpoxyResin)).buildAndRegister();
         RecipeMaps.FLUID_SOLIDFICATION_RECIPES.recipeBuilder().duration(160).EUt(16).fluidInputs(GAMaterials.Polystyrene.getFluid(36)).notConsumable(MetaItems.SHAPE_MOLD_CYLINDER.getStackForm()).outputs(GAMetaItems.PETRI_DISH.getStackForm()).buildAndRegister();
         RecipeMaps.FLUID_SOLIDFICATION_RECIPES.recipeBuilder().duration(160).EUt(16).fluidInputs(Materials.Polytetrafluoroethylene.getFluid(36)).notConsumable(MetaItems.SHAPE_MOLD_CYLINDER.getStackForm()).outputs(GAMetaItems.PETRI_DISH.getStackForm()).buildAndRegister();
-        RecipeMaps.FLUID_HEATER_RECIPES.recipeBuilder().duration(30).EUt(24).fluidInputs(GAMaterials.RawGrowthMedium.getFluid(500)).fluidOutputs(GAMaterials.SterilizedGrowthMedium.getFluid(500)).buildAndRegister();
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(900).EUt(480).inputs(GAMetaItems.RAW_CRYSTAL_CHIP.getStackForm(),OreDictUnifier.get(OrePrefix.plate,Materials.Emerald)).fluidInputs(Materials.Helium.getFluid(1000)).outputs(MetaItems.CIRCUIT_PARTS_CRYSTAL_CHIP_ELITE.getStackForm()).buildAndRegister();
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(900).EUt(480).inputs(GAMetaItems.RAW_CRYSTAL_CHIP.getStackForm(),OreDictUnifier.get(OrePrefix.plate,Materials.Olivine)).fluidInputs(Materials.Helium.getFluid(1000)).outputs(MetaItems.CIRCUIT_PARTS_CRYSTAL_CHIP_ELITE.getStackForm()).buildAndRegister();
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(200).EUt(20).inputs(OreDictUnifier.get(OrePrefix.log,Materials.Wood)).chancedOutput(MetaItems.RUBBER_DROP.getStackForm(),5000).chancedOutput(MetaItems.PLANT_BALL.getStackForm(),3750).chancedOutput(OreDictUnifier.get(OrePrefix.dust,Materials.Carbon),2500).chancedOutput(OreDictUnifier.get(OrePrefix.dust,Materials.Wood),2500).fluidOutputs(Materials.Methane.getFluid(60)).buildAndRegister();
