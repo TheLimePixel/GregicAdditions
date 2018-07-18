@@ -1,6 +1,7 @@
 package gregicadditions.recipes;
 
 import gregtech.api.recipes.ModHandler;
+import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
@@ -19,6 +20,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidStack;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -188,5 +190,13 @@ public class GAMachineRecipeRemoval {
         for (FluidStack s : fluidInputs)
             fluidIn.add(s);
         map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, itemIn, fluidIn));
+    }
+
+    private static void removeAllRecipes(RecipeMap map) {
+        
+        Collection<Recipe> recipes = map.getRecipeList();
+
+        for(Recipe r : recipes)
+            map.removeRecipe(r);
     }
 }
