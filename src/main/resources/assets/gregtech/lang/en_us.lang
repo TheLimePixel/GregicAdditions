@@ -282,7 +282,15 @@ material.steamcracked_butene=Steam-Cracked Butene
 material.steamcracked_butadiene=Steam-Cracked Butadiene
 material.biogas=Bio Gas
 material.chloromethane=Chloromethane
-materials.isoprene=Isoprene
+material.allyl_chloride=Allyl Chloride
+material.isoprene=Isoprene
+material.massicot=Massicot
+material.antimony_trioxide=Antimony Trioxide
+material.zincite=Zincite
+material.cobalt_oxide=Cobalt Oxide
+material.arsenic_trioxide=Arsenic Trioxide
+material.cupric_oxide=Cupric Oxide
+material.ferrosilite=Ferrosilite
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp

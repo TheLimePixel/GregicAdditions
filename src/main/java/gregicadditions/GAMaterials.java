@@ -115,6 +115,13 @@ public class GAMaterials {
     public static FluidMaterial Chloromethane;
     public static FluidMaterial AllylChloride;
     public static FluidMaterial Isoprene;
+    public static DustMaterial Massicot;
+    public static DustMaterial AntimonyTrioxide;
+    public static DustMaterial Zincite;
+    public static DustMaterial CobaltOxide;
+    public static DustMaterial ArsenicTrioxide;
+    public static DustMaterial CupricOxide;
+    public static DustMaterial Ferrosilite;
 
     static {
         long STD_SOLID = DustMaterial.MatFlags.GENERATE_PLATE |
@@ -225,9 +232,9 @@ public class GAMaterials {
         HydroCrackedButadiene = new FluidMaterial(906,"hydrocracked_butadiene",0xad5203,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
         SteamCrackedEthane = new FluidMaterial(905,"steamcracked_ethane",0x9696bc,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
         SteamCrackedEthylene = new FluidMaterial(904,"steamcracked_ethylene",0xa3a3a0,MaterialIconSet.GAS,ImmutableList.of(),FluidMaterial.MatFlags.STATE_GAS);
-        SteamCrackedPropene = new FluidMaterial(903,"steamocracked_propene",0xbea540,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
-        SteamCrackedPropane = new FluidMaterial(902,"steamocracked_propane",0xbea540,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
-        SteamCrackedButane = new FluidMaterial(901,"steamocracked_butane",0x852c18,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        SteamCrackedPropene = new FluidMaterial(903,"steamcracked_propene",0xbea540,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        SteamCrackedPropane = new FluidMaterial(902,"steamcracked_propane",0xbea540,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+        SteamCrackedButane = new FluidMaterial(901,"steamcracked_butane",0x852c18,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
         SteamCrackedNaphtha = new FluidMaterial(900,"steamcracked_naphtha",0xbfb608,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
         SteamCrackedGas = new FluidMaterial(899,"steamcracked_gas",0xb4b4b4,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
         SteamCrackedButene = new FluidMaterial(898,"steamcracked_butene",0x993e05,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
@@ -236,5 +243,12 @@ public class GAMaterials {
         Chloromethane = new FluidMaterial(895,"chloromethane",0x9d2e81,MaterialIconSet.GAS,ImmutableList.of(new MaterialStack(Materials.Carbon,1),new MaterialStack(Materials.Hydrogen,3),new MaterialStack(Materials.Chlorine,1)),FluidMaterial.MatFlags.STATE_GAS | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         AllylChloride = new FluidMaterial(894,"allyl_chloride",0x71ae8a,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,3),new MaterialStack(Materials.Hydrogen,5),new MaterialStack(Materials.Chlorine,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         Isoprene = new FluidMaterial(893,"isoprene",0x1d1d1d,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,5),new MaterialStack(Materials.Hydrogen,8)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        Massicot = new DustMaterial(892,"massicot",0x88762d,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Lead,1),new MaterialStack(Materials.Oxygen,1)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        AntimonyTrioxide = new DustMaterial(891,"antimony_trioxide",0x7b7b80,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Antimony,2),new MaterialStack(Materials.Oxygen,3)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        Zincite = new DustMaterial(890,"zincite",0x888883,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Zinc,1),new MaterialStack(Materials.Oxygen,1)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        CobaltOxide = new DustMaterial(889,"cobalt_oxide",0x364400,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Cobalt,1),new MaterialStack(Materials.Oxygen,1)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        ArsenicTrioxide = new DustMaterial(888,"arsenic_trioxide",0xf1f1f1,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Arsenic,2),new MaterialStack(Materials.Oxygen,3)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        CupricOxide = new DustMaterial(887,"cupric_oxide",0x080808,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Copper,1),new MaterialStack(Materials.Oxygen,1)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        Ferrosilite = new DustMaterial(886,"ferrosilite",0x503516,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Iron,1),new MaterialStack(Materials.Silicon,1),new MaterialStack(Materials.Oxygen,3)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
     }
 }
