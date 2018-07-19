@@ -174,6 +174,12 @@ public class GAMachineRecipeRemoval {
         //Remove Pyrolise Oven Recipes
         removeAllRecipes(RecipeMaps.PYROLYSE_RECIPES);
 
+        //Remove Hydrogen Sulfide Recipes
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES,Materials.NaturalGas.getFluid(1600),Materials.Hydrogen.getFluid(1000));
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES,Materials.SulfuricGas.getFluid(1600),Materials.Hydrogen.getFluid(1000));
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES,Materials.SulfuricLightFuel.getFluid(1600),Materials.Hydrogen.getFluid(1000));
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES,Materials.SulfuricHeavyFuel.getFluid(1600),Materials.Hydrogen.getFluid(1000));
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES,Materials.SulfuricNaphtha.getFluid(1600),Materials.Hydrogen.getFluid(1000));
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {
