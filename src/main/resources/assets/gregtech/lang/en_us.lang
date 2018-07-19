@@ -280,6 +280,7 @@ material.cracked_heavy_fuel=Steam-Cracked Heavy Fuel
 material.steamcracked_gas=Steam-Cracked Refinery Gas
 material.steamcracked_butene=Steam-Cracked Butene
 material.steamcracked_butadiene=Steam-Cracked Butadiene
+material.biogas=Bio Gas
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp

@@ -171,6 +171,9 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.DISTILLERY_RECIPES,Materials.CrackedHeavyFuel.getFluid(25));
         removeRecipesByInputs(RecipeMaps.DISTILLERY_RECIPES,Materials.CrackedLightFuel.getFluid(25));
 
+        //Remove Pyrolise Oven Recipes
+        removeAllRecipes(RecipeMaps.PYROLYSE_RECIPES);
+
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {
