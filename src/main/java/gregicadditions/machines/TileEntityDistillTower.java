@@ -47,7 +47,7 @@ public class TileEntityDistillTower extends RecipeMapMultiblockController {
     protected BlockPattern createStructurePattern() {
         return SingleLimitFactory.start(RIGHT, FRONT, UP)
                 .aisle("YSY", "YZY", "YYY")
-                .aisle("XXX", "X#X", "XXX").setRepeatable(0, 11)
+                .aisle("XXX", "X#X", "XXX").setRepeatable(0, 10)
                 .aisle("XXX", "XXX", "XXX")
                 .where('S', selfPredicate())
                 .where('Z', abilityPartPredicate(MultiblockAbility.IMPORT_FLUIDS))
