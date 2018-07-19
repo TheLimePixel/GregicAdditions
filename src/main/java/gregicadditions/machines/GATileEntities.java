@@ -9,6 +9,8 @@ public class GATileEntities {
     public static SimpleMachineMetaTileEntity[] CIRCUITASSEMBLER = new SimpleMachineMetaTileEntity[4];
     public static SimpleMachineMetaTileEntity[] CLUSTERMILL = new SimpleMachineMetaTileEntity[4];
 
+    public static TileEntityDistillTower DISTILL_TOWER;
+
     public static TileEntityCokeOven COKE_OVEN;
 
     public static void init() {
@@ -23,5 +25,7 @@ public class GATileEntities {
         CLUSTERMILL[3] = GregTechAPI.registerMetaTileEntity(2007, new SimpleMachineMetaTileEntity("cluster_mill.ev", GARecipeMaps.CLUSTER_MILL_RECIPES, Textures.WIREMILL_OVERLAY, 4));
 
         COKE_OVEN = GregTechAPI.registerMetaTileEntity(2500, new TileEntityCokeOven("coke_oven"));
+
+        DISTILL_TOWER = GregTechAPI.registerMetaTileEntity(2501, new TileEntityDistillTower("distill_tower"));
     }
 }
