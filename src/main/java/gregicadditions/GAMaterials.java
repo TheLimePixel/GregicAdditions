@@ -11,7 +11,7 @@ public class GAMaterials {
     public static DustMaterial Brick;
     public static DustMaterial Fireclay;
     public static GemMaterial Coke;
-    public static DustMaterial PhosphorusPentoxide;
+    public static DustMaterial PhosphorousPentoxide;
     public static FluidMaterial PhosphoricAcid;
     public static FluidMaterial PolyvinylAcetate;
     public static FluidMaterial Phenol;
@@ -122,6 +122,7 @@ public class GAMaterials {
     public static DustMaterial ArsenicTrioxide;
     public static DustMaterial CupricOxide;
     public static DustMaterial Ferrosilite;
+    public static DustMaterial Magnesia;
 
     static {
         long STD_SOLID = DustMaterial.MatFlags.GENERATE_PLATE |
@@ -139,7 +140,7 @@ public class GAMaterials {
         Brick = new DustMaterial(999,"brick",0xB75A40,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Aluminium,4),new MaterialStack(Materials.Silicon,3),new MaterialStack(Materials.Oxygen,12)),Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
         Fireclay = new DustMaterial(998,"fireclay",0x928073,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Clay,1),new MaterialStack(Brick,1)),Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
         Coke = new GemMaterial(997,"coke",0x6f6f80,MaterialIconSet.valueOf("COKE"),1,ImmutableList.of(new MaterialStack(Materials.Carbon,1)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING | SolidMaterial.MatFlags.MORTAR_GRINDABLE | Material.MatFlags.FLAMMABLE  | DustMaterial.MatFlags.NO_SMELTING | DustMaterial.MatFlags.NO_SMASHING);
-        PhosphorusPentoxide = new DustMaterial(996,"phosphorus_pentoxide",0x7c7d00,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Phosphorus,4),new MaterialStack(Materials.Oxygen,10)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        PhosphorousPentoxide = new DustMaterial(996,"phosphorus_pentoxide",0x7c7d00,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Phosphorus,4),new MaterialStack(Materials.Oxygen,10)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         PhosphoricAcid = new FluidMaterial(995,"phosphoric_acid",0xaeae10,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Hydrogen,3),new MaterialStack(Materials.Phosphorus,4)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         PolyvinylAcetate = new FluidMaterial(994,"polyvinyl_acetate",0xc87e4c,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,4),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Oxygen,2)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
         Phenol = new FluidMaterial(993,"phenol",0x654027,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,6),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Oxygen,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
@@ -250,5 +251,6 @@ public class GAMaterials {
         ArsenicTrioxide = new DustMaterial(888,"arsenic_trioxide",0xf1f1f1,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Arsenic,2),new MaterialStack(Materials.Oxygen,3)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         CupricOxide = new DustMaterial(887,"cupric_oxide",0x080808,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Copper,1),new MaterialStack(Materials.Oxygen,1)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         Ferrosilite = new DustMaterial(886,"ferrosilite",0x503516,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Iron,1),new MaterialStack(Materials.Silicon,1),new MaterialStack(Materials.Oxygen,3)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        Magnesia = new DustMaterial(885,"magnesia",0x887878,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Magnesium,1),new MaterialStack(Materials.Oxygen,1)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
     }
 }

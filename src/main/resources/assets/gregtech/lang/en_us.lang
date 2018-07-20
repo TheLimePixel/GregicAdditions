@@ -164,6 +164,8 @@ gregtech.machine.cluster_mill.mv.name=Advanced Cluster Mill
 gregtech.machine.cluster_mill.hv.name=Advanced Cluster Mill II
 gregtech.machine.cluster_mill.ev.name=Advanced Cluster Mill III
 
+gregtech.machine.distill_tower.name=Distillation Tower
+
 gregtech.machine.coke_oven.name=Coke Oven
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 
@@ -177,7 +179,7 @@ recipemap.coke_oven.name=Coke Oven
 material.brick=Brick
 material.fireclay=Fireclay
 material.coke=Coal Coke
-material.phosphorus_pentoxide=Phosphorus Pentoxide
+material.phosphorous_pentoxide=Phosphorous Pentoxide
 material.phosphoric_acid=Prosphoric Acid
 material.polyvinyl_acetate=Polyvinyl Acetate
 material.phenol=Phenol
@@ -248,7 +250,7 @@ material.propene=Propene
 material.ethane=Ethane
 material.butene=Butene
 material.butane=Butane
-material.calcium_acetate=Calcium Acetate
+material.calcium_acetate=Calcium Acetate Solution
 material.cumene=Cumene
 material.indium_gallium_phosphide=Indium Gallium Phosphide
 material.platinum_group_sludge=Platinum Group Sludge
@@ -291,6 +293,7 @@ material.cobalt_oxide=Cobalt Oxide
 material.arsenic_trioxide=Arsenic Trioxide
 material.cupric_oxide=Cupric Oxide
 material.ferrosilite=Ferrosilite
+material.magnesia=Magnesia
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp
