@@ -10,6 +10,7 @@ public class GATileEntities {
     public static SimpleMachineMetaTileEntity[] CLUSTERMILL = new SimpleMachineMetaTileEntity[4];
 
     public static TileEntityDistillTower DISTILL_TOWER;
+    public static TileEntityAssemblyLine ASSEMBLY_LINE;
 
     public static TileEntityCokeOven COKE_OVEN;
 
@@ -27,5 +28,6 @@ public class GATileEntities {
         COKE_OVEN = GregTechAPI.registerMetaTileEntity(2500, new TileEntityCokeOven("coke_oven"));
 
         DISTILL_TOWER = GregTechAPI.registerMetaTileEntity(2501, new TileEntityDistillTower("distill_tower"));
+        ASSEMBLY_LINE = GregTechAPI.registerMetaTileEntity(2502, new TileEntityAssemblyLine("assembly_line"));
     }
 }
