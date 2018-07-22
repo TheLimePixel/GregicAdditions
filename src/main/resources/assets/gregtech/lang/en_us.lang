@@ -153,6 +153,9 @@ metaitem.crystal.cpu.name=Crystal Processing Unit
 metaitem.crystal.cpu.tooltip=Crystal CPU
 metaitem.crystal.soc.name=Crystal SoC
 metaitem.crystal.soc.tooltip=Crystal System on a Chip
+metaitem.ultimate.pipe.small.name=Small High Pressure Pipe
+metaitem.ultimate.pipe.name=High Pressure Pipe
+metaitem.ultimate.pipe.large.name=Large High Pressure Pipe
 
 gregtech.machine.circuit_assembler.lv.name=Basic Circuit Assembling Machine
 gregtech.machine.circuit_assembler.mv.name=Advanced Circuit Assembling Machine
@@ -165,8 +168,9 @@ gregtech.machine.cluster_mill.hv.name=Advanced Cluster Mill II
 gregtech.machine.cluster_mill.ev.name=Advanced Cluster Mill III
 
 gregtech.machine.distill_tower.name=Distillation Tower
-
+gregtech.machine.assembly_line.name=Assembly Line
 gregtech.machine.coke_oven.name=Coke Oven
+
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 
 metaitem.tool.bending_cylinder.name=%s Bending Cylinder
@@ -175,6 +179,8 @@ metaitem.tool.bending_cylinder_small.name=%s Small Bending Cylinder
 recipemap.cluster_mill.name=Cluster Mill
 recipemap.circuit_assembler.name=Circuit Assembler
 recipemap.coke_oven.name=Coke Oven
+recipemap.distill_tower.name=Distillation Tower
+recipemap.assembly_line.name=CAssembly Line
 
 material.brick=Brick
 material.fireclay=Fireclay
@@ -294,6 +300,7 @@ material.arsenic_trioxide=Arsenic Trioxide
 material.cupric_oxide=Cupric Oxide
 material.ferrosilite=Ferrosilite
 material.magnesia=Magnesia
+material.ga_sodium_sulfide=Sodium Sulfide
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp
@@ -360,6 +367,9 @@ item.cooked_meat.dust=Cooked Mince Meat
 
 item.material.oreprefix.plateCurved=Curved %s Plate
 item.material.oreprefix.ingotDouble=%s Double Ingot
+item.material.oreprefix.pipeGaSmall=Small %s Pipe
+item.material.oreprefix.pipeGa=%s Pipe
+item.material.oreprefix.pipeGaLarge=Large %s Pipe
 
 metaitem.circuit.parts.advanced.name=Microprocessor
 metaitem.circuit.parts.advanced.tooltip=A Basic Circuit

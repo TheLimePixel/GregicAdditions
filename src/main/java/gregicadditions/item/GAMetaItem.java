@@ -10,8 +10,8 @@ import java.util.Arrays;
 public class GAMetaItem extends MaterialMetaItem {
 
     public GAMetaItem() {
-        super(OrePrefix.valueOf("plateCurved"), OrePrefix.valueOf("ingotDouble"), null, null,
-                null, null, null, null, null, null, null,
+        super(OrePrefix.valueOf("plateCurved"), OrePrefix.valueOf("ingotDouble"), OrePrefix.valueOf("round"), OrePrefix.valueOf("pipeGaSmall"),
+                OrePrefix.valueOf("pipeGa"), OrePrefix.valueOf("pipeGaLarge"), null, null, null, null, null,
                 null, null, null, null, null, null, null,
                 null, null, null, null, null, null, null,
                 null, null, null, null, null, null, null);
@@ -103,6 +103,9 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.RAW_CRYSTAL_CHIP = addItem(82,"crystal.raw");
         GAMetaItems.CRYSTAL_CPU = addItem(83,"crystal.cpu");
         GAMetaItems.CRYSTAL_SOC = addItem(84,"crystal.soc");
+        GAMetaItems.ULTIMATE_PIPE_SMALL = addItem(101,"ultimate.pipe.small");
+        GAMetaItems.ULTIMATE_PIPE = addItem(102,"ultimate.pipe");
+        GAMetaItems.ULTIMATE_PIPE_LARGE = addItem(103,"ultimate.pipe.large");
     }
 
     public boolean hasContainerItem(ItemStack stack) {

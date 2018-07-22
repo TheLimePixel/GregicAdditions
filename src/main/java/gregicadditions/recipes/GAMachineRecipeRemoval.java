@@ -49,6 +49,36 @@ public class GAMachineRecipeRemoval {
             if (m instanceof IngotMaterial && !m.hasFlag(DustMaterial.MatFlags.NO_SMASHING)) {
                 ModHandler.removeRecipeByName(new ResourceLocation(String.format("gregtech:wrench_%s", m.toString())));
             }
+
+
+            //Remove EV+ Cable Recipes
+            removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
+                    new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtSingle, m), IntCircuitIngredient.getIntegratedCircuit(24)},
+                    new FluidStack[]{Materials.Rubber.getFluid(144)});
+            removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
+                    new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtSingle, m,2), IntCircuitIngredient.getIntegratedCircuit(25)},
+                    new FluidStack[]{Materials.Rubber.getFluid(288)});
+            removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
+                    new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtSingle, m,4), IntCircuitIngredient.getIntegratedCircuit(26)},
+                    new FluidStack[]{Materials.Rubber.getFluid(576)});
+            removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
+                    new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtSingle, m,8), IntCircuitIngredient.getIntegratedCircuit(27)},
+                    new FluidStack[]{Materials.Rubber.getFluid(1152)});
+            removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
+                    new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtSingle, m,16), IntCircuitIngredient.getIntegratedCircuit(28)},
+                    new FluidStack[]{Materials.Rubber.getFluid(2304)});
+            removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
+                    new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtDouble, m), IntCircuitIngredient.getIntegratedCircuit(24)},
+                    new FluidStack[]{Materials.Rubber.getFluid(288)});
+            removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
+                    new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtQuadruple, m), IntCircuitIngredient.getIntegratedCircuit(24)},
+                    new FluidStack[]{Materials.Rubber.getFluid(576)});
+            removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
+                    new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtOctal, m), IntCircuitIngredient.getIntegratedCircuit(24)},
+                    new FluidStack[]{Materials.Rubber.getFluid(1152)});
+            removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
+                    new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtHex, m), IntCircuitIngredient.getIntegratedCircuit(24)},
+                    new FluidStack[]{Materials.Rubber.getFluid(2304)});
         }
         //Remove Old Bucket Recipe
         removeRecipesByInputs(RecipeMaps.BENDER_RECIPES,
@@ -189,6 +219,9 @@ public class GAMachineRecipeRemoval {
         //Remove GT5 Ash Centrifuging
         removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES,OreDictUnifier.get(OrePrefix.dust,Materials.DarkAsh));
         removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES,OreDictUnifier.get(OrePrefix.dust,Materials.Ash));
+
+        //Remove Alloy Smelter Rubber Recipe
+        removeRecipesByInputs(RecipeMaps.ALLOY_SMELTER_RECIPES,OreDictUnifier.get(OrePrefix.dust,Materials.RawRubber,3),OreDictUnifier.get(OrePrefix.dust,Materials.Sulfur));
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {

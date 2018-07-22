@@ -97,6 +97,9 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem RAW_CRYSTAL_CHIP;
     public static MetaItem<?>.MetaValueItem CRYSTAL_CPU;
     public static MetaItem<?>.MetaValueItem CRYSTAL_SOC;
+    public static MetaItem<?>.MetaValueItem ULTIMATE_PIPE_SMALL;
+    public static MetaItem<?>.MetaValueItem ULTIMATE_PIPE;
+    public static MetaItem<?>.MetaValueItem ULTIMATE_PIPE_LARGE;
 
     public static MetaItem<?>.MetaValueItem BENDING_CYLINDER;
     public static MetaItem<?>.MetaValueItem SMALL_BENDING_CYLINDER;
