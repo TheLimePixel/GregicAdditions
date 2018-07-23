@@ -115,6 +115,14 @@ public class GAMetaItem extends MaterialMetaItem {
         MetaItems.CIRCUIT_DATA.setUnificationData(OrePrefix.valueOf("circuitGA"),GAMaterials.Extreme);
         MetaItems.CIRCUIT_ELITE.setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Elite);
         MetaItems.CIRCUIT_MASTER.setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Master);
+
+        MetaItems.EMPTY_BOARD_BASIC.setInvisible();
+        MetaItems.EMPTY_BOARD_ELITE.setInvisible();
+        MetaItems.CIRCUIT_BOARD_BASIC.setInvisible();
+        MetaItems.CIRCUIT_BOARD_ADVANCED.setInvisible();
+        MetaItems.CIRCUIT_PARTS_WIRING_BASIC.setInvisible();
+        MetaItems.CIRCUIT_PARTS_WIRING_ADVANCED.setInvisible();
+        MetaItems.CIRCUIT_PARTS_WIRING_ELITE.setInvisible();
     }
 
     public boolean hasContainerItem(ItemStack stack) {
