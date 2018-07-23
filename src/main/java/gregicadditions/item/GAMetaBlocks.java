@@ -19,14 +19,20 @@ public class GAMetaBlocks {
 
     public static GAMultiblockCasing MUTLIBLOCK_CASING;
 
+    public static GATransparentCasing TRANSPARENT_CASING;
+
     public static void init() {
         MUTLIBLOCK_CASING = new GAMultiblockCasing();
         MUTLIBLOCK_CASING.setRegistryName("ga_multiblock_casing");
+
+        TRANSPARENT_CASING = new GATransparentCasing();
+        TRANSPARENT_CASING.setRegistryName("ga_transparent_casing");
     }
 
     @SideOnly(Side.CLIENT)
     public static void registerItemModels() {
         registerItemModel(MUTLIBLOCK_CASING);
+        registerItemModel(TRANSPARENT_CASING);
     }
 
     @SideOnly(Side.CLIENT)

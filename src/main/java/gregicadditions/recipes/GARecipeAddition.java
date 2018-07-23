@@ -4,8 +4,10 @@ import gregicadditions.GAMaterials;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.item.GAMultiblockCasing;
+import gregicadditions.item.GATransparentCasing;
 import gregicadditions.machines.CokeOvenRecipe;
 import gregicadditions.machines.GATileEntities;
+import gregtech.api.items.OreDictNames;
 import gregtech.api.items.ToolDictNames;
 import gregtech.api.recipes.CountableIngredient;
 import gregtech.api.recipes.ModHandler;
@@ -54,6 +56,23 @@ public class GARecipeAddition {
     private static final MaterialStack[] cableDusts = {
             new MaterialStack(GAMaterials.Polydimethylsiloxane, 1),
             new MaterialStack(GAMaterials.PolyvinylChloride,1)
+    };
+
+    private static final MaterialStack[] firstMetal = {
+            new MaterialStack(Materials.Iron,1),
+            new MaterialStack(Materials.Nickel,1),
+            new MaterialStack(Materials.Invar,2),
+            new MaterialStack(Materials.Steel,2),
+            new MaterialStack(Materials.StainlessSteel,3),
+            new MaterialStack(Materials.Titanium,3),
+            new MaterialStack(Materials.Tungsten,4),
+            new MaterialStack(Materials.TungstenSteel,5)
+    };
+
+    private static final MaterialStack[] lastMetal = {
+            new MaterialStack(Materials.Tin,0),
+            new MaterialStack(Materials.Zinc,0),
+            new MaterialStack(Materials.Aluminium,1)
     };
 
     public static void postInit() {
@@ -270,6 +289,27 @@ public class GARecipeAddition {
 
         //Wood To Pulp
         ModHandler.addShapelessRecipe("log_to_pulp", OreDictUnifier.get(OrePrefix.dust, Materials.Wood, 1), "logWood", ToolDictNames.craftingToolMortar);
+
+        //Reinforced Glass
+        int multiplier2;
+        for (MaterialStack metal1 : firstMetal) {
+            IngotMaterial material1 = (IngotMaterial) metal1.material;
+            int multiplier1 = (int) metal1.amount;
+            for (MaterialStack metal2 : lastMetal) {
+                IngotMaterial material2 = (IngotMaterial) metal2.material;
+                if ((int) metal1.amount == 1)
+                    multiplier2 = 0;
+                else
+                    multiplier2 = (int) metal2.amount;
+                ModHandler.addShapedRecipe("mixed_metal_1_"+material1.toString()+"_"+material2.toString(),GAMetaItems.MIXED_METAL_PLATE.getStackForm(multiplier1 + multiplier2),"F","M","L",'F',OreDictUnifier.get(OrePrefix.plate,material1),'M',OreDictUnifier.get(OrePrefix.plate,Materials.Bronze),'L',OreDictUnifier.get(OrePrefix.plate,material2));
+                ModHandler.addShapedRecipe("mixed_metal_2_"+material1.toString()+"_"+material2.toString(),GAMetaItems.MIXED_METAL_PLATE.getStackForm(multiplier1 + multiplier2),"F","M","L",'F',OreDictUnifier.get(OrePrefix.plate,material1),'M',OreDictUnifier.get(OrePrefix.plate,Materials.Brass),'L',OreDictUnifier.get(OrePrefix.plate,material2));
+            }
+        }
+
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(GAMetaItems.MIXED_METAL_PLATE.getStackForm()).outputs(GAMetaItems.ADVANCED_ALLOY_PLATE.getStackForm()).buildAndRegister();
+
+        RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(400).EUt(4).inputs(GAMetaItems.MIXED_METAL_PLATE.getStackForm(),OreDictUnifier.get(OrePrefix.dust,Materials.Glass)).outputs(GAMetaBlocks.TRANSPARENT_CASING.getState(GATransparentCasing.CasingType.REINFORCED_GLASS)).buildAndRegister();
+        RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(400).EUt(4).inputs(GAMetaItems.MIXED_METAL_PLATE.getStackForm(),OreDictUnifier.get(OrePrefix.block,Materials.Glass)).outputs(GAMetaBlocks.TRANSPARENT_CASING.getState(GATransparentCasing.CasingType.REINFORCED_GLASS)).buildAndRegister();
 
         //GT5U Slabs Are Made With A Saw
         ModHandler.removeRecipeByName(new ResourceLocation("minecraft:stone_slab"));
@@ -870,8 +910,8 @@ public class GARecipeAddition {
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(12000).EUt(480).inputs(OreDictUnifier.get(OrePrefix.dust,Materials.Silicon,64),OreDictUnifier.get(OrePrefix.dust,Materials.Glowstone,8)).fluidInputs(Materials.Nitrogen.getFluid(8000)).outputs(GAMetaItems.GLOWSTONE_BOULE.getStackForm()).blastFurnaceTemp(2484).buildAndRegister();
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1500).EUt(1920).inputs(OreDictUnifier.get(OrePrefix.block,Materials.Silicon,15),OreDictUnifier.get(OrePrefix.ingot,Materials.Naquadah)).fluidInputs(Materials.Argon.getFluid(8000)).outputs(GAMetaItems.NAQUADAH_BOULE.getStackForm()).blastFurnaceTemp(5400).buildAndRegister();
         ModHandler.addShapelessRecipe("ferrite_mixture",OreDictUnifier.get(OrePrefix.dust,GAMaterials.FerriteMixture,6),OreDictUnifier.get(OrePrefix.dust,Materials.Nickel),OreDictUnifier.get(OrePrefix.dust,Materials.Zinc),OreDictUnifier.get(OrePrefix.dust,Materials.Iron),OreDictUnifier.get(OrePrefix.dust,Materials.Iron),OreDictUnifier.get(OrePrefix.dust,Materials.Iron),OreDictUnifier.get(OrePrefix.dust,Materials.Iron));
-        for (OrePrefix prefix : Arrays.asList(OrePrefix.dust, OrePrefix.dustSmall, OrePrefix.dustTiny))
-            RecipeMaps.MIXER_RECIPES.recipeBuilder().duration((int)(600L * prefix.materialAmount / 3628800L)).EUt(8).input(prefix, Materials.Nickel, 1).input(prefix, Materials.Zinc, 1).input(prefix, Materials.Iron, 4).outputs(OreDictUnifier.getDust(GAMaterials.FerriteMixture, 6L * prefix.materialAmount)).buildAndRegister();
+        for (OrePrefix Prefix : Arrays.asList(OrePrefix.dust, OrePrefix.dustSmall, OrePrefix.dustTiny))
+            RecipeMaps.MIXER_RECIPES.recipeBuilder().duration((int)(600L * Prefix.materialAmount / 3628800L)).EUt(8).input(Prefix, Materials.Nickel, 1).input(Prefix, Materials.Zinc, 1).input(Prefix, Materials.Iron, 4).outputs(OreDictUnifier.getDust(GAMaterials.FerriteMixture, 6L * Prefix.materialAmount)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(240).EUt(96).fluidInputs(GAMaterials.Dimethyldichlorosilane.getFluid(1000),Materials.Water.getFluid(1000)).outputs(OreDictUnifier.get(OrePrefix.dust,GAMaterials.Polydimethylsiloxane,3)).fluidOutputs(GAMaterials.DilutedHydrochloricAcid.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(480).EUt(96).inputs(OreDictUnifier.get(OrePrefix.dust,Materials.Silicon)).fluidInputs(GAMaterials.HydrochloricAcid.getFluid(2000),GAMaterials.Methanol.getFluid(2000)).outputs(OreDictUnifier.get(OrePrefix.dust,GAMaterials.Polydimethylsiloxane,3)).fluidOutputs(GAMaterials.DilutedHydrochloricAcid.getFluid(2000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(480).EUt(96).inputs(OreDictUnifier.get(OrePrefix.dust,Materials.Silicon)).fluidInputs(Materials.Water.getFluid(1000),Materials.Chlorine.getFluid(4000),Materials.Methane.getFluid(2000)).outputs(OreDictUnifier.get(OrePrefix.dust,GAMaterials.Polydimethylsiloxane,3)).fluidOutputs(GAMaterials.HydrochloricAcid.getFluid(2000),GAMaterials.DilutedHydrochloricAcid.getFluid(2000)).buildAndRegister();
@@ -935,8 +975,8 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(60).EUt(8).fluidInputs(Materials.Hydrogen.getFluid(1000),Materials.Fluorine.getFluid(1000)).fluidOutputs(GAMaterials.HydrofluoricAcid.getFluid(1000)).buildAndRegister();
         RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(40).EUt(8).inputs(OreDictUnifier.get(OrePrefix.dust,Materials.Salt)).fluidInputs(Materials.Water.getFluid(1000)).fluidOutputs(GAMaterials.SaltWater.getFluid(2000)).buildAndRegister();
         ModHandler.addShapelessRecipe("borosilicate_glass",OreDictUnifier.get(OrePrefix.dust,GAMaterials.BorosilicateGlass,8),OreDictUnifier.get(OrePrefix.dust,Materials.Boron),OreDictUnifier.get(OrePrefix.dust,Materials.Glass),OreDictUnifier.get(OrePrefix.dust,Materials.Glass),OreDictUnifier.get(OrePrefix.dust,Materials.Glass),OreDictUnifier.get(OrePrefix.dust,Materials.Glass),OreDictUnifier.get(OrePrefix.dust,Materials.Glass),OreDictUnifier.get(OrePrefix.dust,Materials.Glass),OreDictUnifier.get(OrePrefix.dust,Materials.Glass));
-        for (OrePrefix prefix : Arrays.asList(OrePrefix.dust, OrePrefix.dustSmall, OrePrefix.dustTiny))
-            RecipeMaps.MIXER_RECIPES.recipeBuilder().duration((int)(800L * prefix.materialAmount / 3628800L)).EUt(8).input(prefix, Materials.Boron, 1).input(prefix, Materials.Glass, 7).outputs(OreDictUnifier.getDust(GAMaterials.BorosilicateGlass, 8L * prefix.materialAmount)).buildAndRegister();
+        for (OrePrefix Prefix : Arrays.asList(OrePrefix.dust, OrePrefix.dustSmall, OrePrefix.dustTiny))
+            RecipeMaps.MIXER_RECIPES.recipeBuilder().duration((int)(800L * Prefix.materialAmount / 3628800L)).EUt(8).input(Prefix, Materials.Boron, 1).input(Prefix, Materials.Glass, 7).outputs(OreDictUnifier.getDust(GAMaterials.BorosilicateGlass, 8L * Prefix.materialAmount)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(30).fluidInputs(GAMaterials.Ethylene.getFluid(1000),GAMaterials.Benzene.getFluid(1000)).fluidOutputs(Materials.Hydrogen.getFluid(2000),GAMaterials.Styrine.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(1920).EUt(30).fluidInputs(GAMaterials.PhosphoricAcid.getFluid(1000),GAMaterials.Benzene.getFluid(8000),GAMaterials.Propene.getFluid(8000)).fluidOutputs(GAMaterials.Cumene.getFluid(8000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(240).EUt(96).inputs(OreDictUnifier.get(OrePrefix.dust,Materials.Silicon)).fluidInputs(GAMaterials.Chloromethane.getFluid(2000)).fluidOutputs(GAMaterials.Dimethyldichlorosilane.getFluid(1000)).buildAndRegister();

@@ -28,12 +28,15 @@ public class CommonProxy {
         IForgeRegistry<Block> registry = event.getRegistry();
 
         registry.register(GAMetaBlocks.MUTLIBLOCK_CASING);
+
+        registry.register(GAMetaBlocks.TRANSPARENT_CASING);
     }
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
 
         registry.register(createItemBlock(GAMetaBlocks.MUTLIBLOCK_CASING, VariantItemBlock::new));
+        registry.register(createItemBlock(GAMetaBlocks.TRANSPARENT_CASING, VariantItemBlock::new));
     }
 
     private static <T extends Block> ItemBlock createItemBlock(T block, Function<T, ItemBlock> producer) {

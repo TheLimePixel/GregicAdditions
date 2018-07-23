@@ -172,6 +172,7 @@ gregtech.machine.assembly_line.name=Assembly Line
 gregtech.machine.coke_oven.name=Coke Oven
 
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
+tile.ga_transparent_casing.reinforced_glass.name=Reinforced Glass
 
 metaitem.tool.bending_cylinder.name=%s Bending Cylinder
 metaitem.tool.bending_cylinder_small.name=%s Small Bending Cylinder
