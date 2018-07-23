@@ -124,6 +124,8 @@ public class GAMaterials {
     public static DustMaterial Ferrosilite;
     public static DustMaterial Magnesia;
     public static DustMaterial GASodiumSulfide;
+    public static Material Extreme = new MarkerMaterial("extreme");
+    public static Material Infinite = new MarkerMaterial("infinite");
 
     static {
         long STD_SOLID = DustMaterial.MatFlags.GENERATE_PLATE |
