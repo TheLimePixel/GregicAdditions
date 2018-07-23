@@ -1,6 +1,9 @@
 package gregicadditions.recipes;
 
 import gregicadditions.GAMaterials;
+import gregicadditions.item.GAMetaBlocks;
+import gregicadditions.item.GAMetaItems;
+import gregicadditions.item.GATransparentCasing;
 import gregicadditions.machines.GATileEntities;
 import gregtech.api.items.OreDictNames;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -14,6 +17,7 @@ import gregtech.common.metatileentities.MetaTileEntities;
 import gregtech.loaders.load.MetaTileEntityLoader.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 
 import java.util.Arrays;
 
@@ -21,9 +25,98 @@ import static gregtech.api.GTValues.W;
 
 public class MachineCraftingRecipes {
 
+    public static String[] tiers = {
+            "lv",
+            "mv",
+            "hv",
+            "ev"
+    };
+
     public static void init() {
+        for (String tier : tiers) {
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.alloy.smelter." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.assembler." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.bender." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.canner." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.compressor." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.cutter." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.electric.furnace." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.extractor." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.extruder." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.lathe." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.macerator." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.microwave." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.wiremill." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.centrifuge." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.electrolyzer." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.thermal.centrifuge." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.ore.washer" + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.unpacker." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.chemical.reactor." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fluid.canner." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.brewer." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fermenter." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fluid.extractor." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fluid.solidifier." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.distillery." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.chemical.bath." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.polarizor." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.electromagnetic.separator." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.autoclave." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.mixer." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.laser.engraver." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.forming.press." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.forge.hammer." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fluid.heater." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.sifter." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.arc.furnace." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.plasma.arc.furnace." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.pump." + tier));
+        }
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.pump.iv"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.pump.ulv"));
+
         registerMachineRecipe(GATileEntities.CLUSTERMILL,"MMM","CHC","MMM",'M',Type.MOTOR,'C',Type.CIRCUIT,'H',Type.HULL);
         registerMachineRecipe(GATileEntities.CIRCUITASSEMBLER, "ACE", "VMV", "WCW", 'M',Type.HULL, 'V', Type.CONVEYOR, 'A', Type.ROBOT_ARM, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'E', Type.EMITTER);
+        registerMachineRecipe(MetaTileEntities.ALLOY_SMELTER, "ECE", "CMC", "WCW", 'M', Type.HULL, 'E', Type.CIRCUIT, 'W', Type.CABLE, 'C', Type.COIL_HEATING_DOUBLE);
+        registerMachineRecipe(MetaTileEntities.ASSEMBLER, "ACA", "VMV", "WCW", 'M', Type.HULL, 'V', Type.CONVEYOR, 'A', Type.ROBOT_ARM, 'C', Type.CIRCUIT, 'W', Type.CABLE);
+        registerMachineRecipe(MetaTileEntities.BENDER, "PwP", "CMC", "EWE", 'M', Type.HULL, 'E', Type.MOTOR, 'P', Type.PISTON, 'C', Type.CIRCUIT, 'W', Type.CABLE);
+        registerMachineRecipe(MetaTileEntities.CANNER, "WPW", "CMC", "GGG", 'M', Type.HULL, 'P', Type.PUMP, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS);
+        registerMachineRecipe(MetaTileEntities.COMPRESSOR, " C ", "PMP", "WCW", 'M', Type.HULL, 'P', Type.PISTON, 'C', Type.CIRCUIT, 'W', Type.CABLE);
+        registerMachineRecipe(MetaTileEntities.CUTTER, "WCG", "VMB", "CWE", 'M', Type.HULL, 'E', Type.MOTOR, 'V', Type.CONVEYOR, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS, 'B', OreDictNames.craftingDiamondBlade);
+        registerMachineRecipe(MetaTileEntities.ELECTRIC_FURNACE, "ECE", "CMC", "WCW", 'M', Type.HULL, 'E', Type.CIRCUIT, 'W', Type.CABLE, 'C', Type.COIL_HEATING);
+        registerMachineRecipe(MetaTileEntities.EXTRACTOR, "GCG", "EMP", "WCW", 'M', Type.HULL, 'E', Type.PISTON, 'P', Type.PUMP, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS);
+        registerMachineRecipe(MetaTileEntities.EXTRUDER, "CCE", "XMP", "CCE", 'M', Type.HULL, 'X', Type.PISTON, 'E', Type.CIRCUIT, 'P', Type.PIPE, 'C', Type.COIL_HEATING_DOUBLE);
+        registerMachineRecipe(MetaTileEntities.LATHE, "WCW", "EMD", "CWP", 'M', Type.HULL, 'E', Type.MOTOR, 'P', Type.PISTON, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'D', Type.DIAMOND);
+        registerMachineRecipe(MetaTileEntities.MACERATOR, "PEG", "WWM", "CCW", 'M', Type.HULL, 'E', Type.MOTOR, 'P', Type.PISTON, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GRINDER);
+        registerMachineRecipe(MetaTileEntities.MICROWAVE, "LWC", "LMR", "LEC", 'M', Type.HULL, 'E', Type.MOTOR, 'R', Type.EMITTER, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'L', new UnificationEntry(OrePrefix.plate, Materials.Lead));
+        registerMachineRecipe(MetaTileEntities.WIREMILL, "EWE", "CMC", "EWE", 'M', Type.HULL, 'E', Type.MOTOR, 'C', Type.CIRCUIT, 'W', Type.CABLE);
+        registerMachineRecipe(MetaTileEntities.CENTRIFUGE, "CEC", "WMW", "CEC", 'M', Type.HULL, 'E', Type.MOTOR, 'C', Type.CIRCUIT, 'W', Type.CABLE);
+        registerMachineRecipe(MetaTileEntities.ELECTROLYZER, "IGI", "IMI", "CWC", 'M', Type.HULL, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'I', Type.WIRE, 'G', Type.GLASS);
+        registerMachineRecipe(MetaTileEntities.THERMAL_CENTRIFUGE, "CEC", "OMO", "WEW", 'M', Type.HULL, 'E', Type.MOTOR, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'O', Type.COIL_HEATING_DOUBLE);
+        registerMachineRecipe(MetaTileEntities.ORE_WASHER, "RGR", "CEC", "WMW", 'M', Type.HULL, 'R', Type.ROTOR, 'E', Type.MOTOR, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS);
+        registerMachineRecipe(MetaTileEntities.PACKER, "BCB", "RMV", "WCW", 'M', Type.HULL, 'R', Type.ROBOT_ARM, 'V', Type.CONVEYOR, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'B', OreDictNames.chestWood);
+        registerMachineRecipe(MetaTileEntities.UNPACKER, "BCB", "VMR", "WCW", 'M', Type.HULL, 'R', Type.ROBOT_ARM, 'V', Type.CONVEYOR, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'B', OreDictNames.chestWood);
+        registerMachineRecipe(MetaTileEntities.CHEMICAL_REACTOR, "GRG", "WEW", "CMC", 'M', Type.HULL, 'R', Type.ROTOR, 'E', Type.MOTOR, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS);
+        registerMachineRecipe(MetaTileEntities.FLUID_CANNER, "GCG", "GMG", "WPW", 'M', Type.HULL, 'P', Type.PUMP, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS);
+        registerMachineRecipe(MetaTileEntities.BREWERY, "GPG", "WMW", "CBC", 'M', Type.HULL, 'P', MetaItems.ELECTRIC_PUMP_LV, 'B', Type.STICK_DISTILLATION, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', new ItemStack(Blocks.GLASS));
+        registerMachineRecipe(MetaTileEntities.FERMENTER, "WPW", "GMG", "WCW", 'M', Type.HULL, 'P', Type.PUMP, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS);
+        registerMachineRecipe(MetaTileEntities.FLUID_EXTRACTOR, "GCG", "PME", "WCW", 'M', Type.HULL, 'E', Type.PISTON, 'P', Type.PUMP, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS);
+        registerMachineRecipe(MetaTileEntities.FLUID_SOLIDIFIER, "PGP", "WMW", "CBC", 'M', Type.HULL, 'P', Type.PUMP, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS, 'B', OreDictNames.chestWood);
+        registerMachineRecipe(MetaTileEntities.DISTILLERY, "GBG", "CMC", "WPW", 'M', Type.HULL, 'P', Type.PUMP, 'B', Type.STICK_DISTILLATION, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS);
+        registerMachineRecipe(MetaTileEntities.CHEMICAL_BATH, "VGW", "PGV", "CMC", 'M', Type.HULL, 'P', Type.PUMP, 'V', Type.CONVEYOR, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS);
+        registerMachineRecipe(MetaTileEntities.POLARIZER, "ZSZ", "WMW", "ZSZ", 'M', Type.HULL, 'S', Type.STICK_ELECTROMAGNETIC, 'Z', Type.COIL_ELECTRIC, 'W', Type.CABLE);
+        registerMachineRecipe(MetaTileEntities.ELECTROMAGNETIC_SEPARATOR, "VWZ", "WMS", "CWZ", 'M', Type.HULL, 'S', Type.STICK_ELECTROMAGNETIC, 'Z', Type.COIL_ELECTRIC, 'V', Type.CONVEYOR, 'C', Type.CIRCUIT, 'W', Type.CABLE);
+        registerMachineRecipe(MetaTileEntities.AUTOCLAVE, "IGI", "IMI", "CPC", 'M', Type.HULL, 'P', Type.PUMP, 'C', Type.CIRCUIT, 'I', Type.PLATE, 'G', Type.GLASS);
+        registerMachineRecipe(MetaTileEntities.MIXER, "GRG", "GEG", "CMC", 'M', Type.HULL, 'E', Type.MOTOR, 'R', Type.ROTOR, 'C', Type.CIRCUIT, 'G', Type.GLASS);
+        registerMachineRecipe(MetaTileEntities.LASER_ENGRAVER, "PEP", "CMC", "WCW", 'M', Type.HULL, 'E', Type.EMITTER, 'P', Type.PISTON, 'C', Type.CIRCUIT, 'W', Type.CABLE);
+        registerMachineRecipe(MetaTileEntities.FORMING_PRESS, "WPW", "CMC", "WPW", 'M', Type.HULL, 'P', Type.PISTON, 'C', Type.CIRCUIT, 'W', Type.CABLE);
+        registerMachineRecipe(MetaTileEntities.FORGE_HAMMER, "WPW", "CMC", "WAW", 'M', Type.HULL, 'P', Type.PISTON, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'A', OreDictNames.craftingAnvil);
+        registerMachineRecipe(MetaTileEntities.FLUID_HEATER, "OGO", "PMP", "WCW", 'M', Type.HULL, 'P', Type.PUMP, 'O', Type.COIL_HEATING_DOUBLE, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS);
+        registerMachineRecipe(MetaTileEntities.SIFTER, "WFW", "PMP", "CFC", 'M', Type.HULL, 'P', Type.PISTON, 'F', OreDictNames.craftingFilter, 'C', Type.CIRCUIT, 'W', Type.CABLE);
+        registerMachineRecipe(MetaTileEntities.ARC_FURNACE, "WGW", "CMC", "PPP", 'M', Type.HULL, 'P', Type.PLATE, 'C', Type.CIRCUIT, 'W', Type.CABLE_QUAD, 'G', new UnificationEntry(OrePrefix.ingot, Materials.Graphite));
+        registerMachineRecipe(MetaTileEntities.PLASMA_ARC_FURNACE, "WGW", "CMC", "TPT", 'M', Type.HULL, 'P', Type.PLATE, 'C', Type.BETTER_CIRCUIT, 'W', Type.CABLE_QUAD, 'T', Type.PUMP, 'G', new UnificationEntry(OrePrefix.ingot, Materials.Graphite));
+        registerMachineRecipe(MetaTileEntities.PUMP, "WGW", "GMG", "TGT", 'M', Type.HULL, 'W', Type.CIRCUIT, 'G', Type.PUMP, 'T', Type.PISTON);
     }
 
     public static <T extends MetaTileEntity> void registerMachineRecipe(T[] metaTileEntities, Object... recipe) {
@@ -65,9 +158,6 @@ public class MachineCraftingRecipes {
                         break;
                     case 9:
                         recipe[i] = new UnificationEntry(OrePrefix.valueOf("circuitGA"), GAMaterials.Infinite);
-                        break;
-                    default:
-                        recipe[i] = new UnificationEntry(OrePrefix.circuit, Tier.Superconductor);
                         break;
                 }
                 continue;
@@ -114,16 +204,7 @@ public class MachineCraftingRecipes {
                     case 4:
                         recipe[i] = new UnificationEntry(OrePrefix.wireGtSingle, Materials.Platinum);
                         break;
-                    case 5:
-                        recipe[i] = new UnificationEntry(OrePrefix.wireGtSingle, Materials.Osmium);
-                        break;
-                    case 6:
-                        recipe[i] = new UnificationEntry(OrePrefix.wireGtSingle, Materials.Osmium);
-                        break;
-                    case 7:
-                        recipe[i] = new UnificationEntry(OrePrefix.wireGtSingle, Materials.Osmium);
-                        break;
-                    case 8:
+                    default:
                         recipe[i] = new UnificationEntry(OrePrefix.wireGtSingle, Materials.Osmium);
                         break;
                 }
@@ -168,7 +249,7 @@ public class MachineCraftingRecipes {
                     case 8:
                         recipe[i] = new UnificationEntry(OrePrefix.wireGtQuadruple, Materials.NaquadahAlloy);
                         break;
-                    default:
+                    case 9:
                         recipe[i] = new UnificationEntry(OrePrefix.wireGtSingle, Tier.Superconductor);
                         break;
                 }
@@ -204,7 +285,7 @@ public class MachineCraftingRecipes {
                     case 8:
                         recipe[i] = new UnificationEntry(OrePrefix.cableGtSingle, Tier.Superconductor);
                         break;
-                    default:
+                    case 9:
                         recipe[i] = new UnificationEntry(OrePrefix.wireGtQuadruple, Tier.Superconductor);
                         break;
                 }
@@ -213,6 +294,11 @@ public class MachineCraftingRecipes {
 
             if (recipe[i] == Type.GLASS) {
                 switch (tier) {
+                    case 6:
+                    case 7:
+                    case 8:
+                        recipe[1] = GAMetaBlocks.TRANSPARENT_CASING.getItemVariant(GATransparentCasing.CasingType.REINFORCED_GLASS);
+                        break;
                     default:
                         recipe[i] = new ItemStack(Blocks.GLASS, 1, W);
                         break;
@@ -244,11 +330,8 @@ public class MachineCraftingRecipes {
                     case 7:
                         recipe[i] = new UnificationEntry(OrePrefix.plate, Materials.HSSE);
                         break;
-                    case 8:
-                        recipe[i] = new UnificationEntry(OrePrefix.plate, Materials.Darmstadtium);
-                        break;
                     default:
-                        recipe[i] = new UnificationEntry(OrePrefix.plate, Materials.TungstenSteel);
+                        recipe[i] = new UnificationEntry(OrePrefix.plate, Materials.Darmstadtium);
                         break;
                 }
                 continue;
@@ -256,40 +339,30 @@ public class MachineCraftingRecipes {
 
             if (recipe[i] == Type.PIPE) {
                 switch (tier) {
-//                    case 0:
-//                    case 1:
-//                        recipe[i] = new UnificationEntry(OrePrefix.pipeMedium, Materials.Bronze);
-//                        break;
-//                    case 2:
-//                        recipe[i] = new UnificationEntry(OrePrefix.pipeMedium, Materials.Steel);
-//                        break;
-//                    case 3:
-//                        recipe[i] = new UnificationEntry(OrePrefix.pipeMedium, Materials.StainlessSteel);
-//                        break;
-//                    case 4:
-//                        recipe[i] = new UnificationEntry(OrePrefix.pipeMedium, Materials.Titanium);
-//                        break;
-//                    case 5:
-//                        recipe[i] = new UnificationEntry(OrePrefix.pipeMedium, Materials.TungstenSteel);
-//                        break;
-//                    case 6:
-//                        recipe[i] = new UnificationEntry(OrePrefix.pipeSmall, MarkerMaterials.Tier.Ultimate);
-//                        break;
-//                    case 7:
-//                        recipe[i] = new UnificationEntry(OrePrefix.pipeMedium, MarkerMaterials.Tier.Ultimate);
-//                        break;
-//                    case 8:
-//                        recipe[i] = new UnificationEntry(OrePrefix.pipeLarge, MarkerMaterials.Tier.Ultimate);
-//                        break;
-//                    default:
-//                        recipe[i] = new UnificationEntry(OrePrefix.pipeMedium, Materials.TungstenSteel);
-//                        break;
                     case 0:
                     case 1:
-                        recipe[i] = MetaItems.SMALL_BRONZE_PIPE;
+                        recipe[i] = new UnificationEntry(OrePrefix.valueOf("pipeGA"), Materials.Bronze);
+                        break;
+                    case 2:
+                        recipe[i] = new UnificationEntry(OrePrefix.valueOf("pipeGA"), Materials.Steel);
+                        break;
+                    case 3:
+                        recipe[i] = new UnificationEntry(OrePrefix.valueOf("pipeGA"), Materials.StainlessSteel);
+                        break;
+                    case 4:
+                        recipe[i] = new UnificationEntry(OrePrefix.valueOf("pipeGA"), Materials.Titanium);
+                        break;
+                    case 5:
+                        recipe[i] = new UnificationEntry(OrePrefix.valueOf("pipeGA"), Materials.TungstenSteel);
+                        break;
+                    case 6:
+                        recipe[i] = GAMetaItems.ULTIMATE_PIPE_SMALL;
+                        break;
+                    case 7:
+                        recipe[i] = GAMetaItems.ULTIMATE_PIPE;
                         break;
                     default:
-                        recipe[i] = MetaItems.SMALL_STEEL_PIPE;
+                        recipe[i] = GAMetaItems.ULTIMATE_PIPE_LARGE;
                         break;
                 }
                 continue;
@@ -319,11 +392,8 @@ public class MachineCraftingRecipes {
                     case 7:
                         recipe[i] = new UnificationEntry(OrePrefix.wireGtDouble, Materials.Naquadah);
                         break;
-                    case 8:
-                        recipe[i] = new UnificationEntry(OrePrefix.wireGtDouble, Materials.NaquadahAlloy);
-                        break;
                     default:
-                        recipe[i] = new UnificationEntry(OrePrefix.wireGtOctal, Materials.Nichrome);
+                        recipe[i] = new UnificationEntry(OrePrefix.wireGtDouble, Materials.NaquadahAlloy);
                         break;
                 }
                 continue;
@@ -353,11 +423,8 @@ public class MachineCraftingRecipes {
                     case 7:
                         recipe[i] = new UnificationEntry(OrePrefix.wireGtQuadruple, Materials.Naquadah);
                         break;
-                    case 8:
-                        recipe[i] = new UnificationEntry(OrePrefix.wireGtQuadruple, Materials.NaquadahAlloy);
-                        break;
                     default:
-                        recipe[i] = new UnificationEntry(OrePrefix.wireGtHex, Materials.Nichrome);
+                        recipe[i] = new UnificationEntry(OrePrefix.wireGtQuadruple, Materials.NaquadahAlloy);
                         break;
                 }
                 continue;
@@ -381,14 +448,6 @@ public class MachineCraftingRecipes {
                     case 2:
                     case 3:
                         recipe[i] = new UnificationEntry(OrePrefix.stick, Materials.SteelMagnetic);
-                        break;
-                    case 4:
-                    case 5:
-                        recipe[i] = new UnificationEntry(OrePrefix.stick, Materials.NeodymiumMagnetic);
-                        break;
-                    case 6:
-                    case 7:
-                        recipe[i] = new UnificationEntry(OrePrefix.stickLong, Materials.NeodymiumMagnetic);
                         break;
                     default:
                         recipe[i] = new UnificationEntry(OrePrefix.block, Materials.NeodymiumMagnetic);
@@ -577,6 +636,8 @@ public class MachineCraftingRecipes {
             if (recipe[i] == Type.PISTON) {
                 switch (tier) {
                     case 0:
+                        recipe[i] = new ItemStack(Blocks.PISTON);
+                        break;
                     case 1:
                         recipe[i] = MetaItems.ELECTRIC_PISTON_LV;
                         break;

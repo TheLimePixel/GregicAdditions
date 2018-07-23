@@ -7,7 +7,6 @@ import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.item.GATransparentCasing;
 import gregicadditions.machines.CokeOvenRecipe;
 import gregicadditions.machines.GATileEntities;
-import gregtech.api.items.OreDictNames;
 import gregtech.api.items.ToolDictNames;
 import gregtech.api.recipes.CountableIngredient;
 import gregtech.api.recipes.ModHandler;
@@ -301,15 +300,18 @@ public class GARecipeAddition {
                     multiplier2 = 0;
                 else
                     multiplier2 = (int) metal2.amount;
-                ModHandler.addShapedRecipe("mixed_metal_1_"+material1.toString()+"_"+material2.toString(),GAMetaItems.MIXED_METAL_PLATE.getStackForm(multiplier1 + multiplier2),"F","M","L",'F',OreDictUnifier.get(OrePrefix.plate,material1),'M',OreDictUnifier.get(OrePrefix.plate,Materials.Bronze),'L',OreDictUnifier.get(OrePrefix.plate,material2));
-                ModHandler.addShapedRecipe("mixed_metal_2_"+material1.toString()+"_"+material2.toString(),GAMetaItems.MIXED_METAL_PLATE.getStackForm(multiplier1 + multiplier2),"F","M","L",'F',OreDictUnifier.get(OrePrefix.plate,material1),'M',OreDictUnifier.get(OrePrefix.plate,Materials.Brass),'L',OreDictUnifier.get(OrePrefix.plate,material2));
+                ModHandler.addShapedRecipe("mixed_metal_1_" + material1.toString() + "_" + material2.toString(),GAMetaItems.MIXED_METAL_PLATE.getStackForm(multiplier1 + multiplier2),"F","M","L",'F',OreDictUnifier.get(OrePrefix.plate,material1),'M',OreDictUnifier.get(OrePrefix.plate,Materials.Bronze),'L',OreDictUnifier.get(OrePrefix.plate,material2));
+                ModHandler.addShapedRecipe("mixed_metal_2_" + material1.toString() + "_" + material2.toString(),GAMetaItems.MIXED_METAL_PLATE.getStackForm(multiplier1 + multiplier2),"F","M","L",'F',OreDictUnifier.get(OrePrefix.plate,material1),'M',OreDictUnifier.get(OrePrefix.plate,Materials.Brass),'L',OreDictUnifier.get(OrePrefix.plate,material2));
+
+                RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(40 * multiplier1 + multiplier2 * 40).EUt(8).inputs(OreDictUnifier.get(OrePrefix.plate,material1),OreDictUnifier.get(OrePrefix.plate,Materials.Bronze),OreDictUnifier.get(OrePrefix.plate,material2)).outputs(GAMetaItems.MIXED_METAL_PLATE.getStackForm(multiplier1 + multiplier2)).buildAndRegister();
+                RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(40 * multiplier1 + multiplier2 * 40).EUt(8).inputs(OreDictUnifier.get(OrePrefix.plate,material1),OreDictUnifier.get(OrePrefix.plate,Materials.Brass),OreDictUnifier.get(OrePrefix.plate,material2)).outputs(GAMetaItems.MIXED_METAL_PLATE.getStackForm(multiplier1 + multiplier2)).buildAndRegister();
             }
         }
 
         RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(GAMetaItems.MIXED_METAL_PLATE.getStackForm()).outputs(GAMetaItems.ADVANCED_ALLOY_PLATE.getStackForm()).buildAndRegister();
 
-        RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(400).EUt(4).inputs(GAMetaItems.MIXED_METAL_PLATE.getStackForm(),OreDictUnifier.get(OrePrefix.dust,Materials.Glass)).outputs(GAMetaBlocks.TRANSPARENT_CASING.getState(GATransparentCasing.CasingType.REINFORCED_GLASS)).buildAndRegister();
-        RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(400).EUt(4).inputs(GAMetaItems.MIXED_METAL_PLATE.getStackForm(),OreDictUnifier.get(OrePrefix.block,Materials.Glass)).outputs(GAMetaBlocks.TRANSPARENT_CASING.getState(GATransparentCasing.CasingType.REINFORCED_GLASS)).buildAndRegister();
+        RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(400).EUt(4).inputs(GAMetaItems.ADVANCED_ALLOY_PLATE.getStackForm(),OreDictUnifier.get(OrePrefix.dust,Materials.Glass,3)).outputs(GAMetaBlocks.TRANSPARENT_CASING.getItemVariant(GATransparentCasing.CasingType.REINFORCED_GLASS,4)).buildAndRegister();
+        RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(400).EUt(4).inputs(GAMetaItems.ADVANCED_ALLOY_PLATE.getStackForm(),new ItemStack(Blocks.GLASS,3)).outputs(GAMetaBlocks.TRANSPARENT_CASING.getItemVariant(GATransparentCasing.CasingType.REINFORCED_GLASS,4)).buildAndRegister();
 
         //GT5U Slabs Are Made With A Saw
         ModHandler.removeRecipeByName(new ResourceLocation("minecraft:stone_slab"));
