@@ -1,11 +1,12 @@
 package gregicadditions.item;
 
+import gregicadditions.GAMaterials;
 import gregtech.api.items.materialitem.MaterialMetaItem;
+import gregtech.api.unification.material.MarkerMaterials.*;
 import gregtech.api.unification.ore.OrePrefix;
+import gregtech.common.items.MetaItems;
 import net.minecraft.item.ItemStack;
 import org.apache.commons.lang3.ArrayUtils;
-
-import java.util.Arrays;
 
 public class GAMetaItem extends MaterialMetaItem {
 
@@ -18,9 +19,9 @@ public class GAMetaItem extends MaterialMetaItem {
     }
 
     public void registerSubItems() {
-        GAMetaItems.NANO_ASSEMBLY = addItem(0, "assembly.nano");
-        GAMetaItems.INTEGRATED_ASSEMBLY = addItem(1, "assembly.normal");
-        GAMetaItems.WETWARE_ASSEMBLY = addItem(2, "assembly.wetware");
+        GAMetaItems.NANO_ASSEMBLY = addItem(0, "assembly.nano").setUnificationData(OrePrefix.valueOf("circuitGA"),GAMaterials.Extreme);
+        GAMetaItems.INTEGRATED_ASSEMBLY = addItem(1, "assembly.normal").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Advanced);
+        GAMetaItems.WETWARE_ASSEMBLY = addItem(2, "assembly.wetware").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Ultimate);
         GAMetaItems.COATED_BOARD = addItem(3, "board.coated");
         GAMetaItems.EPOXY_BOARD = addItem(4, "board.epoxy");
         GAMetaItems.FIBER_BOARD = addItem(5, "board.fiber-reinforced");
@@ -32,11 +33,11 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.NAQUADAH_BOULE = addItem(11, "boule.naquadah");
         GAMetaItems.SILICON_BOULE = addItem(12, "boule.silicon");
         GAMetaItems.COKE_BRICK = addItem(13, "brick.coke");
-        GAMetaItems.FIRECLAY_BRICK = addItem(14, "brick.fireclay").addOreDict("ingotFireclay");
-        GAMetaItems.ADVANCED_CIRCUIT = addItem(15, "circuit.advanced.regular");
-        GAMetaItems.GOOD_CIRCUIT = addItem(16, "circuit.good.regular");
-        GAMetaItems.BASIC_CIRCUIT = addItem(17, "circuit.basic.regular");
-        GAMetaItems.VACUUM_TUBE = addItem(18, "circuit.vacuum.tube");
+        GAMetaItems.FIRECLAY_BRICK = addItem(14, "brick.fireclay").setUnificationData(OrePrefix.ingot,GAMaterials.Fireclay);
+        GAMetaItems.ADVANCED_CIRCUIT = addItem(15, "circuit.advanced.regular").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Advanced);
+        GAMetaItems.GOOD_CIRCUIT = addItem(16, "circuit.good.regular").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Good);
+        GAMetaItems.BASIC_CIRCUIT = addItem(17, "circuit.basic.regular").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Basic);
+        GAMetaItems.VACUUM_TUBE = addItem(18, "circuit.vacuum.tube").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Primitive);
         GAMetaItems.DIODE = addItem(19, "component.diode");
         GAMetaItems.CAPACITOR = addItem(20, "component.capacitor");
         GAMetaItems.GLASS_FIBER = addItem(21, "component.glass.fiber");
@@ -52,15 +53,15 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.COMPRESSED_CLAY = addItem(31, "compressed.clay");
         GAMetaItems.COMPRESSED_COKE_CLAY = addItem(32, "compressed.coke.clay");
         GAMetaItems.COMPRESSED_FIRECLAY = addItem(33, "compressed.fireclay");
-        GAMetaItems.CRYSTAL_COMPUTER = addItem(34, "computer.crystal");
-        GAMetaItems.NANO_COMPUTER = addItem(35, "computer.nano");
-        GAMetaItems.QUANTUM_COMPUTER = addItem(36, "computer.quantum");
-        GAMetaItems.WETWARE_COMPUTER = addItem(37, "computer.wetware");
-        GAMetaItems.CRYSTAL_MAINFRAME = addItem(38, "mainframe.crystal");
-        GAMetaItems.NANO_MAINFRAME = addItem(39, "mainframe.nano");
-        GAMetaItems.INTEGRATED_MAINFRAME = addItem(40, "mainframe.normal");
-        GAMetaItems.QUANTUM_MAINFRAME = addItem(41, "mainframe.quantum");
-        GAMetaItems.WETWARE_MAINFRAME = addItem(42, "mainframe.wetware");
+        GAMetaItems.CRYSTAL_COMPUTER = addItem(34, "computer.crystal").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Ultimate);
+        GAMetaItems.NANO_COMPUTER = addItem(35, "computer.nano").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Elite);
+        GAMetaItems.QUANTUM_COMPUTER = addItem(36, "computer.quantum").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Master);
+        GAMetaItems.WETWARE_COMPUTER = addItem(37, "computer.wetware").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Superconductor);
+        GAMetaItems.CRYSTAL_MAINFRAME = addItem(38, "mainframe.crystal").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Superconductor);
+        GAMetaItems.NANO_MAINFRAME = addItem(39, "mainframe.nano").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Master);
+        GAMetaItems.INTEGRATED_MAINFRAME = addItem(40, "mainframe.normal").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Elite);
+        GAMetaItems.QUANTUM_MAINFRAME = addItem(41, "mainframe.quantum").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Ultimate);
+        GAMetaItems.WETWARE_MAINFRAME = addItem(42, "mainframe.wetware").setUnificationData(OrePrefix.valueOf("circuitGA"),GAMaterials.Infinite);
         GAMetaItems.ASOC = addItem(43, "plate.asoc");
         GAMetaItems.LOGIC_CIRCUIT = addItem(44, "plate.circuit");
         GAMetaItems.CPU = addItem(45, "plate.cpu");
@@ -72,10 +73,10 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.QBIT_CPU = addItem(51, "plate.qbit");
         GAMetaItems.RAM = addItem(52, "plate.ram");
         GAMetaItems.SOC = addItem(53, "plate.soc");
-        GAMetaItems.CRYSTALPROCESSOR = addItem(54, "processor.crystal");
-        GAMetaItems.NANOPROCESSOR = addItem(55, "processor.nano");
-        GAMetaItems.QUANTUMPROCESSOR = addItem(56, "processor.quantum");
-        GAMetaItems.WETWAREPROCESSOR = addItem(57, "processor.wetware");
+        GAMetaItems.CRYSTALPROCESSOR = addItem(54, "processor.crystal").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Elite);
+        GAMetaItems.NANOPROCESSOR = addItem(55, "processor.nano").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Advanced);
+        GAMetaItems.QUANTUMPROCESSOR = addItem(56, "processor.quantum").setUnificationData(OrePrefix.valueOf("circuitGA"),GAMaterials.Extreme);
+        GAMetaItems.WETWAREPROCESSOR = addItem(57, "processor.wetware").setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Master);
         GAMetaItems.ASOC_WAFER = addItem(58, "wafer.asoc");
         GAMetaItems.LOGIC_CIRCUIT_WAFER = addItem(59, "wafer.circuit");
         GAMetaItems.CPU_WAFER = addItem(60, "wafer.cpu");
@@ -106,6 +107,14 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.ULTIMATE_PIPE_SMALL = addItem(101,"ultimate.pipe.small");
         GAMetaItems.ULTIMATE_PIPE = addItem(102,"ultimate.pipe");
         GAMetaItems.ULTIMATE_PIPE_LARGE = addItem(103,"ultimate.pipe.large");
+
+        MetaItems.CIRCUIT_BASIC.setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Basic);
+        MetaItems.CIRCUIT_PARTS_ADVANCED.setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Basic);
+        MetaItems.CIRCUIT_GOOD.setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Good);
+        MetaItems.CIRCUIT_ADVANCED.setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Good);
+        MetaItems.CIRCUIT_DATA.setUnificationData(OrePrefix.valueOf("circuitGA"),GAMaterials.Extreme);
+        MetaItems.CIRCUIT_ELITE.setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Elite);
+        MetaItems.CIRCUIT_MASTER.setUnificationData(OrePrefix.valueOf("circuitGA"),Tier.Master);
     }
 
     public boolean hasContainerItem(ItemStack stack) {
