@@ -161,11 +161,24 @@ gregtech.machine.circuit_assembler.lv.name=Basic Circuit Assembling Machine
 gregtech.machine.circuit_assembler.mv.name=Advanced Circuit Assembling Machine
 gregtech.machine.circuit_assembler.hv.name=Advanced Circuit Assembling Machine II
 gregtech.machine.circuit_assembler.ev.name=Advanced Circuit Assembling Machine III
+gregtech.machine.circuit_assembler.iv.name=Advanced Circuit Assembling Machine IV
+gregtech.machine.circuit_assembler.luv.name=Advanced Circuit Assembling Machine V
+gregtech.machine.circuit_assembler.zpm.name=Advanced Circuit Assembling Machine VI
+gregtech.machine.circuit_assembler.uv.name=Advanced Circuit Assembling Machine VII
 
 gregtech.machine.cluster_mill.lv.name=Basic Cluster Mill
 gregtech.machine.cluster_mill.mv.name=Advanced Cluster Mill
 gregtech.machine.cluster_mill.hv.name=Advanced Cluster Mill II
 gregtech.machine.cluster_mill.ev.name=Advanced Cluster Mill III
+gregtech.machine.cluster_mill.iv.name=Advanced Cluster Mill IV
+gregtech.machine.cluster_mill.luv.name=Advanced Cluster Mill V
+gregtech.machine.cluster_mill.zpm.name=Advanced Cluster Mill VI
+gregtech.machine.cluster_mill.uv.name=Advanced Cluster Mill VII
+
+gregtech.machine.alloy_smelter.iv.name=Advanced Alloy Smelter IV
+gregtech.machine.alloy_smelter.luv.name=Advanced Alloy Smelter V
+gregtech.machine.alloy_smelter.zpm.name=Advanced Alloy Smelter VI
+gregtech.machine.alloy_smelter.uv.name=Advanced Alloy Smelter VII
 
 gregtech.machine.distill_tower.name=Distillation Tower
 gregtech.machine.assembly_line.name=Assembly Line

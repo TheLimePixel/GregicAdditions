@@ -222,6 +222,7 @@ public class MachineCraftingRecipes {
         registerMachineRecipe(GATileEntities.CLUSTERMILL,"MMM","CHC","MMM",'M',Type.MOTOR,'C',Type.CIRCUIT,'H',Type.HULL);
         registerMachineRecipe(GATileEntities.CIRCUITASSEMBLER, "ACE", "VMV", "WCW", 'M',Type.HULL, 'V', Type.CONVEYOR, 'A', Type.ROBOT_ARM, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'E', Type.EMITTER);
         registerMachineRecipe(MetaTileEntities.ALLOY_SMELTER, "ECE", "CMC", "WCW", 'M', Type.HULL, 'E', Type.CIRCUIT, 'W', Type.CABLE, 'C', Type.COIL_HEATING_DOUBLE);
+        registerMachineRecipe(GATileEntities.ALLOY_SMELTER, "ECE", "CMC", "WCW", 'M', Type.HULL, 'E', Type.CIRCUIT, 'W', Type.CABLE, 'C', Type.COIL_HEATING_DOUBLE);
         registerMachineRecipe(MetaTileEntities.ASSEMBLER, "ACA", "VMV", "WCW", 'M', Type.HULL, 'V', Type.CONVEYOR, 'A', Type.ROBOT_ARM, 'C', Type.CIRCUIT, 'W', Type.CABLE);
         registerMachineRecipe(MetaTileEntities.BENDER, "PwP", "CMC", "EWE", 'M', Type.HULL, 'E', Type.MOTOR, 'P', Type.PISTON, 'C', Type.CIRCUIT, 'W', Type.CABLE);
         registerMachineRecipe(MetaTileEntities.CANNER, "WPW", "CMC", "GGG", 'M', Type.HULL, 'P', Type.PUMP, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS);
