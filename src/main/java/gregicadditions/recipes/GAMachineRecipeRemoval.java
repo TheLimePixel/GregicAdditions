@@ -222,6 +222,19 @@ public class GAMachineRecipeRemoval {
 
         //Remove Alloy Smelter Rubber Recipe
         removeRecipesByInputs(RecipeMaps.ALLOY_SMELTER_RECIPES,OreDictUnifier.get(OrePrefix.dust,Materials.RawRubber,3),OreDictUnifier.get(OrePrefix.dust,Materials.Sulfur));
+
+        //Remove Old Regular And Field Generator Recipes
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,MetaItems.CIRCUIT_BASIC.getStackForm(2),MetaItems.ELECTRIC_PUMP_LV.getStackForm());
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,MetaItems.CIRCUIT_GOOD.getStackForm(2),MetaItems.ELECTRIC_PUMP_MV.getStackForm());
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,MetaItems.CIRCUIT_ADVANCED.getStackForm(2),MetaItems.ELECTRIC_PUMP_HV.getStackForm());
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,MetaItems.CIRCUIT_ELITE.getStackForm(2),MetaItems.ELECTRIC_PUMP_EV.getStackForm());
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,MetaItems.CIRCUIT_MASTER.getStackForm(2),MetaItems.ELECTRIC_PUMP_IV.getStackForm());
+
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,new ItemStack[]{MetaItems.CIRCUIT_BASIC.getStackForm(4),OreDictUnifier.get(OrePrefix.dust,Materials.EnderPearl)},new FluidStack[]{Materials.Osmium.getFluid(288)});
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,new ItemStack[]{MetaItems.CIRCUIT_GOOD.getStackForm(4),OreDictUnifier.get(OrePrefix.dust,Materials.EnderEye)},new FluidStack[]{Materials.Osmium.getFluid(576)});
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,new ItemStack[]{MetaItems.CIRCUIT_ADVANCED.getStackForm(4),MetaItems.QUANTUM_EYE.getStackForm()},new FluidStack[]{Materials.Osmium.getFluid(1152)});
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,new ItemStack[]{MetaItems.CIRCUIT_ELITE.getStackForm(4),OreDictUnifier.get(OrePrefix.dust,Materials.NetherStar)},new FluidStack[]{Materials.Osmium.getFluid(2304)});
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,new ItemStack[]{MetaItems.CIRCUIT_MASTER.getStackForm(4),MetaItems.QUANTUM_STAR.getStackForm()},new FluidStack[]{Materials.Osmium.getFluid(4608)});
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {

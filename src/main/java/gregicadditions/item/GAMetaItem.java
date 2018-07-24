@@ -123,6 +123,9 @@ public class GAMetaItem extends MaterialMetaItem {
         MetaItems.CIRCUIT_PARTS_WIRING_BASIC.setInvisible();
         MetaItems.CIRCUIT_PARTS_WIRING_ADVANCED.setInvisible();
         MetaItems.CIRCUIT_PARTS_WIRING_ELITE.setInvisible();
+        MetaItems.CIRCUIT_PRIMITIVE.setInvisible();
+        MetaItems.SMALL_BRONZE_PIPE.setInvisible();
+        MetaItems.SMALL_STEEL_PIPE.setInvisible();
     }
 
     public boolean hasContainerItem(ItemStack stack) {

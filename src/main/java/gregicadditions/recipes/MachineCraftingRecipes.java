@@ -24,6 +24,7 @@ import gregtech.common.items.MetaItems;
 import gregtech.common.metatileentities.MetaTileEntities;
 import gregtech.loaders.load.MetaTileEntityLoader.*;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
@@ -43,13 +44,13 @@ public class MachineCraftingRecipes {
     public static void init() {
         //Removal
         for (String tier : tiers) {
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.alloy.smelter." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.alloy_smelter." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.assembler." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.bender." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.canner." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.compressor." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.cutter." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.electric.furnace." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.electric_furnace." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.extractor." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.extruder." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.lathe." + tier));
@@ -58,35 +59,38 @@ public class MachineCraftingRecipes {
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.wiremill." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.centrifuge." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.electrolyzer." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.thermal.centrifuge." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.ore.washer" + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.thermal_centrifuge." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.ore_washer." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.packer." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.unpacker." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.chemical.reactor." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fluid.canner." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.brewer." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.chemical_reactor." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fluid_canner." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.brewery." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fermenter." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fluid.extractor." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fluid.solidifier." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fluid_extractor." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fluid_solidifier." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.distillery." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.chemical.bath." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.chemical_bath." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.polarizor." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.electromagnetic.separator." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.electromagnetic_separator." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.autoclave." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.mixer." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.laser.engraver." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.forming.press." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.forge.hammer." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fluid.heater." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.laser_engraver." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.forming_press." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.forge_hammer." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.fluid_heater." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.sifter." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.arc.furnace." + tier));
-            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.plasma.arc.furnace." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.arc_furnace." + tier));
+            ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.plasma_arc_furnace." + tier));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.pump." + tier));
         }
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.pump.iv"));
-        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.pump.ulv"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gregtech.machine.pump.luv"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:steam_boiler_solar_bronze"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:steam_furnace_bronze"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:steam_furnace_steel"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:steam_macerator_bronze"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:steam_macerator_steel"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:steam_extractor_bronze"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:steam_extractor_steel"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:steam_hammer_bronze"));
@@ -101,12 +105,13 @@ public class MachineCraftingRecipes {
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:implosion_compressor"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:distillation_tower"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:cracking_unit"));
-        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:pyrolise_oven"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:pyroyise_oven"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:diesel_engine"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:engine_intake_casing"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:multi_furnace"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:large_steam_boiler"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:large_gas_turbine"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:large_plasma_turbine"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:large_bronze_boiler"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:large_steel_boiler"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:large_titanium_boiler"));
@@ -121,6 +126,22 @@ public class MachineCraftingRecipes {
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:gas_turbine_hv"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:steam_turbine_hv"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:magic_energy_absorber"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:charger_ulv"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:charger_lv"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:charger_mv"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:charger_hv"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:charger_ev"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:charger_iv"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:charger_luv"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:charger_zpm"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:charger_uv"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:charger_max"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:transformer_ev"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:transformer_iv"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:transformer_luv"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:transformer_zpm"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:transformer_uv"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:transformer_max"));
 
         //Casing
         ModHandler.addShapedRecipe("ga_casing_bronze_pipe", MetaBlocks.BOILER_CASING.getItemVariant(BoilerCasingType.BRONZE_PIPE, 2), "PIP", "IFI", "PIP", 'P', new UnificationEntry(OrePrefix.plate, Materials.Bronze), 'F', new UnificationEntry(OrePrefix.frameGt, Materials.Bronze), 'I', new UnificationEntry(OrePrefix.valueOf("pipeGa"), Materials.Bronze));
@@ -128,12 +149,31 @@ public class MachineCraftingRecipes {
         ModHandler.addShapedRecipe("ga_casing_titanium_pipe", MetaBlocks.BOILER_CASING.getItemVariant(BoilerCasingType.TITANIUM_PIPE, 2), "PIP", "IFI", "PIP", 'P', new UnificationEntry(OrePrefix.plate, Materials.Titanium), 'F', new UnificationEntry(OrePrefix.frameGt, Materials.Titanium), 'I', new UnificationEntry(OrePrefix.valueOf("pipeGa"), Materials.Titanium));
         ModHandler.addShapedRecipe("ga_casing_tungstensteel_pipe", MetaBlocks.BOILER_CASING.getItemVariant(BoilerCasingType.TUNGSTENSTEEL_PIPE, 2), "PIP", "IFI", "PIP", 'P', new UnificationEntry(OrePrefix.plate, Materials.TungstenSteel), 'F', new UnificationEntry(OrePrefix.frameGt, Materials.TungstenSteel), 'I', new UnificationEntry(OrePrefix.valueOf("pipeGa"), Materials.TungstenSteel));
 
+        //Power Manipulation Machines
+        ModHandler.addShapedRecipe("ga_charger_ulv", MetaTileEntities.CHARGER[GTValues.ULV].getStackForm(), "WTW", "WMW", "BCB", 'M', MetaTileEntities.HULL[GTValues.ULV].getStackForm(), 'W', new UnificationEntry(OrePrefix.wireGtHex, Materials.Lead), 'T', OreDictNames.chestWood, 'B', MetaItems.BATTERY_RE_ULV_TANTALUM, 'C', new UnificationEntry(OrePrefix.valueOf("circuitGA"), Tier.Primitive));
+        ModHandler.addShapedRecipe("ga_charger_lv", MetaTileEntities.CHARGER[GTValues.LV].getStackForm(), "WTW", "WMW", "BCB", 'M', MetaTileEntities.HULL[GTValues.LV].getStackForm(), 'W', new UnificationEntry(OrePrefix.wireGtHex, Materials.Tin), 'T', OreDictNames.chestWood, 'B', MetaItems.BATTERY_RE_LV_LITHIUM, 'C', new UnificationEntry(OrePrefix.valueOf("circuitGA"), Tier.Basic));
+        ModHandler.addShapedRecipe("ga_charger_mv", MetaTileEntities.CHARGER[GTValues.MV].getStackForm(), "WTW", "WMW", "BCB", 'M', MetaTileEntities.HULL[GTValues.MV].getStackForm(), 'W', new UnificationEntry(OrePrefix.wireGtHex, Materials.Copper), 'T', OreDictNames.chestWood, 'B', MetaItems.BATTERY_RE_MV_LITHIUM, 'C', new UnificationEntry(OrePrefix.valueOf("circuitGA"), Tier.Good));
+        ModHandler.addShapedRecipe("ga_charger_hv", MetaTileEntities.CHARGER[GTValues.HV].getStackForm(), "WTW", "WMW", "BCB", 'M', MetaTileEntities.HULL[GTValues.HV].getStackForm(), 'W', new UnificationEntry(OrePrefix.wireGtHex, Materials.Gold), 'T', OreDictNames.chestWood, 'B', MetaItems.BATTERY_RE_HV_LITHIUM, 'C', new UnificationEntry(OrePrefix.valueOf("circuitGA"), Tier.Advanced));
+        ModHandler.addShapedRecipe("ga_charger_ev", MetaTileEntities.CHARGER[GTValues.EV].getStackForm(), "WTW", "WMW", "BCB", 'M', MetaTileEntities.HULL[GTValues.EV].getStackForm(), 'W', new UnificationEntry(OrePrefix.wireGtHex, Materials.Aluminium), 'T', OreDictNames.chestWood, 'B', new UnificationEntry(OrePrefix.battery, Tier.Master), 'C', new UnificationEntry(OrePrefix.valueOf("circuitGA"), GAMaterials.Extreme));
+        ModHandler.addShapedRecipe("ga_charger_iv", MetaTileEntities.CHARGER[GTValues.IV].getStackForm(), "WTW", "WMW", "BCB", 'M', MetaTileEntities.HULL[GTValues.IV].getStackForm(), 'W', new UnificationEntry(OrePrefix.wireGtHex, Materials.Tungsten), 'T', OreDictNames.chestWood, 'B', MetaItems.ENERGY_LAPOTRONIC_ORB, 'C', new UnificationEntry(OrePrefix.valueOf("circuitGA"), Tier.Elite));
+        ModHandler.addShapedRecipe("ga_charger_luv", MetaTileEntities.CHARGER[GTValues.LuV].getStackForm(), "WTW", "WMW", "BCB", 'M', MetaTileEntities.HULL[GTValues.LuV].getStackForm(), 'W', new UnificationEntry(OrePrefix.wireGtHex, Materials.VanadiumGallium), 'T', OreDictNames.chestWood, 'B', MetaItems.ENERGY_LAPOTRONIC_ORB2, 'C', new UnificationEntry(OrePrefix.valueOf("circuitGA"), Tier.Master));
+        ModHandler.addShapedRecipe("ga_charger_zpm", MetaTileEntities.CHARGER[GTValues.ZPM].getStackForm(), "WTW", "WMW", "BCB", 'M', MetaTileEntities.HULL[GTValues.ZPM].getStackForm(), 'W', new UnificationEntry(OrePrefix.wireGtHex, Materials.Naquadah), 'T', OreDictNames.chestWood, 'B', MetaItems.ENERGY_LAPOTRONIC_ORB2, 'C', new UnificationEntry(OrePrefix.valueOf("circuitGA"), Tier.Ultimate));
+        ModHandler.addShapedRecipe("ga_charger_uv", MetaTileEntities.CHARGER[GTValues.UV].getStackForm(), "WTW", "WMW", "BCB", 'M', MetaTileEntities.HULL[GTValues.UV].getStackForm(), 'W', new UnificationEntry(OrePrefix.wireGtHex, Materials.NaquadahAlloy), 'T', OreDictNames.chestWood, 'B', MetaItems.ZPM2, 'C', new UnificationEntry(OrePrefix.valueOf("circuitGA"), Tier.Superconductor));
+        ModHandler.addShapedRecipe("ga_charger_max", MetaTileEntities.CHARGER[GTValues.MAX].getStackForm(), "WTW", "WMW", "BCB", 'M', MetaTileEntities.HULL[GTValues.MAX].getStackForm(), 'W', new UnificationEntry(OrePrefix.wireGtHex, Tier.Superconductor), 'T', OreDictNames.chestWood, 'B', MetaItems.ZPM2, 'C', new UnificationEntry(OrePrefix.valueOf("circuitGA"), GAMaterials.Infinite));
+
+        ModHandler.addShapedRecipe("ga_transformer_ev", MetaTileEntities.TRANSFORMER[GTValues.EV - 1].getStackForm(), "KBB", "CM ", "KBB", 'M', MetaTileEntities.HULL[GTValues.HV].getStackForm(), 'C', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Aluminium), 'B', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Gold), 'K', GAMetaItems.SMALL_COIL);
+        ModHandler.addShapedRecipe("ga_transformer_iv", MetaTileEntities.TRANSFORMER[GTValues.IV - 1].getStackForm(), "KBB", "CM ", "KBB", 'M', MetaTileEntities.HULL[GTValues.EV].getStackForm(), 'C', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Tungsten), 'B', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Aluminium), 'K', GAMetaItems.SMALL_COIL);
+        ModHandler.addShapedRecipe("ga_transformer_luv", MetaTileEntities.TRANSFORMER[GTValues.LuV - 1].getStackForm(), "KBB", "CM ", "KBB", 'M', MetaTileEntities.HULL[GTValues.IV].getStackForm(), 'C', new UnificationEntry(OrePrefix.cableGtSingle, Materials.VanadiumGallium), 'B', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Tungsten), 'K', GAMetaItems.PIC);
+        ModHandler.addShapedRecipe("ga_transformer_zpm", MetaTileEntities.TRANSFORMER[GTValues.ZPM - 1].getStackForm(), "KBB", "CM ", "KBB", 'M', MetaTileEntities.HULL[GTValues.LuV].getStackForm(), 'C', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Naquadah), 'B', new UnificationEntry(OrePrefix.cableGtSingle, Materials.VanadiumGallium), 'K', GAMetaItems.PIC);
+        ModHandler.addShapedRecipe("ga_transformer_uv", MetaTileEntities.TRANSFORMER[GTValues.UV - 1].getStackForm(), "KBB", "CM ", "KBB", 'M', MetaTileEntities.HULL[GTValues.ZPM].getStackForm(), 'C', new UnificationEntry(OrePrefix.wireGtQuadruple, Materials.NaquadahAlloy), 'B', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Naquadah), 'K', GAMetaItems.HPIC);
+        ModHandler.addShapedRecipe("ga_transformer_max", MetaTileEntities.TRANSFORMER[GTValues.MAX - 1].getStackForm(), "KBB", "CM ", "KBB", 'M', MetaTileEntities.HULL[GTValues.UV].getStackForm(), 'C', new UnificationEntry(OrePrefix.wireGtSingle, Tier.Superconductor), 'B', new UnificationEntry(OrePrefix.wireGtQuadruple, Materials.NaquadahAlloy), 'K', GAMetaItems.HPIC);
+
         //Steam Machines
         ModHandler.addShapedRecipe("ga_steam_boiler_solar_bronze", MetaTileEntities.STEAM_BOILER_SOLAR_BRONZE.getStackForm(), "GGG", "SSS", "PMP", 'M', MetaBlocks.MACHINE_CASING.getItemVariant(MachineCasingType.BRONZE_BRICKS_HULL), 'P', new UnificationEntry(OrePrefix.valueOf("pipeGaSmall"), Materials.Bronze), 'S', new UnificationEntry(OrePrefix.plate, Materials.Silver), 'G', new ItemStack(Blocks.GLASS));
         ModHandler.addShapedRecipe("ga_steam_furnace_bronze", MetaTileEntities.STEAM_FURNACE_BRONZE.getStackForm(), "XXX", "XMX", "XFX", 'M', MetaBlocks.MACHINE_CASING.getItemVariant(MachineCasingType.BRONZE_BRICKS_HULL), 'X', new UnificationEntry(OrePrefix.valueOf("pipeGaSmall"), Materials.Bronze), 'F', OreDictNames.craftingFurnace);
-        ModHandler.addShapedRecipe("ga_steam_furnace_steel", MetaTileEntities.STEAM_FURNACE_STEEL.getStackForm(), "XXX", "XMX", "XFX", 'M', MetaBlocks.MACHINE_CASING.getItemVariant(MachineCasingType.STEEL_BRICKS_HULL), 'X', new UnificationEntry(OrePrefix.valueOf("pipeGaSmall"), Materials.Bronze), 'F', OreDictNames.craftingFurnace);
-        ModHandler.addShapedRecipe("ga_steam_macerator_bronze", MetaTileEntities.STEAM_MACERATOR_BRONZE.getStackForm(), "DXD", "XMX", "PXP", 'M', MetaBlocks.MACHINE_CASING.getItemVariant(MachineCasingType.BRONZE_HULL), 'X', new UnificationEntry(OrePrefix.valueOf("pipeGaSmall"), Materials.Bronze), 'P', OreDictNames.craftingPiston, 'D', new UnificationEntry(OrePrefix.gem, Materials.Flint));
-        ModHandler.addShapedRecipe("ga_steam_macerator_steel", MetaTileEntities.STEAM_MACERATOR_STEEL.getStackForm(), "DXD", "XMX", "PXP", 'M', MetaBlocks.MACHINE_CASING.getItemVariant(MachineCasingType.STEEL_HULL), 'X', new UnificationEntry(OrePrefix.valueOf("pipeGaSmall"), Materials.Steel), 'P', OreDictNames.craftingPiston, 'D', new UnificationEntry(OrePrefix.gem, Materials.Flint));
+        ModHandler.addShapedRecipe("ga_steam_furnace_steel", MetaTileEntities.STEAM_FURNACE_STEEL.getStackForm(), "XXX", "XMX", "XFX", 'M', MetaBlocks.MACHINE_CASING.getItemVariant(MachineCasingType.STEEL_BRICKS_HULL), 'X', new UnificationEntry(OrePrefix.valueOf("pipeGaSmall"), Materials.Steel), 'F', OreDictNames.craftingFurnace);
+        ModHandler.addShapedRecipe("ga_steam_macerator_bronze", MetaTileEntities.STEAM_MACERATOR_BRONZE.getStackForm(), "DXD", "XMX", "PXP", 'M', MetaBlocks.MACHINE_CASING.getItemVariant(MachineCasingType.BRONZE_HULL), 'X', new UnificationEntry(OrePrefix.valueOf("pipeGaSmall"), Materials.Bronze), 'P', OreDictNames.craftingPiston, 'D', new ItemStack(Items.FLINT));
+        ModHandler.addShapedRecipe("ga_steam_macerator_steel", MetaTileEntities.STEAM_MACERATOR_STEEL.getStackForm(), "DXD", "XMX", "PXP", 'M', MetaBlocks.MACHINE_CASING.getItemVariant(MachineCasingType.STEEL_HULL), 'X', new UnificationEntry(OrePrefix.valueOf("pipeGaSmall"), Materials.Steel), 'P', OreDictNames.craftingPiston, 'D', new ItemStack(Items.FLINT));
         ModHandler.addShapedRecipe("ga_steam_extractor_bronze", MetaTileEntities.STEAM_EXTRACTOR_BRONZE.getStackForm(), "XXX", "PMG", "XXX", 'M', MetaBlocks.MACHINE_CASING.getItemVariant(MachineCasingType.BRONZE_HULL), 'X', new UnificationEntry(OrePrefix.valueOf("pipeGaSmall"), Materials.Bronze), 'P', OreDictNames.craftingPiston, 'G', new ItemStack(Blocks.GLASS));
         ModHandler.addShapedRecipe("ga_steam_extractor_steel", MetaTileEntities.STEAM_EXTRACTOR_STEEL.getStackForm(), "XXX", "PMG", "XXX", 'M', MetaBlocks.MACHINE_CASING.getItemVariant(MachineCasingType.STEEL_HULL), 'X', new UnificationEntry(OrePrefix.valueOf("pipeGaSmall"), Materials.Steel), 'P', OreDictNames.craftingPiston, 'G', new ItemStack(Blocks.GLASS));
         ModHandler.addShapedRecipe("ga_steam_hammer_bronze", MetaTileEntities.STEAM_HAMMER_BRONZE.getStackForm(), "XPX", "XMX", "XAX", 'M', MetaBlocks.MACHINE_CASING.getItemVariant(MachineCasingType.BRONZE_HULL), 'X', new UnificationEntry(OrePrefix.valueOf("pipeGaSmall"), Materials.Bronze), 'P', OreDictNames.craftingPiston, 'A', OreDictNames.craftingAnvil);
@@ -219,7 +259,7 @@ public class MachineCraftingRecipes {
         registerMachineRecipe(MetaTileEntities.SIFTER, "WFW", "PMP", "CFC", 'M', Type.HULL, 'P', Type.PISTON, 'F', OreDictNames.craftingFilter, 'C', Type.CIRCUIT, 'W', Type.CABLE);
         registerMachineRecipe(MetaTileEntities.ARC_FURNACE, "WGW", "CMC", "PPP", 'M', Type.HULL, 'P', Type.PLATE, 'C', Type.CIRCUIT, 'W', Type.CABLE_QUAD, 'G', new UnificationEntry(OrePrefix.ingot, Materials.Graphite));
         registerMachineRecipe(MetaTileEntities.PLASMA_ARC_FURNACE, "WGW", "CMC", "TPT", 'M', Type.HULL, 'P', Type.PLATE, 'C', Type.BETTER_CIRCUIT, 'W', Type.CABLE_QUAD, 'T', Type.PUMP, 'G', new UnificationEntry(OrePrefix.ingot, Materials.Graphite));
-        registerMachineRecipe(MetaTileEntities.PUMP, "WGW", "GMG", "TGT", 'M', Type.HULL, 'W', Type.CIRCUIT, 'G', Type.PUMP, 'T', Type.PISTON);
+        registerMachineRecipe(MetaTileEntities.PUMP, "WGW", "GMG", "TGT", 'M', Type.HULL, 'W', Type.CIRCUIT, 'G', Type.PUMP, 'T', Type.PIPE);
     }
 
     public static <T extends MetaTileEntity> void registerMachineRecipe(T[] metaTileEntities, Object... recipe) {
