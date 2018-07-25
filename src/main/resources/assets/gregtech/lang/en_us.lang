@@ -175,10 +175,204 @@ gregtech.machine.cluster_mill.luv.name=Advanced Cluster Mill V
 gregtech.machine.cluster_mill.zpm.name=Advanced Cluster Mill VI
 gregtech.machine.cluster_mill.uv.name=Advanced Cluster Mill VII
 
+gregtech.machine.electric_furnace.iv.name=Electron Excitement Processor
+gregtech.machine.electric_furnace.luv.name=Electron Excitement Processor
+gregtech.machine.electric_furnace.zpm.name=Electron Excitement Processor
+gregtech.machine.electric_furnace.uv.name=Electron Excitement Processor
+
+gregtech.machine.macerator.iv.name=Blend-O-Matic 9001
+gregtech.machine.macerator.luv.name=Blend-O-Matic 9002
+gregtech.machine.macerator.zpm.name=Blend-O-Matic 9003
+gregtech.machine.macerator.uv.name=Blend-O-Matic 9004
+
 gregtech.machine.alloy_smelter.iv.name=Advanced Alloy Smelter IV
 gregtech.machine.alloy_smelter.luv.name=Advanced Alloy Smelter V
 gregtech.machine.alloy_smelter.zpm.name=Advanced Alloy Smelter VI
 gregtech.machine.alloy_smelter.uv.name=Advanced Alloy Smelter VII
+
+gregtech.machine.amplifab.iv.name=Advanced Amplifabricator IV
+gregtech.machine.amplifab.luv.name=Advanced Amplifabricator V
+gregtech.machine.amplifab.zpm.name=Advanced Amplifabricator VI
+gregtech.machine.amplifab.uv.name=Advanced Amplifabricator VII
+
+gregtech.machine.arc_furnace.iv.name=Advanced Arc Furnace IV
+gregtech.machine.arc_furnace.luv.name=Advanced Arc Furnace V
+gregtech.machine.arc_furnace.zpm.name=Advanced Arc Furnace VI
+gregtech.machine.arc_furnace.uv.name=Advanced Arc Furnace VII
+
+gregtech.machine.assembler.iv.name=Advanced Assembling Machine IV
+gregtech.machine.assembler.luv.name=Advanced Assembling Machine V
+gregtech.machine.assembler.zpm.name=Advanced Assembling Machine VI
+gregtech.machine.assembler.uv.name=Advanced Assembling Machine VII
+
+gregtech.machine.autoclave.iv.name=Advanced Autoclave IV
+gregtech.machine.autoclave.luv.name=Advanced Autoclave V
+gregtech.machine.autoclave.zpm.name=Advanced Autoclave VI
+gregtech.machine.autoclave.uv.name=Advanced Autoclave VII
+
+gregtech.machine.bender.iv.name=Advanced Bending Machine IV
+gregtech.machine.bender.luv.name=Advanced Bending Machine V
+gregtech.machine.bender.zpm.name=Advanced Bending Machine VI
+gregtech.machine.bender.uv.name=Advanced Bending Machine VII
+
+gregtech.machine.brewery.iv.name=Advanced Brewery IV
+gregtech.machine.brewery.luv.name=Advanced Brewery V
+gregtech.machine.brewery.zpm.name=Advanced Brewery VI
+gregtech.machine.brewery.uv.name=Advanced Brewery VII
+
+gregtech.machine.canner.iv.name=Advanced Canning Machine IV
+gregtech.machine.canner.luv.name=Advanced Canning Machine V
+gregtech.machine.canner.zpm.name=Advanced Canning Machine VI
+gregtech.machine.canner.uv.name=Advanced Canning Machine VII
+
+gregtech.machine.centrifuge.ev.name=Molecular Separator
+gregtech.machine.centrifuge.iv.name=Molecular Cyclone
+gregtech.machine.centrifuge.luv.name=Molecular Cyclone
+gregtech.machine.centrifuge.zpm.name=Molecular Cyclone
+gregtech.machine.centrifuge.uv.name=Molecular Cyclone
+
+gregtech.machine.chemical_bath.iv.name=Advanced Chemical Bath IV
+gregtech.machine.chemical_bath.luv.name=Advanced Chemical Bath V
+gregtech.machine.chemical_bath.zpm.name=Advanced Chemical Bath VI
+gregtech.machine.chemical_bath.uv.name=Advanced Chemical Bath VII
+
+gregtech.machine.chemical_reactor.iv.name=Advanced Chemical Reactor IV
+gregtech.machine.chemical_reactor.luv.name=Advanced Chemical Reactor V
+gregtech.machine.chemical_reactor.zpm.name=Advanced Chemical Reactor VI
+gregtech.machine.chemical_reactor.uv.name=Advanced Chemical Reactor VII
+
+gregtech.machine.compressor.ev.name=Advanced Compressor III
+gregtech.machine.compressor.iv.name=Singularity Compressor
+gregtech.machine.compressor.luv.name=Singularity Compressor
+gregtech.machine.compressor.zpm.name=Singularity Compressor
+gregtech.machine.compressor.uv.name=Singularity Compressor
+
+gregtech.machine.cutter.iv.name=Advanced Cutting Machine IV
+gregtech.machine.cutter.luv.name=Advanced Cutting Machine V
+gregtech.machine.cutter.zpm.name=Advanced Cutting Machine VI
+gregtech.machine.cutter.uv.name=Advanced Cutting Machine VII
+
+gregtech.machine.distillery.iv.name=Advanced Distillery IV
+gregtech.machine.distillery.luv.name=Advanced Distillery V
+gregtech.machine.distillery.zpm.name=Advanced Distillery VI
+gregtech.machine.distillery.uv.name=Advanced Distillery VII
+
+gregtech.machine.electrolyzer.ev.name=Advanced Electrolyzer III
+gregtech.machine.electrolyzer.iv.name=Molecular Disintegrator E-4905
+gregtech.machine.electrolyzer.luv.name=Molecular Disintegrator E-4906
+gregtech.machine.electrolyzer.zpm.name=Molecular Disintegrator E-4907
+gregtech.machine.electrolyzer.uv.name=Molecular Disintegrator E-4908
+
+gregtech.machine.electromagnetic_separator.iv.name=Advanced Electromagnetic Separator IV
+gregtech.machine.electromagnetic_separator.luv.name=Advanced Electromagnetic Separator V
+gregtech.machine.electromagnetic_separator.zpm.name=Advanced Electromagnetic Separator VI
+gregtech.machine.electromagnetic_separator.uv.name=Advanced Electromagnetic Separator VII
+
+gregtech.machine.extractor.ev.name=Advanced Extractor III
+gregtech.machine.extractor.iv.name=Vacuum Extractor
+gregtech.machine.extractor.luv.name=Vacuum Extractor
+gregtech.machine.extractor.zpm.name=Vacuum Extractor
+gregtech.machine.extractor.uv.name=Vacuum Extractor
+
+gregtech.machine.extruder.iv.name=Advanced Extruder IV
+gregtech.machine.extruder.luv.name=Advanced Extruder V
+gregtech.machine.extruder.zpm.name=Advanced Extruder VI
+gregtech.machine.extruder.uv.name=Advanced Extruder VII
+
+gregtech.machine.fermenter.iv.name=Advanced Fermenter IV
+gregtech.machine.fermenter.luv.name=Advanced Fermenter V
+gregtech.machine.fermenter.zpm.name=Advanced Fermenter VI
+gregtech.machine.fermenter.uv.name=Advanced Fermenter VII
+
+gregtech.machine.fluid_canner.iv.name=Instant Fluid Canner
+gregtech.machine.fluid_canner.luv.name=Instant Fluid Canner
+gregtech.machine.fluid_canner.zpm.name=Instant Fluid Canner
+gregtech.machine.fluid_canner.uv.name=Instant Fluid Canner
+
+gregtech.machine.fluid_extractor.iv.name=Advanced Fluid Extractor IV
+gregtech.machine.fluid_extractor.luv.name=Advanced Fluid Extractor V
+gregtech.machine.fluid_extractor.zpm.name=Advanced Fluid Extractor VI
+gregtech.machine.fluid_extractor.uv.name=Advanced Fluid Extractor VII
+
+gregtech.machine.fluid_heater.iv.name=Advanced Fluid Heater IV
+gregtech.machine.fluid_heater.luv.name=Advanced Fluid Heater V
+gregtech.machine.fluid_heater.zpm.name=Advanced Fluid Heater VI
+gregtech.machine.fluid_heater.uv.name=Advanced Fluid Heater VII
+
+gregtech.machine.fluid_solidifier.iv.name=Advanced Fluid Solidifier IV
+gregtech.machine.fluid_solidifier.luv.name=Advanced Fluid Solidifier V
+gregtech.machine.fluid_solidifier.zpm.name=Advanced Fluid Solidifier VI
+gregtech.machine.fluid_solidifier.uv.name=Advanced Fluid Solidifier VII
+
+gregtech.machine.forge_hammer.iv.name=Advanced Forge Hammer IV
+gregtech.machine.forge_hammer.luv.name=Advanced Forge Hammer V
+gregtech.machine.forge_hammer.zpm.name=Advanced Forge Hammer VI
+gregtech.machine.forge_hammer.uv.name=Advanced Forge Hammer VII
+
+gregtech.machine.forming_press.iv.name=Advanced Forming Press IV
+gregtech.machine.forming_press.luv.name=Advanced Forming Press V
+gregtech.machine.forming_press.zpm.name=Advanced Forming Press VI
+gregtech.machine.forming_press.uv.name=Advanced Forming Press VII
+
+gregtech.machine.lathe.iv.name=Advanced Lathe IV
+gregtech.machine.lathe.luv.name=Advanced Lathe V
+gregtech.machine.lathe.zpm.name=Advanced Lathe VI
+gregtech.machine.lathe.uv.name=Advanced Lathe VII
+
+gregtech.machine.microwave.iv.name=Advanced Microwave IV
+gregtech.machine.microwave.luv.name=Advanced Microwave V
+gregtech.machine.microwave.zpm.name=Advanced Microwave VI
+gregtech.machine.microwave.uv.name=Advanced Microwave VII
+
+gregtech.machine.mixer.iv.name=Advanced Mixer IV
+gregtech.machine.mixer.luv.name=Advanced Mixer V
+gregtech.machine.mixer.zpm.name=Advanced Mixer VI
+gregtech.machine.mixer.uv.name=Advanced Mixer VII
+
+gregtech.machine.ore_washer.iv.name=Repurposed Laundry-Washer I-360
+gregtech.machine.ore_washer.luv.name=Repurposed Laundry-Washer I-720
+gregtech.machine.ore_washer.zpm.name=Repurposed Laundry-Washer I-1080
+gregtech.machine.ore_washer.uv.name=Repurposed Laundry-Washer I-1440
+
+gregtech.machine.packer.iv.name=Boxinator
+gregtech.machine.packer.luv.name=Boxinator
+gregtech.machine.packer.zpm.name=Boxinator
+gregtech.machine.packer.uv.name=Boxinator
+
+gregtech.machine.unpacker.iv.name=Advanced Unboxinator
+gregtech.machine.unpacker.luv.name=Advanced Unboxinator
+gregtech.machine.unpacker.zpm.name=Advanced Unboxinator
+gregtech.machine.unpacker.uv.name=Advanced Unboxinator
+
+gregtech.machine.plasma_arc_furnace.iv.name=Advanced Plasma Arc Furnace IV
+gregtech.machine.plasma_arc_furnace.luv.name=Advanced Plasma Arc Furnace V
+gregtech.machine.plasma_arc_furnace.zpm.name=Advanced Plasma Arc Furnace VI
+gregtech.machine.plasma_arc_furnace.uv.name=Advanced Plasma Arc Furnace VII
+
+gregtech.machine.polarizer.iv.name=Advanced Polarizer
+gregtech.machine.polarizer.luv.name=Advanced Polarizer
+gregtech.machine.polarizer.zpm.name=Advanced Polarizer II
+gregtech.machine.polarizer.uv.name=Advanced Polarizer III
+
+gregtech.machine.laser_engraver.iv.name=Advanced Precision Laser Engraver IV
+gregtech.machine.laser_engraver.luv.name=Advanced Precision Laser Engraver V
+gregtech.machine.laser_engraver.zpm.name=Advanced Precision Laser Engraver VI
+gregtech.machine.laser_engraver.uv.name=Advanced Precision Laser Engraver VII
+
+gregtech.machine.sifter.iv.name=Advanced Sifting Machine IV
+gregtech.machine.sifter.luv.name=Advanced Sifting Machine V
+gregtech.machine.sifter.zpm.name=Advanced Sifting Machine VI
+gregtech.machine.sifter.uv.name=Advanced Sifting Machine VII
+
+gregtech.machine.thermal_centrifuge.iv.name=Blaze Sweatshop T-6350
+gregtech.machine.thermal_centrifuge.luv.name=Blaze Sweatshop T-6360
+gregtech.machine.thermal_centrifuge.zpm.name=Blaze Sweatshop T-6370
+gregtech.machine.thermal_centrifuge.uv.name=Blaze Sweatshop T-6380
+
+gregtech.machine.wiremill.iv.name=Advanced Wiremill IV
+gregtech.machine.wiremill.luv.name=Advanced Wiremill V
+gregtech.machine.wiremill.zpm.name=Advanced Wiremill VI
+gregtech.machine.wiremill.uv.name=Advanced Wiremill VII
 
 gregtech.machine.distill_tower.name=Distillation Tower
 gregtech.machine.assembly_line.name=Assembly Line
