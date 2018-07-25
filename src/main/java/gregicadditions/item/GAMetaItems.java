@@ -1,9 +1,13 @@
 package gregicadditions.item;
 
 import gregtech.api.items.metaitem.MetaItem;
-import gregtech.api.items.toolitem.ToolMetaItem;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import gregtech.common.items.MetaItems;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
 import java.util.List;
 
@@ -124,5 +128,12 @@ public class GAMetaItems {
             if (item instanceof GAMetaTool)
                 ((GAMetaTool) item).registerRecipes();
         }
+    }
+
+    public static ItemStack getFilledCell(Fluid fluid) {
+        ItemStack fluidCell = MetaItems.FLUID_CELL.getStackForm();
+        IFluidHandlerItem fluidHandlerItem = fluidCell.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
+        fluidHandlerItem.fill(new FluidStack(fluid, 1000), true);
+        return fluidHandlerItem.getContainer();
     }
 }
