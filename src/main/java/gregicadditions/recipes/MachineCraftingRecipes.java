@@ -262,7 +262,7 @@ public class MachineCraftingRecipes {
         registerMachineRecipe(MetaTileEntities.PUMP, "WGW", "GMG", "TGT", 'M', Type.HULL, 'W', Type.CIRCUIT, 'G', Type.PUMP, 'T', Type.PIPE);
         registerMachineRecipe(GATileEntities.ALLOY_SMELTER, "ECE", "CMC", "WCW", 'M', Type.HULL, 'E', Type.CIRCUIT, 'W', Type.CABLE, 'C', Type.COIL_HEATING_DOUBLE);
         registerMachineRecipe(GATileEntities.ASSEMBLER, "ACA", "VMV", "WCW", 'M', Type.HULL, 'V', Type.CONVEYOR, 'A', Type.ROBOT_ARM, 'C', Type.CIRCUIT, 'W', Type.CABLE);
-        registerMachineRecipe(GATileEntities.BENDER, "PwP", "CMC", "EWE", 'M', Type.HULL, 'E', Type.MOTOR, 'P', Type.PISTON, 'C', Type.CIRCUIT, 'W', Type.CABLE);
+        registerMachineRecipe(GATileEntities.BENDER, "PWP", "CMC", "EWE", 'M', Type.HULL, 'E', Type.MOTOR, 'P', Type.PISTON, 'C', Type.CIRCUIT, 'W', Type.CABLE);
         registerMachineRecipe(GATileEntities.CANNER, "WPW", "CMC", "GGG", 'M', Type.HULL, 'P', Type.PUMP, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS);
         registerMachineRecipe(GATileEntities.COMPRESSOR, " C ", "PMP", "WCW", 'M', Type.HULL, 'P', Type.PISTON, 'C', Type.CIRCUIT, 'W', Type.CABLE);
         registerMachineRecipe(GATileEntities.CUTTER, "WCG", "VMB", "CWE", 'M', Type.HULL, 'E', Type.MOTOR, 'V', Type.CONVEYOR, 'C', Type.CIRCUIT, 'W', Type.CABLE, 'G', Type.GLASS, 'B', OreDictNames.craftingDiamondBlade);
@@ -479,7 +479,7 @@ public class MachineCraftingRecipes {
                     case 6:
                     case 7:
                     case 8:
-                        recipe[1] = GAMetaBlocks.TRANSPARENT_CASING.getItemVariant(GATransparentCasing.CasingType.REINFORCED_GLASS);
+                        recipe[i] = GAMetaBlocks.TRANSPARENT_CASING.getItemVariant(GATransparentCasing.CasingType.REINFORCED_GLASS);
                         break;
                     default:
                         recipe[i] = new ItemStack(Blocks.GLASS, 1, W);
