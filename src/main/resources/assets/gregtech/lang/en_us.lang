@@ -378,6 +378,10 @@ gregtech.machine.distill_tower.name=Distillation Tower
 gregtech.machine.assembly_line.name=Assembly Line
 gregtech.machine.coke_oven.name=Coke Oven
 
+gregtech.machine.naquadah_reactor.mk1.name=Naquadah Reactor Mk. 1
+gregtech.machine.naquadah_reactor.mk2.name=Naquadah Reactor Mk. 2
+gregtech.machine.naquadah_reactor.mk3.name=Naquadah Reactor Mk. 3
+
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 tile.ga_transparent_casing.reinforced_glass.name=Reinforced Glass
 
@@ -389,6 +393,7 @@ recipemap.circuit_assembler.name=Circuit Assembler
 recipemap.coke_oven.name=Coke Oven
 recipemap.distill_tower.name=Distillation Tower
 recipemap.assembly_line.name=CAssembly Line
+recipemap.naquadah_reactor.name=Naquadah Reactor
 
 material.brick=Brick
 material.fireclay=Fireclay

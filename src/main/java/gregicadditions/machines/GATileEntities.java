@@ -1,7 +1,9 @@
 package gregicadditions.machines;
 
+import gregicadditions.GATextures;
 import gregicadditions.recipes.GARecipeMaps;
 import gregtech.api.GregTechAPI;
+import gregtech.api.metatileentity.SimpleGeneratorMetaTileEntity;
 import gregtech.api.metatileentity.SimpleMachineMetaTileEntity;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.render.Textures;
@@ -48,6 +50,7 @@ public class GATileEntities {
     public static SimpleMachineMetaTileEntity[] SIFTER = new SimpleMachineMetaTileEntity[8];
     public static SimpleMachineMetaTileEntity[] THERMAL_CENTRIFUGE = new SimpleMachineMetaTileEntity[8];
     public static SimpleMachineMetaTileEntity[] WIREMILL = new SimpleMachineMetaTileEntity[8];
+    //public static SimpleGeneratorMetaTileEntity[] NAQUADAH_REACTOR = new SimpleGeneratorMetaTileEntity[][8];
 
     public static TileEntityDistillTower DISTILL_TOWER;
     public static TileEntityAssemblyLine ASSEMBLY_LINE;
@@ -267,6 +270,10 @@ public class GATileEntities {
         WIREMILL[5] = GregTechAPI.registerMetaTileEntity(2169, new SimpleMachineMetaTileEntity("wiremill.luv", RecipeMaps.WIREMILL_RECIPES, Textures.WIREMILL_OVERLAY, 6));
         WIREMILL[6] = GregTechAPI.registerMetaTileEntity(2170, new SimpleMachineMetaTileEntity("wiremill.zpm", RecipeMaps.WIREMILL_RECIPES, Textures.WIREMILL_OVERLAY, 7));
         WIREMILL[7] = GregTechAPI.registerMetaTileEntity(2171, new SimpleMachineMetaTileEntity("wiremill.uv", RecipeMaps.WIREMILL_RECIPES, Textures.WIREMILL_OVERLAY, 8));
+
+        //NAQUADAH_REACTOR[0] = GregTechAPI.registerMetaTileEntity(2172, new SimpleGeneratorMetaTileEntity("naquadah_reactor.mk1", GARecipeMaps.NAQUADAH_REACTOR, GATextures.NAQADAH_OVERLAY, 4));
+        //NAQUADAH_REACTOR[1] = GregTechAPI.registerMetaTileEntity(2173, new SimpleGeneratorMetaTileEntity("naquadah_reactor.mk2", GARecipeMaps.NAQUADAH_REACTOR, GATextures.NAQADAH_OVERLAY, 5));
+        //NAQUADAH_REACTOR[2] = GregTechAPI.registerMetaTileEntity(2174, new SimpleGeneratorMetaTileEntity("naquadah_reactor.mk3", GARecipeMaps.NAQUADAH_REACTOR, GATextures.NAQADAH_OVERLAY, 6));
 
         COKE_OVEN = GregTechAPI.registerMetaTileEntity(2500, new TileEntityCokeOven("coke_oven"));
 
