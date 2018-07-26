@@ -298,6 +298,8 @@ public class MachineCraftingRecipes {
         registerMachineRecipe(GATileEntities.SIFTER, "WFW", "PMP", "CFC", 'M', Type.HULL, 'P', Type.PISTON, 'F', OreDictNames.craftingFilter, 'C', Type.CIRCUIT, 'W', Type.CABLE);
         registerMachineRecipe(GATileEntities.ARC_FURNACE, "WGW", "CMC", "PPP", 'M', Type.HULL, 'P', Type.PLATE, 'C', Type.CIRCUIT, 'W', Type.CABLE_QUAD, 'G', new UnificationEntry(OrePrefix.ingot, Materials.Graphite));
         registerMachineRecipe(GATileEntities.PLASMA_ARC_FURNACE, "WGW", "CMC", "TPT", 'M', Type.HULL, 'P', Type.PLATE, 'C', Type.BETTER_CIRCUIT, 'W', Type.CABLE_QUAD, 'T', Type.PUMP, 'G', new UnificationEntry(OrePrefix.ingot, Materials.Graphite));
+        registerMachineRecipe(GATileEntities.MASS_FAB, "CFC", "QMQ", "CFC", 'M', Type.HULL, 'Q', Type.CABLE_QUAD, 'C', Type.BETTER_CIRCUIT, 'F', Type.FIELD_GENERATOR);
+        registerMachineRecipe(GATileEntities.REPLICATOR, "EFE", "CMC", "EQE", 'M', Type.HULL, 'Q', Type.CABLE_QUAD, 'C', Type.BETTER_CIRCUIT, 'F', Type.FIELD_GENERATOR, 'E', Type.EMITTER);
     }
 
     public static <T extends MetaTileEntity> void registerMachineRecipe(T[] metaTileEntities, Object... recipe) {
@@ -464,11 +466,8 @@ public class MachineCraftingRecipes {
                     case 7:
                         recipe[i] = new UnificationEntry(OrePrefix.cableGtQuadruple, Materials.Naquadah);
                         break;
-                    case 8:
-                        recipe[i] = new UnificationEntry(OrePrefix.cableGtSingle, Tier.Superconductor);
-                        break;
-                    case 9:
-                        recipe[i] = new UnificationEntry(OrePrefix.wireGtQuadruple, Tier.Superconductor);
+                    default:
+                        recipe[i] = new UnificationEntry(OrePrefix.cableGtQuadruple, Materials.NaquadahAlloy);
                         break;
                 }
                 continue;

@@ -378,6 +378,30 @@ gregtech.machine.distill_tower.name=Distillation Tower
 gregtech.machine.assembly_line.name=Assembly Line
 gregtech.machine.coke_oven.name=Coke Oven
 
+gregtech.machine.naquadah_reactor.mk1.name=Naquadah Reactor Mk. 1
+gregtech.machine.naquadah_reactor.mk2.name=Naquadah Reactor Mk. 2
+gregtech.machine.naquadah_reactor.mk3.name=Naquadah Reactor Mk. 3
+
+gregtech.machine.mass_fab.lv.name=Basic Mass Fabricator
+gregtech.machine.mass_fab.mv.name=Advanced Mass Fabricator
+gregtech.machine.mass_fab.hv.name=Advanced Mass Fabricator II
+gregtech.machine.mass_fab.ev.name=Advanced Mass Fabricator III
+gregtech.machine.mass_fab.iv.name=Advanced Mass Fabricator IV
+gregtech.machine.mass_fab.luv.name=Advanced Mass Fabricator V
+gregtech.machine.mass_fab.zpm.name=Advanced Mass Fabricator VI
+gregtech.machine.mass_fab.uv.name=Advanced Mass Fabricator VII
+
+gregtech.machine.replicator.lv.name=Basic Matter Replicator
+gregtech.machine.replicator.mv.name=Advanced Matter Replicator
+gregtech.machine.replicator.hv.name=Advanced Matter Replicator II
+gregtech.machine.replicator.ev.name=Advanced Matter Replicator III
+gregtech.machine.replicator.iv.name=Advanced Matter Replicator IV
+gregtech.machine.replicator.luv.name=Advanced Matter Replicator V
+gregtech.machine.replicator.zpm.name=Advanced Matter Replicator VI
+gregtech.machine.replicator.uv.name=Advanced Matter Replicator VII
+
+gregtech.machine.replicator.tooltip=Producing The Purest Of Elements
+
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 tile.ga_transparent_casing.reinforced_glass.name=Reinforced Glass
 
@@ -389,6 +413,9 @@ recipemap.circuit_assembler.name=Circuit Assembler
 recipemap.coke_oven.name=Coke Oven
 recipemap.distill_tower.name=Distillation Tower
 recipemap.assembly_line.name=CAssembly Line
+recipemap.naquadah_reactor.name=Naquadah Reactor
+recipemap.replicator.name=Matter Replicator
+recipemap.mass_fab.name=Mass Fabricator
 
 material.brick=Brick
 material.fireclay=Fireclay
@@ -418,7 +445,7 @@ material.glycerol=Glycerol
 material.fish_oil=Fish Oil
 material.methanol=Methanol
 material.carbon_monoxide=Carbon Monoxide
-material.cetane_boosted_diesel=Cetane-Boosted Diesel
+material.nitro_fuel=Cetane-Boosted Diesel
 material.diluted_sulfuric_acid=Diluted Sulfuric Acid
 material.sodium_bisulfate=Sodium Bisulfate
 material.chloroform=Chloroform
