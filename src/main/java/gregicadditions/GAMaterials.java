@@ -35,7 +35,6 @@ public class GAMaterials {
     public static FluidMaterial FishOil;
     public static FluidMaterial Methanol;
     public static FluidMaterial CarbonMonoxde;
-    public static FluidMaterial CetaneBoostedDiesel;
     public static FluidMaterial DilutedSulfuricAcid;
     public static DustMaterial SodiumBisulfate;
     public static FluidMaterial Chloroform;
@@ -167,7 +166,6 @@ public class GAMaterials {
         FishOil = new FluidMaterial(975,"fish_oil",0xdcc15d,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         Methanol = new FluidMaterial(974,"methanol",0x887010,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,1),new MaterialStack(Materials.Hydrogen,4),new MaterialStack(Materials.Oxygen,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         CarbonMonoxde = new FluidMaterial(973,"carbon_monoxide",0x19436c,MaterialIconSet.GAS,ImmutableList.of(new MaterialStack(Materials.Carbon,1),new MaterialStack(Materials.Oxygen,1)),FluidMaterial.MatFlags.STATE_GAS | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        CetaneBoostedDiesel = new FluidMaterial(972,"cetane_boosted_diesel",0xc1cf31,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         DilutedSulfuricAcid = new FluidMaterial(971,"diluted_sulfuric_acid",0x986526,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Hydrogen,2),new MaterialStack(Materials.Sulfur,1),new MaterialStack(Materials.Oxygen,4)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         SodiumBisulfate = new DustMaterial(970,"sodium_bisulfate",0x002833,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Sodium,1),new MaterialStack(Materials.Hydrogen,1),new MaterialStack(Materials.Sulfur,1),new MaterialStack(Materials.Oxygen,4)),Material.MatFlags.DISABLE_DECOMPOSITION);
         Chloroform = new FluidMaterial(969,"chloroform",0x702e80,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,1),new MaterialStack(Materials.Hydrogen,1),new MaterialStack(Materials.Chlorine,3)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
