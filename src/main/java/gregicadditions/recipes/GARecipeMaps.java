@@ -7,6 +7,7 @@ import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.builders.AssemblerRecipeBuilder;
 import gregtech.api.recipes.builders.IntCircuitRecipeBuilder;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
+import gregtech.api.recipes.builders.UniversalDistillationRecipeBuilder;
 import stanhebben.zenscript.annotations.ZenProperty;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class GARecipeMaps {
     public static final RecipeMap<SimpleRecipeBuilder> MASS_FAB_RECIPES;
     public static final RecipeMap<SimpleRecipeBuilder> REPLICATOR_RECIPES;
     public static final List<CokeOvenRecipe> COKE_OVEN_RECIPES;
+    public static final RecipeMap<UniversalDistillationRecipeBuilder> DISTILLATION_RECIPES;
 
     static {
         CIRCUIT_ASSEMBLER_RECIPES = (new RecipeMap("circuit_assembler", 1, 6, 1, 1, 0, 1, 0, 0, 1, new AssemblerRecipeBuilder())).setSlotOverlay(false, false, GuiTextures.CIRCUIT_OVERLAY).setProgressBar(GuiTextures.PROGRESS_BAR_CIRCUIT, ProgressWidget.MoveType.HORIZONTAL);
@@ -30,5 +32,7 @@ public class GARecipeMaps {
         MASS_FAB_RECIPES = (new RecipeMap("mass_fab", 0, 1, 0, 0, 0, 1, 1, 2, 1, new SimpleRecipeBuilder())).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
         REPLICATOR_RECIPES = (new RecipeMap("replicator", 0, 1, 0, 1, 1, 2, 0, 1, 1, new SimpleRecipeBuilder())).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
         COKE_OVEN_RECIPES = new ArrayList();
+
+        DISTILLATION_RECIPES = new RecipeMap("distill_tower", 0, 0, 0, 1, 1, 1, 1, 11, 1, (new UniversalDistillationRecipeBuilder()).notOptimized());
     }
 }

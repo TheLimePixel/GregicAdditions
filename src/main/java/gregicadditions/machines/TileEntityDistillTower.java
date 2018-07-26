@@ -1,12 +1,11 @@
 package gregicadditions.machines;
 
+import gregicadditions.recipes.GARecipeMaps;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.multiblock.BlockPattern;
-import gregtech.api.multiblock.FactoryBlockPattern;
-import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.render.ICubeRenderer;
 import gregtech.api.render.Textures;
 import gregtech.common.blocks.BlockMetalCasing;
@@ -23,7 +22,7 @@ import static gregtech.api.multiblock.BlockPattern.RelativeDirection.*;
 
 public class TileEntityDistillTower extends RecipeMapMultiblockController {
     public TileEntityDistillTower(String metaTileEntityId) {
-        super(metaTileEntityId, RecipeMaps.DISTILLATION_RECIPES);
+        super(metaTileEntityId, GARecipeMaps.DISTILLATION_RECIPES);
     }
 
     @Override
