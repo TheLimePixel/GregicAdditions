@@ -22,6 +22,7 @@ public class GeneratorFuels {
         RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.Butadiene.getFluid(200)).EUt(32).duration(1288).buildAndRegister();
         RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.Propane.getFluid(200)).EUt(32).duration(1450).buildAndRegister();
         RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.Butene.getFluid(200)).EUt(32).duration(1400).buildAndRegister();
+        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.RocketFuel.getFluid(200)).EUt(32).duration(1563).buildAndRegister();
         RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(Materials.LPG.getFluid(200)).EUt(32).duration(1600).buildAndRegister();
         RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(Materials.Naphtha.getFluid(200)).EUt(32).duration(1600).buildAndRegister();
         RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.Phenol.getFluid(200)).EUt(32).duration(1800).buildAndRegister();
@@ -33,7 +34,6 @@ public class GeneratorFuels {
         RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.BioFuel.getFluid(200)).EUt(32).duration(38).buildAndRegister();
         RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.SulfuricLightFuel.getFluid(200)).EUt(32).duration(200).buildAndRegister();
         RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(GAMaterials.Methanol.getFluid(200)).EUt(32).duration(525).buildAndRegister();
-        RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(GAMaterials.RocketFuel.getFluid(200)).EUt(32).duration(700).buildAndRegister();
         RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Fuel.getFluid(200)).EUt(32).duration(800).buildAndRegister();
         RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Ethanol.getFluid(200)).EUt(32).duration(925).buildAndRegister();
         RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(GAMaterials.BioDiesel.getFluid(200)).EUt(32).duration(1200).buildAndRegister();

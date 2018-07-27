@@ -512,7 +512,7 @@ public class MachineCraftingRecipes {
                         recipe[i] = new UnificationEntry(OrePrefix.plate, Materials.HSSE);
                         break;
                     default:
-                        recipe[i] = new UnificationEntry(OrePrefix.plate, Materials.Darmstadtium);
+                        recipe[i] = new UnificationEntry(OrePrefix.plate, GAMaterials.Neutronium);
                         break;
                 }
                 continue;

@@ -123,6 +123,9 @@ public class GAMaterials {
     public static DustMaterial Ferrosilite;
     public static DustMaterial Magnesia;
     public static DustMaterial GASodiumSulfide;
+    public static FluidMaterial NeutralMatter;
+    public static FluidMaterial PositiveMatter;
+    public static IngotMaterial Neutronium;
     public static Material Extreme = new MarkerMaterial("extreme");
     public static Material Infinite = new MarkerMaterial("infinite");
 
@@ -142,7 +145,7 @@ public class GAMaterials {
         Brick = new DustMaterial(999,"brick",0xB75A40,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Aluminium,4),new MaterialStack(Materials.Silicon,3),new MaterialStack(Materials.Oxygen,12)),Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
         Fireclay = new DustMaterial(998,"fireclay",0x928073,MaterialIconSet.ROUGH,1,ImmutableList.of(new MaterialStack(Materials.Clay,1),new MaterialStack(Brick,1)),Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
         Coke = new GemMaterial(997,"coke",0x6f6f80,MaterialIconSet.valueOf("COKE"),1,ImmutableList.of(new MaterialStack(Materials.Carbon,1)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING | SolidMaterial.MatFlags.MORTAR_GRINDABLE | Material.MatFlags.FLAMMABLE  | DustMaterial.MatFlags.NO_SMELTING | DustMaterial.MatFlags.NO_SMASHING);
-        PhosphorousPentoxide = new DustMaterial(996,"phosphorus_pentoxide",0x7c7d00,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Phosphorus,4),new MaterialStack(Materials.Oxygen,10)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        PhosphorousPentoxide = new DustMaterial(996,"phosphorous_pentoxide",0x7c7d00,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Phosphorus,4),new MaterialStack(Materials.Oxygen,10)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         PhosphoricAcid = new FluidMaterial(995,"phosphoric_acid",0xaeae10,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Hydrogen,3),new MaterialStack(Materials.Phosphorus,4)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         PolyvinylAcetate = new FluidMaterial(994,"polyvinyl_acetate",0xc87e4c,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,4),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Oxygen,2)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
         Phenol = new FluidMaterial(993,"phenol",0x654027,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,6),new MaterialStack(Materials.Hydrogen,6),new MaterialStack(Materials.Oxygen,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
@@ -166,6 +169,7 @@ public class GAMaterials {
         FishOil = new FluidMaterial(975,"fish_oil",0xdcc15d,MaterialIconSet.FLUID,ImmutableList.of(),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         Methanol = new FluidMaterial(974,"methanol",0x887010,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,1),new MaterialStack(Materials.Hydrogen,4),new MaterialStack(Materials.Oxygen,1)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         CarbonMonoxde = new FluidMaterial(973,"carbon_monoxide",0x19436c,MaterialIconSet.GAS,ImmutableList.of(new MaterialStack(Materials.Carbon,1),new MaterialStack(Materials.Oxygen,1)),FluidMaterial.MatFlags.STATE_GAS | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        Neutronium = new IngotMaterial(972, "neutronium", 0xc3c3c3, MaterialIconSet.METALLIC, 6, ImmutableList.of(), EXT2_METAL | gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_RING | gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_ROTOR | gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_SMALL_GEAR | gregtech.api.unification.material.type.SolidMaterial.MatFlags.GENERATE_LONG_ROD, (Element)null, 24.0F, 655360);
         DilutedSulfuricAcid = new FluidMaterial(971,"diluted_sulfuric_acid",0x986526,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Hydrogen,2),new MaterialStack(Materials.Sulfur,1),new MaterialStack(Materials.Oxygen,4)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         SodiumBisulfate = new DustMaterial(970,"sodium_bisulfate",0x002833,MaterialIconSet.DULL,1,ImmutableList.of(new MaterialStack(Materials.Sodium,1),new MaterialStack(Materials.Hydrogen,1),new MaterialStack(Materials.Sulfur,1),new MaterialStack(Materials.Oxygen,4)),Material.MatFlags.DISABLE_DECOMPOSITION);
         Chloroform = new FluidMaterial(969,"chloroform",0x702e80,MaterialIconSet.FLUID,ImmutableList.of(new MaterialStack(Materials.Carbon,1),new MaterialStack(Materials.Hydrogen,1),new MaterialStack(Materials.Chlorine,3)),FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
@@ -254,5 +258,7 @@ public class GAMaterials {
         Ferrosilite = new DustMaterial(886,"ferrosilite",0x503516,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Iron,1),new MaterialStack(Materials.Silicon,1),new MaterialStack(Materials.Oxygen,3)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         Magnesia = new DustMaterial(885,"magnesia",0x887878,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Magnesium,1),new MaterialStack(Materials.Oxygen,1)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         GASodiumSulfide = new DustMaterial(884,"ga_sodium_sulfide",0x887b44,MaterialIconSet.SAND,1,ImmutableList.of(new MaterialStack(Materials.Sodium,2),new MaterialStack(Materials.Sulfur,1)),Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
+        NeutralMatter = new FluidMaterial(883,"neutral_matter",0x3c60e8,MaterialIconSet.FLUID,ImmutableList.of(),Material.MatFlags.DISABLE_DECOMPOSITION);
+        PositiveMatter = new FluidMaterial(882,"positive_matter",0xac1b1b,MaterialIconSet.FLUID,ImmutableList.of(),Material.MatFlags.DISABLE_DECOMPOSITION);
     }
 }
