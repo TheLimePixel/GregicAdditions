@@ -146,6 +146,9 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
                 MetaItems.ENERGY_LAPOTRONIC_ORB.getStackForm(8),
                 OreDictUnifier.get(OrePrefix.plate,Materials.Europium,4));
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
+                MetaItems.ENERGY_LAPOTRONIC_ORB2.getStackForm(8),
+                OreDictUnifier.get(OrePrefix.plate,Materials.Darmstadtium,16));
 
             for (MaterialStack stack : solderingList) {
                 IngotMaterial material = (IngotMaterial) stack.material;
@@ -251,6 +254,12 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.DIESEL_GENERATOR_FUELS,Materials.SulfuricLightFuel.getFluid(12));
         removeRecipesByInputs(RecipeMaps.DIESEL_GENERATOR_FUELS,Materials.Naphtha.getFluid(12));
         removeRecipesByInputs(RecipeMaps.DIESEL_GENERATOR_FUELS,Materials.LightFuel.getFluid(12));
+
+        //Star Recipes
+        removeRecipesByInputs(RecipeMaps.AUTOCLAVE_RECIPES,
+                new ItemStack[]{new ItemStack(Items.NETHER_STAR)},
+                new FluidStack[]{Materials.Darmstadtium.getFluid(288)});
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES,OreDictUnifier.get(OrePrefix.ingot,Materials.Plutonium,6));
 
         //Remove The Bad Nitric Acid Recipe
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES,Materials.Water.getFluid(2000),Materials.NitrogenDioxide.getFluid(4000),Materials.Oxygen.getFluid(1000));
