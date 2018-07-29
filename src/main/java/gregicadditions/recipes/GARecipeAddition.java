@@ -349,13 +349,6 @@ public class GARecipeAddition {
         ModHandler.addShapedRecipe("nether_brick_slab",new ItemStack(Blocks.STONE_SLAB,2,6),"sB",'B',new ItemStack(Blocks.NETHER_BRICK));
         ModHandler.removeRecipeByName(new ResourceLocation("minecraft:quartz_slab"));
         ModHandler.addShapedRecipe("quartz_slab",new ItemStack(Blocks.STONE_SLAB,2,7),"sQ",'Q',new ItemStack(Blocks.QUARTZ_BLOCK));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:oak_wooden_slab"));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:spruce_wooden_slab"));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:birch_wooden_slab"));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:jungle_wooden_slab"));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:acacia_wooden_slab"));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:dark_oak_wooden_slab"));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:red_sandstone_slab"));
         ModHandler.addShapedRecipe("red_sandstone_slab",new ItemStack(Blocks.STONE_SLAB2,2),"sS",'S',new ItemStack(Blocks.RED_SANDSTONE));
         ModHandler.removeRecipeByName(new ResourceLocation("minecraft:purpur_slab"));
         ModHandler.addShapedRecipe("purpur",new ItemStack(Blocks.PURPUR_SLAB,2),"sP",'P',new ItemStack(Blocks.PURPUR_BLOCK));
@@ -1509,6 +1502,11 @@ public class GARecipeAddition {
         RecipeMaps.FUSION_RECIPES.recipeBuilder().fluidInputs(Materials.Silver.getFluid(16), Materials.Lithium.getFluid(16)).fluidOutputs(Materials.Indium.getFluid(16)).duration(32).EUt(24576).EUToStart(380000).buildAndRegister();
         RecipeMaps.FUSION_RECIPES.recipeBuilder().fluidInputs(Materials.NaquadahEnriched.getFluid(15), Materials.Radon.getFluid(125)).fluidOutputs(Materials.Naquadria.getFluid(3)).duration(64).EUt(49152).EUToStart(400000).buildAndRegister();
         RecipeMaps.FUSION_RECIPES.recipeBuilder().fluidInputs(Materials.Lithium.getFluid(16), Materials.Tungsten.getFluid(16)).fluidOutputs(Materials.Iridium.getFluid(16)).duration(32).EUt(32768).EUToStart(300000).buildAndRegister();
+
+        //Explosion Recipes
+        ModHandler.removeRecipes(new ItemStack(Blocks.TNT));
+        ModHandler.removeRecipes(MetaItems.DYNAMITE.getStackForm());
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(4).inputs(new ItemStack(Items.PAPER),new ItemStack(Items.STRING)).fluidInputs(Materials.Glyceryl.getFluid(500)).outputs(MetaItems.DYNAMITE.getStackForm()).buildAndRegister();
 
         //Lube Mixer Recipes
         for (MaterialStack lubeFluid : lubeFluids) {
