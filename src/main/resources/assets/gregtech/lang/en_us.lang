@@ -413,9 +413,11 @@ recipemap.circuit_assembler.name=Circuit Assembler
 recipemap.coke_oven.name=Coke Oven
 recipemap.distill_tower.name=Distillation Tower
 recipemap.assembly_line.name=Assembly Line
-recipemap.naquadah_reactor.name=Naquadah Reactor
+recipemap.naquadah_reactor.name=Naquadah Reactor Fuels
 recipemap.replicator.name=Replicator
 recipemap.mass_fab.name=Mass Fabricator
+
+recipemap.plasma_generator.name=Plasma Turbine Fuels
 
 material.brick=Brick
 material.fireclay=Fireclay

@@ -1,6 +1,7 @@
 package gregicadditions;
 
 import gregtech.api.GTValues;
+import gregtech.api.unification.Element;
 import gregtech.api.unification.material.MaterialIconSet;
 import gregtech.api.unification.material.MaterialIconType;
 import gregtech.api.unification.material.type.DustMaterial;

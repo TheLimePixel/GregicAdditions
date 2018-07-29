@@ -26,7 +26,7 @@ public class GATextures {
 
         COKE_OVEN_OVERLAY = new OrientedOverlayRenderer("machines/coke_oven", new OverlayFace[]{OverlayFace.FRONT});
 
-        NAQADAH_OVERLAY = new OrientedOverlayRenderer("machines/naquadah_reactor", new OverlayFace[]{OverlayFace.FRONT, OverlayFace.BACK, OverlayFace.SIDE, OverlayFace.TOP});
+        NAQADAH_OVERLAY = new OrientedOverlayRenderer("machines/naquadah_reactor", new OverlayFace[]{OverlayFace.FRONT, OverlayFace.BACK, OverlayFace.TOP});
 
         REPLICATOR_OVERLAY = new OrientedOverlayRenderer("machines/replicator", new OverlayFace[]{OverlayFace.FRONT});
 

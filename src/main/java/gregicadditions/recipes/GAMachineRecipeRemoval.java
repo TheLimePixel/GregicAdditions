@@ -200,9 +200,8 @@ public class GAMachineRecipeRemoval {
 
         //Remove Cracker recipe
         removeAllRecipes(RecipeMaps.CRACKING_RECIPES);
+        removeAllRecipes(RecipeMaps.DISTILLERY_RECIPES);
         removeAllRecipes(RecipeMaps.DISTILLATION_RECIPES);
-        removeRecipesByInputs(RecipeMaps.DISTILLERY_RECIPES,Materials.CrackedHeavyFuel.getFluid(25));
-        removeRecipesByInputs(RecipeMaps.DISTILLERY_RECIPES,Materials.CrackedLightFuel.getFluid(25));
 
         //Remove Pyrolise Oven Recipes
         removeAllRecipes(RecipeMaps.PYROLYSE_RECIPES);
