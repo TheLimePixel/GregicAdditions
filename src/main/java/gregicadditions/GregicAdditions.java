@@ -31,8 +31,7 @@ public class GregicAdditions {
 
     private static Logger logger;
 
-    public GregicAdditions()
-    {
+    public GregicAdditions() {
         GAEnums.preInit();
         new GAMaterials();
     }

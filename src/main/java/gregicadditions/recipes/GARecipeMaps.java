@@ -29,7 +29,7 @@ public class GARecipeMaps {
         CIRCUIT_ASSEMBLER_RECIPES = (new RecipeMap("circuit_assembler", 1, 6, 1, 1, 0, 1, 0, 0, 1, new AssemblerRecipeBuilder())).setSlotOverlay(false, false, GuiTextures.CIRCUIT_OVERLAY).setProgressBar(GuiTextures.PROGRESS_BAR_CIRCUIT, ProgressWidget.MoveType.HORIZONTAL);
         CLUSTER_MILL_RECIPES = (new RecipeMap("cluster_mill", 1, 1, 1, 1, 0, 0, 0, 0, 1, new SimpleRecipeBuilder())).setSlotOverlay(false, false, GuiTextures.BENDER_OVERLAY).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
         ASSEMBLY_LINE_RECIPES = (new RecipeMap("assembly_line", 4, 16, 1, 1, 0, 4, 0, 0, 1, new SimpleRecipeBuilder())).setSlotOverlay(false, false, GuiTextures.MOLD_OVERLAY).setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
-        NAQUADAH_REACTOR_FUELS = new RecipeMapLiquidFuel("naquadah_reactor",1,1,1,new SimpleRecipeBuilder());
+        NAQUADAH_REACTOR_FUELS = new RecipeMapLiquidFuel("naquadah_reactor", 1, 1, 1, new SimpleRecipeBuilder());
         MASS_FAB_RECIPES = (new RecipeMap("mass_fab", 0, 1, 0, 0, 0, 1, 1, 2, 1, new SimpleRecipeBuilder())).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
         REPLICATOR_RECIPES = (new RecipeMap("replicator", 0, 1, 0, 1, 1, 2, 0, 1, 1, new SimpleRecipeBuilder())).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
         COKE_OVEN_RECIPES = new ArrayList();

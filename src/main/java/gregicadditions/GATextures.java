@@ -1,8 +1,8 @@
 package gregicadditions;
 
 import gregtech.api.gui.resources.TextureArea;
-import gregtech.api.render.OrientedOverlayRenderer.OverlayFace;
 import gregtech.api.render.OrientedOverlayRenderer;
+import gregtech.api.render.OrientedOverlayRenderer.OverlayFace;
 import gregtech.api.render.SimpleCubeRenderer;
 
 public class GATextures {
