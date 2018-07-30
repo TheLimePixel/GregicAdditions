@@ -49,7 +49,7 @@ public class GATileEntities {
     public static SimpleMachineMetaTileEntity[] SIFTER = new SimpleMachineMetaTileEntity[8];
     public static SimpleMachineMetaTileEntity[] THERMAL_CENTRIFUGE = new SimpleMachineMetaTileEntity[8];
     public static SimpleMachineMetaTileEntity[] WIREMILL = new SimpleMachineMetaTileEntity[8];
-    public static SimpleGeneratorMetaTileEntity[] NAQUADAH_REACTOR = new SimpleGeneratorMetaTileEntity[4];
+    public static SimpleGeneratorMetaTileEntity[] NAQUADAH_REACTOR = new SimpleGeneratorMetaTileEntity[8];
     public static SimpleMachineMetaTileEntity[] REPLICATOR = new SimpleMachineMetaTileEntity[8];
     public static SimpleMachineMetaTileEntity[] MASS_FAB = new SimpleMachineMetaTileEntity[8];
 
