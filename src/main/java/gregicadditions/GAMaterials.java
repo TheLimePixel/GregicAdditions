@@ -69,7 +69,6 @@ public class GAMaterials {
     public static FluidMaterial RawGrowthMedium;
     public static FluidMaterial SterilizedGrowthMedium;
     public static DustMaterial Meat;
-    public static DustMaterial CookedMeat;
     public static FluidMaterial VinylAcetate;
     public static IngotMaterial GalliumArsenide;
     public static IngotMaterial PolyphenyleneSulfide;
@@ -205,7 +204,6 @@ public class GAMaterials {
         RawGrowthMedium = new FluidMaterial(940, "raw_growth_medium", 0xa47351, MaterialIconSet.FLUID, ImmutableList.of(), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         SterilizedGrowthMedium = new FluidMaterial(939, "sterilized_growth_medium", 0xac876e, MaterialIconSet.FLUID, ImmutableList.of(), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         Meat = new DustMaterial(938, "meat", 0xc14c4c, MaterialIconSet.SAND, 1, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
-        CookedMeat = new DustMaterial(937, "cooked_meat", 0x712d0f, MaterialIconSet.SAND, 1, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
         VinylAcetate = new FluidMaterial(936, "vinyl_acetate", 0xc8916c, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Carbon, 4), new MaterialStack(Materials.Hydrogen, 6), new MaterialStack(Materials.Oxygen, 2)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         GalliumArsenide = new IngotMaterial(935, "gallium_arsenide", 0x727272, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Arsenic, 1), new MaterialStack(Materials.Gallium, 1)), Material.MatFlags.DECOMPOSITION_BY_CENTRIFUGING | DustMaterial.MatFlags.GENERATE_PLATE, (Element) null, 1200);
         PolyphenyleneSulfide = new IngotMaterial(934, "polyphenylene_sulfide", 0x856a00, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Carbon, 6), new MaterialStack(Materials.Hydrogen, 4), new MaterialStack(Materials.Sulfur, 1)), Material.MatFlags.DISABLE_DECOMPOSITION | EXT_METAL | IngotMaterial.MatFlags.GENERATE_FOIL, (Element) null, 6.0F, 32);
@@ -261,5 +259,11 @@ public class GAMaterials {
         GASodiumSulfide = new DustMaterial(884, "ga_sodium_sulfide", 0x887b44, MaterialIconSet.SAND, 1, ImmutableList.of(new MaterialStack(Materials.Sodium, 2), new MaterialStack(Materials.Sulfur, 1)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         NeutralMatter = new FluidMaterial(883, "neutral_matter", 0x3c60e8, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
         PositiveMatter = new FluidMaterial(882, "positive_matter", 0xac1b1b, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
+
+        Materials.YttriumBariumCuprate.addFlag(IngotMaterial.MatFlags.GENERATE_FINE_WIRE);
+
+        Materials.Salt.addOreByProducts(Materials.Borax);
+        Materials.RockSalt.addOreByProducts(Materials.Borax);
+        Materials.Lepidolite.addOreByProducts(Materials.Boron);
     }
 }

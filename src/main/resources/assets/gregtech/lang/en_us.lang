@@ -601,9 +601,6 @@ item.styrene_butadiene_rubber.foil=Thin Styrene-Butadiene Rubber Sheet
 item.meat.dustTiny=Tiny Pile of Mince Meat
 item.meat.dustSmall=Small Pile of Mince Meat
 item.meat.dust=Mince Meat
-item.cooked_meat.dustTiny=Tiny Pile of Cooked Mince Meat
-item.cooked_meat.dustSmall=Small Pile of Cooked Mince Meat
-item.cooked_meat.dust=Cooked Mince Meat
 
 item.material.oreprefix.plateCurved=Curved %s Plate
 item.material.oreprefix.ingotDouble=%s Double Ingot
