@@ -9,6 +9,8 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class GATransparentCasing extends VariantBlock<GATransparentCasing.CasingType> {
     public GATransparentCasing() {
@@ -29,7 +31,13 @@ public class GATransparentCasing extends VariantBlock<GATransparentCasing.Casing
 
     public BlockRenderLayer getBlockLayer()
     {
-        return BlockRenderLayer.CUTOUT;
+        return BlockRenderLayer.TRANSLUCENT;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public boolean isOpaqueCube(IBlockState state)
+    {
+        return false;
     }
 
     public enum CasingType implements IStringSerializable {
