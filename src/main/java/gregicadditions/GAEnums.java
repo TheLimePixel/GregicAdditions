@@ -1,6 +1,7 @@
 package gregicadditions;
 
 import gregtech.api.GTValues;
+import gregtech.api.unification.Element;
 import gregtech.api.unification.material.MaterialIconSet;
 import gregtech.api.unification.material.MaterialIconType;
 import gregtech.api.unification.material.type.DustMaterial;
@@ -9,6 +10,7 @@ import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.material.type.SolidMaterial;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.util.Condition;
+import gregtech.loaders.load.MetaTileEntityLoader;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class GAEnums {
@@ -20,7 +22,12 @@ public class GAEnums {
         EnumHelper.addEnum(MaterialIconType.class, "pipeGa", new Class[0]);
         EnumHelper.addEnum(MaterialIconType.class, "pipeGaLarge", new Class[0]);
 
+        EnumHelper.addEnum(Element.class, "Nt", new Class[]{long.class, long.class, long.class, String.class,String.class, boolean.class}, NUM_PROTONS, NUM_NEUTRONS, HALFLIFE_SECONDS, "DECAY_INTO_ELEMENT_NAME", "ELEMENT_NAME", IS_ISOTOPE);
+
+
         EnumHelper.addEnum(MaterialIconSet.class, "COKE", new Class[0]);
+
+        EnumHelper.addEnum(MetaTileEntityLoader.Type.class, "STICK_RADIOACTIVE", new Class[0]);
 
         EnumHelper.addEnum(OrePrefix.class, "plateCurved",
                 new Class[]{String.class, long.class, Material.class, MaterialIconType.class, long.class, Condition.class},
