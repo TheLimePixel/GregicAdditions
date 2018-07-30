@@ -3,11 +3,13 @@ package gregicadditions.item;
 import gregicadditions.GAMaterials;
 import gregtech.api.items.materialitem.MaterialMetaItem;
 import gregtech.api.items.metaitem.ElectricStats;
+import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.items.metaitem.stats.IMetaItemStats;
 import gregtech.api.unification.material.MarkerMaterials.Tier;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.MetaItems;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.apache.commons.lang3.ArrayUtils;
 
 public class GAMetaItem extends MaterialMetaItem {
@@ -129,6 +131,10 @@ public class GAMetaItem extends MaterialMetaItem {
         MetaItems.CIRCUIT_PRIMITIVE.setInvisible();
         MetaItems.SMALL_BRONZE_PIPE.setInvisible();
         MetaItems.SMALL_STEEL_PIPE.setInvisible();
+
+        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_SMALL, true, "visible");
+        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_MEDIUM, true, "visible");
+        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_LARGE, true, "visible");
     }
 
     public boolean hasContainerItem(ItemStack stack) {
