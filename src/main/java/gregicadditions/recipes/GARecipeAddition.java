@@ -446,7 +446,9 @@ public class GARecipeAddition {
             ItemStack smeltingOutput = ModHandler.getSmeltingOutput(stack);
             if (!smeltingOutput.isEmpty() && smeltingOutput.getItem() == Items.COAL && smeltingOutput.getMetadata() == 1) {
                 int coalAmount = smeltingOutput.getCount();
-                ModHandler.removeFurnaceSmelting(stack);
+                ItemStack woodStack = stack.copy();
+                woodStack.setItemDamage(OreDictionary.WILDCARD_VALUE);
+                ModHandler.removeFurnaceSmelting(woodStack);
                 GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).inputs(CountableIngredient.from(stack)).outputs(new ItemStack(Items.COAL, coalAmount, 1)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
 
                 //Pyrolise Oven Recipes
