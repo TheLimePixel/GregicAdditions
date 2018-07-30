@@ -1,5 +1,7 @@
 package gregicadditions.machines;
 
+import gregicadditions.item.GAMetaBlocks;
+import gregicadditions.item.GATransparentCasing;
 import gregicadditions.recipes.GARecipeMaps;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
@@ -45,7 +47,7 @@ public class TileEntityAssemblyLine extends RecipeMapMultiblockController {
                 }))
                 .where('G', statePredicate(MetaBlocks.MUTLIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.GRATE_CASING)))
                 .where('A', statePredicate(MetaBlocks.MUTLIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.ASSEMBLER_CASING)))
-                .where('R', blockPredicate(Blocks.GLASS))
+                .where('R', statePredicate(GAMetaBlocks.TRANSPARENT_CASING.getState(GATransparentCasing.CasingType.REINFORCED_GLASS)))
                 .where('#', blockPredicate(Blocks.AIR))
                 .build();
         /*return FactoryBlockPattern.start(RIGHT, UP, FRONT)

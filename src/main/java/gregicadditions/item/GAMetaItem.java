@@ -2,6 +2,8 @@ package gregicadditions.item;
 
 import gregicadditions.GAMaterials;
 import gregtech.api.items.materialitem.MaterialMetaItem;
+import gregtech.api.items.metaitem.ElectricStats;
+import gregtech.api.items.metaitem.stats.IMetaItemStats;
 import gregtech.api.unification.material.MarkerMaterials.Tier;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.MetaItems;
@@ -107,6 +109,7 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.ULTIMATE_PIPE_SMALL = addItem(101, "ultimate.pipe.small");
         GAMetaItems.ULTIMATE_PIPE = addItem(102, "ultimate.pipe");
         GAMetaItems.ULTIMATE_PIPE_LARGE = addItem(103, "ultimate.pipe.large");
+        GAMetaItems.LAPOTRON_CRYSTAL = addItem(104, "crystal.lapotron").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(10000000L, 3)}).setModelAmount(8);
 
         MetaItems.CIRCUIT_BASIC.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
         MetaItems.CIRCUIT_PARTS_ADVANCED.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
