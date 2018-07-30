@@ -18,6 +18,7 @@ import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.metatileentity.multiblock.MultiblockControllerBase;
 import gregtech.api.multiblock.BlockPattern;
 import gregtech.api.multiblock.FactoryBlockPattern;
+import gregtech.api.recipes.Recipe;
 import gregtech.api.render.ICubeRenderer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,6 +35,7 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TileEntityCokeOven extends MultiblockControllerBase {
@@ -80,18 +82,15 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
     private boolean tryPickNewRecipe() {
         ItemStack inputStack = importItems.getStackInSlot(0);
         if (inputStack.isEmpty()) return false;
-        CokeOvenRecipe recipe = GARecipeMaps.COKE_OVEN_RECIPES.stream()
-                .filter(recipe1 -> recipe1.getInput().getIngredient().apply(inputStack) &&
-                        inputStack.getCount() >= recipe1.getInput().getCount())
-                .findFirst().orElse(null);
+        Recipe recipe = GARecipeMaps.COKE_OVEN_RECIPES.findRecipe(Integer.MAX_VALUE, Collections.singletonList(inputStack), Collections.EMPTY_LIST);
         if (recipe == null) return false;
         NonNullList<ItemStack> outputs = NonNullList.create();
-        outputs.add(recipe.getOutput().copy());
+        outputs.addAll(recipe.getOutputs());
         List<FluidStack> fluidOutputs = new ArrayList();
-        fluidOutputs.add(recipe.getOutputFluid().copy());
+        fluidOutputs.addAll(recipe.getFluidOutputs());
         if (MetaTileEntity.addItemsToItemHandler(exportItems, true, outputs) &&
                 MetaTileEntity.addFluidsToFluidHandler(exportFluids, true, fluidOutputs)) {
-            inputStack.shrink(recipe.getInput().getCount());
+            inputStack.shrink(recipe.getInputs().get(0).getCount());
             importItems.setStackInSlot(0, inputStack);
             this.maxProgressDuration = recipe.getDuration();
             this.currentProgress = 0;
