@@ -156,6 +156,7 @@ metaitem.crystal.soc.tooltip=Crystal System on a Chip
 metaitem.ultimate.pipe.small.name=Small High Pressure Pipe
 metaitem.ultimate.pipe.name=High Pressure Pipe
 metaitem.ultimate.pipe.large.name=Large High Pressure Pipe
+metaitem.crystal.lapotron.name=Lapotron Crystal
 
 gregtech.machine.circuit_assembler.lv.name=Basic Circuit Assembling Machine
 gregtech.machine.circuit_assembler.mv.name=Advanced Circuit Assembling Machine

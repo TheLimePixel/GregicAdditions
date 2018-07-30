@@ -265,5 +265,11 @@ public class GAMaterials {
         Materials.Salt.addOreByProducts(Materials.Borax);
         Materials.RockSalt.addOreByProducts(Materials.Borax);
         Materials.Lepidolite.addOreByProducts(Materials.Boron);
+
+        Materials.Helium.shouldGeneratePlasma();
+        Materials.Oxygen.shouldGeneratePlasma();
+        Materials.Sulfur.shouldGeneratePlasma();
+        Materials.Iron.shouldGeneratePlasma();
+        Materials.Nickel.shouldGeneratePlasma();
     }
 }
