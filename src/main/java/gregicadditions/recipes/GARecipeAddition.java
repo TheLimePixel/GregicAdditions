@@ -96,6 +96,12 @@ public class GARecipeAddition {
             new MaterialStack(Materials.SeedOil, 1)
     };
 
+    private static final MaterialStack[] lapisLike = {
+            new MaterialStack(Materials.Lapis,1),
+            new MaterialStack(Materials.Lazurite,1),
+            new MaterialStack(Materials.Sodalite,1)
+    };
+
     public static void postInit() {
         //GTNH Bricks
         ModHandler.addSmeltingRecipe(GAMetaItems.COMPRESSED_COKE_CLAY.getStackForm(), GAMetaItems.COKE_BRICK.getStackForm());
@@ -873,6 +879,7 @@ public class GARecipeAddition {
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(400).EUt(480).inputs(GAMetaItems.MULTILAYER_FIBER_BOARD.getStackForm(), GAMetaItems.PETRI_DISH.getStackForm(), GAMetaItems.GOOD_CIRCUIT.getStackForm()).fluidInputs(GAMaterials.SterilizedGrowthMedium.getFluid(250)).outputs(GAMetaItems.WETWARE_BOARD.getStackForm()).buildAndRegister();
         RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(100).EUt(40000).inputs(GAMetaItems.CRYSTAL_CPU.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Black).outputs(GAMetaItems.CRYSTAL_SOC.getStackForm()).buildAndRegister();
         RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(100).EUt(40000).inputs(MetaItems.CIRCUIT_PARTS_CRYSTAL_CHIP_ELITE.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Lime).outputs(GAMetaItems.CRYSTAL_CPU.getStackForm()).buildAndRegister();
+        RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(256).EUt(480).inputs(GAMetaItems.LAPOTRON_CRYSTAL.getStackForm()).notConsumable(OrePrefix.craftingLens,Color.Black).outputs(MetaItems.CIRCUIT_PARTS_CRYSTAL_CHIP_MASTER.getStackForm(3)).buildAndRegister();
 
         //Cutting Machine Recipes
         for (MaterialStack stack : sawLubricants) {
@@ -1541,5 +1548,12 @@ public class GARecipeAddition {
         RecipeMaps.ELECTROMAGNETIC_SEPARATOR_RECIPES.recipeBuilder().duration(400).EUt(24).inputs(OreDictUnifier.get(OrePrefix.dustPure, Materials.Bastnasite)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Bastnasite)).chancedOutput(OreDictUnifier.get(OrePrefix.dustSmall, Materials.Neodymium), 4000).chancedOutput(OreDictUnifier.get(OrePrefix.nugget, Materials.Neodymium), 2000).buildAndRegister();
         RecipeMaps.ELECTROMAGNETIC_SEPARATOR_RECIPES.recipeBuilder().duration(400).EUt(24).inputs(OreDictUnifier.get(OrePrefix.dustPure, Materials.VanadiumMagnetite)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.VanadiumMagnetite)).chancedOutput(OreDictUnifier.get(OrePrefix.dustSmall, Materials.Gold), 4000).chancedOutput(OreDictUnifier.get(OrePrefix.nugget, Materials.Gold), 2000).buildAndRegister();
         RecipeMaps.ELECTROMAGNETIC_SEPARATOR_RECIPES.recipeBuilder().duration(400).EUt(24).inputs(OreDictUnifier.get(OrePrefix.dustPure, Materials.Magnetite)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Magnetite)).chancedOutput(OreDictUnifier.get(OrePrefix.dustSmall, Materials.Gold), 4000).chancedOutput(OreDictUnifier.get(OrePrefix.nugget, Materials.Gold), 2000).buildAndRegister();
+
+        //Lapotron Crystal Recipes
+        for (MaterialStack m : lapisLike) {
+            GemMaterial gem = (GemMaterial) m.material;
+            ModHandler.addShapedRecipe("lapotron_crystal_shaped" + gem.toString(),GAMetaItems.LAPOTRON_CRYSTAL.getStackForm(),"PCP","RFR","PCP",'P',OreDictUnifier.get(OrePrefix.plate,gem),'C',"circuitGAAdvanced",'R',OreDictUnifier.get(OrePrefix.stick,gem),'F',OreDictUnifier.get(OrePrefix.gemFlawless,Materials.Sapphire));
+            ModHandler.addShapelessRecipe("lapotron_crystal_shapeless" + gem.toString(),GAMetaItems.LAPOTRON_CRYSTAL.getStackForm(),OreDictUnifier.get(OrePrefix.gemExquisite,Materials.Sapphire),OreDictUnifier.get(OrePrefix.stick,gem),GAMetaItems.CAPACITOR.getStackForm());
+        }
     }
 }

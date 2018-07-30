@@ -109,7 +109,7 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.ULTIMATE_PIPE_SMALL = addItem(101, "ultimate.pipe.small");
         GAMetaItems.ULTIMATE_PIPE = addItem(102, "ultimate.pipe");
         GAMetaItems.ULTIMATE_PIPE_LARGE = addItem(103, "ultimate.pipe.large");
-        GAMetaItems.LAPOTRON_CRYSTAL = addItem(104, "crystal.lapotron").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(10000000L, 3)}).setModelAmount(8);
+        GAMetaItems.LAPOTRON_CRYSTAL = addItem(104, "crystal.lapotron").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(10000000L, 4)}).setModelAmount(8);
 
         MetaItems.CIRCUIT_BASIC.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
         MetaItems.CIRCUIT_PARTS_ADVANCED.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
