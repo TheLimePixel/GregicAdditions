@@ -22,7 +22,7 @@ public class GARecipeMaps {
     public static final RecipeMapLiquidFuel NAQUADAH_REACTOR_FUELS;
     public static final RecipeMap<SimpleRecipeBuilder> MASS_FAB_RECIPES;
     public static final RecipeMap<SimpleRecipeBuilder> REPLICATOR_RECIPES;
-    public static final List<CokeOvenRecipe> COKE_OVEN_RECIPES;
+    public static final RecipeMap<NoEURecipeBuilder> COKE_OVEN_RECIPES;
     public static final RecipeMap<UniversalDistillationRecipeBuilder> DISTILLATION_RECIPES;
 
     static {
@@ -32,7 +32,7 @@ public class GARecipeMaps {
         NAQUADAH_REACTOR_FUELS = new RecipeMapLiquidFuel("naquadah_reactor", 1, 1, 1, new SimpleRecipeBuilder());
         MASS_FAB_RECIPES = (new RecipeMap("mass_fab", 0, 1, 0, 0, 0, 1, 1, 2, 1, new SimpleRecipeBuilder())).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
         REPLICATOR_RECIPES = (new RecipeMap("replicator", 0, 1, 0, 1, 1, 2, 0, 1, 1, new SimpleRecipeBuilder())).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
-        COKE_OVEN_RECIPES = new ArrayList();
+        COKE_OVEN_RECIPES = new RecipeMap("coke_oven", 1, 1, 0, 1, 0, 0, 0, 1, 0, (new NoEURecipeBuilder())).setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
 
         DISTILLATION_RECIPES = new RecipeMap("distill_tower", 0, 0, 0, 1, 1, 1, 1, 11, 1, (new UniversalDistillationRecipeBuilder()).notOptimized());
     }

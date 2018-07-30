@@ -5,7 +5,6 @@ import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.item.GATransparentCasing;
-import gregicadditions.machines.CokeOvenRecipe;
 import gregicadditions.machines.GATileEntities;
 import gregtech.api.items.ToolDictNames;
 import gregtech.api.recipes.CountableIngredient;
@@ -440,14 +439,15 @@ public class GARecipeAddition {
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(1800).EUt(1920).inputs(CountableIngredient.from(OrePrefix.valueOf("circuitGA"), GAMaterials.Extreme, 4), CountableIngredient.from(OrePrefix.dust, Materials.NetherStar)).fluidInputs(Materials.Osmium.getFluid(2304)).outputs(MetaItems.FIELD_GENERATOR_EV.getStackForm()).buildAndRegister();
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(1800).EUt(7680).inputs(CountableIngredient.from(OrePrefix.valueOf("circuitGA"), Tier.Elite, 4), CountableIngredient.from(MetaItems.QUANTUM_STAR.getStackForm())).fluidInputs(Materials.Osmium.getFluid(4608)).outputs(MetaItems.FIELD_GENERATOR_IV.getStackForm()).buildAndRegister();
 
+
         //Coke Oven Recipes
-        GARecipeMaps.COKE_OVEN_RECIPES.add(new CokeOvenRecipe(CountableIngredient.from(OreDictUnifier.get(OrePrefix.gem, Materials.Coal)), OreDictUnifier.get(OrePrefix.gem, GAMaterials.Coke), Materials.Creosote.getFluid(500), 1800));
+        GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).inputs(CountableIngredient.from(OreDictUnifier.get(OrePrefix.gem, Materials.Coal))).outputs(OreDictUnifier.get(OrePrefix.gem, GAMaterials.Coke)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
         for (ItemStack stack : allWoodLogs) {
             ItemStack smeltingOutput = ModHandler.getSmeltingOutput(stack);
             if (!smeltingOutput.isEmpty() && smeltingOutput.getItem() == Items.COAL && smeltingOutput.getMetadata() == 1) {
                 int coalAmount = smeltingOutput.getCount();
                 ModHandler.removeFurnaceSmelting(stack);
-                GARecipeMaps.COKE_OVEN_RECIPES.add(new CokeOvenRecipe(CountableIngredient.from(stack), new ItemStack(Items.COAL, coalAmount, 1), Materials.Creosote.getFluid(500), 1800));
+                GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).inputs(CountableIngredient.from(stack)).outputs(new ItemStack(Items.COAL, coalAmount, 1)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
 
                 //Pyrolise Oven Recipes
                 RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
