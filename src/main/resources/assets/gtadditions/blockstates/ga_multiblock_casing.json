@@ -7,14 +7,12 @@
     }
   },
   "variants": {
-    "variant1": {
+    "variant": {
       "coke_oven_bricks": {
         "textures": {
           "all": "gregtech:blocks/casings/solid/machine_coke_oven_bricks"
         }
-      }
-    },
-    "variant2": {
+      },
       "tungstensteel_gearbox_casing": {
         "textures": {
           "all": "gregtech:blocks/casings/gearbox/machine_casing_gearbox_tungstensteel"
