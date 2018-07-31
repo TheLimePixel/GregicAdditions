@@ -606,6 +606,7 @@ item.meat.dust=Mince Meat
 
 gregtech.multiblock.coke_oven.description=The Coke Oven is a 3x3 multiblock structure used for turning Coal into Coke Coal and Logs into Charcoal, with Creosote Oil as a byproduct.
 gregtech.multiblock.assembly_line.description=The Assembly Line is a large multiblock structure consisting of 5 to 16 "slices". In theory, it's large Assembling Machine, used for creating advanced crafting components.
+gregtech.multiblock.distill_tower.description=The GA Distillation Tower is a multiblock structure consisting of 2-12 layers. It's used for distilling fluids, but unlike the Distillery, gives you multiple outputs per input, including item outputs. Every layer has a different output.
 
 item.material.oreprefix.plateCurved=Curved %s Plate
 item.material.oreprefix.ingotDouble=%s Double Ingot
