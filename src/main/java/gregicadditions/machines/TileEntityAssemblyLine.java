@@ -1,6 +1,7 @@
 package gregicadditions.machines;
 
 import gregicadditions.item.GAMetaBlocks;
+import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.item.GATransparentCasing;
 import gregicadditions.recipes.GARecipeMaps;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -34,9 +35,9 @@ public class TileEntityAssemblyLine extends RecipeMapMultiblockController {
     @Override
     protected BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start(BACK, DOWN, RIGHT)
-                .aisle("#Y#", "GCS", "RAR", "FIC")
-                .aisle("#Y#", "GCG", "RAR", "FIC").setRepeatable(3, 14)
-                .aisle("#Y#", "GCG", "RAR", "COC")
+                .aisle("#Y#", "GSG", "RTR", "FIF")
+                .aisle("#Y#", "GAG", "RTR", "FIF").setRepeatable(3, 14)
+                .aisle("#Y#", "GAG", "RTR", "COC")
                 .where('S', selfPredicate())
                 .where('C', statePredicate(getCasingState()))
                 .where('F', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.IMPORT_FLUIDS)))
@@ -48,6 +49,7 @@ public class TileEntityAssemblyLine extends RecipeMapMultiblockController {
                 .where('G', statePredicate(MetaBlocks.MUTLIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.GRATE_CASING)))
                 .where('A', statePredicate(MetaBlocks.MUTLIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.ASSEMBLER_CASING)))
                 .where('R', statePredicate(GAMetaBlocks.TRANSPARENT_CASING.getState(GATransparentCasing.CasingType.REINFORCED_GLASS)))
+                .where('T', statePredicate(GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.TUNGSTENSTEEL_GEARBOX_CASING)))
                 .where('#', blockPredicate(Blocks.AIR))
                 .build();
         /*return FactoryBlockPattern.start(RIGHT, UP, FRONT)
