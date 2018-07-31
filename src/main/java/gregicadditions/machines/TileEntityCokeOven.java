@@ -237,7 +237,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
                 .widget(new SlotWidget(exportItems, 0, 85, 24, true, false)
                         .setBackgroundTexture(GuiTextures.BRONZE_SLOT, GATextures.COAL_OVERLAY))
                 .widget(new TankWidget(exportFluids.getTankAt(0), 102, 23, 18, 18)
-                        .setBackgroundTexture(GATextures.BRONZE_FLUID_SLOT))
+                        .setBackgroundTexture(GATextures.BRONZE_FLUID_SLOT).setAlwaysShowFull(true).setContainerIO(true, false))
                 .bindPlayerInventory(entityPlayer.inventory, GuiTextures.BRONZE_SLOT)
                 .build(getHolder(), entityPlayer);
     }
