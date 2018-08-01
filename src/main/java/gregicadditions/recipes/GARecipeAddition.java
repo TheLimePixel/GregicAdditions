@@ -457,18 +457,18 @@ public class GARecipeAddition {
         for (ItemStack stack : allWoodLogs) {
             ItemStack smeltingOutput = ModHandler.getSmeltingOutput(stack);
             if (!smeltingOutput.isEmpty() && smeltingOutput.getItem() == Items.COAL && smeltingOutput.getMetadata() == 1) {
-                int coalAmount = smeltingOutput.getCount();
                 ItemStack woodStack = stack.copy();
                 woodStack.setItemDamage(OreDictionary.WILDCARD_VALUE);
                 ModHandler.removeFurnaceSmelting(woodStack);
-                GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).inputs(CountableIngredient.from(stack)).outputs(new ItemStack(Items.COAL, coalAmount, 1)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
+            }
+                GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).inputs(CountableIngredient.from(stack)).outputs(new ItemStack(Items.COAL, 1, 1)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
 
                 //Pyrolise Oven Recipes
                 RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
                         .inputs(GTUtility.copyAmount(16, stack))
                         .circuitMeta(0)
-                        .outputs(new ItemStack(Items.COAL, 20 * coalAmount, 1))
-                        .fluidOutputs(Materials.Creosote.getFluid(4000 * coalAmount))
+                        .outputs(new ItemStack(Items.COAL, 20, 1))
+                        .fluidOutputs(Materials.Creosote.getFluid(4000))
                         .duration(440)
                         .EUt(64)
                         .buildAndRegister();
@@ -477,8 +477,8 @@ public class GARecipeAddition {
                         .inputs(GTUtility.copyAmount(16, stack))
                         .circuitMeta(1)
                         .fluidInputs(Materials.Nitrogen.getFluid(400))
-                        .outputs(new ItemStack(Items.COAL, 20 * coalAmount, 1))
-                        .fluidOutputs(Materials.Creosote.getFluid(4000 * coalAmount))
+                        .outputs(new ItemStack(Items.COAL, 20, 1))
+                        .fluidOutputs(Materials.Creosote.getFluid(4000))
                         .duration(200)
                         .EUt(96)
                         .buildAndRegister();
@@ -486,8 +486,8 @@ public class GARecipeAddition {
                 RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
                         .inputs(GTUtility.copyAmount(16, stack))
                         .circuitMeta(2)
-                        .outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Ash, 4 * coalAmount))
-                        .fluidOutputs(Materials.OilHeavy.getFluid(200 * coalAmount))
+                        .outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Ash, 4))
+                        .fluidOutputs(Materials.OilHeavy.getFluid(200))
                         .duration(280)
                         .EUt(192)
                         .buildAndRegister();
@@ -495,8 +495,8 @@ public class GARecipeAddition {
                 RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
                         .inputs(GTUtility.copyAmount(16, stack))
                         .circuitMeta(3)
-                        .outputs(new ItemStack(Items.COAL, 20 * coalAmount, 1))
-                        .fluidOutputs(GAMaterials.WoodVinegar.getFluid(3000 * coalAmount))
+                        .outputs(new ItemStack(Items.COAL, 20, 1))
+                        .fluidOutputs(GAMaterials.WoodVinegar.getFluid(3000))
                         .duration(640)
                         .EUt(64)
                         .buildAndRegister();
@@ -505,8 +505,8 @@ public class GARecipeAddition {
                         .inputs(GTUtility.copyAmount(16, stack))
                         .circuitMeta(4)
                         .fluidInputs(Materials.Nitrogen.getFluid(400))
-                        .outputs(new ItemStack(Items.COAL, 20 * coalAmount, 1))
-                        .fluidOutputs(GAMaterials.WoodVinegar.getFluid(3000 * coalAmount))
+                        .outputs(new ItemStack(Items.COAL, 20, 1))
+                        .fluidOutputs(GAMaterials.WoodVinegar.getFluid(3000))
                         .duration(320)
                         .EUt(96)
                         .buildAndRegister();
@@ -514,8 +514,8 @@ public class GARecipeAddition {
                 RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
                         .inputs(GTUtility.copyAmount(16, stack))
                         .circuitMeta(5)
-                        .outputs(new ItemStack(Items.COAL, 20 * coalAmount, 1))
-                        .fluidOutputs(GAMaterials.WoodGas.getFluid(1500 * coalAmount))
+                        .outputs(new ItemStack(Items.COAL, 20, 1))
+                        .fluidOutputs(GAMaterials.WoodGas.getFluid(1500))
                         .duration(640)
                         .EUt(64)
                         .buildAndRegister();
@@ -524,8 +524,8 @@ public class GARecipeAddition {
                         .inputs(GTUtility.copyAmount(16, stack))
                         .circuitMeta(6)
                         .fluidInputs(Materials.Nitrogen.getFluid(400))
-                        .outputs(new ItemStack(Items.COAL, 20 * coalAmount, 1))
-                        .fluidOutputs(GAMaterials.WoodGas.getFluid(1500 * coalAmount))
+                        .outputs(new ItemStack(Items.COAL, 20, 1))
+                        .fluidOutputs(GAMaterials.WoodGas.getFluid(1500))
                         .duration(320)
                         .EUt(96)
                         .buildAndRegister();
@@ -533,8 +533,8 @@ public class GARecipeAddition {
                 RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
                         .inputs(GTUtility.copyAmount(16, stack))
                         .circuitMeta(7)
-                        .outputs(new ItemStack(Items.COAL, 20 * coalAmount, 1))
-                        .fluidOutputs(GAMaterials.WoodTar.getFluid(1500 * coalAmount))
+                        .outputs(new ItemStack(Items.COAL, 20, 1))
+                        .fluidOutputs(GAMaterials.WoodTar.getFluid(1500))
                         .duration(640)
                         .EUt(64)
                         .buildAndRegister();
@@ -543,8 +543,8 @@ public class GARecipeAddition {
                         .inputs(GTUtility.copyAmount(16, stack))
                         .circuitMeta(8)
                         .fluidInputs(Materials.Nitrogen.getFluid(400))
-                        .outputs(new ItemStack(Items.COAL, 20 * coalAmount, 1))
-                        .fluidOutputs(GAMaterials.WoodTar.getFluid(1500 * coalAmount))
+                        .outputs(new ItemStack(Items.COAL, 20, 1))
+                        .fluidOutputs(GAMaterials.WoodTar.getFluid(1500))
                         .duration(320)
                         .EUt(96)
                         .buildAndRegister();
@@ -553,12 +553,12 @@ public class GARecipeAddition {
                         .inputs(GTUtility.copyAmount(16, stack))
                         .circuitMeta(9)
                         .fluidInputs(Materials.Nitrogen.getFluid(400))
-                        .outputs(new ItemStack(Items.COAL, 20 * coalAmount, 1))
-                        .fluidOutputs(GAMaterials.CharcoalByproducts.getFluid(4000 * coalAmount))
+                        .outputs(new ItemStack(Items.COAL, 20, 1))
+                        .fluidOutputs(GAMaterials.CharcoalByproducts.getFluid(4000))
                         .duration(320)
                         .EUt(96)
                         .buildAndRegister();
-            }
+
         }
         RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
                 .inputs(GAMetaItems.BIO_CHAFF.getStackForm())
