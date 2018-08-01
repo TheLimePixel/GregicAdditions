@@ -18,6 +18,7 @@ import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.*;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
+import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.api.util.GTUtility;
 import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.BlockMetalCasing;
@@ -257,14 +258,16 @@ public class GARecipeAddition {
 
             //GT5U Block Recipes
             if (m instanceof IngotMaterial && !m.hasFlag(DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES)) {
-                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.block, m));
+                for (ItemStack oreDict : OreDictionary.getOres(new UnificationEntry(OrePrefix.block, m).toString()))
+                    ModHandler.removeRecipes(oreDict);
                 ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_decompress_" + m.toString()));
                 RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(OreDictUnifier.get(OrePrefix.ingot, m, 9)).outputs(OreDictUnifier.get(OrePrefix.block, m)).buildAndRegister();
             }
         }
         for (Material m : GemMaterial.MATERIAL_REGISTRY) {
             if (m instanceof GemMaterial && !m.hasFlag(DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES)) {
-                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.block, m));
+                for (ItemStack oreDict : OreDictionary.getOres(new UnificationEntry(OrePrefix.block, m).toString()))
+                    ModHandler.removeRecipes(oreDict);
                 ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_decompress_" + m.toString()));
                 if (m != Materials.NetherQuartz) {
                     RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(OreDictUnifier.get(OrePrefix.gem, m, 9)).outputs(OreDictUnifier.get(OrePrefix.block, m)).buildAndRegister();
@@ -274,7 +277,8 @@ public class GARecipeAddition {
         }
         for (Material m : DustMaterial.MATERIAL_REGISTRY) {
             if (m instanceof DustMaterial && OreDictUnifier.get(OrePrefix.ingot, m).isEmpty() && OreDictUnifier.get(OrePrefix.gem, m).isEmpty() && !m.hasFlag(DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES)) {
-                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.block, m));
+                for (ItemStack oreDict : OreDictionary.getOres(new UnificationEntry(OrePrefix.block, m).toString()))
+                    ModHandler.removeRecipes(oreDict);
                 ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_decompress_" + m.toString()));
                 if (m != Materials.Bone)
                     RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(OreDictUnifier.get(OrePrefix.dust, m, 9)).outputs(OreDictUnifier.get(OrePrefix.block, m)).buildAndRegister();
@@ -461,103 +465,103 @@ public class GARecipeAddition {
                 woodStack.setItemDamage(OreDictionary.WILDCARD_VALUE);
                 ModHandler.removeFurnaceSmelting(woodStack);
             }
-                GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).inputs(CountableIngredient.from(stack)).outputs(new ItemStack(Items.COAL, 1, 1)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
+            GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).inputs(CountableIngredient.from(stack)).outputs(new ItemStack(Items.COAL, 1, 1)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
 
-                //Pyrolise Oven Recipes
-                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
-                        .inputs(GTUtility.copyAmount(16, stack))
-                        .circuitMeta(0)
-                        .outputs(new ItemStack(Items.COAL, 20, 1))
-                        .fluidOutputs(Materials.Creosote.getFluid(4000))
-                        .duration(440)
-                        .EUt(64)
-                        .buildAndRegister();
+            //Pyrolise Oven Recipes
+            RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                    .inputs(GTUtility.copyAmount(16, stack))
+                    .circuitMeta(0)
+                    .outputs(new ItemStack(Items.COAL, 20, 1))
+                    .fluidOutputs(Materials.Creosote.getFluid(4000))
+                    .duration(440)
+                    .EUt(64)
+                    .buildAndRegister();
 
-                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
-                        .inputs(GTUtility.copyAmount(16, stack))
-                        .circuitMeta(1)
-                        .fluidInputs(Materials.Nitrogen.getFluid(400))
-                        .outputs(new ItemStack(Items.COAL, 20, 1))
-                        .fluidOutputs(Materials.Creosote.getFluid(4000))
-                        .duration(200)
-                        .EUt(96)
-                        .buildAndRegister();
+            RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                    .inputs(GTUtility.copyAmount(16, stack))
+                    .circuitMeta(1)
+                    .fluidInputs(Materials.Nitrogen.getFluid(400))
+                    .outputs(new ItemStack(Items.COAL, 20, 1))
+                    .fluidOutputs(Materials.Creosote.getFluid(4000))
+                    .duration(200)
+                    .EUt(96)
+                    .buildAndRegister();
 
-                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
-                        .inputs(GTUtility.copyAmount(16, stack))
-                        .circuitMeta(2)
-                        .outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Ash, 4))
-                        .fluidOutputs(Materials.OilHeavy.getFluid(200))
-                        .duration(280)
-                        .EUt(192)
-                        .buildAndRegister();
+            RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                    .inputs(GTUtility.copyAmount(16, stack))
+                    .circuitMeta(2)
+                    .outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Ash, 4))
+                    .fluidOutputs(Materials.OilHeavy.getFluid(200))
+                    .duration(280)
+                    .EUt(192)
+                    .buildAndRegister();
 
-                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
-                        .inputs(GTUtility.copyAmount(16, stack))
-                        .circuitMeta(3)
-                        .outputs(new ItemStack(Items.COAL, 20, 1))
-                        .fluidOutputs(GAMaterials.WoodVinegar.getFluid(3000))
-                        .duration(640)
-                        .EUt(64)
-                        .buildAndRegister();
+            RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                    .inputs(GTUtility.copyAmount(16, stack))
+                    .circuitMeta(3)
+                    .outputs(new ItemStack(Items.COAL, 20, 1))
+                    .fluidOutputs(GAMaterials.WoodVinegar.getFluid(3000))
+                    .duration(640)
+                    .EUt(64)
+                    .buildAndRegister();
 
-                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
-                        .inputs(GTUtility.copyAmount(16, stack))
-                        .circuitMeta(4)
-                        .fluidInputs(Materials.Nitrogen.getFluid(400))
-                        .outputs(new ItemStack(Items.COAL, 20, 1))
-                        .fluidOutputs(GAMaterials.WoodVinegar.getFluid(3000))
-                        .duration(320)
-                        .EUt(96)
-                        .buildAndRegister();
+            RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                    .inputs(GTUtility.copyAmount(16, stack))
+                    .circuitMeta(4)
+                    .fluidInputs(Materials.Nitrogen.getFluid(400))
+                    .outputs(new ItemStack(Items.COAL, 20, 1))
+                    .fluidOutputs(GAMaterials.WoodVinegar.getFluid(3000))
+                    .duration(320)
+                    .EUt(96)
+                    .buildAndRegister();
 
-                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
-                        .inputs(GTUtility.copyAmount(16, stack))
-                        .circuitMeta(5)
-                        .outputs(new ItemStack(Items.COAL, 20, 1))
-                        .fluidOutputs(GAMaterials.WoodGas.getFluid(1500))
-                        .duration(640)
-                        .EUt(64)
-                        .buildAndRegister();
+            RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                    .inputs(GTUtility.copyAmount(16, stack))
+                    .circuitMeta(5)
+                    .outputs(new ItemStack(Items.COAL, 20, 1))
+                    .fluidOutputs(GAMaterials.WoodGas.getFluid(1500))
+                    .duration(640)
+                    .EUt(64)
+                    .buildAndRegister();
 
-                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
-                        .inputs(GTUtility.copyAmount(16, stack))
-                        .circuitMeta(6)
-                        .fluidInputs(Materials.Nitrogen.getFluid(400))
-                        .outputs(new ItemStack(Items.COAL, 20, 1))
-                        .fluidOutputs(GAMaterials.WoodGas.getFluid(1500))
-                        .duration(320)
-                        .EUt(96)
-                        .buildAndRegister();
+            RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                    .inputs(GTUtility.copyAmount(16, stack))
+                    .circuitMeta(6)
+                    .fluidInputs(Materials.Nitrogen.getFluid(400))
+                    .outputs(new ItemStack(Items.COAL, 20, 1))
+                    .fluidOutputs(GAMaterials.WoodGas.getFluid(1500))
+                    .duration(320)
+                    .EUt(96)
+                    .buildAndRegister();
 
-                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
-                        .inputs(GTUtility.copyAmount(16, stack))
-                        .circuitMeta(7)
-                        .outputs(new ItemStack(Items.COAL, 20, 1))
-                        .fluidOutputs(GAMaterials.WoodTar.getFluid(1500))
-                        .duration(640)
-                        .EUt(64)
-                        .buildAndRegister();
+            RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                    .inputs(GTUtility.copyAmount(16, stack))
+                    .circuitMeta(7)
+                    .outputs(new ItemStack(Items.COAL, 20, 1))
+                    .fluidOutputs(GAMaterials.WoodTar.getFluid(1500))
+                    .duration(640)
+                    .EUt(64)
+                    .buildAndRegister();
 
-                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
-                        .inputs(GTUtility.copyAmount(16, stack))
-                        .circuitMeta(8)
-                        .fluidInputs(Materials.Nitrogen.getFluid(400))
-                        .outputs(new ItemStack(Items.COAL, 20, 1))
-                        .fluidOutputs(GAMaterials.WoodTar.getFluid(1500))
-                        .duration(320)
-                        .EUt(96)
-                        .buildAndRegister();
+            RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                    .inputs(GTUtility.copyAmount(16, stack))
+                    .circuitMeta(8)
+                    .fluidInputs(Materials.Nitrogen.getFluid(400))
+                    .outputs(new ItemStack(Items.COAL, 20, 1))
+                    .fluidOutputs(GAMaterials.WoodTar.getFluid(1500))
+                    .duration(320)
+                    .EUt(96)
+                    .buildAndRegister();
 
-                RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
-                        .inputs(GTUtility.copyAmount(16, stack))
-                        .circuitMeta(9)
-                        .fluidInputs(Materials.Nitrogen.getFluid(400))
-                        .outputs(new ItemStack(Items.COAL, 20, 1))
-                        .fluidOutputs(GAMaterials.CharcoalByproducts.getFluid(4000))
-                        .duration(320)
-                        .EUt(96)
-                        .buildAndRegister();
+            RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
+                    .inputs(GTUtility.copyAmount(16, stack))
+                    .circuitMeta(9)
+                    .fluidInputs(Materials.Nitrogen.getFluid(400))
+                    .outputs(new ItemStack(Items.COAL, 20, 1))
+                    .fluidOutputs(GAMaterials.CharcoalByproducts.getFluid(4000))
+                    .duration(320)
+                    .EUt(96)
+                    .buildAndRegister();
 
         }
         RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
