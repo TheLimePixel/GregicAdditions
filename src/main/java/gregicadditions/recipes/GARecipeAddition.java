@@ -28,9 +28,12 @@ import gregtech.common.items.MetaItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -255,25 +258,6 @@ public class GARecipeAddition {
                 ModHandler.addShapedRecipe("ingot_double_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m), "h", "I", "I", 'I', OreDictUnifier.get(OrePrefix.ingot, m));
                 ModHandler.addShapedRecipe("plate_" + m.toString(), OreDictUnifier.get(OrePrefix.plate, m), "h", "I", 'I', OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m));
             }
-
-            //GT5U Block Recipes
-            if (m instanceof IngotMaterial && !m.hasFlag(DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES)) {
-                for (ItemStack oreDict : OreDictionary.getOres(new UnificationEntry(OrePrefix.block, m).toString()))
-                    ModHandler.removeRecipes(oreDict);
-                ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_decompress_" + m.toString()));
-                RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).input(OrePrefix.ingot, m, 9).outputs(OreDictUnifier.get(OrePrefix.block, m)).buildAndRegister();
-            }
-        }
-        for (Material m : GemMaterial.MATERIAL_REGISTRY) {
-            if (m instanceof GemMaterial && !m.hasFlag(DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES)) {
-                for (ItemStack oreDict : OreDictionary.getOres(new UnificationEntry(OrePrefix.block, m).toString()))
-                    ModHandler.removeRecipes(oreDict);
-                ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_decompress_" + m.toString()));
-                if (m != Materials.NetherQuartz) {
-                    RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).input(OrePrefix.gem, m, 9).outputs(OreDictUnifier.get(OrePrefix.block, m)).buildAndRegister();
-                    RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).input(OrePrefix.block, m).outputs(OreDictUnifier.get(OrePrefix.gem, m, 9)).buildAndRegister();
-                }
-            }
         }
         for (Material m : DustMaterial.MATERIAL_REGISTRY) {
             if (m instanceof DustMaterial && OreDictUnifier.get(OrePrefix.ingot, m).isEmpty() && OreDictUnifier.get(OrePrefix.gem, m).isEmpty() && !m.hasFlag(DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES)) {
@@ -284,6 +268,41 @@ public class GARecipeAddition {
                     RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).input(OrePrefix.dust, m, 9).outputs(OreDictUnifier.get(OrePrefix.block, m)).buildAndRegister();
             }
         }
+
+        List<ResourceLocation> recipesToRemove = new ArrayList<>();
+
+        for (IRecipe recipe : CraftingManager.REGISTRY) {
+            if (recipe.getIngredients().size() == 4 || recipe.getIngredients().size() == 9) {
+                if (recipe.getIngredients().get(0).getMatchingStacks().length > 0) {
+                    boolean match = true;
+                    for (int i = 1; i < recipe.getIngredients().size(); i++) {
+                        if (recipe.getIngredients().get(i).getMatchingStacks().length == 0 || !recipe.getIngredients().get(0).getMatchingStacks()[0].isItemEqual(recipe.getIngredients().get(i).getMatchingStacks()[0])) {
+                            match = false;
+                            break;
+                        }
+                    }
+                    if (match) {
+                        recipesToRemove.add(recipe.getRegistryName());
+                        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).outputs(recipe.getRecipeOutput()).buildAndRegister();
+                    }
+                }
+            } else if (recipe.getIngredients().size() == 1 && (recipe.getRecipeOutput().getCount() == 9 || recipe.getRecipeOutput().getCount() == 4)) {
+                boolean isIngot = false;
+                for (int i : OreDictionary.getOreIDs(recipe.getIngredients().get(0).getMatchingStacks()[0])) {
+                    if (OreDictionary.getOreName(i).startsWith("ingot"))
+                        isIngot = true;
+                    break;
+                }
+                if (!isIngot)
+                    recipesToRemove.add(recipe.getRegistryName());
+                    RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).outputs(recipe.getRecipeOutput()).buildAndRegister();
+            }
+        }
+
+        for (ResourceLocation r : recipesToRemove)
+            ModHandler.removeRecipeByName(r);
+        recipesToRemove.clear();
+
         RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(OreDictUnifier.get(OrePrefix.block, Materials.NetherQuartz)).outputs(OreDictUnifier.get(OrePrefix.gem, Materials.NetherQuartz, 4)).buildAndRegister();
         ModHandler.removeRecipeByName(new ResourceLocation("minecraft:iron_ingot_from_block"));
         ModHandler.removeRecipeByName(new ResourceLocation("minecraft:gold_ingot_from_block"));
