@@ -259,7 +259,7 @@ public class GARecipeAddition {
             if (m instanceof IngotMaterial && !m.hasFlag(DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES)) {
                 ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.block, m));
                 ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_decompress_" + m.toString()));
-                RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(OreDictUnifier.get(OrePrefix.ingot, m, 9)).outputs(OreDictUnifier.get(OrePrefix.block, m)).buildAndRegister();
+                RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).input(OrePrefix.ingot, m, 9).outputs(OreDictUnifier.get(OrePrefix.block, m)).buildAndRegister();
             }
         }
         for (Material m : GemMaterial.MATERIAL_REGISTRY) {
@@ -267,8 +267,8 @@ public class GARecipeAddition {
                 ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.block, m));
                 ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_decompress_" + m.toString()));
                 if (m != Materials.NetherQuartz) {
-                    RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(OreDictUnifier.get(OrePrefix.gem, m, 9)).outputs(OreDictUnifier.get(OrePrefix.block, m)).buildAndRegister();
-                    RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(OreDictUnifier.get(OrePrefix.block, m)).outputs(OreDictUnifier.get(OrePrefix.gem, m, 9)).buildAndRegister();
+                    RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).input(OrePrefix.gem, m, 9).outputs(OreDictUnifier.get(OrePrefix.block, m)).buildAndRegister();
+                    RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).input(OrePrefix.block, m).outputs(OreDictUnifier.get(OrePrefix.gem, m, 9)).buildAndRegister();
                 }
             }
         }
@@ -277,7 +277,7 @@ public class GARecipeAddition {
                 ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.block, m));
                 ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_decompress_" + m.toString()));
                 if (m != Materials.Bone)
-                    RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(OreDictUnifier.get(OrePrefix.dust, m, 9)).outputs(OreDictUnifier.get(OrePrefix.block, m)).buildAndRegister();
+                    RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).input(OrePrefix.dust, m, 9).outputs(OreDictUnifier.get(OrePrefix.block, m)).buildAndRegister();
             }
         }
         RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(OreDictUnifier.get(OrePrefix.block, Materials.NetherQuartz)).outputs(OreDictUnifier.get(OrePrefix.gem, Materials.NetherQuartz, 4)).buildAndRegister();
@@ -1493,7 +1493,7 @@ public class GARecipeAddition {
                 .buildAndRegister();
 
         //Star Recipes
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(60000).EUt(8).inputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Plutonium)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Plutonium)).fluidOutputs(Materials.Radon.getFluid(50)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(60000).EUt(8).inputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Plutonium, 3)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Plutonium, 3)).fluidOutputs(Materials.Radon.getFluid(50)).buildAndRegister();
         RecipeMaps.AUTOCLAVE_RECIPES.recipeBuilder().duration(480).EUt(7680).inputs(new ItemStack(Items.NETHER_STAR)).fluidInputs(GAMaterials.Neutronium.getFluid(288)).outputs(MetaItems.GRAVI_STAR.getStackForm()).buildAndRegister();
 
         //Fusion Recipes

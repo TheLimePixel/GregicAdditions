@@ -109,7 +109,7 @@ public class MachineCraftingRecipes {
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:diesel_engine"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:engine_intake_casing"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:multi_furnace"));
-        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:large_steam_boiler"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:large_steam_turbine"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:large_gas_turbine"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:large_plasma_turbine"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:large_bronze_boiler"));
