@@ -378,6 +378,7 @@ gregtech.machine.wiremill.uv.name=Advanced Wiremill VII
 gregtech.machine.distill_tower.name=Distillation Tower
 gregtech.machine.assembly_line.name=Assembly Line
 gregtech.machine.coke_oven.name=Coke Oven
+gregtech.machine.cracker_unit.name=Cracking Unit
 
 gregtech.machine.naquadah_reactor.mk1.name=Naquadah Reactor Mk. 1
 gregtech.machine.naquadah_reactor.mk2.name=Naquadah Reactor Mk. 2
@@ -418,6 +419,7 @@ recipemap.assembly_line.name=Assembly Line
 recipemap.naquadah_reactor.name=Naquadah Reactor Fuels
 recipemap.replicator.name=Replicator
 recipemap.mass_fab.name=Mass Fabricator
+recipemap.cracker_unit.name=Cracking Recipes
 
 recipemap.plasma_generator.name=Plasma Turbine Fuels
 

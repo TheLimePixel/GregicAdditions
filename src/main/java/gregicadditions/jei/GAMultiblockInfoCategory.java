@@ -19,7 +19,12 @@ public class GAMultiblockInfoCategory implements IRecipeCategory<MultiblockInfoR
     }
 
     public static void registerRecipes(IModRegistry registry) {
-        registry.addRecipes(Lists.newArrayList(new MultiblockInfoRecipeWrapper(new CokeOvenInfo()), new MultiblockInfoRecipeWrapper(new AssemblyLineInfo()), new MultiblockInfoRecipeWrapper(new DistillTowerInfo())), "gtadditions:multiblock_info");
+        registry.addRecipes(Lists.newArrayList(
+                new MultiblockInfoRecipeWrapper(new CokeOvenInfo()),
+                new MultiblockInfoRecipeWrapper(new AssemblyLineInfo()),
+                new MultiblockInfoRecipeWrapper(new CrackerUnitInfo()),
+                new MultiblockInfoRecipeWrapper(new DistillTowerInfo())
+        ), "gtadditions:multiblock_info");
     }
 
     public String getUid() {
