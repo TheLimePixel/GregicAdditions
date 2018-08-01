@@ -34,10 +34,10 @@ public class TileEntityAssemblyLine extends RecipeMapMultiblockController {
 
     @Override
     protected BlockPattern createStructurePattern() {
-        return FactoryBlockPattern.start(BACK, DOWN, RIGHT)
-                .aisle("#Y#", "GSG", "RTR", "FIF")
-                .aisle("#Y#", "GAG", "RTR", "FIF").setRepeatable(3, 14)
+        return FactoryBlockPattern.start().start(LEFT, DOWN, BACK)
                 .aisle("#Y#", "GAG", "RTR", "COC")
+                .aisle("#Y#", "GAG", "RTR", "FIF").setRepeatable(3, 14)
+                .aisle("#Y#", "GSG", "RTR", "FIF")
                 .where('S', selfPredicate())
                 .where('C', statePredicate(getCasingState()))
                 .where('F', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.IMPORT_FLUIDS)))
