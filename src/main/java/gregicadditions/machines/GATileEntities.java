@@ -55,6 +55,7 @@ public class GATileEntities {
 
     public static TileEntityDistillTower DISTILL_TOWER;
     public static TileEntityAssemblyLine ASSEMBLY_LINE;
+    public static TileEntityCrackerUnit CRACKER_UNIT;
 
     public static TileEntityCokeOven COKE_OVEN;
 
@@ -293,5 +294,6 @@ public class GATileEntities {
 
         DISTILL_TOWER = GregTechAPI.registerMetaTileEntity(2501, new TileEntityDistillTower("distill_tower"));
         ASSEMBLY_LINE = GregTechAPI.registerMetaTileEntity(2502, new TileEntityAssemblyLine("assembly_line"));
+        CRACKER_UNIT = GregTechAPI.registerMetaTileEntity(2503, new TileEntityCrackerUnit("cracker_unit"));
     }
 }

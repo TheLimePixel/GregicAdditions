@@ -1,6 +1,5 @@
 package gregicadditions.recipes;
 
-import gregicadditions.machines.CokeOvenRecipe;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.recipes.RecipeMap;
@@ -11,9 +10,6 @@ import gregtech.api.recipes.builders.UniversalDistillationRecipeBuilder;
 import gregtech.api.recipes.machines.RecipeMapLiquidFuel;
 import stanhebben.zenscript.annotations.ZenProperty;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GARecipeMaps {
     @ZenProperty
     public static final RecipeMap<IntCircuitRecipeBuilder> CIRCUIT_ASSEMBLER_RECIPES;
@@ -22,6 +18,7 @@ public class GARecipeMaps {
     public static final RecipeMapLiquidFuel NAQUADAH_REACTOR_FUELS;
     public static final RecipeMap<SimpleRecipeBuilder> MASS_FAB_RECIPES;
     public static final RecipeMap<SimpleRecipeBuilder> REPLICATOR_RECIPES;
+    public static final RecipeMap<SimpleRecipeBuilder> CRACKER_UNIT_RECIPES;
     public static final RecipeMap<NoEURecipeBuilder> COKE_OVEN_RECIPES;
     public static final RecipeMap<UniversalDistillationRecipeBuilder> DISTILLATION_RECIPES;
 
@@ -33,7 +30,7 @@ public class GARecipeMaps {
         MASS_FAB_RECIPES = (new RecipeMap("mass_fab", 0, 1, 0, 0, 0, 1, 1, 2, 1, new SimpleRecipeBuilder())).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
         REPLICATOR_RECIPES = (new RecipeMap("replicator", 0, 1, 0, 1, 1, 2, 0, 1, 1, new SimpleRecipeBuilder())).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
         COKE_OVEN_RECIPES = new RecipeMap("coke_oven", 1, 1, 0, 1, 0, 0, 0, 1, 0, (new NoEURecipeBuilder())).setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
-
+        CRACKER_UNIT_RECIPES = new RecipeMap("cracker_unit", 0, 0, 0, 0, 2, 2, 1, 1, 1, (new SimpleRecipeBuilder()).notOptimized());
         DISTILLATION_RECIPES = new RecipeMap("distill_tower", 0, 0, 0, 1, 1, 1, 1, 11, 1, (new UniversalDistillationRecipeBuilder()).notOptimized());
     }
 }
