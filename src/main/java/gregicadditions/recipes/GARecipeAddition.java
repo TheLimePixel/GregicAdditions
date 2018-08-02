@@ -25,6 +25,7 @@ import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.BlockMultiblockCasing.MultiblockCasingType;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.items.MetaItems;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -272,8 +273,8 @@ public class GARecipeAddition {
         List<ResourceLocation> recipesToRemove = new ArrayList<>();
 
         for (IRecipe recipe : CraftingManager.REGISTRY) {
-            if (recipe.getIngredients().size() == 4 || recipe.getIngredients().size() == 9) {
-                if (recipe.getIngredients().get(0).getMatchingStacks().length > 0) {
+            if (recipe.getIngredients().size() == 9) {
+                if (recipe.getIngredients().get(0).getMatchingStacks().length > 0 && Block.getBlockFromItem(recipe.getRecipeOutput().getItem()) != Blocks.AIR) {
                     boolean match = true;
                     for (int i = 1; i < recipe.getIngredients().size(); i++) {
                         if (recipe.getIngredients().get(i).getMatchingStacks().length == 0 || !recipe.getIngredients().get(0).getMatchingStacks()[0].isItemEqual(recipe.getIngredients().get(i).getMatchingStacks()[0])) {
@@ -286,16 +287,10 @@ public class GARecipeAddition {
                         RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).outputs(recipe.getRecipeOutput()).buildAndRegister();
                     }
                 }
-            } else if (recipe.getIngredients().size() == 1 && (recipe.getRecipeOutput().getCount() == 9 || recipe.getRecipeOutput().getCount() == 4)) {
-                boolean isIngot = false;
-                for (int i : OreDictionary.getOreIDs(recipe.getIngredients().get(0).getMatchingStacks()[0])) {
-                    if (OreDictionary.getOreName(i).startsWith("ingot"))
-                        isIngot = true;
-                    break;
-                }
-                if (!isIngot)
-                    recipesToRemove.add(recipe.getRegistryName());
-                    RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).outputs(recipe.getRecipeOutput()).buildAndRegister();
+            }
+            if (recipe.getIngredients().size() == 1 && recipe.getRecipeOutput().getCount() == 9 && Block.getBlockFromItem(recipe.getIngredients().get(0).getMatchingStacks()[0].getItem()) != Blocks.AIR) {
+                recipesToRemove.add(recipe.getRegistryName());
+                RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).outputs(recipe.getRecipeOutput()).buildAndRegister();
             }
         }
 
@@ -1588,12 +1583,12 @@ public class GARecipeAddition {
         }
 
         //Add Missing Superconducter Wire Tiering Recipes
-        ModHandler.addShapelessRecipe("superonducter_wire_gtsingle_doubling",OreDictUnifier.get(OrePrefix.wireGtDouble,Tier.Superconductor),OreDictUnifier.get(OrePrefix.wireGtSingle,Tier.Superconductor),OreDictUnifier.get(OrePrefix.wireGtSingle,Tier.Superconductor));
-        ModHandler.addShapelessRecipe("superonducter_wire_gtdouble_doubling",OreDictUnifier.get(OrePrefix.wireGtQuadruple,Tier.Superconductor),OreDictUnifier.get(OrePrefix.wireGtDouble,Tier.Superconductor),OreDictUnifier.get(OrePrefix.wireGtDouble,Tier.Superconductor));
-        ModHandler.addShapelessRecipe("superonducter_wire_gtquadruple_doubling",OreDictUnifier.get(OrePrefix.wireGtOctal,Tier.Superconductor),OreDictUnifier.get(OrePrefix.wireGtQuadruple,Tier.Superconductor),OreDictUnifier.get(OrePrefix.wireGtQuadruple,Tier.Superconductor));
-        ModHandler.addShapelessRecipe("superonducter_wire_gtoctal_doubling",OreDictUnifier.get(OrePrefix.wireGtHex,Tier.Superconductor),OreDictUnifier.get(OrePrefix.wireGtOctal,Tier.Superconductor),OreDictUnifier.get(OrePrefix.wireGtOctal,Tier.Superconductor));
-        ModHandler.addShapelessRecipe("superonducter_wire_gtquadruple_splitting",OreDictUnifier.get(OrePrefix.wireGtDouble,Tier.Superconductor,2),OreDictUnifier.get(OrePrefix.wireGtQuadruple,Tier.Superconductor));
-        ModHandler.addShapelessRecipe("superonducter_wire_gtoctal_splitting",OreDictUnifier.get(OrePrefix.wireGtQuadruple,Tier.Superconductor,2),OreDictUnifier.get(OrePrefix.wireGtOctal,Tier.Superconductor));
-        ModHandler.addShapelessRecipe("superonducter_wire_gthexl_splitting",OreDictUnifier.get(OrePrefix.wireGtOctal,Tier.Superconductor,2),OreDictUnifier.get(OrePrefix.wireGtHex,Tier.Superconductor));
+        ModHandler.addShapelessRecipe("superonducter_wire_gtsingle_doubling", OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor));
+        ModHandler.addShapelessRecipe("superonducter_wire_gtdouble_doubling", OreDictUnifier.get(OrePrefix.wireGtQuadruple, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor));
+        ModHandler.addShapelessRecipe("superonducter_wire_gtquadruple_doubling", OreDictUnifier.get(OrePrefix.wireGtOctal, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtQuadruple, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtQuadruple, Tier.Superconductor));
+        ModHandler.addShapelessRecipe("superonducter_wire_gtoctal_doubling", OreDictUnifier.get(OrePrefix.wireGtHex, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtOctal, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtOctal, Tier.Superconductor));
+        ModHandler.addShapelessRecipe("superonducter_wire_gtquadruple_splitting", OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor, 2), OreDictUnifier.get(OrePrefix.wireGtQuadruple, Tier.Superconductor));
+        ModHandler.addShapelessRecipe("superonducter_wire_gtoctal_splitting", OreDictUnifier.get(OrePrefix.wireGtQuadruple, Tier.Superconductor, 2), OreDictUnifier.get(OrePrefix.wireGtOctal, Tier.Superconductor));
+        ModHandler.addShapelessRecipe("superonducter_wire_gthexl_splitting", OreDictUnifier.get(OrePrefix.wireGtOctal, Tier.Superconductor, 2), OreDictUnifier.get(OrePrefix.wireGtHex, Tier.Superconductor));
     }
 }
