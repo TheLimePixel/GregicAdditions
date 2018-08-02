@@ -59,5 +59,6 @@ public class GregicAdditions {
         GARecipeAddition.postInit();
         GARecipeAddition.postInit2();
         MatterReplication.init();
+        proxy.postInit();
     }
 }

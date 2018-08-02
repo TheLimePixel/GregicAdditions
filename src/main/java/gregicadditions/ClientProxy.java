@@ -14,6 +14,11 @@ public class ClientProxy extends CommonProxy {
         new GATextures();
     }
 
+    public void postInit()
+    {
+
+    }
+
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event)
     {
