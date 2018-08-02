@@ -262,6 +262,9 @@ public class GAMachineRecipeRemoval {
 
         //Remove The Bad Nitric Acid Recipe
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Water.getFluid(2000), Materials.NitrogenDioxide.getFluid(4000), Materials.Oxygen.getFluid(1000));
+
+        //Remove Old Schematic Recipe
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,MetaItems.CIRCUIT_GOOD.getStackForm(4),OreDictUnifier.get(OrePrefix.plate,Materials.StainlessSteel,2));
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {

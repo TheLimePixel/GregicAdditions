@@ -5,7 +5,6 @@ import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.item.GATransparentCasing;
-import gregicadditions.machines.GATileEntities;
 import gregtech.api.items.ToolDictNames;
 import gregtech.api.recipes.CountableIngredient;
 import gregtech.api.recipes.ModHandler;
@@ -37,7 +36,6 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class GARecipeAddition {
@@ -125,7 +123,6 @@ public class GARecipeAddition {
         ModHandler.addShapedRecipe("eight_clay_brick", GAMetaItems.COMPRESSED_CLAY.getStackForm(8), "BBB", "BFB", "BBB", 'B', new ItemStack(Items.CLAY_BALL), 'F', "formWood");
         ModHandler.addShapedRecipe("coke_brick", GAMetaItems.COMPRESSED_COKE_CLAY.getStackForm(3), "BBB", "SFS", "SSS", 'B', new ItemStack(Items.CLAY_BALL), 'S', new ItemStack(Blocks.SAND), 'F', "formWood");
         ModHandler.addShapedRecipe("coke_bricks", GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.COKE_OVEN_BRICKS), "BB", "BB", 'B', GAMetaItems.COKE_BRICK.getStackForm());
-        ModHandler.addShapedRecipe("coke_oven", GATileEntities.COKE_OVEN.getStackForm(), "hRS", "PBR", "dRS", 'R', OreDictUnifier.get(OrePrefix.stick, Materials.Iron), 'S', OreDictUnifier.get(OrePrefix.screw, Materials.Iron), 'P', OreDictUnifier.get(OrePrefix.plate, Materials.Iron), 'B', GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.COKE_OVEN_BRICKS));
 
         //GT5U Old Primitive Brick Processing
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:casing_primitive_bricks"));
@@ -297,7 +294,7 @@ public class GARecipeAddition {
                     break;
                 }
                 if (!isIngot)
-                recipesToRemove.add(recipe.getRegistryName());
+                    recipesToRemove.add(recipe.getRegistryName());
                 RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).outputs(recipe.getRecipeOutput()).buildAndRegister();
             }
         }
@@ -1594,5 +1591,20 @@ public class GARecipeAddition {
         ModHandler.addShapelessRecipe("superonducter_wire_gtquadruple_splitting", OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor, 2), OreDictUnifier.get(OrePrefix.wireGtQuadruple, Tier.Superconductor));
         ModHandler.addShapelessRecipe("superonducter_wire_gtoctal_splitting", OreDictUnifier.get(OrePrefix.wireGtQuadruple, Tier.Superconductor, 2), OreDictUnifier.get(OrePrefix.wireGtOctal, Tier.Superconductor));
         ModHandler.addShapelessRecipe("superonducter_wire_gthexl_splitting", OreDictUnifier.get(OrePrefix.wireGtOctal, Tier.Superconductor, 2), OreDictUnifier.get(OrePrefix.wireGtHex, Tier.Superconductor));
+
+        //Dust Packing
+        for (Material m : DustMaterial.MATERIAL_REGISTRY) {
+            if (!OreDictUnifier.get(OrePrefix.dust, m).isEmpty()) {
+                RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).input(OrePrefix.dustSmall, m, 4).notConsumable(MetaItems.SCHEMATIC_DUST.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.dust, m)).buildAndRegister();
+                RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).input(OrePrefix.dustTiny, m, 9).notConsumable(MetaItems.SCHEMATIC_DUST.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.dust, m)).buildAndRegister();
+            }
+        }
+
+        //Schematic Recipes
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(32000).EUt(4).input(OrePrefix.valueOf("circuitGA"), Tier.Good, 4).input(OrePrefix.plate, Materials.StainlessSteel, 2).outputs(MetaItems.SCHEMATIC.getStackForm()).buildAndRegister();
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:schematic/schematic_1"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:schematic/schematic_2"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:schematic/schematic_3"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:schematic/schematic_c"));
     }
 }
