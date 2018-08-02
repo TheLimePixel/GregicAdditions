@@ -1,6 +1,7 @@
 package gregicadditions;
 
 import gregicadditions.item.GAMetaBlocks;
+import gregicadditions.item.LocalizationChanges;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -14,14 +15,12 @@ public class ClientProxy extends CommonProxy {
         new GATextures();
     }
 
-    public void postInit()
-    {
-
+    public void postInit() {
+        LocalizationChanges.postInit();
     }
 
     @SubscribeEvent
-    public static void registerModels(ModelRegistryEvent event)
-    {
+    public static void registerModels(ModelRegistryEvent event) {
         GAMetaBlocks.registerItemModels();
     }
 }
