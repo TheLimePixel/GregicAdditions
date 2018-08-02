@@ -289,13 +289,15 @@ public class GARecipeAddition {
             if (recipe.getIngredients().size() == 1 && recipe.getRecipeOutput().getCount() == 9 && Block.getBlockFromItem(recipe.getIngredients().get(0).getMatchingStacks()[0].getItem()) != Blocks.AIR && Block.getBlockFromItem(recipe.getIngredients().get(0).getMatchingStacks()[0].getItem()) != Blocks.SLIME_BLOCK) {
                 boolean isIngot = false;
                 for (int i : OreDictionary.getOreIDs(recipe.getRecipeOutput())) {
-                    if (OreDictionary.getOreName(i).startsWith("ingot"))
+                    if (OreDictionary.getOreName(i).startsWith("ingot")) {
                         isIngot = true;
-                    break;
+                        break;
+                    }
                 }
-                if (!isIngot)
+                if (!isIngot) {
                     recipesToRemove.add(recipe.getRegistryName());
-                RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).outputs(recipe.getRecipeOutput()).buildAndRegister();
+                    RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).outputs(recipe.getRecipeOutput()).buildAndRegister();
+                }
             }
         }
 
