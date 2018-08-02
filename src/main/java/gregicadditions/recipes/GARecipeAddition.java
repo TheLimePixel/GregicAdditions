@@ -37,6 +37,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class GARecipeAddition {
@@ -288,7 +289,7 @@ public class GARecipeAddition {
                     }
                 }
             }
-            if (recipe.getIngredients().size() == 1 && recipe.getRecipeOutput().getCount() == 9 && Block.getBlockFromItem(recipe.getIngredients().get(0).getMatchingStacks()[0].getItem()) != Blocks.AIR) {
+            if (recipe.getIngredients().size() == 1 && recipe.getRecipeOutput().getCount() == 9 && Block.getBlockFromItem(recipe.getIngredients().get(0).getMatchingStacks()[0].getItem()) != Blocks.AIR  && Block.getBlockFromItem(recipe.getIngredients().get(0).getMatchingStacks()[0].getItem()) != Blocks.SLIME_BLOCK) {
                 recipesToRemove.add(recipe.getRegistryName());
                 RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).outputs(recipe.getRecipeOutput()).buildAndRegister();
             }
@@ -298,15 +299,11 @@ public class GARecipeAddition {
             ModHandler.removeRecipeByName(r);
         recipesToRemove.clear();
 
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:glowstone"));
+        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:quartz_block"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_compress_nether_quartz"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_decompress_nether_quartz"));
         RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(OreDictUnifier.get(OrePrefix.block, Materials.NetherQuartz)).outputs(OreDictUnifier.get(OrePrefix.gem, Materials.NetherQuartz, 4)).buildAndRegister();
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:iron_ingot_from_block"));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:gold_ingot_from_block"));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:redstone"));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:diamond"));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:emerald"));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:coal"));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:lapis_lazuli"));
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(new ItemStack(Items.DYE, 9, 15)).outputs(OreDictUnifier.get(OrePrefix.block, Materials.Bone)).buildAndRegister();
 
         //Rubber Rings
         ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.ring, GAMaterials.SiliconeRubber));
