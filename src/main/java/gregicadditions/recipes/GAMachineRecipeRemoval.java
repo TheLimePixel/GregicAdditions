@@ -264,7 +264,15 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Water.getFluid(2000), Materials.NitrogenDioxide.getFluid(4000), Materials.Oxygen.getFluid(1000));
 
         //Remove Old Schematic Recipe
-        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,MetaItems.CIRCUIT_GOOD.getStackForm(4),OreDictUnifier.get(OrePrefix.plate,Materials.StainlessSteel,2));
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, MetaItems.CIRCUIT_GOOD.getStackForm(4), OreDictUnifier.get(OrePrefix.plate, Materials.StainlessSteel, 2));
+
+        //Remove Simple Copper Cable Recipes
+        removeRecipesByInputs(RecipeMaps.ALLOY_SMELTER_RECIPES, OreDictUnifier.get(OrePrefix.ingot, Materials.Rubber, 2), OreDictUnifier.get(OrePrefix.wireGtSingle, Materials.Copper));
+
+        //Remove Inefficient Plastic Recipes
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Naphtha.getFluid(288), Materials.Air.getFluid(2000));
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dustTiny, Materials.Titanium)}, new FluidStack[]{Materials.Naphtha.getFluid(1296), Materials.Oxygen.getFluid(16000)});
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Epichlorhydrin.getFluid(432), Materials.Naphtha.getFluid(3000), Materials.Fluorine.getFluid(1000));
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {

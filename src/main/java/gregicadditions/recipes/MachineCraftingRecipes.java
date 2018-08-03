@@ -106,7 +106,7 @@ public class MachineCraftingRecipes {
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:implosion_compressor"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:distillation_tower"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:cracking_unit"));
-        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:pyroyise_oven"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:pyrolyse_oven"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:diesel_engine"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:engine_intake_casing"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:multi_furnace"));
