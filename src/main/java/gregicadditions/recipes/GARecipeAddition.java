@@ -323,6 +323,7 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(240).fluidInputs(GAMaterials.Butadiene.getFluid(108), GAMaterials.Styrene.getFluid(36), Materials.Air.getFluid(2000)).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.RawStyreneButadieneRubber)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(240).fluidInputs(GAMaterials.Butadiene.getFluid(108), GAMaterials.Styrene.getFluid(36), Materials.Oxygen.getFluid(2000)).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.RawStyreneButadieneRubber, 3)).buildAndRegister();
 
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(30).inputs(IntCircuitIngredient.getIntegratedCircuit(2)).fluidInputs(GAMaterials.Propene.getFluid(2000)).fluidOutputs(Materials.Methane.getFluid(1000), GAMaterials.Isoprene.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(30).fluidInputs(GAMaterials.Ethylene.getFluid(1000), GAMaterials.Propene.getFluid(1000)).fluidOutputs(Materials.Hydrogen.getFluid(2000), GAMaterials.Isoprene.getFluid(1000)).buildAndRegister();
 
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.RawStyreneButadieneRubber, 9), OreDictUnifier.get(OrePrefix.dust, Materials.Sulfur)).fluidOutputs(GAMaterials.StyreneButadieneRubber.getFluid(1296)).buildAndRegister();
@@ -869,6 +870,8 @@ public class GARecipeAddition {
             GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder().duration(400).EUt(90).inputs(GAMetaItems.PLASTIC_BOARD.getStackForm(), MetaItems.CIRCUIT_ADVANCED.getStackForm(), GAMetaItems.NAND.getStackForm(32), GAMetaItems.RAM.getStackForm(4), OreDictUnifier.get(OrePrefix.wireFine, Materials.RedAlloy, 8), OreDictUnifier.get(OrePrefix.plate, Materials.Plastic, 4)).fluidInputs(material.getFluid(144 * multiplier)).outputs(MetaItems.TOOL_DATA_STICK.getStackForm()).buildAndRegister();
             GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder().duration(400).EUt(1200).inputs(GAMetaItems.EPOXY_BOARD.getStackForm(), GAMetaItems.NANOPROCESSOR.getStackForm(), GAMetaItems.RAM.getStackForm(4), GAMetaItems.NOR.getStackForm(32), GAMetaItems.NAND.getStackForm(64), OreDictUnifier.get(OrePrefix.wireFine, Materials.Platinum, 32)).fluidInputs(material.getFluid(144 * multiplier)).outputs(MetaItems.TOOL_DATA_ORB.getStackForm()).buildAndRegister();
         }
+        GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder().duration(30).EUt(4).inputs(OreDictUnifier.get(OrePrefix.dust,Materials.Tantalum),OreDictUnifier.get(OrePrefix.foil,Materials.Manganese)).fluidInputs(Materials.Plastic.getFluid(144)).outputs(MetaItems.BATTERY_RE_ULV_TANTALUM.getStackForm(8)).buildAndRegister();
+
         //Circuit Rabbit Hole - Layer 2
         RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(160).EUt(8).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Glass)).notConsumable(MetaItems.SHAPE_MOLD_BALL).outputs(GAMetaItems.GLASS_TUBE.getStackForm()).buildAndRegister();
         ModHandler.addShapedRecipe("resistor_1", GAMetaItems.RESISTOR.getStackForm(3), " P ", "WCW", " P ", 'P', new ItemStack(Items.PAPER), 'W', OreDictUnifier.get(OrePrefix.wireGtSingle, Materials.Copper), 'C', OreDictUnifier.get(OrePrefix.dust, Materials.Coal));
@@ -1614,5 +1617,10 @@ public class GARecipeAddition {
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:schematic/schematic_2"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:schematic/schematic_3"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:schematic/schematic_c"));
+
+        //Configuration Circuit
+        ModHandler.removeRecipes(MetaItems.CIRCUIT_BASIC.getStackForm());
+        ModHandler.removeRecipes(MetaItems.INTEGRATED_CIRCUIT.getStackForm());
+        ModHandler.addShapelessRecipe("basic_to_configurable_circuit",MetaItems.INTEGRATED_CIRCUIT.getStackForm(),"circuitGABasic");
     }
 }

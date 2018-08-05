@@ -149,6 +149,9 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
                 MetaItems.ENERGY_LAPOTRONIC_ORB2.getStackForm(8),
                 OreDictUnifier.get(OrePrefix.plate, Materials.Darmstadtium, 16));
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
+                new ItemStack[]{OreDictUnifier.get(OrePrefix.dust, Materials.Tantalum), OreDictUnifier.get(OrePrefix.plate, Materials.Manganese)},
+                new FluidStack[]{Materials.Plastic.getFluid(144)});
 
         for (MaterialStack stack : solderingList) {
             IngotMaterial material = (IngotMaterial) stack.material;
