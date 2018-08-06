@@ -262,6 +262,9 @@ public class GAMaterials {
 
         Materials.YttriumBariumCuprate.addFlag(IngotMaterial.MatFlags.GENERATE_FINE_WIRE);
         Materials.Manganese.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
+        Materials.Naquadah.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
+        Materials.NaquadahEnriched.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
+        Materials.Duranium.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
 
         Materials.Salt.addOreByProducts(Materials.Borax);
         Materials.RockSalt.addOreByProducts(Materials.Borax);
