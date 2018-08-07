@@ -171,7 +171,7 @@ public class GARecipeAddition {
         ModHandler.addShapedRecipe("chain_leggings", new ItemStack(Items.CHAINMAIL_LEGGINGS), "RRR", "RhR", "R R", 'R', OreDictUnifier.get(OrePrefix.ring, Materials.Iron));
         ModHandler.addShapedRecipe("chain_boots", new ItemStack(Items.CHAINMAIL_BOOTS), "R R", "RhR", 'R', OreDictUnifier.get(OrePrefix.ring, Materials.Iron));
         for (Material m : IngotMaterial.MATERIAL_REGISTRY) {
-            if (!OreDictUnifier.get(OrePrefix.ring, m).isEmpty() && m != Materials.Paper && m != Materials.Rubber && m != GAMaterials.StyreneButadieneRubber && m != GAMaterials.SiliconeRubber) {
+            if (!OreDictUnifier.get(OrePrefix.ring, m).isEmpty() && !OreDictUnifier.get(OrePrefix.stick, m).isEmpty() && m != Materials.Rubber && m != GAMaterials.StyreneButadieneRubber && m != GAMaterials.SiliconeRubber) {
                 ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.ring, m));
                 ModHandler.addShapedRecipe("ring_" + m.toString(), OreDictUnifier.get(OrePrefix.ring, m), "hS", " C", 'S', OreDictUnifier.get(OrePrefix.stick, m), 'C', "craftingToolBendingCylinderSmall");
             }
@@ -256,7 +256,7 @@ public class GARecipeAddition {
             }
 
             //GT6 Plate Recipe
-            if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.plate, m).isEmpty()) {
+            if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.plate, m).isEmpty() && !OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m).isEmpty()) {
                 ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.plate, m));
                 ModHandler.addShapedRecipe("ingot_double_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m), "h", "I", "I", 'I', OreDictUnifier.get(OrePrefix.ingot, m));
                 ModHandler.addShapedRecipe("plate_" + m.toString(), OreDictUnifier.get(OrePrefix.plate, m), "h", "I", 'I', OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m));

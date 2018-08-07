@@ -10,7 +10,6 @@ import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.multiblock.BlockPattern;
 import gregtech.api.multiblock.FactoryBlockPattern;
-import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.render.ICubeRenderer;
 import gregtech.api.render.Textures;
 import gregtech.common.blocks.BlockMetalCasing;
@@ -18,7 +17,6 @@ import gregtech.common.blocks.BlockMultiblockCasing;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 
 import static gregtech.api.multiblock.BlockPattern.RelativeDirection.*;
 
@@ -50,7 +48,9 @@ public class TileEntityAssemblyLine extends RecipeMapMultiblockController {
                 .where('A', statePredicate(MetaBlocks.MUTLIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.ASSEMBLER_CASING)))
                 .where('R', statePredicate(GAMetaBlocks.TRANSPARENT_CASING.getState(GATransparentCasing.CasingType.REINFORCED_GLASS)))
                 .where('T', statePredicate(GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.TUNGSTENSTEEL_GEARBOX_CASING)))
-                .where('#', blockPredicate(Blocks.AIR))
+                .where('#', (tile) -> {
+                    return true;
+                })
                 .build();
         /*return FactoryBlockPattern.start(RIGHT, UP, FRONT)
                 .aisle("YXX", "XXX")

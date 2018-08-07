@@ -23,7 +23,11 @@ public class GAMultiblockInfoCategory implements IRecipeCategory<MultiblockInfoR
                 new MultiblockInfoRecipeWrapper(new CokeOvenInfo()),
                 new MultiblockInfoRecipeWrapper(new AssemblyLineInfo()),
                 new MultiblockInfoRecipeWrapper(new CrackerUnitInfo()),
-                new MultiblockInfoRecipeWrapper(new DistillTowerInfo())
+                new MultiblockInfoRecipeWrapper(new DistillTowerInfo()),
+                new MultiblockInfoRecipeWrapper(new FusionReactor1Info()),
+                new MultiblockInfoRecipeWrapper(new FusionReactor2Info()),
+                new MultiblockInfoRecipeWrapper(new FusionReactor3Info())
+
         ), "gtadditions:multiblock_info");
     }
 

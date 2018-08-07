@@ -130,7 +130,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
         List<IEnergyContainer> eConts = ObfuscationReflectionHelper.getPrivateValue(EnergyContainerList.class, this.inputEnergyContainers, "energyContainerList");
         for (IEnergyContainer energyContainer : eConts) {
             int tier = (int) (Math.log(energyContainer.getInputVoltage() / 8L) / Math.log(4));
-            val += (long) Math.pow(2, (tier - 6)) * 10000000;
+            val += (long) Math.pow(2, (tier - 6)) * 100000L;
         }
         return val;
     }
