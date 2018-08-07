@@ -86,13 +86,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
                     }
                     return false;
                 })))
-                .where('I', statePredicate(getCasingState()).or(tilePredicate((state, tile) -> {
-                    for (int i = tier; i < GTValues.V.length; i++) {
-                        if (tile.metaTileEntityId.equals(MetaTileEntities.FLUID_IMPORT_HATCH[i].metaTileEntityId))
-                            return true;
-                    }
-                    return false;
-                })))
+                .where('I', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.IMPORT_FLUIDS)))
                 .where('#', (tile) -> {
                     return true;
                 })
