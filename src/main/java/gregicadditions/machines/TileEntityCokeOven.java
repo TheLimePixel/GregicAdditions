@@ -85,7 +85,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
         Recipe recipe = GARecipeMaps.COKE_OVEN_RECIPES.findRecipe(Integer.MAX_VALUE, Collections.singletonList(inputStack), Collections.EMPTY_LIST);
         if (recipe == null) return false;
         NonNullList<ItemStack> outputs = NonNullList.create();
-        outputs.addAll(recipe.getOutputs());
+        outputs.add(recipe.getOutputs().get(0).copy());
         List<FluidStack> fluidOutputs = new ArrayList();
         fluidOutputs.addAll(recipe.getFluidOutputs());
         if (MetaTileEntity.addItemsToItemHandler(exportItems, true, outputs) &&

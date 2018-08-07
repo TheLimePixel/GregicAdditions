@@ -52,6 +52,7 @@ public class GATileEntities {
     public static SimpleGeneratorMetaTileEntity[] NAQUADAH_REACTOR = new SimpleGeneratorMetaTileEntity[6];
     public static SimpleMachineMetaTileEntity[] REPLICATOR = new SimpleMachineMetaTileEntity[8];
     public static SimpleMachineMetaTileEntity[] MASS_FAB = new SimpleMachineMetaTileEntity[8];
+    public static TileEntityFusionReactor[] FUSION_REACTOR = new TileEntityFusionReactor[3];
 
     public static TileEntityDistillTower DISTILL_TOWER;
     public static TileEntityAssemblyLine ASSEMBLY_LINE;
@@ -295,5 +296,9 @@ public class GATileEntities {
         DISTILL_TOWER = GregTechAPI.registerMetaTileEntity(2501, new TileEntityDistillTower("distill_tower"));
         ASSEMBLY_LINE = GregTechAPI.registerMetaTileEntity(2502, new TileEntityAssemblyLine("assembly_line"));
         CRACKER_UNIT = GregTechAPI.registerMetaTileEntity(2503, new TileEntityCrackerUnit("cracker_unit"));
+
+        FUSION_REACTOR[0] = GregTechAPI.registerMetaTileEntity(2504, new TileEntityFusionReactor("fusion_reactor.luv", 6));
+        FUSION_REACTOR[1] = GregTechAPI.registerMetaTileEntity(2505, new TileEntityFusionReactor("fusion_reactor.zpm", 7));
+        FUSION_REACTOR[2] = GregTechAPI.registerMetaTileEntity(2506, new TileEntityFusionReactor("fusion_reactor.uv", 8));
     }
 }
