@@ -104,6 +104,9 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem ULTIMATE_PIPE;
     public static MetaItem<?>.MetaValueItem ULTIMATE_PIPE_LARGE;
     public static MetaItem<?>.MetaValueItem LAPOTRON_CRYSTAL;
+    public static MetaItem<?>.MetaValueItem PLATE_IRIDIUM_ALLOY;
+    public static MetaItem<?>.MetaValueItem PLATE_IRIDIUM_ALLOY_UNCOMPRESSED;
+    public static MetaItem<?>.MetaValueItem NEUTRON_REFLECTOR;
 
     public static MetaItem<?>.MetaValueItem BENDING_CYLINDER;
     public static MetaItem<?>.MetaValueItem SMALL_BENDING_CYLINDER;

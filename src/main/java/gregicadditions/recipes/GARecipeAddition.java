@@ -5,6 +5,7 @@ import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.item.GATransparentCasing;
+import gregicadditions.machines.GATileEntities;
 import gregtech.api.GTValues;
 import gregtech.api.items.ToolDictNames;
 import gregtech.api.recipes.CountableIngredient;
@@ -23,6 +24,7 @@ import gregtech.api.util.GTUtility;
 import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.BlockMultiblockCasing.MultiblockCasingType;
+import gregtech.common.blocks.BlockWireCoil;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.items.MetaItems;
 import gregtech.common.metatileentities.MetaTileEntities;
@@ -369,6 +371,12 @@ public class GARecipeAddition {
 
         RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(400).EUt(4).inputs(GAMetaItems.ADVANCED_ALLOY_PLATE.getStackForm(), OreDictUnifier.get(OrePrefix.dust, Materials.Glass, 3)).outputs(GAMetaBlocks.TRANSPARENT_CASING.getItemVariant(GATransparentCasing.CasingType.REINFORCED_GLASS, 4)).buildAndRegister();
         RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(400).EUt(4).inputs(GAMetaItems.ADVANCED_ALLOY_PLATE.getStackForm(), new ItemStack(Blocks.GLASS, 3)).outputs(GAMetaBlocks.TRANSPARENT_CASING.getItemVariant(GATransparentCasing.CasingType.REINFORCED_GLASS, 4)).buildAndRegister();
+
+        //Iridium Alloy
+        ModHandler.addShapedRecipe("iridium_alloy_plate", GAMetaItems.PLATE_IRIDIUM_ALLOY_UNCOMPRESSED.getStackForm(), "AIA", "IDI", "AIA", 'A', GAMetaItems.ADVANCED_ALLOY_PLATE.getStackForm(), 'I', "plateIridium", 'D', OreDictUnifier.get(OrePrefix.plate, Materials.Diamond));
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(40).EUt(8).inputs(GAMetaItems.ADVANCED_ALLOY_PLATE.getStackForm(4), OreDictUnifier.get(OrePrefix.plate, Materials.Iridium, 4), OreDictUnifier.get(OrePrefix.plate, Materials.Diamond)).outputs(GAMetaItems.PLATE_IRIDIUM_ALLOY_UNCOMPRESSED.getStackForm()).buildAndRegister();
+
+        RecipeMaps.IMPLOSION_RECIPES.recipeBuilder().duration(20).EUt(30).inputs(GAMetaItems.PLATE_IRIDIUM_ALLOY_UNCOMPRESSED.getStackForm()).explosivesAmount(8).outputs(GAMetaItems.PLATE_IRIDIUM_ALLOY.getStackForm()).buildAndRegister();
 
         //GT5U Slabs Are Made With A Saw
         ModHandler.removeRecipeByName(new ResourceLocation("minecraft:stone_slab"));
@@ -1524,6 +1532,49 @@ public class GARecipeAddition {
                 .outputs(MetaItems.ZPM2.getStackForm()).duration(2000).EUt(300000)
                 .buildAndRegister();
 
+        GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
+                MetaBlocks.WIRE_COIL.getItemVariant(BlockWireCoil.CoilType.FUSION_COIL),
+                OreDictUnifier.get(OrePrefix.plate, Materials.Plutonium241),
+                OreDictUnifier.get(OrePrefix.plate, Materials.NetherStar),
+                MetaItems.FIELD_GENERATOR_IV.getStackForm(2),
+                GAMetaItems.HPIC.getStackForm(32),
+                OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor, 32))
+                .input(OrePrefix.valueOf("circuitGA"), Tier.Ultimate)
+                .input(OrePrefix.valueOf("circuitGA"), Tier.Ultimate)
+                .input(OrePrefix.valueOf("circuitGA"), Tier.Ultimate)
+                .input(OrePrefix.valueOf("circuitGA"), Tier.Ultimate).fluidInputs(
+                Materials.SolderingAlloy.getFluid(2880))
+                .outputs(GATileEntities.FUSION_REACTOR[0].getStackForm()).duration(1000).EUt(30000)
+                .buildAndRegister();
+
+        GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
+                MetaBlocks.WIRE_COIL.getItemVariant(BlockWireCoil.CoilType.FUSION_COIL),
+                OreDictUnifier.get(OrePrefix.plate, Materials.Europium, 4),
+                MetaItems.FIELD_GENERATOR_LUV.getStackForm(2),
+                GAMetaItems.HPIC.getStackForm(48),
+                OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor, 32))
+                .input(OrePrefix.valueOf("circuitGA"), Tier.Superconductor)
+                .input(OrePrefix.valueOf("circuitGA"), Tier.Superconductor)
+                .input(OrePrefix.valueOf("circuitGA"), Tier.Superconductor)
+                .input(OrePrefix.valueOf("circuitGA"), Tier.Superconductor).fluidInputs(
+                Materials.SolderingAlloy.getFluid(2880))
+                .outputs(GATileEntities.FUSION_REACTOR[1].getStackForm()).duration(1000).EUt(60000)
+                .buildAndRegister();
+
+        GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
+                MetaBlocks.WIRE_COIL.getItemVariant(BlockWireCoil.CoilType.FUSION_COIL),
+                GAMetaItems.WETWARE_COMPUTER.getStackForm(),
+                GAMetaItems.WETWARE_COMPUTER.getStackForm(),
+                GAMetaItems.WETWARE_COMPUTER.getStackForm(),
+                GAMetaItems.WETWARE_COMPUTER.getStackForm(),
+                OreDictUnifier.get(OrePrefix.plate, Materials.Americium, 4),
+                MetaItems.FIELD_GENERATOR_ZPM.getStackForm(2),
+                GAMetaItems.HPIC.getStackForm(64),
+                OreDictUnifier.get(OrePrefix.wireGtQuadruple, Tier.Superconductor, 32)).fluidInputs(
+                Materials.SolderingAlloy.getFluid(2880))
+                .outputs(GATileEntities.FUSION_REACTOR[2].getStackForm()).duration(1000).EUt(90000)
+                .buildAndRegister();
+
         //Star Recipes
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(60000).EUt(8).inputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Plutonium, 3)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Plutonium, 3)).fluidOutputs(Materials.Radon.getFluid(50)).buildAndRegister();
         RecipeMaps.AUTOCLAVE_RECIPES.recipeBuilder().duration(480).EUt(7680).inputs(new ItemStack(Items.NETHER_STAR)).fluidInputs(GAMaterials.Neutronium.getFluid(288)).outputs(MetaItems.GRAVI_STAR.getStackForm()).buildAndRegister();
@@ -1559,6 +1610,10 @@ public class GARecipeAddition {
         ModHandler.addShapedRecipe("fusion_casing_1", MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.ASSEMBLER_CASING.FUSION_CASING), "PhP", "PHP", "PwP", 'P', OreDictUnifier.get(OrePrefix.plate, Materials.TungstenSteel), 'H', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.LuV));
         ModHandler.addShapedRecipe("fusion_casing_2", MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.ASSEMBLER_CASING.FUSION_CASING_MK2), "PhP", "PHP", "PwP", 'P', OreDictUnifier.get(OrePrefix.plate, Materials.Americium), 'H', MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.ASSEMBLER_CASING.FUSION_CASING));
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().EUt(16).inputs(MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.ASSEMBLER_CASING.FUSION_CASING)).input(OrePrefix.plate, Materials.Americium, 6).outputs(MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.ASSEMBLER_CASING.FUSION_CASING_MK2)).duration(50).buildAndRegister();
+
+        ModHandler.addShapedRecipe("fusion_coil", MetaBlocks.WIRE_COIL.getItemVariant(BlockWireCoil.CoilType.FUSION_COIL), "CRC", "FSF", "CRC", 'C', "circuitGAMaster", 'R', GAMetaItems.NEUTRON_REFLECTOR.getStackForm(), 'F', MetaItems.FIELD_GENERATOR_MV.getStackForm(), 'S', MetaBlocks.WIRE_COIL.getItemVariant(BlockWireCoil.CoilType.SUPERCONDUCTOR));
+
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(4000).EUt(120).inputs(GAMetaItems.PLATE_IRIDIUM_ALLOY.getStackForm(), OreDictUnifier.get(OrePrefix.plate, Materials.Beryllium, 30), OreDictUnifier.get(OrePrefix.plate, Materials.TungstenCarbide, 3)).fluidInputs(Materials.TinAlloy.getFluid(13824)).outputs(GAMetaItems.NEUTRON_REFLECTOR.getStackForm()).buildAndRegister();
 
         //Explosive Recipes
         ModHandler.removeRecipes(new ItemStack(Blocks.TNT));

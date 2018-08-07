@@ -113,6 +113,9 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.ULTIMATE_PIPE = addItem(102, "ultimate.pipe");
         GAMetaItems.ULTIMATE_PIPE_LARGE = addItem(103, "ultimate.pipe.large");
         GAMetaItems.LAPOTRON_CRYSTAL = addItem(104, "crystal.lapotron").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(10000000L, 4)}).setModelAmount(8);
+        GAMetaItems.PLATE_IRIDIUM_ALLOY = addItem(105,"plate.iridium.alloy");
+        GAMetaItems.PLATE_IRIDIUM_ALLOY_UNCOMPRESSED = addItem(106,"plate.iridium.alloy.uncompressed");
+        GAMetaItems.NEUTRON_REFLECTOR = addItem(107,"neutron.reflector");
 
         MetaItems.CIRCUIT_BASIC.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
         MetaItems.CIRCUIT_PARTS_ADVANCED.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);

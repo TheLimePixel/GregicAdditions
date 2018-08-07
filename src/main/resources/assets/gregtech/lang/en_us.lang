@@ -157,6 +157,9 @@ metaitem.ultimate.pipe.small.name=Small High Pressure Pipe
 metaitem.ultimate.pipe.name=High Pressure Pipe
 metaitem.ultimate.pipe.large.name=Large High Pressure Pipe
 metaitem.crystal.lapotron.name=Lapotron Crystal
+metaitem.plate.iridium.alloy.name=Iridium Alloy Plate
+metaitem.plate.iridium.alloy.uncompressed.name=Uncompressed Iridium Alloy Plate
+metaitem.neutron.reflector.name=Neutron Reflector
 
 gregtech.machine.circuit_assembler.lv.name=Basic Circuit Assembling Machine
 gregtech.machine.circuit_assembler.mv.name=Advanced Circuit Assembling Machine
@@ -403,6 +406,10 @@ gregtech.machine.replicator.zpm.name=Advanced Replicator VI
 gregtech.machine.replicator.uv.name=Advanced Replicator VII
 
 gregtech.machine.replicator.tooltip=Producing The Purest Of Elements
+
+gregtech.machine.fusion_reactor.luv.name=Fusion Reactor Computer Mark 1
+gregtech.machine.fusion_reactor.zpm.name=Fusion Reactor Computer Mark 2
+gregtech.machine.fusion_reactor.uv.name=Fusion Reactor Computer Mark 3
 
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 tile.ga_multiblock_casing.tungstensteel_gearbox_casing.name=Assembly Line Casing
