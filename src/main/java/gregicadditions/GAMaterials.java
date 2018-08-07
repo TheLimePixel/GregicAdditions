@@ -265,15 +265,14 @@ public class GAMaterials {
         Materials.Naquadah.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
         Materials.NaquadahEnriched.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
         Materials.Duranium.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
+        Materials.Helium.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
+        Materials.Oxygen.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
+        Materials.Sulfur.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
+        Materials.Iron.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
+        Materials.Nickel.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
 
         Materials.Salt.addOreByProducts(Materials.Borax);
         Materials.RockSalt.addOreByProducts(Materials.Borax);
         Materials.Lepidolite.addOreByProducts(Materials.Boron);
-
-        Materials.Helium.shouldGeneratePlasma();
-        Materials.Oxygen.shouldGeneratePlasma();
-        Materials.Sulfur.shouldGeneratePlasma();
-        Materials.Iron.shouldGeneratePlasma();
-        Materials.Nickel.shouldGeneratePlasma();
     }
 }
