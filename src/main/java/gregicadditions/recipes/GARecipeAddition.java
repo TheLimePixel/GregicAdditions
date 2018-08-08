@@ -173,7 +173,7 @@ public class GARecipeAddition {
         for (Material m : IngotMaterial.MATERIAL_REGISTRY) {
             if (!OreDictUnifier.get(OrePrefix.ring, m).isEmpty() && !OreDictUnifier.get(OrePrefix.stick, m).isEmpty() && m != Materials.Rubber && m != GAMaterials.StyreneButadieneRubber && m != GAMaterials.SiliconeRubber) {
                 ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.ring, m));
-                ModHandler.addShapedRecipe("ring_" + m.toString(), OreDictUnifier.get(OrePrefix.ring, m), "hS", " C", 'S', OreDictUnifier.get(OrePrefix.stick, m), 'C', "craftingToolBendingCylinderSmall");
+                ModHandler.addShapedRecipe("tod_to_ring_" + m.toString(), OreDictUnifier.get(OrePrefix.ring, m), "hS", " C", 'S', OreDictUnifier.get(OrePrefix.stick, m), 'C', "craftingToolBendingCylinderSmall");
             }
             if (!OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m).isEmpty()) {
                 ModHandler.addShapedRecipe("curved_plate_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), "h", "P", "C", 'P', OreDictUnifier.get(OrePrefix.plate, m), 'C', "craftingToolBendingCylinder");
@@ -182,7 +182,7 @@ public class GARecipeAddition {
             }
             if (!OreDictUnifier.get(OrePrefix.rotor, m).isEmpty()) {
                 ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.rotor, m));
-                ModHandler.addShapedRecipe("rotor_" + m.toString(), OreDictUnifier.get(OrePrefix.rotor, m), "ChC", "SRf", "CdC", 'C', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'S', OreDictUnifier.get(OrePrefix.screw, m), 'R', OreDictUnifier.get(OrePrefix.ring, m));
+                ModHandler.addShapedRecipe("ga_rotor_" + m.toString(), OreDictUnifier.get(OrePrefix.rotor, m), "ChC", "SRf", "CdC", 'C', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'S', OreDictUnifier.get(OrePrefix.screw, m), 'R', OreDictUnifier.get(OrePrefix.ring, m));
                 RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(240).EUt(24).inputs(OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m, 4), OreDictUnifier.get(OrePrefix.ring, m)).fluidInputs(Materials.SolderingAlloy.getFluid(32)).outputs(OreDictUnifier.get(OrePrefix.rotor, m)).buildAndRegister();
             }
             if (!OreDictUnifier.get(OrePrefix.foil, m).isEmpty()) {
@@ -196,10 +196,10 @@ public class GARecipeAddition {
             }
 
             //Pipes
-            if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), m).isEmpty()) {
-                ModHandler.addShapedRecipe("pipe_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), m, 2), "PPP", "wCh", "PPP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
-                ModHandler.addShapedRecipe("pipe_large_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("pipeGaLarge"), m), "PhP", "PCP", "PwP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
-                ModHandler.addShapedRecipe("pipe_small_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("pipeGaSmall"), m, 6), "PwP", "PCP", "PhP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
+            if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), m).isEmpty() && !OreDictUnifier.get(OrePrefix.valueOf("plateCurved"),m).isEmpty()) {
+                ModHandler.addShapedRecipe("pipe_ga_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), m, 2), "PPP", "wCh", "PPP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
+                ModHandler.addShapedRecipe("pipe_ga_large_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("pipeGaLarge"), m), "PhP", "PCP", "PwP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
+                ModHandler.addShapedRecipe("pipe_ga_small_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("pipeGaSmall"), m, 6), "PwP", "PCP", "PhP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
                 RecipeMaps.EXTRUDER_RECIPES.recipeBuilder().duration((int) m.getMass() / 6).EUt(128).inputs(OreDictUnifier.get(OrePrefix.ingot, m)).notConsumable(MetaItems.SHAPE_EXTRUDER_PIPE_SMALL.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.valueOf("pipeGaSmall"), m)).buildAndRegister();
                 RecipeMaps.EXTRUDER_RECIPES.recipeBuilder().duration((int) m.getMass() / 2).EUt(128).inputs(OreDictUnifier.get(OrePrefix.ingot, m, 3)).notConsumable(MetaItems.SHAPE_EXTRUDER_PIPE_MEDIUM.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), m)).buildAndRegister();
                 RecipeMaps.EXTRUDER_RECIPES.recipeBuilder().duration((int) m.getMass()).EUt(128).inputs(OreDictUnifier.get(OrePrefix.ingot, m, 6)).notConsumable(MetaItems.SHAPE_EXTRUDER_PIPE_LARGE.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.valueOf("pipeGaLarge"), m)).buildAndRegister();
@@ -259,16 +259,7 @@ public class GARecipeAddition {
             if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.plate, m).isEmpty() && !OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m).isEmpty()) {
                 ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.plate, m));
                 ModHandler.addShapedRecipe("ingot_double_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m), "h", "I", "I", 'I', OreDictUnifier.get(OrePrefix.ingot, m));
-                ModHandler.addShapedRecipe("plate_" + m.toString(), OreDictUnifier.get(OrePrefix.plate, m), "h", "I", 'I', OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m));
-            }
-        }
-        for (Material m : DustMaterial.MATERIAL_REGISTRY) {
-            if (m instanceof DustMaterial && OreDictUnifier.get(OrePrefix.ingot, m).isEmpty() && OreDictUnifier.get(OrePrefix.gem, m).isEmpty() && !m.hasFlag(DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES)) {
-                for (ItemStack oreDict : OreDictionary.getOres(new UnificationEntry(OrePrefix.block, m).toString()))
-                    ModHandler.removeRecipes(oreDict);
-                ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_decompress_" + m.toString()));
-                if (m != Materials.Bone)
-                    RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).input(OrePrefix.dust, m, 9).outputs(OreDictUnifier.get(OrePrefix.block, m)).buildAndRegister();
+                ModHandler.addShapedRecipe("double_ingot_to_plate_" + m.toString(), OreDictUnifier.get(OrePrefix.plate, m), "h", "I", 'I', OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m));
             }
         }
 
@@ -721,7 +712,7 @@ public class GARecipeAddition {
         GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(160).EUt(400).fluidInputs(Materials.Biomass.getFluid(600)).outputs(OreDictUnifier.get(OrePrefix.dustSmall, Materials.Wood)).fluidOutputs(Materials.Ethanol.getFluid(240), Materials.Water.getFluid(240)).buildAndRegister();
         GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(75).EUt(180).fluidInputs(GAMaterials.FermentedBiomass.getFluid(1000)).fluidOutputs(GAMaterials.AceticAcid.getFluid(25), Materials.Water.getFluid(375), Materials.Ethanol.getFluid(150), GAMaterials.Methanol.getFluid(150), GAMaterials.Ammonia.getFluid(100), Materials.CarbonDioxide.getFluid(400), Materials.Methane.getFluid(600)).buildAndRegister();
 
-        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(160).EUt(24).fluidInputs(Materials.Toluene.getFluid(30)).fluidOutputs(Materials.LightFuel.getFluid(30)).buildAndRegister();
+        RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(160).EUt(24).circuitMeta(1).fluidInputs(Materials.Toluene.getFluid(30)).fluidOutputs(Materials.LightFuel.getFluid(30)).buildAndRegister();
         RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(24).circuitMeta(1).fluidInputs(Materials.HeavyFuel.getFluid(10)).fluidOutputs(Materials.Toluene.getFluid(4)).buildAndRegister();
         RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(16).EUt(24).circuitMeta(2).fluidInputs(Materials.HeavyFuel.getFluid(10)).fluidOutputs(GAMaterials.Benzene.getFluid(4)).buildAndRegister();
         RecipeMaps.DISTILLERY_RECIPES.recipeBuilder().duration(32).EUt(24).circuitMeta(3).fluidInputs(Materials.HeavyFuel.getFluid(20)).fluidOutputs(GAMaterials.Phenol.getFluid(5)).buildAndRegister();
@@ -765,8 +756,6 @@ public class GARecipeAddition {
         RecipeMaps.MACERATOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Blocks.CACTUS, 8)).outputs(GAMetaItems.BIO_CHAFF.getStackForm()).buildAndRegister();
         RecipeMaps.MACERATOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Blocks.DEADBUSH, 8)).outputs(GAMetaItems.BIO_CHAFF.getStackForm()).buildAndRegister();
         RecipeMaps.MACERATOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.PLANT_BALL.getStackForm()).outputs(GAMetaItems.BIO_CHAFF.getStackForm()).buildAndRegister();
-
-        RecipeMaps.EXTRUDER_RECIPES.recipeBuilder().duration(16).EUt(4).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Wood)).chancedOutput(MetaItems.PLANT_BALL.getStackForm(), 100).fluidOutputs(Materials.Creosote.getFluid(5)).buildAndRegister();
         RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Items.WHEAT, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
 
         //Misc Blast Furnace Recipes
@@ -1048,8 +1037,8 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(240).EUt(30).fluidInputs(GAMaterials.Methanol.getFluid(1000), GAMaterials.AceticAcid.getFluid(1000)).fluidOutputs(GAMaterials.MethylAcetate.getFluid(1000), Materials.Water.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(480).EUt(30).fluidInputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.HydrochloricAcid.getFluid(1000)).fluidOutputs(Materials.Water.getFluid(2000), Materials.Epichlorhydrin.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(480).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.SodiumHydroxide)).fluidInputs(GAMaterials.AllylChloride.getFluid(1000), GAMaterials.HypochlorousAcid.getFluid(1000)).fluidOutputs(GAMaterials.SaltWater.getFluid(1000), Materials.Epichlorhydrin.getFluid(1000)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(640).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.SodiumHydroxide)).fluidInputs(Materials.Water.getFluid(1000), Materials.Chlorine.getFluid(4000), GAMaterials.Propene.getFluid(1000)).fluidOutputs(GAMaterials.SaltWater.getFluid(1000), Materials.Epichlorhydrin.getFluid(1000), GAMaterials.HydrochloricAcid.getFluid(2000)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(640).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.SodiumHydroxide)).fluidInputs(GAMaterials.HypochlorousAcid.getFluid(1000), Materials.Chlorine.getFluid(2000), GAMaterials.Propene.getFluid(1000)).fluidOutputs(GAMaterials.SaltWater.getFluid(1000), Materials.Epichlorhydrin.getFluid(1000), GAMaterials.HydrochloricAcid.getFluid(1000)).buildAndRegister();
+        //RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(640).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.SodiumHydroxide)).fluidInputs(Materials.Water.getFluid(1000), Materials.Chlorine.getFluid(4000), GAMaterials.Propene.getFluid(1000)).fluidOutputs(GAMaterials.SaltWater.getFluid(1000), Materials.Epichlorhydrin.getFluid(1000), GAMaterials.HydrochloricAcid.getFluid(2000)).buildAndRegister();
+        //RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(640).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.SodiumHydroxide)).fluidInputs(GAMaterials.HypochlorousAcid.getFluid(1000), Materials.Chlorine.getFluid(2000), GAMaterials.Propene.getFluid(1000)).fluidOutputs(GAMaterials.SaltWater.getFluid(1000), Materials.Epichlorhydrin.getFluid(1000), GAMaterials.HydrochloricAcid.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(60).EUt(8).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Sulfur)).fluidInputs(Materials.Hydrogen.getFluid(2000)).fluidOutputs(Materials.HydrogenSulfide.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.SulfuricLightFuel.getFluid(12000), Materials.Hydrogen.getFluid(2000)).fluidOutputs(Materials.HydrogenSulfide.getFluid(1000), Materials.LightFuel.getFluid(12000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.SulfuricHeavyFuel.getFluid(8000), Materials.Hydrogen.getFluid(2000)).fluidOutputs(Materials.HydrogenSulfide.getFluid(1000), Materials.HeavyFuel.getFluid(8000)).buildAndRegister();
@@ -1073,7 +1062,7 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(8).fluidInputs(Materials.Mercury.getFluid(1000), Materials.Water.getFluid(10000), Materials.Chlorine.getFluid(10000)).fluidOutputs(GAMaterials.HypochlorousAcid.getFluid(10000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(30).fluidInputs(Materials.Water.getFluid(1000), Materials.Chlorine.getFluid(2000)).fluidOutputs(GAMaterials.DilutedHydrochloricAcid.getFluid(1000), GAMaterials.HypochlorousAcid.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(960).EUt(480).fluidInputs(GAMaterials.Dimethylamine.getFluid(1000), GAMaterials.Chloramine.getFluid(1000)).fluidOutputs(GAMaterials.Dimethylhydrazine.getFluid(1000), GAMaterials.DilutedHydrochloricAcid.getFluid(1000)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(1040).EUt(480).fluidInputs(GAMaterials.Methanol.getFluid(2000), GAMaterials.Ammonia.getFluid(1000), GAMaterials.HypochlorousAcid.getFluid(1000)).fluidOutputs(GAMaterials.Dimethylhydrazine.getFluid(1000), GAMaterials.DilutedHydrochloricAcid.getFluid(1000), Materials.Water.getFluid(3000)).buildAndRegister();
+        //RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(1040).EUt(480).fluidInputs(GAMaterials.Methanol.getFluid(2000), GAMaterials.Ammonia.getFluid(1000), GAMaterials.HypochlorousAcid.getFluid(1000)).fluidOutputs(GAMaterials.Dimethylhydrazine.getFluid(1000), GAMaterials.DilutedHydrochloricAcid.getFluid(1000), Materials.Water.getFluid(3000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(60).EUt(8).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Sulfur)).fluidInputs(Materials.Oxygen.getFluid(2000)).fluidOutputs(GAMaterials.SulfurDioxide.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(30).fluidInputs(Materials.Oxygen.getFluid(3000), Materials.HydrogenSulfide.getFluid(1000)).fluidOutputs(Materials.Water.getFluid(1000), GAMaterials.SulfurDioxide.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(60).EUt(8).fluidInputs(Materials.Hydrogen.getFluid(1000), Materials.Fluorine.getFluid(1000)).fluidOutputs(GAMaterials.HydrofluoricAcid.getFluid(1000)).buildAndRegister();
@@ -1583,7 +1572,6 @@ public class GARecipeAddition {
         RecipeMaps.FUSION_RECIPES.recipeBuilder().fluidInputs(Materials.Deuterium.getFluid(125), Materials.Tritium.getFluid(125)).fluidOutputs(Materials.Helium.getPlasma(125)).duration(16).EUt(4096).EUToStart(400000).buildAndRegister();
         RecipeMaps.FUSION_RECIPES.recipeBuilder().fluidInputs(Materials.Deuterium.getFluid(125), Materials.Helium3.getFluid(125)).fluidOutputs(Materials.Helium.getPlasma(125)).duration(16).EUt(2048).EUToStart(600000).buildAndRegister();
         RecipeMaps.FUSION_RECIPES.recipeBuilder().fluidInputs(Materials.Carbon.getFluid(125), Materials.Helium3.getFluid(125)).fluidOutputs(Materials.Oxygen.getPlasma(125)).duration(32).EUt(4096).EUToStart(8000000).buildAndRegister();
-        RecipeMaps.FUSION_RECIPES.recipeBuilder().fluidInputs(Materials.Aluminium.getFluid(16), Materials.Lithium.getFluid(16)).fluidOutputs(Materials.Sulfur.getPlasma(125)).duration(32).EUt(10240).EUToStart(2400000).buildAndRegister();
         RecipeMaps.FUSION_RECIPES.recipeBuilder().fluidInputs(Materials.Beryllium.getFluid(16), Materials.Deuterium.getFluid(375)).fluidOutputs(Materials.Nitrogen.getPlasma(175)).duration(16).EUt(16384).EUToStart(1800000).buildAndRegister();
         RecipeMaps.FUSION_RECIPES.recipeBuilder().fluidInputs(Materials.Silicon.getFluid(16), Materials.Magnesium.getFluid(16)).fluidOutputs(Materials.Iron.getPlasma(125)).duration(32).EUt(8192).EUToStart(3600000).buildAndRegister();
         RecipeMaps.FUSION_RECIPES.recipeBuilder().fluidInputs(Materials.Potassium.getFluid(16), Materials.Fluorine.getFluid(125)).fluidOutputs(Materials.Nickel.getPlasma(125)).duration(16).EUt(32768).EUToStart(4800000).buildAndRegister();

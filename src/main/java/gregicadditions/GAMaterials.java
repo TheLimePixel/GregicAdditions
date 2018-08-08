@@ -267,7 +267,6 @@ public class GAMaterials {
         Materials.Duranium.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
         Materials.Helium.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
         Materials.Oxygen.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
-        Materials.Sulfur.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
         Materials.Iron.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
         Materials.Nickel.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
 

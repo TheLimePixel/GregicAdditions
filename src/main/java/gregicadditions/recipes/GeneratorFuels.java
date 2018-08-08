@@ -47,7 +47,6 @@ public class GeneratorFuels {
         RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Helium.getPlasma(1000)).EUt(-524288).duration(8).buildAndRegister();
         RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Nitrogen.getPlasma(1000)).EUt(-524288).duration(27).buildAndRegister();
         RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Oxygen.getPlasma(1000)).EUt(-524288).duration(30).buildAndRegister();
-        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Sulfur.getPlasma(1000)).EUt(-524288).duration(52).buildAndRegister();
         RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Iron.getPlasma(1000)).EUt(-524288).duration(109).buildAndRegister();
         RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Nickel.getPlasma(1000)).EUt(-524288).duration(113).buildAndRegister();
     }
