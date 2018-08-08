@@ -27,7 +27,7 @@ public class MatterReplication {
         //Replicator
         GARecipeMaps.REPLICATOR_RECIPES.recipeBuilder().duration((int) (Materials.Hydrogen.getMass() * 1000)).EUt(32).notConsumable(GAMetaItems.getFilledCell((Materials.Hydrogen.getMaterialFluid()))).fluidOutputs((Materials.Hydrogen.getFluid(1000))).fluidInputs(GAMaterials.PositiveMatter.getFluid(1)).buildAndRegister();
         for (Material m : FluidMaterial.MATERIAL_REGISTRY) {
-            if (m.getProtons() > 0 && m.getNeutrons() > 0 && m.getMass() != 98 && m instanceof FluidMaterial && OreDictUnifier.get(OrePrefix.dust, m).isEmpty()) {
+            if (m.getProtons() > 0 && m.getNeutrons() > 0 && m.getMass() != 98 && m instanceof FluidMaterial && OreDictUnifier.get(OrePrefix.dust, m).isEmpty() && m != Materials.Air && m != Materials.LiquidAir) {
                 GARecipeMaps.REPLICATOR_RECIPES.recipeBuilder().duration((int) (m.getMass() * 10000)).EUt(32).notConsumable(GAMetaItems.getFilledCell(((FluidMaterial) m).getMaterialFluid())).fluidOutputs(((FluidMaterial) m).getFluid(1000)).fluidInputs(GAMaterials.PositiveMatter.getFluid((int) m.getProtons()), GAMaterials.NeutralMatter.getFluid((int) m.getNeutrons())).buildAndRegister();
             }
         }

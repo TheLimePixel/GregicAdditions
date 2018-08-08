@@ -301,6 +301,7 @@ public class GARecipeAddition {
         recipesToRemove.clear();
 
         ModHandler.removeRecipeByName(new ResourceLocation("minecraft:glowstone"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_compress_glowstone"));
         ModHandler.removeRecipeByName(new ResourceLocation("minecraft:quartz_block"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_compress_nether_quartz"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_decompress_nether_quartz"));
@@ -958,7 +959,6 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).inputs(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Air.getFluid(7500), GAMaterials.Tetrafluoroethylene.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(Materials.Polytetrafluoroethylene.getFluid(3240)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).inputs(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Oxygen.getFluid(7500), GAMaterials.Tetrafluoroethylene.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(Materials.Polytetrafluoroethylene.getFluid(4320)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(200).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.SodiumHydroxide)).fluidInputs(Materials.Epichlorhydrin.getFluid(1000), GAMaterials.BisphenolA.getFluid(1000)).fluidOutputs(Materials.Epoxid.getFluid(1000), GAMaterials.SaltWater.getFluid(1000)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(240).EUt(30).fluidInputs(Materials.Naphtha.getFluid(3000), Materials.NitrogenDioxide.getFluid(1000), Materials.Epichlorhydrin.getFluid(144)).fluidOutputs(Materials.Epoxid.getFluid(288)).buildAndRegister();
         ModHandler.addShapelessRecipe("reinforce_expoy_resin_1", OreDictUnifier.get(OrePrefix.dust, GAMaterials.ReinforcedEpoxyResin), OreDictUnifier.get(OrePrefix.dust, Materials.Epoxid), GAMetaItems.GLASS_FIBER.getStackForm());
         ModHandler.addShapelessRecipe("reinforce_expoy_resin_2", OreDictUnifier.get(OrePrefix.dust, GAMaterials.ReinforcedEpoxyResin), OreDictUnifier.get(OrePrefix.dust, Materials.Epoxid), GAMetaItems.RAW_CARBON_FIBERS.getStackForm());
         RecipeMaps.CHEMICAL_BATH_RECIPES.recipeBuilder().duration(240).EUt(16).inputs(GAMetaItems.GLASS_FIBER.getStackForm()).fluidInputs(Materials.Epoxid.getFluid(144)).outputs(OreDictUnifier.get(OrePrefix.plate, GAMaterials.ReinforcedEpoxyResin)).buildAndRegister();
