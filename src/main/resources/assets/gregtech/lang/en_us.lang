@@ -343,10 +343,10 @@ gregtech.machine.packer.luv.name=Boxinator
 gregtech.machine.packer.zpm.name=Boxinator
 gregtech.machine.packer.uv.name=Boxinator
 
-gregtech.machine.unpacker.iv.name=Advanced Unboxinator
-gregtech.machine.unpacker.luv.name=Advanced Unboxinator
-gregtech.machine.unpacker.zpm.name=Advanced Unboxinator
-gregtech.machine.unpacker.uv.name=Advanced Unboxinator
+gregtech.machine.unpacker.iv.name=Unboxinator
+gregtech.machine.unpacker.luv.name=Unboxinator
+gregtech.machine.unpacker.zpm.name=Unboxinator
+gregtech.machine.unpacker.uv.name=Unboxinator
 
 gregtech.machine.plasma_arc_furnace.iv.name=Advanced Plasma Arc Furnace IV
 gregtech.machine.plasma_arc_furnace.luv.name=Advanced Plasma Arc Furnace V
