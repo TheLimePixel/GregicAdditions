@@ -1088,6 +1088,7 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(30).EUt(240).fluidInputs(Materials.NitrogenDioxide.getFluid(3000), Materials.Water.getFluid(1000)).fluidOutputs(GAMaterials.NitricOxide.getFluid(1000), Materials.NitricAcid.getFluid(2000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(320).EUt(30).inputs(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Oxygen.getFluid(10000), GAMaterials.Ammonia.getFluid(4000)).fluidOutputs(GAMaterials.NitricOxide.getFluid(4000), Materials.Water.getFluid(6000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(180).EUt(30).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.AceticAcid.getFluid(1000), GAMaterials.Ethylene.getFluid(1000)).fluidOutputs(Materials.Water.getFluid(1000), GAMaterials.VinylAcetate.getFluid(1000)).buildAndRegister();
+        RecipeMaps.ELECTROLYZER_RECIPES.recipeBuilder().duration(200).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust,Materials.Sphalerite,2)).outputs(OreDictUnifier.get(OrePrefix.dust,Materials.Zinc),OreDictUnifier.get(OrePrefix.dust,Materials.Sulfur)).chancedOutput(OreDictUnifier.get(OrePrefix.dustTiny,Materials.Gallium),2500).buildAndRegister();
 
         //Circuit Rabbit Hole - layer 6
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(40).EUt(8).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Carbon)).fluidInputs(Materials.Oxygen.getFluid(1000)).fluidOutputs(GAMaterials.CarbonMonoxde.getFluid(1000)).buildAndRegister();
