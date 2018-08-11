@@ -265,6 +265,7 @@ public class GAMaterials {
         Materials.Naquadah.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
         Materials.NaquadahEnriched.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
         Materials.Duranium.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
+        Materials.Graphene.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
         Materials.Helium.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
         Materials.Oxygen.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
         Materials.Iron.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
