@@ -72,6 +72,7 @@ public class GAMultiblockShapeInfo extends MultiblockShapeInfo {
 
                             MetaTileEntityHolder newHolder = new MetaTileEntityHolder();
                             newHolder.setMetaTileEntity(holder.getMetaTileEntity().createMetaTileEntity(newHolder));
+                            newHolder.getMetaTileEntity().setFrontFacing(holder.getMetaTileEntity().getFrontFacing());
 
                             columnData[k] = new BlockInfo(columnData[k].getBlockState(), newHolder);
                         }
