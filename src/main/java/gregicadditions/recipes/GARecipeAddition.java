@@ -196,7 +196,7 @@ public class GARecipeAddition {
             }
 
             //Pipes
-            if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), m).isEmpty() && !OreDictUnifier.get(OrePrefix.valueOf("plateCurved"),m).isEmpty()) {
+            if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), m).isEmpty() && !OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m).isEmpty()) {
                 ModHandler.addShapedRecipe("pipe_ga_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), m, 2), "PPP", "wCh", "PPP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
                 ModHandler.addShapedRecipe("pipe_ga_large_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("pipeGaLarge"), m), "PhP", "PCP", "PwP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
                 ModHandler.addShapedRecipe("pipe_ga_small_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("pipeGaSmall"), m, 6), "PwP", "PCP", "PhP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
@@ -933,6 +933,7 @@ public class GARecipeAddition {
             RecipeMaps.CUTTER_RECIPES.recipeBuilder().duration(200).EUt(8).inputs(GAMetaItems.SILICON_BOULE.getStackForm()).fluidInputs(material.getFluid(multiplier)).outputs(GAMetaItems.SILICON_WAFER.getStackForm(16)).buildAndRegister();
             RecipeMaps.CUTTER_RECIPES.recipeBuilder().duration(400).EUt(64).inputs(GAMetaItems.GLOWSTONE_BOULE.getStackForm()).fluidInputs(material.getFluid(multiplier)).outputs(GAMetaItems.GLOWSTONE_WAFER.getStackForm(32)).buildAndRegister();
             RecipeMaps.CUTTER_RECIPES.recipeBuilder().duration(800).EUt(384).inputs(GAMetaItems.NAQUADAH_BOULE.getStackForm()).fluidInputs(material.getFluid(multiplier)).outputs(GAMetaItems.NAQUADAH_WAFER.getStackForm(64)).buildAndRegister();
+            RecipeMaps.CUTTER_RECIPES.recipeBuilder().duration(960).EUt(420).inputs(GAMetaItems.CRYSTAL_CPU.getStackForm()).fluidInputs(material.getFluid(2 * multiplier)).outputs(GAMetaItems.RAW_CRYSTAL_CHIP.getStackForm()).buildAndRegister();
         }
 
         //Circuit Rabbit Hole - Layer 3
@@ -1019,7 +1020,6 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.Styrene.getFluid(144)).fluidOutputs(GAMaterials.Polystyrene.getFluid(216)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).inputs(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Air.getFluid(7500), GAMaterials.Styrene.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(GAMaterials.Polystyrene.getFluid(3240)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).inputs(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Oxygen.getFluid(7500), GAMaterials.Styrene.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(GAMaterials.Polystyrene.getFluid(4320)).buildAndRegister();
-        ModHandler.addShapelessRecipe("infinite_raw_crystal_chips", GAMetaItems.RAW_CRYSTAL_CHIP.getStackForm(3), GAMetaItems.CRYSTAL_CPU.getStackForm());
         RecipeMaps.AUTOCLAVE_RECIPES.recipeBuilder().duration(12000).EUt(320).inputs(OreDictUnifier.get(OrePrefix.gemExquisite, Materials.Olivine)).fluidInputs(Materials.Europium.getFluid(16)).chancedOutput(GAMetaItems.RAW_CRYSTAL_CHIP.getStackForm(), 1000).buildAndRegister();
         RecipeMaps.AUTOCLAVE_RECIPES.recipeBuilder().duration(150).EUt(6).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Carbon)).fluidInputs(Materials.Palladium.getFluid(1)).chancedOutput(GAMetaItems.RAW_CARBON_FIBERS.getStackForm(2), 9000).buildAndRegister();
         RecipeMaps.AUTOCLAVE_RECIPES.recipeBuilder().duration(150).EUt(6).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Carbon)).fluidInputs(Materials.Lutetium.getFluid(1)).chancedOutput(GAMetaItems.RAW_CARBON_FIBERS.getStackForm(2), 3333).buildAndRegister();
@@ -1088,7 +1088,7 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(30).EUt(240).fluidInputs(Materials.NitrogenDioxide.getFluid(3000), Materials.Water.getFluid(1000)).fluidOutputs(GAMaterials.NitricOxide.getFluid(1000), Materials.NitricAcid.getFluid(2000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(320).EUt(30).inputs(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Oxygen.getFluid(10000), GAMaterials.Ammonia.getFluid(4000)).fluidOutputs(GAMaterials.NitricOxide.getFluid(4000), Materials.Water.getFluid(6000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(180).EUt(30).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.AceticAcid.getFluid(1000), GAMaterials.Ethylene.getFluid(1000)).fluidOutputs(Materials.Water.getFluid(1000), GAMaterials.VinylAcetate.getFluid(1000)).buildAndRegister();
-        RecipeMaps.ELECTROLYZER_RECIPES.recipeBuilder().duration(200).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust,Materials.Sphalerite,2)).outputs(OreDictUnifier.get(OrePrefix.dust,Materials.Zinc),OreDictUnifier.get(OrePrefix.dust,Materials.Sulfur)).chancedOutput(OreDictUnifier.get(OrePrefix.dustTiny,Materials.Gallium),2500).buildAndRegister();
+        RecipeMaps.ELECTROLYZER_RECIPES.recipeBuilder().duration(200).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Sphalerite, 2)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Zinc), OreDictUnifier.get(OrePrefix.dust, Materials.Sulfur)).chancedOutput(OreDictUnifier.get(OrePrefix.dustTiny, Materials.Gallium), 2500).buildAndRegister();
 
         //Circuit Rabbit Hole - layer 6
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(40).EUt(8).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Carbon)).fluidInputs(Materials.Oxygen.getFluid(1000)).fluidOutputs(GAMaterials.CarbonMonoxde.getFluid(1000)).buildAndRegister();
