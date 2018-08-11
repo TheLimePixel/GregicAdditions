@@ -41,7 +41,7 @@ public class GeneratorFuels {
         RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.NitroFuel.getFluid(200)).EUt(-32).duration(3200).buildAndRegister();
 
         //Naquadah Reactor
-        GARecipeMaps.NAQUADAH_REACTOR_FUELS.recipeBuilder().fluidInputs(Materials.NaquadahEnriched.getFluid(200)).fluidOutputs(Materials.Naquadah.getFluid(200)).EUt(-2048).duration(1400).buildAndRegister();
+        GARecipeMaps.NAQUADAH_REACTOR_FUELS.recipeBuilder().fluidInputs(Materials.NaquadahEnriched.getFluid(200)).fluidOutputs(Materials.NaquadahEnriched.getFluid(200)).EUt(-2048).duration(1465).buildAndRegister();
 
         //Plasma Generator
         RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Helium.getPlasma(1000)).EUt(-524288).duration(8).buildAndRegister();
