@@ -8,7 +8,6 @@ import gregtech.api.items.metaitem.stats.IMetaItemStats;
 import gregtech.api.unification.material.MarkerMaterials.Tier;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.MetaItems;
-import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.apache.commons.lang3.ArrayUtils;
@@ -16,8 +15,8 @@ import org.apache.commons.lang3.ArrayUtils;
 public class GAMetaItem extends MaterialMetaItem {
 
     public GAMetaItem() {
-        super(OrePrefix.valueOf("plateCurved"), OrePrefix.valueOf("ingotDouble"), OrePrefix.valueOf("round"), OrePrefix.valueOf("pipeGaSmall"),
-                OrePrefix.valueOf("pipeGa"), OrePrefix.valueOf("pipeGaLarge"), null, null, null, null, null,
+        super(OrePrefix.valueOf("plateCurved"), OrePrefix.valueOf("ingotDouble"), OrePrefix.valueOf("round"), null,
+                null, null, null, null, null, null, null,
                 null, null, null, null, null, null, null,
                 null, null, null, null, null, null, null,
                 null, null, null, null, null, null, null);
@@ -109,13 +108,10 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.RAW_CRYSTAL_CHIP = addItem(82, "crystal.raw");
         GAMetaItems.CRYSTAL_CPU = addItem(83, "crystal.cpu");
         GAMetaItems.CRYSTAL_SOC = addItem(84, "crystal.soc");
-        GAMetaItems.ULTIMATE_PIPE_SMALL = addItem(101, "ultimate.pipe.small");
-        GAMetaItems.ULTIMATE_PIPE = addItem(102, "ultimate.pipe");
-        GAMetaItems.ULTIMATE_PIPE_LARGE = addItem(103, "ultimate.pipe.large");
         GAMetaItems.LAPOTRON_CRYSTAL = addItem(104, "crystal.lapotron").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(10000000L, 4)}).setModelAmount(8);
-        GAMetaItems.PLATE_IRIDIUM_ALLOY = addItem(105,"plate.iridium.alloy");
-        GAMetaItems.PLATE_IRIDIUM_ALLOY_UNCOMPRESSED = addItem(106,"plate.iridium.alloy.uncompressed");
-        GAMetaItems.NEUTRON_REFLECTOR = addItem(107,"neutron.reflector");
+        GAMetaItems.PLATE_IRIDIUM_ALLOY = addItem(105, "plate.iridium.alloy");
+        GAMetaItems.PLATE_IRIDIUM_ALLOY_UNCOMPRESSED = addItem(106, "plate.iridium.alloy.uncompressed");
+        GAMetaItems.NEUTRON_REFLECTOR = addItem(107, "neutron.reflector");
 
         MetaItems.CIRCUIT_BASIC.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
         MetaItems.CIRCUIT_PARTS_ADVANCED.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
@@ -136,9 +132,11 @@ public class GAMetaItem extends MaterialMetaItem {
         MetaItems.SMALL_BRONZE_PIPE.setInvisible();
         MetaItems.SMALL_STEEL_PIPE.setInvisible();
 
+        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_TINY, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_SMALL, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_MEDIUM, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_LARGE, true, "visible");
+        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_HUGE, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.COMPONENT_FILTER, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC_DUST, true, "visible");

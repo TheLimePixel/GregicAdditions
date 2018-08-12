@@ -195,15 +195,11 @@ public class GARecipeAddition {
                 RecipeMaps.LATHE_RECIPES.recipeBuilder().EUt(8).duration((int) m.getMass()).inputs(OreDictUnifier.get(OrePrefix.nugget, m)).outputs(OreDictUnifier.get(OrePrefix.valueOf("round"), m)).buildAndRegister();
             }
 
-            //Pipes
-            if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), m).isEmpty() && !OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m).isEmpty()) {
-                ModHandler.addShapedRecipe("pipe_ga_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), m, 2), "PPP", "wCh", "PPP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
-                ModHandler.addShapedRecipe("pipe_ga_large_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("pipeGaLarge"), m), "PhP", "PCP", "PwP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
-                ModHandler.addShapedRecipe("pipe_ga_small_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("pipeGaSmall"), m, 6), "PwP", "PCP", "PhP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
-                RecipeMaps.EXTRUDER_RECIPES.recipeBuilder().duration((int) m.getMass() / 6).EUt(128).inputs(OreDictUnifier.get(OrePrefix.ingot, m)).notConsumable(MetaItems.SHAPE_EXTRUDER_PIPE_SMALL.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.valueOf("pipeGaSmall"), m)).buildAndRegister();
-                RecipeMaps.EXTRUDER_RECIPES.recipeBuilder().duration((int) m.getMass() / 2).EUt(128).inputs(OreDictUnifier.get(OrePrefix.ingot, m, 3)).notConsumable(MetaItems.SHAPE_EXTRUDER_PIPE_MEDIUM.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), m)).buildAndRegister();
-                RecipeMaps.EXTRUDER_RECIPES.recipeBuilder().duration((int) m.getMass()).EUt(128).inputs(OreDictUnifier.get(OrePrefix.ingot, m, 6)).notConsumable(MetaItems.SHAPE_EXTRUDER_PIPE_LARGE.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.valueOf("pipeGaLarge"), m)).buildAndRegister();
-            }
+            ModHandler.addShapedRecipe("plasma_pipe", OreDictUnifier.get(OrePrefix.pipeMedium, Tier.Superconductor), "ESE", "NTN", "ESE", 'E', OreDictUnifier.get(OrePrefix.plate, Materials.Plastic), 'S', OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor), 'N', OreDictUnifier.get(OrePrefix.plate, Materials.NeodymiumMagnetic), 'T', OreDictUnifier.get(OrePrefix.pipeSmall, Materials.Titanium));
+
+            ModHandler.addShapedRecipe("pipe_ga_wood", OreDictUnifier.get(OrePrefix.pipeMedium, Materials.Wood, 2), "PPP", "sCh", "PPP", 'P', "plankWood", 'C', "craftingToolBendingCylinder");
+            ModHandler.addShapedRecipe("pipe_ga_large_wood", OreDictUnifier.get(OrePrefix.pipeLarge, Materials.Wood), "PhP", "PCP", "PsP", 'P', "plankWood", 'C', "craftingToolBendingCylinder");
+            ModHandler.addShapedRecipe("pipe_ga_small_wood", OreDictUnifier.get(OrePrefix.pipeSmall, Materials.Wood, 6), "PsP", "PCP", "PhP", 'P', "plankWood", 'C', "craftingToolBendingCylinder");
 
             //Cables
             if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.cableGtSingle, m).isEmpty() && m != Materials.RedAlloy && m != Materials.Cobalt && m != Materials.Zinc && m != Materials.SolderingAlloy && m != Materials.Tin && m != Materials.Lead) {
@@ -307,6 +303,38 @@ public class GARecipeAddition {
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_decompress_nether_quartz"));
         RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(OreDictUnifier.get(OrePrefix.block, Materials.NetherQuartz)).outputs(OreDictUnifier.get(OrePrefix.gem, Materials.NetherQuartz, 4)).buildAndRegister();
 
+        //Pipes
+        for (Material m : IngotMaterial.MATERIAL_REGISTRY) {
+            if (!OreDictUnifier.get(OrePrefix.pipeMedium, m).isEmpty()) {
+                if (!OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m).isEmpty()) {
+                    ModHandler.addShapedRecipe("pipe_ga_" + m.toString(), OreDictUnifier.get(OrePrefix.pipeMedium, m, 2), "PPP", "wCh", "PPP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
+                    ModHandler.addShapedRecipe("pipe_ga_large_" + m.toString(), OreDictUnifier.get(OrePrefix.pipeLarge, m), "PhP", "PCP", "PwP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
+                    ModHandler.addShapedRecipe("pipe_ga_small_" + m.toString(), OreDictUnifier.get(OrePrefix.pipeSmall, m, 6), "PwP", "PCP", "PhP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
+                }
+                if (!OreDictUnifier.get(OrePrefix.pipeRestrictiveMedium, m).isEmpty()) {
+                    RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(1000).EUt(4).inputs(OreDictUnifier.get(OrePrefix.pipeTiny, m), OreDictUnifier.get(OrePrefix.ring, Materials.Steel, 2)).outputs(OreDictUnifier.get(OrePrefix.pipeRestrictiveTiny, m)).buildAndRegister();
+                    RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(1200).EUt(4).inputs(OreDictUnifier.get(OrePrefix.pipeSmall, m), OreDictUnifier.get(OrePrefix.ring, Materials.Steel, 3)).outputs(OreDictUnifier.get(OrePrefix.pipeRestrictiveSmall, m)).buildAndRegister();
+                    RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(1600).EUt(4).inputs(OreDictUnifier.get(OrePrefix.pipeMedium, m), OreDictUnifier.get(OrePrefix.ring, Materials.Steel, 4)).outputs(OreDictUnifier.get(OrePrefix.pipeRestrictiveMedium, m)).buildAndRegister();
+                    RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(2000).EUt(4).inputs(OreDictUnifier.get(OrePrefix.pipeLarge, m), OreDictUnifier.get(OrePrefix.ring, Materials.Steel, 5)).outputs(OreDictUnifier.get(OrePrefix.pipeRestrictiveLarge, m)).buildAndRegister();
+                    RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(2200).EUt(4).inputs(OreDictUnifier.get(OrePrefix.pipeHuge, m), OreDictUnifier.get(OrePrefix.ring, Materials.Steel, 5)).outputs(OreDictUnifier.get(OrePrefix.pipeRestrictiveHuge, m)).buildAndRegister();
+                }
+                if (!OreDictUnifier.get(OrePrefix.ingot, m).isEmpty()) {
+                    RecipeMaps.EXTRUDER_RECIPES.recipeBuilder().duration((int) m.getMass() / 6).EUt(128).inputs(OreDictUnifier.get(OrePrefix.ingot, m)).notConsumable(MetaItems.SHAPE_EXTRUDER_PIPE_SMALL.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.pipeSmall, m)).buildAndRegister();
+                    RecipeMaps.EXTRUDER_RECIPES.recipeBuilder().duration((int) m.getMass() / 2).EUt(128).inputs(OreDictUnifier.get(OrePrefix.ingot, m, 3)).notConsumable(MetaItems.SHAPE_EXTRUDER_PIPE_MEDIUM.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.pipeMedium, m)).buildAndRegister();
+                    RecipeMaps.EXTRUDER_RECIPES.recipeBuilder().duration((int) m.getMass()).EUt(128).inputs(OreDictUnifier.get(OrePrefix.ingot, m, 6)).notConsumable(MetaItems.SHAPE_EXTRUDER_PIPE_LARGE.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.pipeLarge, m)).buildAndRegister();
+                    if (!OreDictUnifier.get(OrePrefix.pipeTiny, m).isEmpty()) {
+                        RecipeMaps.EXTRUDER_RECIPES.recipeBuilder().duration((int) m.getMass() / 12).EUt(128).inputs(OreDictUnifier.get(OrePrefix.ingot, m)).notConsumable(MetaItems.SHAPE_EXTRUDER_PIPE_TINY.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.pipeTiny, m, 2)).buildAndRegister();
+                        RecipeMaps.EXTRUDER_RECIPES.recipeBuilder().duration((int) m.getMass() * 2).EUt(128).inputs(OreDictUnifier.get(OrePrefix.ingot, m, 2)).notConsumable(MetaItems.SHAPE_EXTRUDER_PIPE_HUGE.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.pipeHuge, m)).buildAndRegister();
+                    }
+                    if (!OreDictUnifier.get(OrePrefix.pipeQuadruple, m).isEmpty()) {
+                        ModHandler.addShapedRecipe("quadruple_pipe_" + m.toString(), OreDictUnifier.get(OrePrefix.pipeQuadruple, m), "PP", "PP", 'P', OreDictUnifier.get(OrePrefix.pipeMedium, m));
+                        ModHandler.addShapedRecipe("nonule_pipe_" + m.toString(), OreDictUnifier.get(OrePrefix.pipeNonuple, m), "PPP", "PPP", "PPP", 'P', OreDictUnifier.get(OrePrefix.pipeMedium, m));
+                        ModHandler.addShapedRecipe("sexdecuple_pipe_" + m.toString(), OreDictUnifier.get(OrePrefix.pipeSexdecuple, m), "PP", "PP", 'P', OreDictUnifier.get(OrePrefix.pipeQuadruple, m));
+                    }
+                }
+            }
+        }
+
         //Rubber Rings
         ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.ring, GAMaterials.SiliconeRubber));
         ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.ring, GAMaterials.StyreneButadieneRubber));
@@ -336,9 +364,9 @@ public class GARecipeAddition {
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(900).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.PlatinumGroupSludge)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.SiliconDioxide), OreDictUnifier.get(OrePrefix.dustTiny, Materials.Gold), OreDictUnifier.get(OrePrefix.dustTiny, Materials.Platinum)).chancedOutput(OreDictUnifier.get(OrePrefix.dustTiny, Materials.Palladium), 8000).chancedOutput(OreDictUnifier.get(OrePrefix.dustTiny, Materials.Iridium), 6000).chancedOutput(OreDictUnifier.get(OrePrefix.dustTiny, Materials.Osmium), 6000).buildAndRegister();
 
         //Ultimate Pipes
-        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(300).EUt(96).inputs(OreDictUnifier.get(OrePrefix.valueOf("pipeGaSmall"), Materials.TungstenSteel), MetaItems.ELECTRIC_PUMP_EV.getStackForm()).outputs(GAMetaItems.ULTIMATE_PIPE_SMALL.getStackForm()).buildAndRegister();
-        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(400).EUt(148).inputs(OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), Materials.TungstenSteel), MetaItems.ELECTRIC_PUMP_IV.getStackForm()).outputs(GAMetaItems.ULTIMATE_PIPE.getStackForm()).buildAndRegister();
-        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(600).EUt(256).inputs(OreDictUnifier.get(OrePrefix.valueOf("pipeGaLarge"), Materials.TungstenSteel), MetaItems.ELECTRIC_PUMP_IV.getStackForm(2)).outputs(GAMetaItems.ULTIMATE_PIPE_LARGE.getStackForm()).buildAndRegister();
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(300).EUt(96).inputs(OreDictUnifier.get(OrePrefix.pipeSmall, Materials.TungstenSteel), MetaItems.ELECTRIC_PUMP_EV.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.pipeSmall, Tier.Ultimate)).buildAndRegister();
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(400).EUt(148).inputs(OreDictUnifier.get(OrePrefix.pipeMedium, Materials.TungstenSteel), MetaItems.ELECTRIC_PUMP_IV.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.pipeMedium, Tier.Ultimate)).buildAndRegister();
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(600).EUt(256).inputs(OreDictUnifier.get(OrePrefix.pipeLarge, Materials.TungstenSteel), MetaItems.ELECTRIC_PUMP_IV.getStackForm(2)).outputs(OreDictUnifier.get(OrePrefix.pipeLarge, Tier.Ultimate)).buildAndRegister();
 
         //Reinforced Glass
         int multiplier2;
@@ -448,14 +476,14 @@ public class GARecipeAddition {
         ModHandler.addShapedRecipe("ga_ev_field_generator", MetaItems.FIELD_GENERATOR_EV.getStackForm(), "WSW", "SGS", "WSW", 'W', OreDictUnifier.get(OrePrefix.wireGtOctal, Materials.Osmium), 'S', "circuitGAExtreme", 'G', OreDictUnifier.get(OrePrefix.gem, Materials.NetherStar));
         ModHandler.addShapedRecipe("iga_v_field_generator", MetaItems.FIELD_GENERATOR_IV.getStackForm(), "WSW", "SGS", "WSW", 'W', OreDictUnifier.get(OrePrefix.wireGtHex, Materials.Osmium), 'S', "circuitGAElite", 'G', MetaItems.QUANTUM_STAR.getStackForm());
 
-        ModHandler.addShapedRecipe("lv_electric_pump_paper", MetaItems.ELECTRIC_PUMP_LV.getStackForm(), "SRH", "dPw", "HMC", 'S', OreDictUnifier.get(OrePrefix.screw, Materials.Tin), 'R', OreDictUnifier.get(OrePrefix.rotor, Materials.Tin), 'H', OreDictUnifier.get(OrePrefix.ring, Materials.Paper), 'P', OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), Materials.Bronze), 'M', MetaItems.ELECTRIC_MOTOR_LV.getStackForm(), 'C', OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.Tin));
+        ModHandler.addShapedRecipe("lv_electric_pump_paper", MetaItems.ELECTRIC_PUMP_LV.getStackForm(), "SRH", "dPw", "HMC", 'S', OreDictUnifier.get(OrePrefix.screw, Materials.Tin), 'R', OreDictUnifier.get(OrePrefix.rotor, Materials.Tin), 'H', OreDictUnifier.get(OrePrefix.ring, Materials.Paper), 'P', OreDictUnifier.get(OrePrefix.pipeMedium, Materials.Bronze), 'M', MetaItems.ELECTRIC_MOTOR_LV.getStackForm(), 'C', OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.Tin));
         for (MaterialStack stackFluid : cableFluids) {
             IngotMaterial m = (IngotMaterial) stackFluid.material;
-            ModHandler.addShapedRecipe("lv_electric_pump_" + m.toString(), MetaItems.ELECTRIC_PUMP_LV.getStackForm(), "SRH", "dPw", "HMC", 'S', OreDictUnifier.get(OrePrefix.screw, Materials.Tin), 'R', OreDictUnifier.get(OrePrefix.rotor, Materials.Tin), 'H', OreDictUnifier.get(OrePrefix.ring, m), 'P', OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), Materials.Bronze), 'M', MetaItems.ELECTRIC_MOTOR_LV.getStackForm(), 'C', OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.Tin));
-            ModHandler.addShapedRecipe("mv_electric_pump_" + m.toString(), MetaItems.ELECTRIC_PUMP_MV.getStackForm(), "SRH", "dPw", "HMC", 'S', OreDictUnifier.get(OrePrefix.screw, Materials.Bronze), 'R', OreDictUnifier.get(OrePrefix.rotor, Materials.Bronze), 'H', OreDictUnifier.get(OrePrefix.ring, m), 'P', OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), Materials.Steel), 'M', MetaItems.ELECTRIC_MOTOR_MV.getStackForm(), 'C', OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.Copper));
-            ModHandler.addShapedRecipe("hv_electric_pump_" + m.toString(), MetaItems.ELECTRIC_PUMP_HV.getStackForm(), "SRH", "dPw", "HMC", 'S', OreDictUnifier.get(OrePrefix.screw, Materials.Steel), 'R', OreDictUnifier.get(OrePrefix.rotor, Materials.Steel), 'H', OreDictUnifier.get(OrePrefix.ring, m), 'P', OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), Materials.StainlessSteel), 'M', MetaItems.ELECTRIC_MOTOR_HV.getStackForm(), 'C', OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.Gold));
-            ModHandler.addShapedRecipe("ev_electric_pump_" + m.toString(), MetaItems.ELECTRIC_PUMP_EV.getStackForm(), "SRH", "dPw", "HMC", 'S', OreDictUnifier.get(OrePrefix.screw, Materials.StainlessSteel), 'R', OreDictUnifier.get(OrePrefix.rotor, Materials.StainlessSteel), 'H', OreDictUnifier.get(OrePrefix.ring, m), 'P', OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), Materials.Titanium), 'M', MetaItems.ELECTRIC_MOTOR_EV.getStackForm(), 'C', OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.Aluminium));
-            ModHandler.addShapedRecipe("iv_electric_pump_" + m.toString(), MetaItems.ELECTRIC_PUMP_IV.getStackForm(), "SRH", "dPw", "HMC", 'S', OreDictUnifier.get(OrePrefix.screw, Materials.TungstenSteel), 'R', OreDictUnifier.get(OrePrefix.rotor, Materials.TungstenSteel), 'H', OreDictUnifier.get(OrePrefix.ring, m), 'P', OreDictUnifier.get(OrePrefix.valueOf("pipeGa"), Materials.TungstenSteel), 'M', MetaItems.ELECTRIC_MOTOR_IV.getStackForm(), 'C', OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.Tungsten));
+            ModHandler.addShapedRecipe("lv_electric_pump_" + m.toString(), MetaItems.ELECTRIC_PUMP_LV.getStackForm(), "SRH", "dPw", "HMC", 'S', OreDictUnifier.get(OrePrefix.screw, Materials.Tin), 'R', OreDictUnifier.get(OrePrefix.rotor, Materials.Tin), 'H', OreDictUnifier.get(OrePrefix.ring, m), 'P', OreDictUnifier.get(OrePrefix.pipeMedium, Materials.Bronze), 'M', MetaItems.ELECTRIC_MOTOR_LV.getStackForm(), 'C', OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.Tin));
+            ModHandler.addShapedRecipe("mv_electric_pump_" + m.toString(), MetaItems.ELECTRIC_PUMP_MV.getStackForm(), "SRH", "dPw", "HMC", 'S', OreDictUnifier.get(OrePrefix.screw, Materials.Bronze), 'R', OreDictUnifier.get(OrePrefix.rotor, Materials.Bronze), 'H', OreDictUnifier.get(OrePrefix.ring, m), 'P', OreDictUnifier.get(OrePrefix.pipeMedium, Materials.Steel), 'M', MetaItems.ELECTRIC_MOTOR_MV.getStackForm(), 'C', OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.Copper));
+            ModHandler.addShapedRecipe("hv_electric_pump_" + m.toString(), MetaItems.ELECTRIC_PUMP_HV.getStackForm(), "SRH", "dPw", "HMC", 'S', OreDictUnifier.get(OrePrefix.screw, Materials.Steel), 'R', OreDictUnifier.get(OrePrefix.rotor, Materials.Steel), 'H', OreDictUnifier.get(OrePrefix.ring, m), 'P', OreDictUnifier.get(OrePrefix.pipeMedium, Materials.StainlessSteel), 'M', MetaItems.ELECTRIC_MOTOR_HV.getStackForm(), 'C', OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.Gold));
+            ModHandler.addShapedRecipe("ev_electric_pump_" + m.toString(), MetaItems.ELECTRIC_PUMP_EV.getStackForm(), "SRH", "dPw", "HMC", 'S', OreDictUnifier.get(OrePrefix.screw, Materials.StainlessSteel), 'R', OreDictUnifier.get(OrePrefix.rotor, Materials.StainlessSteel), 'H', OreDictUnifier.get(OrePrefix.ring, m), 'P', OreDictUnifier.get(OrePrefix.pipeMedium, Materials.Titanium), 'M', MetaItems.ELECTRIC_MOTOR_EV.getStackForm(), 'C', OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.Aluminium));
+            ModHandler.addShapedRecipe("iv_electric_pump_" + m.toString(), MetaItems.ELECTRIC_PUMP_IV.getStackForm(), "SRH", "dPw", "HMC", 'S', OreDictUnifier.get(OrePrefix.screw, Materials.TungstenSteel), 'R', OreDictUnifier.get(OrePrefix.rotor, Materials.TungstenSteel), 'H', OreDictUnifier.get(OrePrefix.ring, m), 'P', OreDictUnifier.get(OrePrefix.pipeMedium, Materials.TungstenSteel), 'M', MetaItems.ELECTRIC_MOTOR_IV.getStackForm(), 'C', OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.Tungsten));
         }
 
         //Automatic Machine Component Recipes
@@ -1185,7 +1213,7 @@ public class GARecipeAddition {
 
         GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
                 MetaItems.ELECTRIC_MOTOR_LUV.getStackForm(),
-                GAMetaItems.ULTIMATE_PIPE_SMALL.getStackForm(2),
+                OreDictUnifier.get(OrePrefix.pipeSmall, Tier.Ultimate, 2),
                 OreDictUnifier.get(OrePrefix.plate, Materials.HSSG, 2),
                 OreDictUnifier.get(OrePrefix.screw, Materials.HSSG, 8),
                 OreDictUnifier.get(OrePrefix.ring, GAMaterials.SiliconeRubber, 4),
@@ -1198,7 +1226,7 @@ public class GARecipeAddition {
 
         GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
                 MetaItems.ELECTRIC_MOTOR_ZPM.getStackForm(),
-                GAMetaItems.ULTIMATE_PIPE.getStackForm(2),
+                OreDictUnifier.get(OrePrefix.pipeMedium, Tier.Ultimate, 2),
                 OreDictUnifier.get(OrePrefix.plate, Materials.HSSE, 2),
                 OreDictUnifier.get(OrePrefix.screw, Materials.HSSE, 8),
                 OreDictUnifier.get(OrePrefix.ring, GAMaterials.SiliconeRubber, 16),
@@ -1211,7 +1239,7 @@ public class GARecipeAddition {
 
         GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
                 MetaItems.ELECTRIC_MOTOR_UV.getStackForm(),
-                GAMetaItems.ULTIMATE_PIPE_LARGE.getStackForm(2),
+                OreDictUnifier.get(OrePrefix.pipeLarge, Tier.Ultimate, 2),
                 OreDictUnifier.get(OrePrefix.plate, GAMaterials.Neutronium, 2),
                 OreDictUnifier.get(OrePrefix.screw, GAMaterials.Neutronium, 8),
                 OreDictUnifier.get(OrePrefix.ring, GAMaterials.SiliconeRubber, 16),
