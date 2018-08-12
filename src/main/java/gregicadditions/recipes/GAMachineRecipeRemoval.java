@@ -286,6 +286,9 @@ public class GAMachineRecipeRemoval {
 
         //Remove Old Sphalerite Electrolyzing
         removeRecipesByInputs(RecipeMaps.ELECTROLYZER_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Sphalerite));
+
+        //Remove Silicon incompatability with Boule recipes
+        removeRecipesByInputs(RecipeMaps.BLAST_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Silicon));
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {
