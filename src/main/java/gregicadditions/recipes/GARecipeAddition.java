@@ -304,6 +304,8 @@ public class GARecipeAddition {
         RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(OreDictUnifier.get(OrePrefix.block, Materials.NetherQuartz)).outputs(OreDictUnifier.get(OrePrefix.gem, Materials.NetherQuartz, 4)).buildAndRegister();
 
         //Pipes
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:pipe_small_bronze"));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:pipe_small_steel"));
         for (Material m : IngotMaterial.MATERIAL_REGISTRY) {
             if (!OreDictUnifier.get(OrePrefix.pipeMedium, m).isEmpty()) {
                 if (!OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m).isEmpty()) {
@@ -938,9 +940,9 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(500).EUt(10).inputs(OreDictUnifier.get(OrePrefix.plate, GAMaterials.ReinforcedEpoxyResin), OreDictUnifier.get(OrePrefix.foil, Materials.Copper)).fluidInputs(Materials.SulfuricAcid.getFluid(125)).outputs(GAMetaItems.FIBER_BOARD.getStackForm()).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(100).EUt(480).inputs(GAMetaItems.FIBER_BOARD.getStackForm(), OreDictUnifier.get(OrePrefix.foil, Materials.Electrum, 16)).fluidInputs(Materials.SulfuricAcid.getFluid(250)).outputs(GAMetaItems.MULTILAYER_FIBER_BOARD.getStackForm()).buildAndRegister();
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(400).EUt(480).inputs(GAMetaItems.MULTILAYER_FIBER_BOARD.getStackForm(), GAMetaItems.PETRI_DISH.getStackForm()).input(OrePrefix.valueOf("circuitGA"), Tier.Good).fluidInputs(GAMaterials.SterilizedGrowthMedium.getFluid(250)).outputs(GAMetaItems.WETWARE_BOARD.getStackForm()).buildAndRegister();
-        RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(100).EUt(40000).inputs(GAMetaItems.CRYSTAL_CPU.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Black).outputs(GAMetaItems.CRYSTAL_SOC.getStackForm()).buildAndRegister();
+        RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(100).EUt(40000).inputs(GAMetaItems.CRYSTAL_CPU.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Blue).outputs(GAMetaItems.CRYSTAL_SOC.getStackForm()).buildAndRegister();
         RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(100).EUt(10000).inputs(MetaItems.CIRCUIT_PARTS_CRYSTAL_CHIP_ELITE.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Lime).outputs(GAMetaItems.CRYSTAL_CPU.getStackForm()).buildAndRegister();
-        RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(256).EUt(480).inputs(GAMetaItems.LAPOTRON_CRYSTAL.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Black).outputs(MetaItems.CIRCUIT_PARTS_CRYSTAL_CHIP_MASTER.getStackForm(3)).buildAndRegister();
+        RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(256).EUt(480).inputs(GAMetaItems.LAPOTRON_CRYSTAL.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Blue).outputs(MetaItems.CIRCUIT_PARTS_CRYSTAL_CHIP_MASTER.getStackForm(3)).buildAndRegister();
 
         //Assline Casing
         ModHandler.addShapedRecipe("assline_casing", GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.TUNGSTENSTEEL_GEARBOX_CASING, 2), "PhP", "AFA", "PwP", 'P', "plateSteel", 'A', MetaItems.ROBOT_ARM_IV.getStackForm(), 'F', OreDictUnifier.get(OrePrefix.frameGt, Materials.TungstenSteel));
@@ -1014,8 +1016,8 @@ public class GARecipeAddition {
         RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(200).EUt(1920).inputs(GAMetaItems.NAQUADAH_WAFER.getStackForm()).notConsumable(OrePrefix.lens, Materials.Glass).outputs(GAMetaItems.CPU_WAFER.getStackForm(8)).buildAndRegister();
         RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(200).EUt(1920).inputs(GAMetaItems.NAQUADAH_WAFER.getStackForm()).notConsumable(OrePrefix.lens, Materials.GarnetYellow).outputs(GAMetaItems.SOC_WAFER.getStackForm()).buildAndRegister();
         RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(200).EUt(1920).inputs(GAMetaItems.NAQUADAH_WAFER.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Orange).outputs(GAMetaItems.ASOC_WAFER.getStackForm()).buildAndRegister();
-        RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(500).EUt(480).inputs(GAMetaItems.GLOWSTONE_WAFER.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Black).outputs(GAMetaItems.PIC_WAFER.getStackForm()).buildAndRegister();
-        RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(200).EUt(1920).inputs(GAMetaItems.NAQUADAH_WAFER.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Black).outputs(GAMetaItems.PIC_WAFER.getStackForm(4)).buildAndRegister();
+        RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(500).EUt(480).inputs(GAMetaItems.GLOWSTONE_WAFER.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Blue).outputs(GAMetaItems.PIC_WAFER.getStackForm()).buildAndRegister();
+        RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(200).EUt(1920).inputs(GAMetaItems.NAQUADAH_WAFER.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Blue).outputs(GAMetaItems.PIC_WAFER.getStackForm(4)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(1200).EUt(1920).inputs(GAMetaItems.PIC_WAFER.getStackForm(), OreDictUnifier.get(OrePrefix.dust, GAMaterials.IndiumGalliumPhosphide, 2)).fluidInputs(Materials.RedAlloy.getFluid(288)).outputs(GAMetaItems.HPIC_WAFER.getStackForm()).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(400).EUt(1920).inputs(GAMetaItems.CPU_WAFER.getStackForm(), GAMetaItems.RAW_CARBON_FIBERS.getStackForm(16)).fluidInputs(Materials.Glowstone.getFluid(576)).outputs(GAMetaItems.NANOCPU_WAFER.getStackForm()).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(400).EUt(1920).inputs(GAMetaItems.NANOCPU_WAFER.getStackForm(), MetaItems.QUANTUM_EYE.getStackForm(2)).fluidInputs(GAMaterials.GalliumArsenide.getFluid(288)).outputs(GAMetaItems.QBIT_CPU_WAFER.getStackForm()).buildAndRegister();

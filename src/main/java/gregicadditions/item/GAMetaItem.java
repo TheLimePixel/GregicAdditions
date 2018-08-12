@@ -129,8 +129,6 @@ public class GAMetaItem extends MaterialMetaItem {
         MetaItems.CIRCUIT_PARTS_WIRING_ADVANCED.setInvisible();
         MetaItems.CIRCUIT_PARTS_WIRING_ELITE.setInvisible();
         MetaItems.CIRCUIT_PRIMITIVE.setInvisible();
-        MetaItems.SMALL_BRONZE_PIPE.setInvisible();
-        MetaItems.SMALL_STEEL_PIPE.setInvisible();
 
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_TINY, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_SMALL, true, "visible");
