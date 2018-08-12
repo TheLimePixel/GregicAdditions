@@ -353,10 +353,10 @@ gregtech.machine.plasma_arc_furnace.luv.name=Advanced Plasma Arc Furnace V
 gregtech.machine.plasma_arc_furnace.zpm.name=Advanced Plasma Arc Furnace VI
 gregtech.machine.plasma_arc_furnace.uv.name=Advanced Plasma Arc Furnace VII
 
-gregtech.machine.polarizer.iv.name=Advanced Polarizer
-gregtech.machine.polarizer.luv.name=Advanced Polarizer
-gregtech.machine.polarizer.zpm.name=Advanced Polarizer II
-gregtech.machine.polarizer.uv.name=Advanced Polarizer III
+gregtech.machine.polarizer.iv.name=Advanced Polarizer IV
+gregtech.machine.polarizer.luv.name=Advanced Polarizer V
+gregtech.machine.polarizer.zpm.name=Advanced Polarizer VI
+gregtech.machine.polarizer.uv.name=Advanced Polarizer VII
 
 gregtech.machine.laser_engraver.iv.name=Advanced Precision Laser Engraver IV
 gregtech.machine.laser_engraver.luv.name=Advanced Precision Laser Engraver V
