@@ -225,7 +225,7 @@ public class GAMachineRecipeRemoval {
                 new FluidStack[]{Materials.Chlorine.getFluid(2000)});
 
         //Remove GT5 Ash Centrifuging
-        removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.DarkAsh));
+        removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.DarkAsh, 2));
         removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Ash));
 
         //Remove Alloy Smelter Rubber Recipe
