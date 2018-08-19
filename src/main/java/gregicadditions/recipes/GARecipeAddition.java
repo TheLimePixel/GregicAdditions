@@ -400,25 +400,6 @@ public class GARecipeAddition {
 
         RecipeMaps.IMPLOSION_RECIPES.recipeBuilder().duration(20).EUt(30).inputs(GAMetaItems.PLATE_IRIDIUM_ALLOY_UNCOMPRESSED.getStackForm()).explosivesAmount(8).outputs(GAMetaItems.PLATE_IRIDIUM_ALLOY.getStackForm()).buildAndRegister();
 
-        //GT5U Slabs Are Made With A Saw
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:stone_slab"));
-        ModHandler.addShapedRecipe("stone_slab", new ItemStack(Blocks.STONE_SLAB, 2), "sS", 'S', new ItemStack(Blocks.STONE));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:sandstone_slab"));
-        ModHandler.addShapedRecipe("sandstone_slab", new ItemStack(Blocks.STONE_SLAB, 2, 1), "sS", 'S', new ItemStack(Blocks.SANDSTONE));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:cobblestone_slab"));
-        ModHandler.addShapedRecipe("cobblestone_slab", new ItemStack(Blocks.STONE_SLAB, 2, 3), "sC", 'C', new ItemStack(Blocks.COBBLESTONE));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:brick_slab"));
-        ModHandler.addShapedRecipe("brick_slab", new ItemStack(Blocks.STONE_SLAB, 2, 4), "sB", 'B', new ItemStack(Blocks.BRICK_BLOCK));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:stone_brick_slab"));
-        ModHandler.addShapedRecipe("stone_brick_slab", new ItemStack(Blocks.STONE_SLAB, 2, 5), "sB", 'B', new ItemStack(Blocks.STONEBRICK));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:nether_brick_slab"));
-        ModHandler.addShapedRecipe("nether_brick_slab", new ItemStack(Blocks.STONE_SLAB, 2, 6), "sB", 'B', new ItemStack(Blocks.NETHER_BRICK));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:quartz_slab"));
-        ModHandler.addShapedRecipe("quartz_slab", new ItemStack(Blocks.STONE_SLAB, 2, 7), "sQ", 'Q', new ItemStack(Blocks.QUARTZ_BLOCK));
-        ModHandler.addShapedRecipe("red_sandstone_slab", new ItemStack(Blocks.STONE_SLAB2, 2), "sS", 'S', new ItemStack(Blocks.RED_SANDSTONE));
-        ModHandler.removeRecipeByName(new ResourceLocation("minecraft:purpur_slab"));
-        ModHandler.addShapedRecipe("purpur", new ItemStack(Blocks.PURPUR_SLAB, 2), "sP", 'P', new ItemStack(Blocks.PURPUR_BLOCK));
-
         List<ItemStack> allWoodLogs = OreDictionary.getOres("logWood").stream()
                 .flatMap(stack -> ModHandler.getAllSubItems(stack).stream())
                 .collect(Collectors.toList());
@@ -1090,7 +1071,7 @@ public class GARecipeAddition {
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(1484).EUt(5).fluidInputs(Materials.LiquidAir.getFluid(52000)).fluidOutputs(Materials.Nitrogen.getFluid(40000), Materials.Oxygen.getFluid(11000), Materials.Argon.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(96).fluidInputs(Materials.Hydrogen.getFluid(6000), Materials.CarbonDioxide.getFluid(1000)).fluidOutputs(Materials.Water.getFluid(1000), GAMaterials.Methanol.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(96).fluidInputs(Materials.Hydrogen.getFluid(4000), GAMaterials.CarbonMonoxde.getFluid(1000)).fluidOutputs(GAMaterials.Methanol.getFluid(1000)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(320).EUt(96).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Carbon)).fluidInputs(Materials.Hydrogen.getFluid(4000), Materials.Oxygen.getFluid(1000)).fluidOutputs(GAMaterials.Methanol.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(320).EUt(96).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Carbon)).notConsumable(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Hydrogen.getFluid(4000), Materials.Oxygen.getFluid(1000)).fluidOutputs(GAMaterials.Methanol.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(8).fluidInputs(Materials.Mercury.getFluid(1000), Materials.Water.getFluid(10000), Materials.Chlorine.getFluid(10000)).fluidOutputs(GAMaterials.HypochlorousAcid.getFluid(10000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(30).fluidInputs(Materials.Water.getFluid(1000), Materials.Chlorine.getFluid(2000)).fluidOutputs(GAMaterials.DilutedHydrochloricAcid.getFluid(1000), GAMaterials.HypochlorousAcid.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(960).EUt(480).fluidInputs(GAMaterials.Dimethylamine.getFluid(1000), GAMaterials.Chloramine.getFluid(1000)).fluidOutputs(GAMaterials.Dimethylhydrazine.getFluid(1000), GAMaterials.DilutedHydrochloricAcid.getFluid(1000)).buildAndRegister();
