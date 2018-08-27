@@ -133,10 +133,16 @@ public class GAMetaItems {
         }
     }
 
-    public static ItemStack getFilledCell(Fluid fluid) {
-        ItemStack fluidCell = MetaItems.FLUID_CELL.getStackForm();
+    public static ItemStack getFilledCell(Fluid fluid, int count) {
+        ItemStack fluidCell = MetaItems.FLUID_CELL.getStackForm().copy();
         IFluidHandlerItem fluidHandlerItem = fluidCell.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
         fluidHandlerItem.fill(new FluidStack(fluid, 1000), true);
-        return fluidHandlerItem.getContainer();
+        fluidCell = fluidHandlerItem.getContainer();
+        fluidCell.setCount(count);
+        return fluidCell;
+    }
+
+    public static ItemStack getFilledCell(Fluid fluid) {
+        return getFilledCell(fluid, 1);
     }
 }
