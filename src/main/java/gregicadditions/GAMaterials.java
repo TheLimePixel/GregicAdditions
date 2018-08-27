@@ -270,6 +270,8 @@ public class GAMaterials {
         Materials.Oxygen.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
         Materials.Iron.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
         Materials.Nickel.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
+        Materials.GreenSapphire.addFlag(DustMaterial.MatFlags.GENERATE_PLATE);
+        Materials.GreenSapphire.addFlag(GemMaterial.MatFlags.GENERATE_LENSE);
 
         Materials.Salt.addOreByProducts(Materials.Borax);
         Materials.RockSalt.addOreByProducts(Materials.Borax);

@@ -53,6 +53,12 @@ public class GAMachineRecipeRemoval {
                 ModHandler.removeRecipeByName(new ResourceLocation(String.format("gregtech:wrench_%s", m.toString())));
             }
 
+            //Fix GT's Broken Plate Recipes
+            if (!OreDictUnifier.get(OrePrefix.ingot, m).isEmpty() && !OreDictUnifier.get(OrePrefix.plate, m).isEmpty()) {
+                removeRecipesByInputs(RecipeMaps.FORGE_HAMMER_RECIPES, OreDictUnifier.get(OrePrefix.ingot, m, 3));
+                removeRecipesByInputs(RecipeMaps.BENDER_RECIPES, OreDictUnifier.get(OrePrefix.ingot, m), IntCircuitIngredient.getIntegratedCircuit(0));
+            }
+
 
             //Remove EV+ Cable Recipes
             removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
@@ -285,7 +291,7 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.MAX), OreDictUnifier.get(OrePrefix.wireGtSingle, MarkerMaterials.Tier.Superconductor, 2)}, new FluidStack[]{Materials.Polytetrafluoroethylene.getFluid(288)});
 
         //Remove Old Sphalerite Electrolyzing
-        removeRecipesByInputs(RecipeMaps.ELECTROLYZER_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Sphalerite));
+        removeRecipesByInputs(RecipeMaps.ELECTROLYZER_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Sphalerite, 2));
 
         //Remove Silicon incompatability with Boule recipes
         removeRecipesByInputs(RecipeMaps.BLAST_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Silicon));
