@@ -1,7 +1,7 @@
 package gregicadditions.recipes;
 
 import gregicadditions.GAMaterials;
-import gregicadditions.item.GAMetaItems;
+import gregtech.api.recipes.CountableIngredient;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.DustMaterial;
@@ -25,10 +25,10 @@ public class MatterReplication {
         }
 
         //Replicator
-        GARecipeMaps.REPLICATOR_RECIPES.recipeBuilder().duration((int) (Materials.Hydrogen.getMass() * 1000)).EUt(32).notConsumable(GAMetaItems.getFilledCell((Materials.Hydrogen.getMaterialFluid()))).fluidOutputs((Materials.Hydrogen.getFluid(1000))).fluidInputs(GAMaterials.PositiveMatter.getFluid(1)).buildAndRegister();
+        GARecipeMaps.REPLICATOR_RECIPES.recipeBuilder().duration((int) (Materials.Hydrogen.getMass() * 1000)).EUt(32).inputs(FluidCellIngredient.getIngredient(Materials.Hydrogen, 0)).fluidOutputs((Materials.Hydrogen.getFluid(1000))).fluidInputs(GAMaterials.PositiveMatter.getFluid(1)).buildAndRegister();
         for (Material m : FluidMaterial.MATERIAL_REGISTRY) {
             if (m.getProtons() > 0 && m.getNeutrons() > 0 && m.getMass() != 98 && m instanceof FluidMaterial && OreDictUnifier.get(OrePrefix.dust, m).isEmpty() && m != Materials.Air && m != Materials.LiquidAir) {
-                GARecipeMaps.REPLICATOR_RECIPES.recipeBuilder().duration((int) (m.getMass() * 100)).EUt(32).notConsumable(GAMetaItems.getFilledCell(((FluidMaterial) m).getMaterialFluid())).fluidOutputs(((FluidMaterial) m).getFluid(1000)).fluidInputs(GAMaterials.PositiveMatter.getFluid((int) m.getProtons()), GAMaterials.NeutralMatter.getFluid((int) m.getNeutrons())).buildAndRegister();
+                GARecipeMaps.REPLICATOR_RECIPES.recipeBuilder().duration((int) (m.getMass() * 100)).EUt(32).inputs(FluidCellIngredient.getIngredient((FluidMaterial) m, 0)).fluidOutputs(((FluidMaterial) m).getFluid(1000)).fluidInputs(GAMaterials.PositiveMatter.getFluid((int) m.getProtons()), GAMaterials.NeutralMatter.getFluid((int) m.getNeutrons())).buildAndRegister();
             }
         }
         for (Material m : DustMaterial.MATERIAL_REGISTRY) {
