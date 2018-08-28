@@ -322,7 +322,7 @@ public class GARecipeAddition {
             }
         }
 
-        RecipeMaps.UNPACKER_RECIPES.recipeBuilder().duration(100).EUt(8).inputs(new ItemStack(Blocks.SLIME_BLOCK)).outputs(new ItemStack(Items.SLIME_BALL, 9)).buildAndRegister();
+        RecipeMaps.UNPACKER_RECIPES.recipeBuilder().duration(100).EUt(8).inputs(new ItemStack(Blocks.SLIME_BLOCK)).outputs(new ItemStack(Items.SLIME_BALL, 5), new ItemStack(Items.SLIME_BALL, 4)).buildAndRegister();
 
         for (ResourceLocation r : recipesToRemove)
             ModHandler.removeRecipeByName(r);
