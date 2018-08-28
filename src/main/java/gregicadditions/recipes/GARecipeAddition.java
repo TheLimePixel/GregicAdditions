@@ -277,6 +277,36 @@ public class GARecipeAddition {
                     }
                 }
             }
+            if (recipe.getIngredients().size() == 9) {
+                if (recipe.getIngredients().get(0).getMatchingStacks().length > 0 && Block.getBlockFromItem(recipe.getRecipeOutput().getItem()) == Blocks.AIR) {
+                    boolean match = true;
+                    for (int i = 1; i < recipe.getIngredients().size(); i++) {
+                        if (recipe.getIngredients().get(i).getMatchingStacks().length == 0 || !recipe.getIngredients().get(0).getMatchingStacks()[0].isItemEqual(recipe.getIngredients().get(i).getMatchingStacks()[0])) {
+                            match = false;
+                            break;
+                        }
+                    }
+                    if (match) {
+                        recipesToRemove.add(recipe.getRegistryName());
+                        RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).notConsumable(MetaItems.SCHEMATIC_3X3.getStackForm()).outputs(recipe.getRecipeOutput()).buildAndRegister();
+                    }
+                }
+            }
+            if (recipe.getIngredients().size() == 4) {
+                if (recipe.getIngredients().get(0).getMatchingStacks().length > 0) {
+                    boolean match = true;
+                    for (int i = 1; i < recipe.getIngredients().size(); i++) {
+                        if (recipe.getIngredients().get(i).getMatchingStacks().length == 0 || !recipe.getIngredients().get(0).getMatchingStacks()[0].isItemEqual(recipe.getIngredients().get(i).getMatchingStacks()[0])) {
+                            match = false;
+                            break;
+                        }
+                    }
+                    if (match) {
+                        recipesToRemove.add(recipe.getRegistryName());
+                        RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).notConsumable(MetaItems.SCHEMATIC_2X2.getStackForm()).outputs(recipe.getRecipeOutput()).buildAndRegister();
+                    }
+                }
+            }
             if (recipe.getIngredients().size() == 1 && recipe.getRecipeOutput().getCount() == 9 && Block.getBlockFromItem(recipe.getIngredients().get(0).getMatchingStacks()[0].getItem()) != Blocks.AIR && Block.getBlockFromItem(recipe.getIngredients().get(0).getMatchingStacks()[0].getItem()) != Blocks.SLIME_BLOCK) {
                 boolean isIngot = false;
                 for (int i : OreDictionary.getOreIDs(recipe.getRecipeOutput())) {
@@ -291,6 +321,8 @@ public class GARecipeAddition {
                 }
             }
         }
+
+        RecipeMaps.UNPACKER_RECIPES.recipeBuilder().duration(100).EUt(8).inputs(new ItemStack(Blocks.SLIME_BLOCK)).outputs(new ItemStack(Items.SLIME_BALL, 9)).buildAndRegister();
 
         for (ResourceLocation r : recipesToRemove)
             ModHandler.removeRecipeByName(r);
@@ -950,13 +982,13 @@ public class GARecipeAddition {
         }
 
         //Circuit Rabbit Hole - Layer 3
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Air.getFluid(1000), GAMaterials.Ethylene.getFluid(144)).fluidOutputs(Materials.Plastic.getFluid(144)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.Ethylene.getFluid(144)).fluidOutputs(Materials.Plastic.getFluid(216)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(0)).fluidInputs(Materials.Air.getFluid(1000), GAMaterials.Ethylene.getFluid(144)).fluidOutputs(Materials.Plastic.getFluid(144)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(0)).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.Ethylene.getFluid(144)).fluidOutputs(Materials.Plastic.getFluid(216)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Air.getFluid(7500), GAMaterials.Ethylene.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(Materials.Plastic.getFluid(3240)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Oxygen.getFluid(7500), GAMaterials.Ethylene.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(Materials.Plastic.getFluid(4320)).buildAndRegister();
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(600).EUt(120).inputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.FerriteMixture)).fluidInputs(Materials.Oxygen.getFluid(2000)).outputs(OreDictUnifier.get(OrePrefix.ingot, GAMaterials.NickelZincFerrite)).blastFurnaceTemp(1500).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Air.getFluid(1000), GAMaterials.VinylChloride.getFluid(144)).fluidOutputs(GAMaterials.PolyvinylChloride.getFluid(144)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.VinylChloride.getFluid(144)).fluidOutputs(GAMaterials.PolyvinylChloride.getFluid(216)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(0)).fluidInputs(Materials.Air.getFluid(1000), GAMaterials.VinylChloride.getFluid(144)).fluidOutputs(GAMaterials.PolyvinylChloride.getFluid(144)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(0)).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.VinylChloride.getFluid(144)).fluidOutputs(GAMaterials.PolyvinylChloride.getFluid(216)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Air.getFluid(7500), GAMaterials.VinylChloride.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(GAMaterials.PolyvinylChloride.getFluid(3240)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Oxygen.getFluid(7500), GAMaterials.VinylChloride.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(GAMaterials.PolyvinylChloride.getFluid(4320)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.Polydimethylsiloxane, 9), OreDictUnifier.get(OrePrefix.dust, Materials.Sulfur)).fluidOutputs(GAMaterials.SiliconeRubber.getFluid(1296)).buildAndRegister();
@@ -968,8 +1000,8 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(320).EUt(8).fluidInputs(GAMaterials.SulfurTrioxide.getFluid(1000), Materials.Water.getFluid(1000)).fluidOutputs(Materials.SulfuricAcid.getFluid(1000)).buildAndRegister();
         RecipeMaps.ELECTROLYZER_RECIPES.recipeBuilder().duration(900).EUt(30).fluidInputs(GAMaterials.NickelSulfateSolution.getFluid(9000)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Nickel)).fluidOutputs(Materials.Oxygen.getFluid(1000), Materials.SulfuricAcid.getFluid(8000)).buildAndRegister();
         RecipeMaps.ELECTROLYZER_RECIPES.recipeBuilder().duration(900).EUt(30).fluidInputs(GAMaterials.BlueVitriolSolution.getFluid(9000)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Copper)).fluidOutputs(Materials.Oxygen.getFluid(1000), Materials.SulfuricAcid.getFluid(8000)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Air.getFluid(1000), GAMaterials.Tetrafluoroethylene.getFluid(144)).fluidOutputs(Materials.Polytetrafluoroethylene.getFluid(144)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.Tetrafluoroethylene.getFluid(144)).fluidOutputs(Materials.Polytetrafluoroethylene.getFluid(216)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(0)).fluidInputs(Materials.Air.getFluid(1000), GAMaterials.Tetrafluoroethylene.getFluid(144)).fluidOutputs(Materials.Polytetrafluoroethylene.getFluid(144)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(0)).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.Tetrafluoroethylene.getFluid(144)).fluidOutputs(Materials.Polytetrafluoroethylene.getFluid(216)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Air.getFluid(7500), GAMaterials.Tetrafluoroethylene.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(Materials.Polytetrafluoroethylene.getFluid(3240)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Oxygen.getFluid(7500), GAMaterials.Tetrafluoroethylene.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(Materials.Polytetrafluoroethylene.getFluid(4320)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(200).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.SodiumHydroxide)).fluidInputs(Materials.Epichlorhydrin.getFluid(1000), GAMaterials.BisphenolA.getFluid(1000)).fluidOutputs(Materials.Epoxid.getFluid(1000), GAMaterials.SaltWater.getFluid(1000)).buildAndRegister();
@@ -1003,6 +1035,7 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(400).EUt(1920).inputs(GAMetaItems.CPU_WAFER.getStackForm(), GAMetaItems.RAW_CARBON_FIBERS.getStackForm(16)).fluidInputs(Materials.Glowstone.getFluid(576)).outputs(GAMetaItems.NANOCPU_WAFER.getStackForm()).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(400).EUt(1920).inputs(GAMetaItems.NANOCPU_WAFER.getStackForm(), MetaItems.QUANTUM_EYE.getStackForm(2)).fluidInputs(GAMaterials.GalliumArsenide.getFluid(288)).outputs(GAMetaItems.QBIT_CPU_WAFER.getStackForm()).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(1920).inputs(GAMetaItems.NANOCPU_WAFER.getStackForm(), OreDictUnifier.get(OrePrefix.dust, GAMaterials.IndiumGalliumPhosphide)).fluidInputs(Materials.Radon.getFluid(50)).outputs(GAMetaItems.QBIT_CPU_WAFER.getStackForm()).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(10).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(0)).fluidInputs(Materials.Oxygen.getFluid(1000), Materials.Hydrogen.getFluid(2000)).fluidOutputs(Materials.DistilledWater.getFluid(3000)).buildAndRegister();
 
         //Circuit Rabbit Hole - Layer 4
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(500).EUt(480).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Carbon, 2), OreDictUnifier.get(OrePrefix.dust, Materials.Rutile)).fluidInputs(Materials.Chlorine.getFluid(4000)).fluidOutputs(GAMaterials.CarbonMonoxde.getFluid(2000), Materials.TitaniumTetrachloride.getFluid(1000)).buildAndRegister();
@@ -1029,8 +1062,8 @@ public class GARecipeAddition {
         RecipeMaps.ELECTROLYZER_RECIPES.recipeBuilder().duration(720).EUt(30).fluidInputs(GAMaterials.SaltWater.getFluid(2000)).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.SodiumHydroxide)).fluidOutputs(Materials.Chlorine.getFluid(1000), Materials.Hydrogen.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(40).EUt(8).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Sodium)).fluidInputs(Materials.Water.getFluid(1000)).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.SodiumHydroxide)).fluidOutputs(Materials.Hydrogen.getFluid(1000)).buildAndRegister();
         RecipeMaps.EXTRUDER_RECIPES.recipeBuilder().duration(160).EUt(96).inputs(OreDictUnifier.get(OrePrefix.ingot, GAMaterials.BorosilicateGlass)).notConsumable(MetaItems.SHAPE_EXTRUDER_WIRE.getStackForm()).outputs(GAMetaItems.GLASS_FIBER.getStackForm(8)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Air.getFluid(1000), GAMaterials.Styrene.getFluid(144)).fluidOutputs(GAMaterials.Polystyrene.getFluid(144)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.Styrene.getFluid(144)).fluidOutputs(GAMaterials.Polystyrene.getFluid(216)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(0)).fluidInputs(Materials.Air.getFluid(1000), GAMaterials.Styrene.getFluid(144)).fluidOutputs(GAMaterials.Polystyrene.getFluid(144)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(0)).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.Styrene.getFluid(144)).fluidOutputs(GAMaterials.Polystyrene.getFluid(216)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Air.getFluid(7500), GAMaterials.Styrene.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(GAMaterials.Polystyrene.getFluid(3240)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Oxygen.getFluid(7500), GAMaterials.Styrene.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(GAMaterials.Polystyrene.getFluid(4320)).buildAndRegister();
         RecipeMaps.AUTOCLAVE_RECIPES.recipeBuilder().duration(12000).EUt(320).inputs(OreDictUnifier.get(OrePrefix.gemExquisite, Materials.Olivine)).fluidInputs(Materials.Europium.getFluid(16)).chancedOutput(GAMetaItems.RAW_CRYSTAL_CHIP.getStackForm(), 1000).buildAndRegister();
@@ -1062,8 +1095,8 @@ public class GARecipeAddition {
         for (OrePrefix Prefix : Arrays.asList(OrePrefix.dust, OrePrefix.dustSmall, OrePrefix.dustTiny))
             RecipeMaps.MIXER_RECIPES.recipeBuilder().duration((int) (300L * Prefix.materialAmount / 3628800L)).EUt(8).input(Prefix, Materials.Indium).input(Prefix, Materials.Gallium).input(Prefix, Materials.Phosphorus).outputs(OreDictUnifier.getDust(GAMaterials.IndiumGalliumPhosphide, 3L * Prefix.materialAmount)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.NitricOxide.getFluid(1000)).fluidOutputs(Materials.NitrogenDioxide.getFluid(1000)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Air.getFluid(1000), GAMaterials.VinylAcetate.getFluid(144)).fluidOutputs(GAMaterials.PolyvinylAcetate.getFluid(144)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.VinylAcetate.getFluid(144)).fluidOutputs(GAMaterials.PolyvinylAcetate.getFluid(216)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(0)).fluidInputs(Materials.Air.getFluid(1000), GAMaterials.VinylAcetate.getFluid(144)).fluidOutputs(GAMaterials.PolyvinylAcetate.getFluid(144)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(0)).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.VinylAcetate.getFluid(144)).fluidOutputs(GAMaterials.PolyvinylAcetate.getFluid(216)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Air.getFluid(7500), GAMaterials.VinylAcetate.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(GAMaterials.PolyvinylAcetate.getFluid(3240)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).notConsumable(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Oxygen.getFluid(7500), GAMaterials.VinylAcetate.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(GAMaterials.PolyvinylAcetate.getFluid(4320)).buildAndRegister();
 
@@ -1071,7 +1104,7 @@ public class GARecipeAddition {
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(1484).EUt(5).inputs(FluidCellIngredient.getIngredient(Materials.LiquidAir, 53)).outputs(GAMetaItems.getFilledCell(Materials.Nitrogen.getMaterialFluid(), 40), GAMetaItems.getFilledCell(Materials.Oxygen.getMaterialFluid(), 11), GAMetaItems.getFilledCell(Materials.Argon.getMaterialFluid()), GAMetaItems.getFilledCell(Materials.NobleGases.getMaterialFluid())).buildAndRegister();
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(680).EUt(5).inputs(FluidCellIngredient.getIngredient(Materials.NobleGases, 34)).outputs(GAMetaItems.getFilledCell(Materials.CarbonDioxide.getMaterialFluid(), 21), GAMetaItems.getFilledCell(Materials.Helium.getMaterialFluid(), 9), GAMetaItems.getFilledCell(Materials.Methane.getMaterialFluid(), 3), GAMetaItems.getFilledCell(Materials.Deuterium.getMaterialFluid())).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(96).fluidInputs(Materials.Hydrogen.getFluid(6000), Materials.CarbonDioxide.getFluid(1000)).fluidOutputs(Materials.Water.getFluid(1000), GAMaterials.Methanol.getFluid(1000)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(96).fluidInputs(Materials.Hydrogen.getFluid(4000), GAMaterials.CarbonMonoxde.getFluid(1000)).fluidOutputs(GAMaterials.Methanol.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(96).notConsumable(IntCircuitIngredient.getIntegratedCircuit(0)).fluidInputs(Materials.Hydrogen.getFluid(4000), GAMaterials.CarbonMonoxde.getFluid(1000)).fluidOutputs(GAMaterials.Methanol.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(320).EUt(96).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Carbon)).notConsumable(IntCircuitIngredient.getIntegratedCircuit(1)).fluidInputs(Materials.Hydrogen.getFluid(4000), Materials.Oxygen.getFluid(1000)).fluidOutputs(GAMaterials.Methanol.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(8).fluidInputs(Materials.Mercury.getFluid(1000), Materials.Water.getFluid(10000), Materials.Chlorine.getFluid(10000)).fluidOutputs(GAMaterials.HypochlorousAcid.getFluid(10000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(30).fluidInputs(Materials.Water.getFluid(1000), Materials.Chlorine.getFluid(2000)).fluidOutputs(GAMaterials.DilutedHydrochloricAcid.getFluid(1000), GAMaterials.HypochlorousAcid.getFluid(1000)).buildAndRegister();
@@ -1674,8 +1707,6 @@ public class GARecipeAddition {
         //Schematic Recipes
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(32000).EUt(4).input(OrePrefix.valueOf("circuitGA"), Tier.Good, 4).input(OrePrefix.plate, Materials.StainlessSteel, 2).outputs(MetaItems.SCHEMATIC.getStackForm()).buildAndRegister();
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:schematic/schematic_1"));
-        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:schematic/schematic_2"));
-        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:schematic/schematic_3"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:schematic/schematic_c"));
 
         //Configuration Circuit

@@ -138,6 +138,8 @@ public class GAMetaItem extends MaterialMetaItem {
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.COMPONENT_FILTER, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC_DUST, true, "visible");
+        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC_2X2, true, "visible");
+        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC_3X3, true, "visible");
     }
 
     public boolean hasContainerItem(ItemStack stack) {

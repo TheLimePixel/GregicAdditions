@@ -295,6 +295,10 @@ public class GAMachineRecipeRemoval {
 
         //Remove Silicon incompatability with Boule recipes
         removeRecipesByInputs(RecipeMaps.BLAST_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Silicon));
+
+        //Remove Distilled Water recipes without Circuits
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Oxygen.getFluid(500), Materials.Hydrogen.getFluid(1000));
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Hydrogen.getFluid(2000), Materials.Oxygen.getFluid(1000));
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {
