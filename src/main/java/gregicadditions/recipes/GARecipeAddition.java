@@ -271,7 +271,7 @@ public class GARecipeAddition {
                             break;
                         }
                     }
-                    if (match) {
+                    if (match && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustTiny", "dustSmall")) {
                         recipesToRemove.add(recipe.getRegistryName());
                         RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).outputs(recipe.getRecipeOutput()).buildAndRegister();
                     }
@@ -286,8 +286,7 @@ public class GARecipeAddition {
                             break;
                         }
                     }
-                    if (match) {
-                        recipesToRemove.add(recipe.getRegistryName());
+                    if (match && !recipesToRemove.contains(recipe.getRegistryName()) && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustTiny", "dustSmall") && recipe.getRecipeOutput().getCount() == 1) {
                         RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).notConsumable(MetaItems.SCHEMATIC_3X3.getStackForm()).outputs(recipe.getRecipeOutput()).buildAndRegister();
                     }
                 }
@@ -301,8 +300,7 @@ public class GARecipeAddition {
                             break;
                         }
                     }
-                    if (match) {
-                        recipesToRemove.add(recipe.getRegistryName());
+                    if (match && !recipesToRemove.contains(recipe.getRegistryName()) && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustTiny", "dustSmall") && recipe.getRecipeOutput().getCount() == 1) {
                         RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).notConsumable(MetaItems.SCHEMATIC_2X2.getStackForm()).outputs(recipe.getRecipeOutput()).buildAndRegister();
                     }
                 }

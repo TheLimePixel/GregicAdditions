@@ -7,6 +7,7 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
+import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.List;
 
@@ -144,5 +145,21 @@ public class GAMetaItems {
 
     public static ItemStack getFilledCell(Fluid fluid) {
         return getFilledCell(fluid, 1);
+    }
+
+    public static boolean hasPrefix(ItemStack stack, String prefix, String... ignore) {
+        for (int i : OreDictionary.getOreIDs(stack)) {
+            if (OreDictionary.getOreName(i).startsWith(prefix)) {
+                boolean valid = true;
+                for (String s : ignore) {
+                    if (OreDictionary.getOreName(i).startsWith(s))
+                        valid = false;
+                }
+                if (!valid)
+                    continue;
+                return true;
+            }
+        }
+        return false;
     }
 }
