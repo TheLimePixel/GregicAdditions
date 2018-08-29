@@ -299,6 +299,15 @@ public class GAMachineRecipeRemoval {
         //Remove Distilled Water recipes without Circuits
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Oxygen.getFluid(500), Materials.Hydrogen.getFluid(1000));
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Hydrogen.getFluid(2000), Materials.Oxygen.getFluid(1000));
+
+        //Remove Simple Cetane-Boosted Diesel Recipes
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Glyceryl.getFluid(250), Materials.LightFuel.getFluid(1000));
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Glyceryl.getFluid(250), Materials.Fuel.getFluid(1000));
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Fuel.getFluid(4000), Materials.Glyceryl.getFluid(1000));
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.LightFuel.getFluid(4000), Materials.Glyceryl.getFluid(1000));
+
+        //Remove Cheap Diesel Recipe
+        removeRecipesByInputs(RecipeMaps.MIXER_RECIPES, Materials.LightFuel.getFluid(5000), Materials.HeavyFuel.getFluid(1000));
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {

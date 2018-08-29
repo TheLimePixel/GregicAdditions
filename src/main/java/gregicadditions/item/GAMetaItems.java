@@ -94,16 +94,12 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem JUNGLE_FORM;
     public static MetaItem<?>.MetaValueItem OAK_FORM;
     public static MetaItem<?>.MetaValueItem SPRUCE_FORM;
-    public static MetaItem<?>.MetaValueItem BIO_CHAFF;
     public static MetaItem<?>.MetaValueItem RAW_CARBON_FIBERS;
     public static MetaItem<?>.MetaValueItem ADVANCED_ALLOY_PLATE;
     public static MetaItem<?>.MetaValueItem MIXED_METAL_PLATE;
     public static MetaItem<?>.MetaValueItem RAW_CRYSTAL_CHIP;
     public static MetaItem<?>.MetaValueItem CRYSTAL_CPU;
     public static MetaItem<?>.MetaValueItem CRYSTAL_SOC;
-    public static MetaItem<?>.MetaValueItem ULTIMATE_PIPE_SMALL;
-    public static MetaItem<?>.MetaValueItem ULTIMATE_PIPE;
-    public static MetaItem<?>.MetaValueItem ULTIMATE_PIPE_LARGE;
     public static MetaItem<?>.MetaValueItem LAPOTRON_CRYSTAL;
     public static MetaItem<?>.MetaValueItem PLATE_IRIDIUM_ALLOY;
     public static MetaItem<?>.MetaValueItem PLATE_IRIDIUM_ALLOY_UNCOMPRESSED;

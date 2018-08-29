@@ -101,7 +101,6 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.JUNGLE_FORM = addItem(75, "form.jungle").addOreDict("formWood").setMaxStackSize(1);
         GAMetaItems.OAK_FORM = addItem(76, "form.oak").addOreDict("formWood").setMaxStackSize(1);
         GAMetaItems.SPRUCE_FORM = addItem(77, "form.spruce").addOreDict("formWood").setMaxStackSize(1);
-        GAMetaItems.BIO_CHAFF = addItem(78, "bio.chaff");
         GAMetaItems.RAW_CARBON_FIBERS = addItem(79, "carbon.fibers");
         GAMetaItems.MIXED_METAL_PLATE = addItem(80, "plate.mixed.metal");
         GAMetaItems.ADVANCED_ALLOY_PLATE = addItem(81, "plate.advanced.alloy");
