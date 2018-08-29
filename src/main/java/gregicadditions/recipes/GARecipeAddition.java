@@ -271,7 +271,7 @@ public class GARecipeAddition {
                             break;
                         }
                     }
-                    if (match && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustTiny", "dustSmall")) {
+                    if (match) {
                         recipesToRemove.add(recipe.getRegistryName());
                         RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).outputs(recipe.getRecipeOutput()).buildAndRegister();
                     }
@@ -286,13 +286,13 @@ public class GARecipeAddition {
                             break;
                         }
                     }
-                    if (match && !recipesToRemove.contains(recipe.getRegistryName()) && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustTiny", "dustSmall") && recipe.getRecipeOutput().getCount() == 1) {
+                    if (match && !recipesToRemove.contains(recipe.getRegistryName()) && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustTiny") && recipe.getRecipeOutput().getCount() == 1) {
                         RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).notConsumable(MetaItems.SCHEMATIC_3X3.getStackForm()).outputs(recipe.getRecipeOutput()).buildAndRegister();
                     }
                 }
             }
             if (recipe.getIngredients().size() == 4) {
-                if (recipe.getIngredients().get(0).getMatchingStacks().length > 0) {
+                if (recipe.getIngredients().get(0).getMatchingStacks().length > 0 && Block.getBlockFromItem(recipe.getRecipeOutput().getItem()) != Blocks.QUARTZ_BLOCK) {
                     boolean match = true;
                     for (int i = 1; i < recipe.getIngredients().size(); i++) {
                         if (recipe.getIngredients().get(i).getMatchingStacks().length == 0 || !recipe.getIngredients().get(0).getMatchingStacks()[0].isItemEqual(recipe.getIngredients().get(i).getMatchingStacks()[0])) {
@@ -300,7 +300,7 @@ public class GARecipeAddition {
                             break;
                         }
                     }
-                    if (match && !recipesToRemove.contains(recipe.getRegistryName()) && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustTiny", "dustSmall") && recipe.getRecipeOutput().getCount() == 1) {
+                    if (match && !recipesToRemove.contains(recipe.getRegistryName()) && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustSmall") && recipe.getRecipeOutput().getCount() == 1) {
                         RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).notConsumable(MetaItems.SCHEMATIC_2X2.getStackForm()).outputs(recipe.getRecipeOutput()).buildAndRegister();
                     }
                 }
@@ -313,8 +313,8 @@ public class GARecipeAddition {
                         break;
                     }
                 }
+                recipesToRemove.add(recipe.getRegistryName());
                 if (!isIngot) {
-                    recipesToRemove.add(recipe.getRegistryName());
                     RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).outputs(recipe.getRecipeOutput()).buildAndRegister();
                 }
             }
