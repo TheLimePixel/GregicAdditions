@@ -1690,16 +1690,5 @@ public class GARecipeAddition {
         ModHandler.addShapedRecipe("ga_hull_max", MetaTileEntities.HULL[GTValues.MAX].getStackForm(), "PHP", "CMC", 'M', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.MAX), 'C', new UnificationEntry(OrePrefix.wireGtSingle, Tier.Superconductor), 'H', new UnificationEntry(OrePrefix.plate, GAMaterials.Neutronium), 'P', new UnificationEntry(OrePrefix.plate, Materials.Polytetrafluoroethylene));
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(50).EUt(16).input(OrePrefix.plate, GAMaterials.Neutronium, 8).outputs(MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.MAX)).circuitMeta(8).duration(50).buildAndRegister();
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(50).EUt(16).inputs(MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.MAX)).input(OrePrefix.wireGtSingle, Tier.Superconductor, 2).fluidInputs(Materials.Polytetrafluoroethylene.getFluid(288)).outputs(MetaTileEntities.HULL[9].getStackForm()).buildAndRegister();
-
-        for (Material m : IngotMaterial.MATERIAL_REGISTRY) {
-            if (!OreDictUnifier.get(OrePrefix.stick, m).isEmpty() && !OreDictUnifier.get(OrePrefix.ingot, m).isEmpty()) {
-                ModHandler.removeRecipeByName(new ResourceLocation("gregtech:stick_" + m.toString()));
-                ModHandler.addShapedRecipe("ga_rod_" + m.toString(), OreDictUnifier.get(OrePrefix.stick, m), "f ", " I", 'I', OreDictUnifier.get(OrePrefix.ingot, m));
-            }
-            if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.plate, m).isEmpty() && !OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m).isEmpty()) {
-                RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration((int) (m.getMass() * 2)).EUt(16).inputs(OreDictUnifier.get(OrePrefix.ingot, m, 3)).outputs(OreDictUnifier.get(OrePrefix.plate, m, 2)).buildAndRegister();
-                RecipeMaps.BENDER_RECIPES.recipeBuilder().duration((int) m.getMass()).EUt(24).inputs(OreDictUnifier.get(OrePrefix.ingot, m)).circuitMeta(0).outputs(OreDictUnifier.get(OrePrefix.plate, m)).buildAndRegister();
-            }
-        }
     }
 }
