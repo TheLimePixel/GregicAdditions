@@ -10,6 +10,7 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
+import net.minecraftforge.fluids.capability.templates.FluidHandlerItemStackSimple;
 
 import javax.annotation.Nullable;
 
@@ -40,7 +41,7 @@ public class FluidCellIngredient extends Ingredient {
     @Override
     public boolean apply(@Nullable ItemStack itemStack) {
         IFluidHandlerItem stackFluid = itemStack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
-        FluidStack drained = stackFluid == null ? null : stackFluid.drain(new FluidStack(fluid, 1000), false);
+        FluidStack drained = stackFluid == null ? null : ((FluidHandlerItemStackSimple)stackFluid).getFluid();
         return itemStack != null && MetaItems.FLUID_CELL.isItemEqual(itemStack) && drained != null && drained.getFluid() == fluid && drained.amount == 1000;
     }
 
