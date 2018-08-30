@@ -129,11 +129,6 @@ public class GAMetaItem extends MaterialMetaItem {
         MetaItems.CIRCUIT_PARTS_WIRING_ELITE.setInvisible();
         MetaItems.CIRCUIT_PRIMITIVE.setInvisible();
 
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_TINY, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_SMALL, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_MEDIUM, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_LARGE, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SHAPE_EXTRUDER_PIPE_HUGE, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.COMPONENT_FILTER, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC_DUST, true, "visible");
