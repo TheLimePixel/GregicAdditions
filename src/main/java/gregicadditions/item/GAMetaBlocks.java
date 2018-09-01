@@ -1,5 +1,8 @@
 package gregicadditions.item;
 
+import gregicadditions.GAMaterials;
+import gregtech.common.blocks.MetaBlocks;
+import gregtech.common.pipelike.fluidpipe.FluidPipeProperties;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -28,6 +31,8 @@ public class GAMetaBlocks {
 
         TRANSPARENT_CASING = new GATransparentCasing();
         TRANSPARENT_CASING.setRegistryName("ga_transparent_casing");
+
+        MetaBlocks.createFluidPipeBlock(GAMaterials.Ultimate, new FluidPipeProperties(400000, 123456, 420, true, true));
     }
 
     @SideOnly(Side.CLIENT)
