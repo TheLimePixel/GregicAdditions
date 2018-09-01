@@ -195,7 +195,7 @@ public class GARecipeAddition {
                 RecipeMaps.LATHE_RECIPES.recipeBuilder().EUt(8).duration((int) m.getMass()).inputs(OreDictUnifier.get(OrePrefix.nugget, m)).outputs(OreDictUnifier.get(OrePrefix.valueOf("round"), m)).buildAndRegister();
             }
 
-            ModHandler.addShapedRecipe("plasma_pipe", OreDictUnifier.get(OrePrefix.pipeMedium, Tier.Superconductor), "ESE", "NTN", "ESE", 'E', OreDictUnifier.get(OrePrefix.plate, Materials.Plastic), 'S', OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor), 'N', OreDictUnifier.get(OrePrefix.plate, Materials.NeodymiumMagnetic), 'T', OreDictUnifier.get(OrePrefix.pipeSmall, Materials.Titanium));
+            ModHandler.addShapedRecipe("plasma_pipe", OreDictUnifier.get(OrePrefix.pipeMedium, GAMaterials.Plasma), "ESE", "NTN", "ESE", 'E', OreDictUnifier.get(OrePrefix.plate, Materials.Plastic), 'S', OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor), 'N', OreDictUnifier.get(OrePrefix.plate, Materials.NeodymiumMagnetic), 'T', OreDictUnifier.get(OrePrefix.pipeSmall, Materials.Titanium));
 
             ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.pipeSmall, Materials.Wood));
             ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.pipeMedium, Materials.Wood));
@@ -378,9 +378,9 @@ public class GARecipeAddition {
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(900).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.PlatinumGroupSludge)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.SiliconDioxide), OreDictUnifier.get(OrePrefix.dustTiny, Materials.Gold), OreDictUnifier.get(OrePrefix.dustTiny, Materials.Platinum)).chancedOutput(OreDictUnifier.get(OrePrefix.dustTiny, Materials.Palladium), 8000).chancedOutput(OreDictUnifier.get(OrePrefix.dustTiny, Materials.Iridium), 6000).chancedOutput(OreDictUnifier.get(OrePrefix.dustTiny, Materials.Osmium), 6000).buildAndRegister();
 
         //Ultimate Pipes
-        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(300).EUt(96).inputs(OreDictUnifier.get(OrePrefix.pipeSmall, Materials.TungstenSteel), MetaItems.ELECTRIC_PUMP_EV.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.pipeSmall, Tier.Ultimate)).buildAndRegister();
-        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(400).EUt(148).inputs(OreDictUnifier.get(OrePrefix.pipeMedium, Materials.TungstenSteel), MetaItems.ELECTRIC_PUMP_IV.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.pipeMedium, Tier.Ultimate)).buildAndRegister();
-        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(600).EUt(256).inputs(OreDictUnifier.get(OrePrefix.pipeLarge, Materials.TungstenSteel), MetaItems.ELECTRIC_PUMP_IV.getStackForm(2)).outputs(OreDictUnifier.get(OrePrefix.pipeLarge, Tier.Ultimate)).buildAndRegister();
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(300).EUt(96).inputs(OreDictUnifier.get(OrePrefix.pipeSmall, Materials.TungstenSteel), MetaItems.ELECTRIC_PUMP_EV.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.pipeSmall, GAMaterials.Ultimate)).buildAndRegister();
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(400).EUt(148).inputs(OreDictUnifier.get(OrePrefix.pipeMedium, Materials.TungstenSteel), MetaItems.ELECTRIC_PUMP_IV.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.pipeMedium, GAMaterials.Ultimate)).buildAndRegister();
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(600).EUt(256).inputs(OreDictUnifier.get(OrePrefix.pipeLarge, Materials.TungstenSteel), MetaItems.ELECTRIC_PUMP_IV.getStackForm(2)).outputs(OreDictUnifier.get(OrePrefix.pipeLarge, GAMaterials.Ultimate)).buildAndRegister();
 
         //Reinforced Glass
         int multiplier2;
