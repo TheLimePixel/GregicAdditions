@@ -197,6 +197,8 @@ public class GARecipeAddition {
 
             ModHandler.addShapedRecipe("plasma_pipe", OreDictUnifier.get(OrePrefix.pipeMedium, Tier.Superconductor), "ESE", "NTN", "ESE", 'E', OreDictUnifier.get(OrePrefix.plate, Materials.Plastic), 'S', OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor), 'N', OreDictUnifier.get(OrePrefix.plate, Materials.NeodymiumMagnetic), 'T', OreDictUnifier.get(OrePrefix.pipeSmall, Materials.Titanium));
 
+            ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.pipeSmall, Materials.Wood));
+            ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.pipeMedium, Materials.Wood));
             ModHandler.addShapedRecipe("pipe_ga_wood", OreDictUnifier.get(OrePrefix.pipeMedium, Materials.Wood, 2), "PPP", "sCh", "PPP", 'P', "plankWood", 'C', "craftingToolBendingCylinder");
             ModHandler.addShapedRecipe("pipe_ga_large_wood", OreDictUnifier.get(OrePrefix.pipeLarge, Materials.Wood), "PhP", "PCP", "PsP", 'P', "plankWood", 'C', "craftingToolBendingCylinder");
             ModHandler.addShapedRecipe("pipe_ga_small_wood", OreDictUnifier.get(OrePrefix.pipeSmall, Materials.Wood, 6), "PsP", "PCP", "PhP", 'P', "plankWood", 'C', "craftingToolBendingCylinder");
