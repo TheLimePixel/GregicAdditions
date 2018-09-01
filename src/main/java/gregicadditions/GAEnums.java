@@ -22,8 +22,6 @@ public class GAEnums {
 
         EnumHelper.addEnum(MaterialIconSet.class, "COKE", new Class[0]);
 
-        EnumHelper.addEnum(MetaTileEntityLoader.Type.class, "STICK_RADIOACTIVE", new Class[0]);
-
         EnumHelper.addEnum(OrePrefix.class, "plateCurved",
                 new Class[]{String.class, long.class, Material.class, MaterialIconType.class, long.class, Condition.class},
                 "Curved Plate", GTValues.M, null, MaterialIconType.valueOf("plateCurved"), OrePrefix.Flags.ENABLE_UNIFICATION,
