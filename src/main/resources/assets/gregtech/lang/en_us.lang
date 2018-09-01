@@ -650,7 +650,7 @@ gregtech.machine.primitive_blast_furnace.bronze.tooltip=Structure: 3x3x4 (WxLxH)
 
 metaitem.tool.test.name=%s Test Tool
 
-tile.superconducter.pipeTiny=Tiny PlasmaContainment Pipe
-tile.superconducter.pipeSmall=Small Plasma Containment Pipe
-tile.superconducter.pipeMedium=Medium Plasma Containment Pipe
-tile.superconducter.pipeLarge=Large Plasma Containment Pipe
+tile.superconductor.pipeTiny=Tiny PlasmaContainment Pipe
+tile.superconductor.pipeSmall=Small Plasma Containment Pipe
+tile.superconductor.pipeMedium=Medium Plasma Containment Pipe
+tile.superconductor.pipeLarge=Large Plasma Containment Pipe

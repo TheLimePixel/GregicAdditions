@@ -129,6 +129,7 @@ public class GAMaterials {
     public static Material Extreme = new MarkerMaterial("extreme");
     public static Material Infinite = new MarkerMaterial("infinite");
     public static BasicMaterial Ultimate;
+    public static BasicMaterial Superconductor;
 
     static {
         long STD_SOLID = DustMaterial.MatFlags.GENERATE_PLATE |
@@ -261,7 +262,8 @@ public class GAMaterials {
         GASodiumSulfide = new DustMaterial(884, "ga_sodium_sulfide", 8944452, MaterialIconSet.SAND, 1, ImmutableList.of(new MaterialStack(Materials.Sodium, 2), new MaterialStack(Materials.Sulfur, 1)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         NeutralMatter = new FluidMaterial(883, "neutral_matter", 3956968, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
         PositiveMatter = new FluidMaterial(882, "positive_matter", 11279131, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
-        Ultimate = new BasicMaterial(881, "ultimate", 2355633, MaterialIconSet.SHINY);
+        Ultimate = new BasicMaterial(881, "ultimate", 13434880, MaterialIconSet.SHINY);
+        Superconductor = new BasicMaterial(880, "superconductor", 15389725, MaterialIconSet.SHINY);
 
         Materials.YttriumBariumCuprate.addFlag(IngotMaterial.MatFlags.GENERATE_FINE_WIRE);
         Materials.Manganese.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);

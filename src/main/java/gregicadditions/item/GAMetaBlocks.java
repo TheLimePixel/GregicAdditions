@@ -13,7 +13,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -32,7 +31,8 @@ public class GAMetaBlocks {
         TRANSPARENT_CASING = new GATransparentCasing();
         TRANSPARENT_CASING.setRegistryName("ga_transparent_casing");
 
-        MetaBlocks.createFluidPipeBlock(GAMaterials.Ultimate, new FluidPipeProperties(400000, 123456, 420, true, true));
+        MetaBlocks.createFluidPipeBlock(GAMaterials.Ultimate, new FluidPipeProperties(1500, 48000, true));
+        MetaBlocks.createFluidPipeBlock(GAMaterials.Superconductor, new FluidPipeProperties(1000000, 30, true));
     }
 
     @SideOnly(Side.CLIENT)
