@@ -622,7 +622,7 @@ gregtech.multiblock.fusion_reactor_mk2.description=The Fusion Reactor Mark 2 is 
 gregtech.multiblock.fusion_reactor_mk3.description=The Fusion Reactor Mark 3 is a large multiblock structure used for fusing elements into heavier ones. The Maek 3 Fusion Reactor can only use UV Energy Hatches. For every Hatch it has its buffer increases by 400k.
 
 item.material.oreprefix.plateCurved=Curved %s Plate
-item.material.oreprefix.ingotDouble=%s Double Ingot
+item.material.oreprefix.ingotDouble=Double %s Ingot
 item.material.oreprefix.pipeGaSmall=Small %s Pipe
 item.material.oreprefix.pipeGa=%s Pipe
 item.material.oreprefix.pipeGaLarge=Large %s Pipe
