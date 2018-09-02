@@ -100,6 +100,7 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem RAW_CRYSTAL_CHIP;
     public static MetaItem<?>.MetaValueItem CRYSTAL_CPU;
     public static MetaItem<?>.MetaValueItem CRYSTAL_SOC;
+    public static MetaItem<?>.MetaValueItem STEMCELLS;
     public static MetaItem<?>.MetaValueItem LAPOTRON_CRYSTAL;
     public static MetaItem<?>.MetaValueItem PLATE_IRIDIUM_ALLOY;
     public static MetaItem<?>.MetaValueItem PLATE_IRIDIUM_ALLOY_UNCOMPRESSED;

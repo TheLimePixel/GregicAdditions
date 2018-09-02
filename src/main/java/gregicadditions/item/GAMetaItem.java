@@ -107,6 +107,7 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.RAW_CRYSTAL_CHIP = addItem(82, "crystal.raw");
         GAMetaItems.CRYSTAL_CPU = addItem(83, "crystal.cpu");
         GAMetaItems.CRYSTAL_SOC = addItem(84, "crystal.soc");
+        GAMetaItems.STEMCELLS = addItem(85, "stemcells");
         GAMetaItems.LAPOTRON_CRYSTAL = addItem(104, "crystal.lapotron").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(10000000L, 4)}).setModelAmount(8);
         GAMetaItems.PLATE_IRIDIUM_ALLOY = addItem(105, "plate.iridium.alloy");
         GAMetaItems.PLATE_IRIDIUM_ALLOY_UNCOMPRESSED = addItem(106, "plate.iridium.alloy.uncompressed");

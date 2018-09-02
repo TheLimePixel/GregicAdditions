@@ -1007,6 +1007,7 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(400).EUt(1920).inputs(GAMetaItems.NANOCPU_WAFER.getStackForm(), MetaItems.QUANTUM_EYE.getStackForm(2)).fluidInputs(GAMaterials.GalliumArsenide.getFluid(288)).outputs(GAMetaItems.QBIT_CPU_WAFER.getStackForm()).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(1920).inputs(GAMetaItems.NANOCPU_WAFER.getStackForm(), OreDictUnifier.get(OrePrefix.dust, GAMaterials.IndiumGalliumPhosphide)).fluidInputs(Materials.Radon.getFluid(50)).outputs(GAMetaItems.QBIT_CPU_WAFER.getStackForm()).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(10).EUt(30).notConsumable(new IntCircuitIngredient(0)).fluidInputs(Materials.Oxygen.getFluid(1000), Materials.Hydrogen.getFluid(2000)).fluidOutputs(Materials.DistilledWater.getFluid(3000)).buildAndRegister();
+        RecipeMaps.EXTRACTOR_RECIPES.recipeBuilder().duration(300).EUt(1024).inputs(new ItemStack(Items.EGG)).chancedOutput(GAMetaItems.STEMCELLS.getStackForm(), 500).buildAndRegister();
 
         //Circuit Rabbit Hole - Layer 4
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(500).EUt(480).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Carbon, 2), OreDictUnifier.get(OrePrefix.dust, Materials.Rutile)).fluidInputs(Materials.Chlorine.getFluid(4000)).fluidOutputs(GAMaterials.CarbonMonoxde.getFluid(2000), Materials.TitaniumTetrachloride.getFluid(1000)).buildAndRegister();
@@ -1499,6 +1500,7 @@ public class GARecipeAddition {
 
         GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
                 GAMetaItems.WETWARE_BOARD.getStackForm(),
+                GAMetaItems.STEMCELLS.getStackForm(8),
                 GAMetaItems.GLASS_TUBE.getStackForm(8),
                 OreDictUnifier.get(OrePrefix.plate, Materials.Gold, 8),
                 OreDictUnifier.get(OrePrefix.foil, GAMaterials.SiliconeRubber, 64),
