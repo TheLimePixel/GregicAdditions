@@ -53,6 +53,12 @@ public class GAMachineRecipeRemoval {
                 ModHandler.removeRecipeByName(new ResourceLocation(String.format("gregtech:wrench_%s", m.toString())));
             }
 
+            //Remove GTCE's weird fine wire recipes
+            if (!OreDictUnifier.get(OrePrefix.wireFine, m).isEmpty() && !OreDictUnifier.get(OrePrefix.stick, m).isEmpty()) {
+                removeRecipesByInputs(RecipeMaps.WIREMILL_RECIPES, OreDictUnifier.get(OrePrefix.stick, m));
+            }
+
+
             //Remove EV+ Cable Recipes
             removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
                     new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtSingle, m), IntCircuitIngredient.getIntegratedCircuit(24)},

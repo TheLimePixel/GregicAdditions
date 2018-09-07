@@ -190,6 +190,10 @@ public class GARecipeAddition {
                 GARecipeMaps.CLUSTER_MILL_RECIPES.recipeBuilder().EUt(24).duration((int) m.getMass()).inputs(OreDictUnifier.get(OrePrefix.plate, m)).outputs(OreDictUnifier.get(OrePrefix.foil, m, 4)).buildAndRegister();
             }
 
+            if ((!OreDictUnifier.get(OrePrefix.wireGtSingle, m).isEmpty() && !OreDictUnifier.get(OrePrefix.wireFine, m).isEmpty())) {
+                RecipeMaps.WIREMILL_RECIPES.recipeBuilder().EUt(9).duration(200).inputs(OreDictUnifier.get(OrePrefix.wireGtSingle, m)).outputs(OreDictUnifier.get(OrePrefix.wireFine, m, 4)).buildAndRegister();
+            }
+
             if (!OreDictUnifier.get(OrePrefix.valueOf("round"), m).isEmpty()) {
                 ModHandler.addShapedRecipe("round" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("round"), m), "fN", "N ", 'N', OreDictUnifier.get(OrePrefix.nugget, m));
                 RecipeMaps.LATHE_RECIPES.recipeBuilder().EUt(8).duration((int) m.getMass()).inputs(OreDictUnifier.get(OrePrefix.nugget, m)).outputs(OreDictUnifier.get(OrePrefix.valueOf("round"), m)).buildAndRegister();
@@ -320,9 +324,12 @@ public class GARecipeAddition {
                     RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).outputs(recipe.getRecipeOutput()).buildAndRegister();
                 }
             }
+            if (recipe.getIngredients().size() == 1 && recipe.getRecipeOutput().getCount() == 9) {
+                if (!recipesToRemove.contains(recipe.getRegistryName())) {
+                    RecipeMaps.UNPACKER_RECIPES.recipeBuilder().duration(100).EUt(8).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).outputs(recipe.getRecipeOutput()).buildAndRegister();
+                }
+            }
         }
-
-        RecipeMaps.UNPACKER_RECIPES.recipeBuilder().duration(100).EUt(8).inputs(new ItemStack(Blocks.SLIME_BLOCK)).outputs(new ItemStack(Items.SLIME_BALL, 5), new ItemStack(Items.SLIME_BALL, 4)).buildAndRegister();
 
         for (ResourceLocation r : recipesToRemove)
             ModHandler.removeRecipeByName(r);
