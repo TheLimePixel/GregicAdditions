@@ -1,7 +1,6 @@
 package gregicadditions.recipes;
 
 import gregicadditions.GAMaterials;
-import gregtech.api.recipes.CountableIngredient;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.DustMaterial;
@@ -19,7 +18,7 @@ public class MatterReplication {
             }
         }
         for (Material m : DustMaterial.MATERIAL_REGISTRY) {
-            if (m.getProtons() >= 1 && m.getNeutrons() >= 0 && m.getMass() != 98 && m instanceof DustMaterial && m != Materials.Sphalerite) {
+            if (m.getProtons() >= 1 && m.getNeutrons() >= 0 && m.getMass() != 98 && m instanceof DustMaterial && m != Materials.Sphalerite && m != Materials.Naquadria && m != Materials.Ash && m != Materials.DarkAsh) {
                 GARecipeMaps.MASS_FAB_RECIPES.recipeBuilder().duration((int) (m.getMass() * 100)).EUt(32).inputs((OreDictUnifier.get(OrePrefix.dust, m))).fluidOutputs(GAMaterials.PositiveMatter.getFluid((int) m.getProtons()), GAMaterials.NeutralMatter.getFluid((int) m.getNeutrons())).buildAndRegister();
             }
         }
@@ -32,7 +31,7 @@ public class MatterReplication {
             }
         }
         for (Material m : DustMaterial.MATERIAL_REGISTRY) {
-            if (m.getProtons() >= 1 && m.getNeutrons() >= 0 && m.getMass() != 98 && m instanceof DustMaterial && m != Materials.Sphalerite) {
+            if (m.getProtons() >= 1 && m.getNeutrons() >= 0 && m.getMass() != 98 && m instanceof DustMaterial && m != Materials.Sphalerite && m != Materials.Naquadria && m != Materials.Ash && m != Materials.DarkAsh) {
                 GARecipeMaps.REPLICATOR_RECIPES.recipeBuilder().duration((int) (m.getMass() * 100)).EUt(32).notConsumable(OreDictUnifier.get(OrePrefix.dust, m)).outputs((OreDictUnifier.get(OrePrefix.dust, m))).fluidInputs(GAMaterials.PositiveMatter.getFluid((int) m.getProtons()), GAMaterials.NeutralMatter.getFluid((int) m.getNeutrons())).buildAndRegister();
             }
         }
