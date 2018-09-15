@@ -423,10 +423,6 @@ public class GARecipeAddition {
                 .flatMap(stack -> ModHandler.getAllSubItems(stack).stream())
                 .collect(Collectors.toList());
 
-        List<ItemStack> allSaplings = OreDictionary.getOres("treeSapling").stream()
-                .flatMap(stack -> ModHandler.getAllSubItems(stack).stream())
-                .collect(Collectors.toList());
-
         //Machine Components
         ModHandler.removeRecipes(MetaItems.EMITTER_LV.getStackForm());
         ModHandler.removeRecipes(MetaItems.EMITTER_MV.getStackForm());
@@ -768,33 +764,6 @@ public class GARecipeAddition {
         RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(32).EUt(2).inputs(new ItemStack(Items.MELON_SEEDS)).fluidOutputs(Materials.SeedOil.getFluid(10)).buildAndRegister();
         RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(32).EUt(2).inputs(new ItemStack(Items.PUMPKIN_SEEDS)).fluidOutputs(Materials.SeedOil.getFluid(10)).buildAndRegister();
         RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(32).EUt(2).inputs(new ItemStack(Items.BEETROOT_SEEDS)).fluidOutputs(Materials.SeedOil.getFluid(10)).buildAndRegister();
-
-        List<ItemStack> allWoodLeaves = OreDictionary.getOres("treeLeaves").stream()
-                .flatMap(stack -> ModHandler.getAllSubItems(stack).stream())
-                .collect(Collectors.toList());
-
-        //Biomass Process
-        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(1440).EUt(3).inputs(MetaItems.PLANT_BALL.getStackForm()).fluidInputs(Materials.Water.getFluid(180)).fluidOutputs(Materials.Biomass.getFluid(180)).buildAndRegister();
-        for (ItemStack stack : allSaplings)
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(800).EUt(3).inputs(GTUtility.copyAmount(1, stack)).fluidInputs(Materials.Water.getFluid(100)).fluidOutputs(Materials.Biomass.getFluid(100)).buildAndRegister();
-        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Items.POTATO)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
-        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Items.CARROT)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
-        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Blocks.CACTUS)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
-        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Items.REEDS)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
-        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Blocks.BROWN_MUSHROOM)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
-        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Blocks.RED_MUSHROOM)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
-        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Items.BEETROOT)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
-
-        for (ItemStack stack : allSaplings)
-            RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(GTUtility.copyAmount(8, stack)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Items.WHEAT, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Items.POTATO, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Items.CARROT, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Blocks.CACTUS, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Items.REEDS, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Blocks.BROWN_MUSHROOM, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Blocks.RED_MUSHROOM, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Items.BEETROOT, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
 
         //Misc Blast Furnace Recipes
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(120).EUt(120).blastFurnaceTemp(1200).inputs(OreDictUnifier.get(OrePrefix.dust, Materials.Galena)).fluidInputs(Materials.Oxygen.getFluid(3000)).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.Massicot), OreDictUnifier.get(OrePrefix.nugget, Materials.Lead, 6)).fluidOutputs(GAMaterials.SulfurDioxide.getFluid(1000)).buildAndRegister();
@@ -1717,5 +1686,70 @@ public class GARecipeAddition {
         ModHandler.addShapedRecipe("ga_hull_max", MetaTileEntities.HULL[GTValues.MAX].getStackForm(), "PHP", "CMC", 'M', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.MAX), 'C', new UnificationEntry(OrePrefix.wireGtSingle, Tier.Superconductor), 'H', new UnificationEntry(OrePrefix.plate, GAMaterials.Neutronium), 'P', new UnificationEntry(OrePrefix.plate, Materials.Polytetrafluoroethylene));
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(50).EUt(16).input(OrePrefix.plate, GAMaterials.Neutronium, 8).outputs(MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.MAX)).circuitMeta(8).duration(50).buildAndRegister();
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(50).EUt(16).inputs(MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.MAX)).input(OrePrefix.wireGtSingle, Tier.Superconductor, 2).fluidInputs(Materials.Polytetrafluoroethylene.getFluid(288)).outputs(MetaTileEntities.HULL[9].getStackForm()).buildAndRegister();
+
+
+        List<ItemStack> allWoodLeaves = OreDictionary.getOres("treeLeaves").stream()
+                .flatMap(stack -> ModHandler.getAllSubItems(stack).stream())
+                .collect(Collectors.toList());
+
+        List<ItemStack> allSaplings = OreDictionary.getOres("treeSapling").stream()
+                .flatMap(stack -> ModHandler.getAllSubItems(stack).stream())
+                .collect(Collectors.toList());
+
+        //Biomass Process
+        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(1440).EUt(3).inputs(MetaItems.PLANT_BALL.getStackForm()).fluidInputs(Materials.Water.getFluid(180)).fluidOutputs(Materials.Biomass.getFluid(180)).buildAndRegister();
+        for (ItemStack stack : allSaplings)
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(800).EUt(3).inputs(GTUtility.copyAmount(1, stack)).fluidInputs(Materials.Water.getFluid(100)).fluidOutputs(Materials.Biomass.getFluid(100)).buildAndRegister();
+        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Items.POTATO)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
+        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Items.CARROT)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
+        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Blocks.CACTUS)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
+        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Items.REEDS)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
+        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Blocks.BROWN_MUSHROOM)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
+        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Blocks.RED_MUSHROOM)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
+        RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(160).EUt(3).inputs(new ItemStack(Items.BEETROOT)).fluidInputs(Materials.Water.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(20)).buildAndRegister();
+
+        for (ItemStack stack : allSaplings)
+            RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(GTUtility.copyAmount(8, stack)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Items.WHEAT, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Items.POTATO, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Items.CARROT, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Blocks.CACTUS, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Items.REEDS, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Blocks.BROWN_MUSHROOM, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Blocks.RED_MUSHROOM, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Items.BEETROOT, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_CUCUMBER.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_ONION.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_GRAPES.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_MTOMATO.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_TOMATO.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_LEMON.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_OIL_BERRY.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_ARGENTIA.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_AURELIA.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_BAUXITE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_BOBS_YER_UNCLE_RANKS.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_CHILLY.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_COPPON.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_FERRU.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_ILMENITE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_INDIGO.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_IRIDIUM.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_MANGANESE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_MILK_WART.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_NAQUADAH.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_NICKEL.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_OSMIUM.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_PITCHBLENDE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_PLATINUM.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_PLUMBILIA.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_SCHEELITE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_TEALEAF.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_THORIUM.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_TINE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_URANINITE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_UUA_BERRY.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_UUM_BERRY.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_ZINC.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
     }
 }
