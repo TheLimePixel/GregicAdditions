@@ -18,7 +18,7 @@ public class GAEnums {
         EnumHelper.addEnum(MaterialIconType.class, "ingotDouble", new Class[0]);
         EnumHelper.addEnum(MaterialIconType.class, "round", new Class[0]);
 
-        EnumHelper.addEnum(Element.class, "Nt", new Class[]{long.class, long.class, long.class, String.class,String.class, boolean.class}, 1728L, 2576L, -1L, "DECAY_INTO_ELEMENT_NAME", "ELEMENT_NAME", false);
+        EnumHelper.addEnum(Element.class, "Nt", new Class[]{long.class, long.class, long.class, String.class,String.class, boolean.class}, 0L, 5000L, -1L, null, "NEUTRONIUM", false);
 
         EnumHelper.addEnum(MaterialIconSet.class, "COKE", new Class[0]);
 
