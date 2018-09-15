@@ -950,6 +950,7 @@ public class GARecipeAddition {
         RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(100).EUt(40000).inputs(GAMetaItems.CRYSTAL_CPU.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Blue).outputs(GAMetaItems.CRYSTAL_SOC.getStackForm()).buildAndRegister();
         RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(100).EUt(10000).inputs(MetaItems.CIRCUIT_PARTS_CRYSTAL_CHIP_ELITE.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Lime).outputs(GAMetaItems.CRYSTAL_CPU.getStackForm()).buildAndRegister();
         RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(256).EUt(480).inputs(GAMetaItems.LAPOTRON_CRYSTAL.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Blue).outputs(MetaItems.CIRCUIT_PARTS_CRYSTAL_CHIP_MASTER.getStackForm(3)).buildAndRegister();
+        RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(30).EUt(480).fluidInputs(GAMaterials.PositiveMatter.getFluid(10),GAMaterials.NeutralMatter.getFluid(10)).fluidOutputs(Materials.UUMatter.getFluid(20)).buildAndRegister();
 
         //Assline Casing
         ModHandler.addShapedRecipe("assline_casing", GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.TUNGSTENSTEEL_GEARBOX_CASING, 2), "PhP", "AFA", "PwP", 'P', "plateSteel", 'A', MetaItems.ROBOT_ARM_IV.getStackForm(), 'F', OreDictUnifier.get(OrePrefix.frameGt, Materials.TungstenSteel));
@@ -1529,8 +1530,7 @@ public class GARecipeAddition {
                 OreDictUnifier.get(OrePrefix.foil, GAMaterials.SiliconeRubber, 64),
                 OreDictUnifier.get(OrePrefix.plate, Materials.StainlessSteel, 4)).fluidInputs(
                 GAMaterials.SterilizedGrowthMedium.getFluid(250),
-                GAMaterials.NeutralMatter.getFluid(50),
-                GAMaterials.PositiveMatter.getFluid(50))
+                Materials.UUMatter.getFluid(100))
                 .outputs(MetaItems.CIRCUIT_BOARD_ELITE.getStackForm()).duration(200).EUt(80000)
                 .buildAndRegister();
 
