@@ -20,7 +20,7 @@ compileJava {
 }
 
 minecraft {
-    version = "${minecraft_version}-14.23.4.2729"
+    version = "${minecraft_version}-14.23.4.2749"
     runDir = "run"
     mappings = "snapshot_20171003"
 
@@ -45,6 +45,10 @@ repositories {
         name = "CraftTweaker Maven"
         url = "https://maven.blamejared.com/"
     }
+    maven {
+        name = "Forestry Maven"
+        url = "http://maven.ic2.player.to"
+    }
 }
 
 dependencies {
@@ -53,7 +57,9 @@ dependencies {
     deobfCompile "codechicken:ForgeMultipart:${minecraft_version}-${multipart_version}:deobf"
     deobfCompile "CraftTweaker2:CraftTweaker2-MC${stripped_version}-Main:${crafttweaker_version}"
     deobfCompile "mezz.jei:jei_${minecraft_version}:${jei_version}"
+    deobfCompile "net.sengir.forestry:forestry_${minecraft_version}:${forestry_version}"
     compile files("libs/gregtech-${minecraft_version}-${gt_version}.jar")
+    compile files("libs/GTCEBees-${minecraft_version}-${gtcebees_version}.jar")
 }
 
 processResources {

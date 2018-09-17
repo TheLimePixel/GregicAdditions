@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
 @Mod(modid = GregicAdditions.MODID,
         name = GregicAdditions.NAME,
         version = GregicAdditions.VERSION,
-        dependencies = "required-after:gregtech"
+        dependencies = "required-after:gregtech;after:GTCEBees"
 )
 public class GregicAdditions {
     public static final String MODID = "gtadditions";
@@ -57,6 +57,7 @@ public class GregicAdditions {
         GAMachineRecipeRemoval.postInit();
         GARecipeAddition.postInit();
         GARecipeAddition.postInit2();
+        GARecipeAddition.forestrySupport();
         MatterReplication.init();
         proxy.postInit();
     }
