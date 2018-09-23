@@ -1734,11 +1734,13 @@ public class GARecipeAddition {
 
         //Generate Plank Recipes
         for (IRecipe recipe : CraftingManager.REGISTRY) {
+            if (recipe.getRecipeOutput().isEmpty())
+                continue;
             for (int i : OreDictionary.getOreIDs(recipe.getRecipeOutput())) {
                 if (OreDictionary.getOreName(i).equals("plankWood") && recipe.getIngredients().size() == 1 && recipe.getRecipeOutput().getCount() == 4) {
                     ModHandler.removeRecipeByName(recipe.getRegistryName());
-                    ModHandler.addShapelessRecipe("log_to_4_" + recipe.getRecipeOutput().toString(), GTUtility.copyAmount(4, recipe.getRecipeOutput()), recipe.getIngredients(), ToolDictNames.craftingToolSaw);
-                    ModHandler.addShapelessRecipe("log_to_2_" + recipe.getRecipeOutput().toString(), GTUtility.copyAmount(4, recipe.getRecipeOutput()), recipe.getIngredients());
+                    ModHandler.addShapelessRecipe("log_to_4_" + recipe.getRecipeOutput().toString(), GTUtility.copyAmount(4, recipe.getRecipeOutput()), recipe.getIngredients().get(0).getMatchingStacks()[0], ToolDictNames.craftingToolSaw);
+                    ModHandler.addShapelessRecipe("log_to_2_" + recipe.getRecipeOutput().toString(), GTUtility.copyAmount(2, recipe.getRecipeOutput()), recipe.getIngredients().get(0).getMatchingStacks()[0]);
                 }
             }
         }
