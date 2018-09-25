@@ -414,7 +414,7 @@ tile.ga_multiblock_casing.tungstensteel_gearbox_casing.name=Assembly Line Casing
 tile.ga_transparent_casing.reinforced_glass.name=Reinforced Glass
 
 metaitem.tool.bending_cylinder.name=%s Bending Cylinder
-metaitem.tool.bending_cylinder_small.name=%s Small Bending Cylinder
+metaitem.tool.bending_cylinder_small.name=Small %s Bending Cylinder
 
 recipemap.cluster_mill.name=Cluster Mill
 recipemap.circuit_assembler.name=Circuit Assembler
