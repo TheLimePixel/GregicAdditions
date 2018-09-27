@@ -518,6 +518,8 @@ public class GARecipeAddition {
 
         //Coke Oven Recipes
         GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).inputs(CountableIngredient.from(OreDictUnifier.get(OrePrefix.gem, Materials.Coal))).outputs(OreDictUnifier.get(OrePrefix.gem, GAMaterials.Coke)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
+        GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).inputs(CountableIngredient.from(OreDictUnifier.get(OrePrefix.gem, Materials.Lignite))).outputs(OreDictUnifier.get(OrePrefix.gem, GAMaterials.LigniteCoke)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
+
         for (ItemStack stack : allWoodLogs) {
             ItemStack smeltingOutput = ModHandler.getSmeltingOutput(stack);
             if (!smeltingOutput.isEmpty() && smeltingOutput.getItem() == Items.COAL && smeltingOutput.getMetadata() == 1) {

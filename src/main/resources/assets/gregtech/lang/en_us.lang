@@ -551,6 +551,7 @@ material.neutral_matter=Neutral Matter
 material.positive_matter=Positive Matter
 material.neutronium=Neutronium
 material.plasma=Plasma Confinement
+material.lignite_coke=Lignite Coke
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp
