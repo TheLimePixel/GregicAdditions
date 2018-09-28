@@ -384,6 +384,8 @@ gregtech.machine.cracker_unit.name=Cracking Unit
 gregtech.machine.naquadah_reactor.mk1.name=Naquadah Reactor Mk. 1
 gregtech.machine.naquadah_reactor.mk2.name=Naquadah Reactor Mk. 2
 gregtech.machine.naquadah_reactor.mk3.name=Naquadah Reactor Mk. 3
+gregtech.machine.naquadah_reactor.mk4.name=Naquadah Reactor Mk. 4
+gregtech.machine.naquadah_reactor.mk5.name=Naquadah Reactor Mk. 5
 
 gregtech.machine.mass_fab.lv.name=Basic Mass Fabricator
 gregtech.machine.mass_fab.mv.name=Advanced Mass Fabricator

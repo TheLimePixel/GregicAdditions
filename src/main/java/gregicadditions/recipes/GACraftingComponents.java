@@ -577,8 +577,12 @@ public enum GACraftingComponents {
                     return new UnificationEntry(OrePrefix.stick, Materials.Uranium235);
                 case 5:
                     return new UnificationEntry(OrePrefix.stick, Materials.Plutonium241);
-                default:
+                case 6:
                     return new UnificationEntry(OrePrefix.stick, Materials.NaquadahEnriched);
+                case 7:
+                    return new UnificationEntry(OrePrefix.stick, Materials.Americium);
+                default:
+                    return new UnificationEntry(OrePrefix.stick, Materials.Tritanium);
             }
         }
     };
