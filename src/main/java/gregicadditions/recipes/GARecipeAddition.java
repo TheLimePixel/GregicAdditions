@@ -1751,6 +1751,42 @@ public class GARecipeAddition {
         }
         //Bentonite
         RecipeMaps.ELECTROLYZER_RECIPES.recipeBuilder().duration(480).EUt(120).input(OrePrefix.dust, Materials.Bentonite, 30).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Sodium), OreDictUnifier.get(OrePrefix.dust, Materials.Magnesium, 6), OreDictUnifier.get(OrePrefix.dust, Materials.Silicon, 12)).fluidOutputs(Materials.Hydrogen.getFluid(6000), Materials.Water.getFluid(5000)).buildAndRegister();
+
+        //Food To Methane
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(72).EUt(5).inputs(new ItemStack(Items.BREAD)).fluidOutputs(Materials.Methane.getFluid(9)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(72).EUt(5).inputs(new ItemStack(Items.COOKIE)).fluidOutputs(Materials.Methane.getFluid(9)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(72).EUt(5).inputs(new ItemStack(Items.MELON)).fluidOutputs(Materials.Methane.getFluid(9)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(144).EUt(5).inputs(new ItemStack(Items.APPLE)).fluidOutputs(Materials.Methane.getFluid(18)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(144).EUt(5).inputs(new ItemStack(Items.NETHER_WART)).fluidOutputs(Materials.Methane.getFluid(18)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(144).EUt(5).inputs(new ItemStack(Blocks.BROWN_MUSHROOM)).fluidOutputs(Materials.Methane.getFluid(18)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(144).EUt(5).inputs(new ItemStack(Blocks.BROWN_MUSHROOM)).fluidOutputs(Materials.Methane.getFluid(18)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(144).EUt(5).inputs(new ItemStack(Items.SPIDER_EYE)).fluidOutputs(Materials.Methane.getFluid(18)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(192).EUt(5).inputs(new ItemStack(Items.POTATO)).fluidOutputs(Materials.Methane.getFluid(24)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Blocks.PUMPKIN)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Items.CARROT)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Items.COOKED_BEEF)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Items.MUSHROOM_STEW)).outputs(new ItemStack(Items.BOWL)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Items.COOKED_FISH)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Items.COOKED_FISH, 1, 1)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Items.COOKED_CHICKEN)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Items.POTATO)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Items.ROTTEN_FLESH)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Items.COOKED_PORKCHOP)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Items.COOKED_RABBIT)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Items.COOKED_MUTTON)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(384).EUt(5).inputs(new ItemStack(Items.PORKCHOP)).fluidOutputs(Materials.Methane.getFluid(48)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(384).EUt(5).inputs(new ItemStack(Items.FISH)).fluidOutputs(Materials.Methane.getFluid(48)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(384).EUt(5).inputs(new ItemStack(Items.FISH, 1, 1)).fluidOutputs(Materials.Methane.getFluid(48)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(384).EUt(5).inputs(new ItemStack(Items.FISH, 1, 2)).fluidOutputs(Materials.Methane.getFluid(48)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(384).EUt(5).inputs(new ItemStack(Items.FISH, 1, 3)).fluidOutputs(Materials.Methane.getFluid(48)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(384).EUt(5).inputs(new ItemStack(Items.POISONOUS_POTATO)).fluidOutputs(Materials.Methane.getFluid(48)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(384).EUt(5).inputs(new ItemStack(Items.CHICKEN)).fluidOutputs(Materials.Methane.getFluid(48)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(384).EUt(5).inputs(new ItemStack(Items.RABBIT)).fluidOutputs(Materials.Methane.getFluid(48)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(384).EUt(5).inputs(new ItemStack(Items.MUTTON)).fluidOutputs(Materials.Methane.getFluid(48)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(384).EUt(5).inputs(new ItemStack(Items.BEEF)).fluidOutputs(Materials.Methane.getFluid(48)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(576).EUt(5).inputs(new ItemStack(Items.CAKE)).fluidOutputs(Materials.Methane.getFluid(72)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(1008).EUt(5).inputs(new ItemStack(Items.RABBIT_STEW)).outputs(new ItemStack(Items.BOWL)).fluidOutputs(Materials.Methane.getFluid(126)).buildAndRegister();
+
     }
 
     public static void forestrySupport() {

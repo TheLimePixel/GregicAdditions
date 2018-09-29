@@ -317,6 +317,9 @@ public class GAMachineRecipeRemoval {
 
         //Remove expensive Iridium recipe
         removeRecipesByInputs(RecipeMaps.FUSION_RECIPES, Materials.Lithium.getFluid(16), Materials.Tungsten.getFluid(16));
+
+        //Remove Conflicting Redstone Plate Recipe
+        removeRecipesByInputs(RecipeMaps.COMPRESSOR_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Redstone));
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {
