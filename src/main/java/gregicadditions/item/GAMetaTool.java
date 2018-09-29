@@ -36,7 +36,7 @@ public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> 
                         'X', new UnificationEntry(OrePrefix.ingot, toolMaterial));
 
                 //GT6 Wrench Recipe
-                if (!OreDictUnifier.get(OrePrefix.plate, material).isEmpty())
+                if (!OreDictUnifier.get(OrePrefix.plate, material).isEmpty() && ((IngotMaterial) material).toolDurability != 0)
                     ModHandler.addShapedRecipe(String.format("wrench_%s", material.toString()),
                             MetaItems.WRENCH.getStackForm(toolMaterial, null),
                             "XhX", "XXX", " X ",
