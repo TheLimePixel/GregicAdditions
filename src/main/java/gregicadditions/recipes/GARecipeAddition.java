@@ -1185,7 +1185,7 @@ public class GARecipeAddition {
 
         GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
                 MetaItems.ELECTRIC_MOTOR_LUV.getStackForm(),
-                OreDictUnifier.get(OrePrefix.pipeSmall, Tier.Ultimate, 2),
+                OreDictUnifier.get(OrePrefix.pipeSmall, GAMaterials.Ultimate, 2),
                 OreDictUnifier.get(OrePrefix.plate, Materials.HSSG, 2),
                 OreDictUnifier.get(OrePrefix.screw, Materials.HSSG, 8),
                 OreDictUnifier.get(OrePrefix.ring, GAMaterials.SiliconeRubber, 4),
@@ -1198,7 +1198,7 @@ public class GARecipeAddition {
 
         GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
                 MetaItems.ELECTRIC_MOTOR_ZPM.getStackForm(),
-                OreDictUnifier.get(OrePrefix.pipeMedium, Tier.Ultimate, 2),
+                OreDictUnifier.get(OrePrefix.pipeMedium, GAMaterials.Ultimate, 2),
                 OreDictUnifier.get(OrePrefix.plate, Materials.HSSE, 2),
                 OreDictUnifier.get(OrePrefix.screw, Materials.HSSE, 8),
                 OreDictUnifier.get(OrePrefix.ring, GAMaterials.SiliconeRubber, 16),
@@ -1211,7 +1211,7 @@ public class GARecipeAddition {
 
         GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
                 MetaItems.ELECTRIC_MOTOR_UV.getStackForm(),
-                OreDictUnifier.get(OrePrefix.pipeLarge, Tier.Ultimate, 2),
+                OreDictUnifier.get(OrePrefix.pipeLarge, GAMaterials.Ultimate, 2),
                 OreDictUnifier.get(OrePrefix.plate, GAMaterials.Neutronium, 2),
                 OreDictUnifier.get(OrePrefix.screw, GAMaterials.Neutronium, 8),
                 OreDictUnifier.get(OrePrefix.ring, GAMaterials.SiliconeRubber, 16),
@@ -1786,7 +1786,6 @@ public class GARecipeAddition {
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(384).EUt(5).inputs(new ItemStack(Items.BEEF)).fluidOutputs(Materials.Methane.getFluid(48)).buildAndRegister();
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(576).EUt(5).inputs(new ItemStack(Items.CAKE)).fluidOutputs(Materials.Methane.getFluid(72)).buildAndRegister();
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(1008).EUt(5).inputs(new ItemStack(Items.RABBIT_STEW)).outputs(new ItemStack(Items.BOWL)).fluidOutputs(Materials.Methane.getFluid(126)).buildAndRegister();
-
     }
 
     public static void forestrySupport() {
