@@ -384,6 +384,8 @@ gregtech.machine.cracker_unit.name=Cracking Unit
 gregtech.machine.naquadah_reactor.mk1.name=Naquadah Reactor Mk. 1
 gregtech.machine.naquadah_reactor.mk2.name=Naquadah Reactor Mk. 2
 gregtech.machine.naquadah_reactor.mk3.name=Naquadah Reactor Mk. 3
+gregtech.machine.naquadah_reactor.mk4.name=Naquadah Reactor Mk. 4
+gregtech.machine.naquadah_reactor.mk5.name=Naquadah Reactor Mk. 5
 
 gregtech.machine.mass_fab.lv.name=Basic Mass Fabricator
 gregtech.machine.mass_fab.mv.name=Advanced Mass Fabricator
@@ -414,7 +416,7 @@ tile.ga_multiblock_casing.tungstensteel_gearbox_casing.name=Assembly Line Casing
 tile.ga_transparent_casing.reinforced_glass.name=Reinforced Glass
 
 metaitem.tool.bending_cylinder.name=%s Bending Cylinder
-metaitem.tool.bending_cylinder_small.name=%s Small Bending Cylinder
+metaitem.tool.bending_cylinder_small.name=Small %s Bending Cylinder
 
 recipemap.cluster_mill.name=Cluster Mill
 recipemap.circuit_assembler.name=Circuit Assembler
@@ -551,6 +553,7 @@ material.neutral_matter=Neutral Matter
 material.positive_matter=Positive Matter
 material.neutronium=Neutronium
 material.plasma=Plasma Confinement
+material.lignite_coke=Lignite Coke
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp

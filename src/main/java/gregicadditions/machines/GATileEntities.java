@@ -49,7 +49,7 @@ public class GATileEntities {
     public static SimpleMachineMetaTileEntity[] SIFTER = new SimpleMachineMetaTileEntity[8];
     public static SimpleMachineMetaTileEntity[] THERMAL_CENTRIFUGE = new SimpleMachineMetaTileEntity[8];
     public static SimpleMachineMetaTileEntity[] WIREMILL = new SimpleMachineMetaTileEntity[8];
-    public static SimpleGeneratorMetaTileEntity[] NAQUADAH_REACTOR = new SimpleGeneratorMetaTileEntity[6];
+    public static SimpleGeneratorMetaTileEntity[] NAQUADAH_REACTOR = new SimpleGeneratorMetaTileEntity[8];
     public static SimpleMachineMetaTileEntity[] REPLICATOR = new SimpleMachineMetaTileEntity[8];
     public static SimpleMachineMetaTileEntity[] MASS_FAB = new SimpleMachineMetaTileEntity[8];
     public static TileEntityFusionReactor[] FUSION_REACTOR = new TileEntityFusionReactor[3];
@@ -272,6 +272,8 @@ public class GATileEntities {
         NAQUADAH_REACTOR[3] = GregTechAPI.registerMetaTileEntity(2172, new SimpleGeneratorMetaTileEntity("naquadah_reactor.mk1", GARecipeMaps.NAQUADAH_REACTOR_FUELS, GATextures.NAQADAH_OVERLAY, 4));
         NAQUADAH_REACTOR[4] = GregTechAPI.registerMetaTileEntity(2173, new SimpleGeneratorMetaTileEntity("naquadah_reactor.mk2", GARecipeMaps.NAQUADAH_REACTOR_FUELS, GATextures.NAQADAH_OVERLAY, 5));
         NAQUADAH_REACTOR[5] = GregTechAPI.registerMetaTileEntity(2174, new SimpleGeneratorMetaTileEntity("naquadah_reactor.mk3", GARecipeMaps.NAQUADAH_REACTOR_FUELS, GATextures.NAQADAH_OVERLAY, 6));
+        NAQUADAH_REACTOR[6] = GregTechAPI.registerMetaTileEntity(2191, new SimpleGeneratorMetaTileEntity("naquadah_reactor.mk4", GARecipeMaps.NAQUADAH_REACTOR_FUELS, GATextures.NAQADAH_OVERLAY, 7));
+        NAQUADAH_REACTOR[7] = GregTechAPI.registerMetaTileEntity(2192, new SimpleGeneratorMetaTileEntity("naquadah_reactor.mk5", GARecipeMaps.NAQUADAH_REACTOR_FUELS, GATextures.NAQADAH_OVERLAY, 8));
 
         MASS_FAB[0] = GregTechAPI.registerMetaTileEntity(2175, new SimpleMachineMetaTileEntity("mass_fab.lv", GARecipeMaps.MASS_FAB_RECIPES, GATextures.MASS_FAB_OVERLAY, 1));
         MASS_FAB[1] = GregTechAPI.registerMetaTileEntity(2176, new SimpleMachineMetaTileEntity("mass_fab.mv", GARecipeMaps.MASS_FAB_RECIPES, GATextures.MASS_FAB_OVERLAY, 2));

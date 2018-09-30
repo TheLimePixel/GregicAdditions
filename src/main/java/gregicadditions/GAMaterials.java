@@ -130,6 +130,7 @@ public class GAMaterials {
     public static Material Infinite = new MarkerMaterial("infinite");
     public static BasicMaterial Ultimate;
     public static BasicMaterial Plasma;
+    public static GemMaterial LigniteCoke;
 
     static {
         long STD_SOLID = DustMaterial.MatFlags.GENERATE_PLATE |
@@ -264,6 +265,8 @@ public class GAMaterials {
         PositiveMatter = new FluidMaterial(882, "positive_matter", 11279131, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
         Ultimate = new BasicMaterial(881, "ultimate", 13434880, MaterialIconSet.SHINY);
         Plasma = new BasicMaterial(880, "plasma", 15389725, MaterialIconSet.SHINY);
+        LigniteCoke = new GemMaterial(879, "lignite_coke", 0x8b6464, MaterialIconSet.LIGNITE, 1, ImmutableList.of(new MaterialStack(Materials.Carbon, 1)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING | SolidMaterial.MatFlags.MORTAR_GRINDABLE | Material.MatFlags.FLAMMABLE | DustMaterial.MatFlags.NO_SMELTING | DustMaterial.MatFlags.NO_SMASHING);
+        LigniteCoke.setBurnTime(2400);
 
         Materials.YttriumBariumCuprate.addFlag(IngotMaterial.MatFlags.GENERATE_FINE_WIRE);
         Materials.Manganese.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);

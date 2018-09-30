@@ -1,8 +1,10 @@
 package gregicadditions.recipes;
 
+import forestry.core.fluids.Fluids;
 import gregicadditions.GAMaterials;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.material.Materials;
+import net.minecraftforge.fml.common.Loader;
 
 public class GeneratorFuels {
     public static void init() {
@@ -42,6 +44,8 @@ public class GeneratorFuels {
         RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.LightFuel.getFluid(200)).EUt(-32).duration(1905).buildAndRegister();
         RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Fuel.getFluid(200)).EUt(-32).duration(3000).buildAndRegister();
         RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.NitroFuel.getFluid(200)).EUt(-32).duration(4500).buildAndRegister();
+        if (Loader.isModLoaded("forestry"))
+            RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Fluids.BIO_ETHANOL.getFluid(200)).EUt(-32).duration(1200).buildAndRegister();
 
         //Naquadah Reactor
         GARecipeMaps.NAQUADAH_REACTOR_FUELS.recipeBuilder().fluidInputs(Materials.NaquadahEnriched.getFluid(200)).fluidOutputs(Materials.NaquadahEnriched.getFluid(200)).EUt(-2048).duration(1465).buildAndRegister();

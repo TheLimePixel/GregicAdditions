@@ -135,6 +135,12 @@ public class GAMetaItem extends MaterialMetaItem {
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC_DUST, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC_2X2, true, "visible");
         ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC_3X3, true, "visible");
+        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.PLANK_OAK, true, "visible");
+        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.PLANK_BIRCH, true, "visible");
+        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.PLANK_SPRUCE, true, "visible");
+        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.PLANK_JUNGLE, true, "visible");
+        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.PLANK_ACACIA, true, "visible");
+        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.PLANK_DARKOAK, true, "visible");
     }
 
     public boolean hasContainerItem(ItemStack stack) {
