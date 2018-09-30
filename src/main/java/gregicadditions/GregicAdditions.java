@@ -29,7 +29,7 @@ public class GregicAdditions {
     )
     public static CommonProxy proxy;
 
-    private static Logger logger;
+    public static Logger logger;
 
     public GregicAdditions() {
         GAEnums.preInit();

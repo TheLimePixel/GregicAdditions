@@ -1,9 +1,11 @@
 package gregicadditions.item;
 
+import gregicadditions.GregicAdditions;
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.common.items.MetaItems;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
@@ -134,7 +136,14 @@ public class GAMetaItems {
     public static ItemStack getFilledCell(Fluid fluid, int count) {
         ItemStack fluidCell = MetaItems.FLUID_CELL.getStackForm().copy();
         IFluidHandlerItem fluidHandlerItem = fluidCell.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
-        fluidHandlerItem.fill(new FluidStack(fluid, 1000), true);
+        try {
+            fluidHandlerItem.fill(new FluidStack(fluid, 1000), true);
+
+        } catch (Exception e) {
+            GregicAdditions.logger.error("The fluid " + fluid.toString() + " failed to do something with getFilledCell");
+            GregicAdditions.logger.error(e);
+            fluidHandlerItem.fill(new FluidStack(FluidRegistry.WATER, 1000), true);
+        }
         fluidCell = fluidHandlerItem.getContainer();
         fluidCell.setCount(count);
         return fluidCell;
