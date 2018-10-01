@@ -284,7 +284,7 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Naphtha.getFluid(288), Materials.Air.getFluid(2000));
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dustTiny, Materials.Titanium)}, new FluidStack[]{Materials.Naphtha.getFluid(1296), Materials.Oxygen.getFluid(16000)});
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Epichlorhydrin.getFluid(432), Materials.Naphtha.getFluid(3000), Materials.Fluorine.getFluid(1000));
-        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dustTiny, Materials.Carbon)}, new FluidStack[]{Materials.LPG.getFluid(432), Materials.Chlorine.getFluid(1000)});
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dust, Materials.Carbon)}, new FluidStack[]{Materials.LPG.getFluid(432), Materials.Chlorine.getFluid(1000)});
 
         //MAX Hull Recipes
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, OreDictUnifier.get(OrePrefix.plate, Materials.Darmstadtium, 8), IntCircuitIngredient.getIntegratedCircuit(8));
@@ -297,9 +297,10 @@ public class GAMachineRecipeRemoval {
         //Remove Silicon incompatability with Boule recipes
         removeRecipesByInputs(RecipeMaps.BLAST_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Silicon));
 
-        //Remove Distilled Water recipes without Circuits
+        //Remove Default Recipes Without Circuits
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Oxygen.getFluid(500), Materials.Hydrogen.getFluid(1000));
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Hydrogen.getFluid(2000), Materials.Oxygen.getFluid(1000));
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dust, Materials.Carbon)}, new FluidStack[]{Materials.Hydrogen.getFluid(4000)});
 
         //Remove Simple Cetane-Boosted Diesel Recipes
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Glyceryl.getFluid(250), Materials.LightFuel.getFluid(1000));
