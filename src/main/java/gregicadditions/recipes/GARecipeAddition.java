@@ -101,6 +101,7 @@ public class GARecipeAddition {
     };
 
     private static final MaterialStack[] lapisLike = {
+            new MaterialStack(Materials.Lapis, 1),
             new MaterialStack(Materials.Lazurite, 1),
             new MaterialStack(Materials.Sodalite, 1)
     };
