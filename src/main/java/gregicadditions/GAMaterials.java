@@ -6,6 +6,7 @@ import gregtech.api.unification.Element;
 import gregtech.api.unification.material.MaterialIconSet;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.*;
+import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
 
 public class GAMaterials {
@@ -284,5 +285,15 @@ public class GAMaterials {
         Materials.Salt.addOreByProducts(Materials.Borax);
         Materials.RockSalt.addOreByProducts(Materials.Borax);
         Materials.Lepidolite.addOreByProducts(Materials.Boron);
+
+        OrePrefix.gemChipped.setIgnored(Coke);
+        OrePrefix.gemFlawed.setIgnored(Coke);
+        OrePrefix.gemFlawless.setIgnored(Coke);
+        OrePrefix.gemExquisite.setIgnored(Coke);
+
+        OrePrefix.gemChipped.setIgnored(LigniteCoke);
+        OrePrefix.gemFlawed.setIgnored(LigniteCoke);
+        OrePrefix.gemFlawless.setIgnored(LigniteCoke);
+        OrePrefix.gemExquisite.setIgnored(LigniteCoke);
     }
 }
