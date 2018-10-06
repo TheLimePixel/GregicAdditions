@@ -2,6 +2,9 @@ package gregicadditions;
 
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
+import gregicadditions.recipes.GAMachineRecipeRemoval;
+import gregicadditions.recipes.GARecipeAddition;
+import gregicadditions.recipes.MatterReplication;
 import gregtech.common.blocks.VariantItemBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -51,11 +54,14 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+        GAMachineRecipeRemoval.postInit();
+        GARecipeAddition.postInit();
+        GARecipeAddition.postInit2();
+        GARecipeAddition.forestrySupport();
+        MatterReplication.init();
 
         GAMetaItems.registerOreDict();
 
         GAMetaItems.registerRecipes();
     }
-
-
 }
