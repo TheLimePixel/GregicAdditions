@@ -54,11 +54,6 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
-        GAMachineRecipeRemoval.postInit();
-        GARecipeAddition.postInit();
-        GARecipeAddition.postInit2();
-        GARecipeAddition.forestrySupport();
-        MatterReplication.init();
 
         GAMetaItems.registerOreDict();
 

@@ -1689,96 +1689,7 @@ public class GARecipeAddition {
         //Redstone and glowstone melting
         RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(80).EUt(32).input(OrePrefix.dust, Materials.Redstone).fluidOutputs(Materials.Redstone.getFluid(144)).buildAndRegister();
         RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(80).EUt(32).input(OrePrefix.dust, Materials.Glowstone).fluidOutputs(Materials.Glowstone.getFluid(144)).buildAndRegister();
-    }
 
-    public static void forestrySupport() {
-        //Distillation Support
-        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
-            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(16).EUt(96).fluidInputs(Fluids.SEED_OIL.getFluid(24)).fluidOutputs(Materials.Lubricant.getFluid(12)).buildAndRegister();
-            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(40).EUt(256).fluidInputs(GAMaterials.WoodVinegar.getFluid(1000)).fluidOutputs(GAMaterials.AceticAcid.getFluid(100), Materials.Water.getFluid(500), Fluids.BIO_ETHANOL.getFluid(10), GAMaterials.Methanol.getFluid(300), GAMaterials.Acetone.getFluid(50), GAMaterials.MethylAcetate.getFluid(10)).buildAndRegister();
-            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(75).EUt(180).fluidInputs(GAMaterials.FermentedBiomass.getFluid(1000)).fluidOutputs(GAMaterials.AceticAcid.getFluid(25), Materials.Water.getFluid(375), Fluids.BIO_ETHANOL.getFluid(150), GAMaterials.Methanol.getFluid(150), GAMaterials.Ammonia.getFluid(100), Materials.CarbonDioxide.getFluid(400), Materials.Methane.getFluid(600)).buildAndRegister();
-            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(32).EUt(400).fluidInputs(Materials.Biomass.getFluid(1000)).outputs(OreDictUnifier.get(OrePrefix.dustSmall, Materials.Wood, 2)).fluidOutputs(Fluids.BIO_ETHANOL.getFluid(600), Materials.Water.getFluid(300)).buildAndRegister();
-        } else {
-            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(16).EUt(96).fluidInputs(Materials.SeedOil.getFluid(24)).fluidOutputs(Materials.Lubricant.getFluid(12)).buildAndRegister();
-            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(40).EUt(256).fluidInputs(GAMaterials.WoodVinegar.getFluid(1000)).fluidOutputs(GAMaterials.AceticAcid.getFluid(100), Materials.Water.getFluid(500), Materials.Ethanol.getFluid(10), GAMaterials.Methanol.getFluid(300), GAMaterials.Acetone.getFluid(50), GAMaterials.MethylAcetate.getFluid(10)).buildAndRegister();
-            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(75).EUt(180).fluidInputs(GAMaterials.FermentedBiomass.getFluid(1000)).fluidOutputs(GAMaterials.AceticAcid.getFluid(25), Materials.Water.getFluid(375), Materials.Ethanol.getFluid(150), GAMaterials.Methanol.getFluid(150), GAMaterials.Ammonia.getFluid(100), Materials.CarbonDioxide.getFluid(400), Materials.Methane.getFluid(600)).buildAndRegister();
-            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(32).EUt(400).fluidInputs(Materials.Biomass.getFluid(1000)).outputs(OreDictUnifier.get(OrePrefix.dustSmall, Materials.Wood, 2)).fluidOutputs(Materials.Ethanol.getFluid(600), Materials.Water.getFluid(300)).buildAndRegister();
-        }
-
-        //Extracting Seed Oil
-        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
-            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(128).EUt(5).inputs(new ItemStack(Items.WHEAT_SEEDS)).fluidOutputs(Fluids.SEED_OIL.getFluid(10)).buildAndRegister();
-            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(128).EUt(5).inputs(new ItemStack(Items.MELON_SEEDS)).fluidOutputs(Fluids.SEED_OIL.getFluid(10)).buildAndRegister();
-            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(128).EUt(5).inputs(new ItemStack(Items.PUMPKIN_SEEDS)).fluidOutputs(Fluids.SEED_OIL.getFluid(10)).buildAndRegister();
-        } else {
-            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(32).EUt(2).inputs(new ItemStack(Items.WHEAT_SEEDS)).fluidOutputs(Materials.SeedOil.getFluid(10)).buildAndRegister();
-            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(32).EUt(2).inputs(new ItemStack(Items.MELON_SEEDS)).fluidOutputs(Materials.SeedOil.getFluid(10)).buildAndRegister();
-            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(32).EUt(2).inputs(new ItemStack(Items.PUMPKIN_SEEDS)).fluidOutputs(Materials.SeedOil.getFluid(10)).buildAndRegister();
-            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(32).EUt(2).inputs(new ItemStack(Items.BEETROOT_SEEDS)).fluidOutputs(Materials.SeedOil.getFluid(10)).buildAndRegister();
-        }
-
-        //Making BioDiesel
-        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
-            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(Fluids.SEED_OIL.getFluid(6000), GAMaterials.Methanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
-            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(Fluids.SEED_OIL.getFluid(6000), Fluids.BIO_ETHANOL.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
-            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(GAMaterials.FishOil.getFluid(6000), GAMaterials.Methanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
-            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(GAMaterials.FishOil.getFluid(6000), Fluids.BIO_ETHANOL.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
-        } else {
-            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(Materials.SeedOil.getFluid(6000), GAMaterials.Methanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
-            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(Materials.SeedOil.getFluid(6000), Materials.Ethanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
-            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(GAMaterials.FishOil.getFluid(6000), GAMaterials.Methanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
-            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(GAMaterials.FishOil.getFluid(6000), Materials.Ethanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
-        }
-
-        //Lube Mixer Recipes
-        for (MaterialStack lubeDust : lubeDusts) {
-            DustMaterial dust = (DustMaterial) lubeDust.material;
-            RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(128).EUt(4).inputs(OreDictUnifier.get(OrePrefix.dust, dust)).fluidInputs(Materials.Oil.getFluid(750)).fluidOutputs(Materials.Lubricant.getFluid(750)).buildAndRegister();
-            RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(128).EUt(4).inputs(OreDictUnifier.get(OrePrefix.dust, dust)).fluidInputs(Materials.Creosote.getFluid(750)).fluidOutputs(Materials.Lubricant.getFluid(750)).buildAndRegister();
-            if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true)
-                RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(128).EUt(4).inputs(OreDictUnifier.get(OrePrefix.dust, dust)).fluidInputs(Fluids.SEED_OIL.getFluid(750)).fluidOutputs(Materials.Lubricant.getFluid(750)).buildAndRegister();
-            else
-                RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(128).EUt(4).inputs(OreDictUnifier.get(OrePrefix.dust, dust)).fluidInputs(Materials.SeedOil.getFluid(750)).fluidOutputs(Materials.Lubricant.getFluid(750)).buildAndRegister();
-        }
-
-        List<ItemStack> allSaplings = OreDictionary.getOres("treeSapling").stream()
-                .flatMap(stack -> ModHandler.getAllSubItems(stack).stream())
-                .collect(Collectors.toList());
-
-        //Biomass
-        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(2880).EUt(3).inputs(MetaItems.PLANT_BALL.getStackForm()).fluidInputs(Fluids.FOR_HONEY.getFluid(180)).fluidOutputs(Materials.Biomass.getFluid(270)).buildAndRegister();
-            for (ItemStack stack : allSaplings)
-                RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(1200).EUt(3).inputs(GTUtility.copyAmount(1, stack)).fluidInputs(Fluids.FOR_HONEY.getFluid(100)).fluidOutputs(Materials.Biomass.getFluid(150)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.POTATO)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.CARROT)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Blocks.CACTUS)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.REEDS)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Blocks.BROWN_MUSHROOM)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Blocks.RED_MUSHROOM)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.BEETROOT)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-        }
-
-        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(2880).EUt(3).inputs(MetaItems.PLANT_BALL.getStackForm()).fluidInputs(Fluids.JUICE.getFluid(180)).fluidOutputs(Materials.Biomass.getFluid(270)).buildAndRegister();
-            for (ItemStack stack : allSaplings)
-                RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(1200).EUt(3).inputs(GTUtility.copyAmount(1, stack)).fluidInputs(Fluids.JUICE.getFluid(100)).fluidOutputs(Materials.Biomass.getFluid(150)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.POTATO)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.CARROT)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Blocks.CACTUS)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.REEDS)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Blocks.BROWN_MUSHROOM)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Blocks.RED_MUSHROOM)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.BEETROOT)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
-        }
-
-        //Making Ethylene
-        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true)
-            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(1200).EUt(120).fluidInputs(Materials.SulfuricAcid.getFluid(1000), Fluids.BIO_ETHANOL.getFluid(1000)).fluidOutputs(GAMaterials.Ethylene.getFluid(1000), GAMaterials.DilutedSulfuricAcid.getFluid(1000)).buildAndRegister();
-        else
-            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(1200).EUt(120).fluidInputs(Materials.SulfuricAcid.getFluid(1000), Materials.Ethanol.getFluid(1000)).fluidOutputs(GAMaterials.Ethylene.getFluid(1000), GAMaterials.DilutedSulfuricAcid.getFluid(1000)).buildAndRegister();
-    }
-    public static void lastGeneratedRecipes() {
         List<ResourceLocation> recipesToRemove = new ArrayList<>();
 
         for (IRecipe recipe : CraftingManager.REGISTRY) {
@@ -1892,5 +1803,93 @@ public class GARecipeAddition {
                 ModHandler.removeFurnaceSmelting(woodStack);
             }
         }
+    }
+
+    public static void forestrySupport() {
+        //Distillation Support
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
+            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(16).EUt(96).fluidInputs(Fluids.SEED_OIL.getFluid(24)).fluidOutputs(Materials.Lubricant.getFluid(12)).buildAndRegister();
+            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(40).EUt(256).fluidInputs(GAMaterials.WoodVinegar.getFluid(1000)).fluidOutputs(GAMaterials.AceticAcid.getFluid(100), Materials.Water.getFluid(500), Fluids.BIO_ETHANOL.getFluid(10), GAMaterials.Methanol.getFluid(300), GAMaterials.Acetone.getFluid(50), GAMaterials.MethylAcetate.getFluid(10)).buildAndRegister();
+            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(75).EUt(180).fluidInputs(GAMaterials.FermentedBiomass.getFluid(1000)).fluidOutputs(GAMaterials.AceticAcid.getFluid(25), Materials.Water.getFluid(375), Fluids.BIO_ETHANOL.getFluid(150), GAMaterials.Methanol.getFluid(150), GAMaterials.Ammonia.getFluid(100), Materials.CarbonDioxide.getFluid(400), Materials.Methane.getFluid(600)).buildAndRegister();
+            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(32).EUt(400).fluidInputs(Materials.Biomass.getFluid(1000)).outputs(OreDictUnifier.get(OrePrefix.dustSmall, Materials.Wood, 2)).fluidOutputs(Fluids.BIO_ETHANOL.getFluid(600), Materials.Water.getFluid(300)).buildAndRegister();
+        } else {
+            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(16).EUt(96).fluidInputs(Materials.SeedOil.getFluid(24)).fluidOutputs(Materials.Lubricant.getFluid(12)).buildAndRegister();
+            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(40).EUt(256).fluidInputs(GAMaterials.WoodVinegar.getFluid(1000)).fluidOutputs(GAMaterials.AceticAcid.getFluid(100), Materials.Water.getFluid(500), Materials.Ethanol.getFluid(10), GAMaterials.Methanol.getFluid(300), GAMaterials.Acetone.getFluid(50), GAMaterials.MethylAcetate.getFluid(10)).buildAndRegister();
+            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(75).EUt(180).fluidInputs(GAMaterials.FermentedBiomass.getFluid(1000)).fluidOutputs(GAMaterials.AceticAcid.getFluid(25), Materials.Water.getFluid(375), Materials.Ethanol.getFluid(150), GAMaterials.Methanol.getFluid(150), GAMaterials.Ammonia.getFluid(100), Materials.CarbonDioxide.getFluid(400), Materials.Methane.getFluid(600)).buildAndRegister();
+            GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(32).EUt(400).fluidInputs(Materials.Biomass.getFluid(1000)).outputs(OreDictUnifier.get(OrePrefix.dustSmall, Materials.Wood, 2)).fluidOutputs(Materials.Ethanol.getFluid(600), Materials.Water.getFluid(300)).buildAndRegister();
+        }
+
+        //Extracting Seed Oil
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
+            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(128).EUt(5).inputs(new ItemStack(Items.WHEAT_SEEDS)).fluidOutputs(Fluids.SEED_OIL.getFluid(10)).buildAndRegister();
+            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(128).EUt(5).inputs(new ItemStack(Items.MELON_SEEDS)).fluidOutputs(Fluids.SEED_OIL.getFluid(10)).buildAndRegister();
+            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(128).EUt(5).inputs(new ItemStack(Items.PUMPKIN_SEEDS)).fluidOutputs(Fluids.SEED_OIL.getFluid(10)).buildAndRegister();
+        } else {
+            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(32).EUt(2).inputs(new ItemStack(Items.WHEAT_SEEDS)).fluidOutputs(Materials.SeedOil.getFluid(10)).buildAndRegister();
+            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(32).EUt(2).inputs(new ItemStack(Items.MELON_SEEDS)).fluidOutputs(Materials.SeedOil.getFluid(10)).buildAndRegister();
+            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(32).EUt(2).inputs(new ItemStack(Items.PUMPKIN_SEEDS)).fluidOutputs(Materials.SeedOil.getFluid(10)).buildAndRegister();
+            RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(32).EUt(2).inputs(new ItemStack(Items.BEETROOT_SEEDS)).fluidOutputs(Materials.SeedOil.getFluid(10)).buildAndRegister();
+        }
+
+        //Making BioDiesel
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
+            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(Fluids.SEED_OIL.getFluid(6000), GAMaterials.Methanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
+            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(Fluids.SEED_OIL.getFluid(6000), Fluids.BIO_ETHANOL.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
+            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(GAMaterials.FishOil.getFluid(6000), GAMaterials.Methanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
+            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(GAMaterials.FishOil.getFluid(6000), Fluids.BIO_ETHANOL.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
+        } else {
+            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(Materials.SeedOil.getFluid(6000), GAMaterials.Methanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
+            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(Materials.SeedOil.getFluid(6000), Materials.Ethanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
+            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(GAMaterials.FishOil.getFluid(6000), GAMaterials.Methanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
+            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).inputs(OreDictUnifier.get(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide)).fluidInputs(GAMaterials.FishOil.getFluid(6000), Materials.Ethanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
+        }
+
+        //Lube Mixer Recipes
+        for (MaterialStack lubeDust : lubeDusts) {
+            DustMaterial dust = (DustMaterial) lubeDust.material;
+            RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(128).EUt(4).inputs(OreDictUnifier.get(OrePrefix.dust, dust)).fluidInputs(Materials.Oil.getFluid(750)).fluidOutputs(Materials.Lubricant.getFluid(750)).buildAndRegister();
+            RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(128).EUt(4).inputs(OreDictUnifier.get(OrePrefix.dust, dust)).fluidInputs(Materials.Creosote.getFluid(750)).fluidOutputs(Materials.Lubricant.getFluid(750)).buildAndRegister();
+            if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true)
+                RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(128).EUt(4).inputs(OreDictUnifier.get(OrePrefix.dust, dust)).fluidInputs(Fluids.SEED_OIL.getFluid(750)).fluidOutputs(Materials.Lubricant.getFluid(750)).buildAndRegister();
+            else
+                RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(128).EUt(4).inputs(OreDictUnifier.get(OrePrefix.dust, dust)).fluidInputs(Materials.SeedOil.getFluid(750)).fluidOutputs(Materials.Lubricant.getFluid(750)).buildAndRegister();
+        }
+
+        List<ItemStack> allSaplings = OreDictionary.getOres("treeSapling").stream()
+                .flatMap(stack -> ModHandler.getAllSubItems(stack).stream())
+                .collect(Collectors.toList());
+
+        //Biomass
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(2880).EUt(3).inputs(MetaItems.PLANT_BALL.getStackForm()).fluidInputs(Fluids.FOR_HONEY.getFluid(180)).fluidOutputs(Materials.Biomass.getFluid(270)).buildAndRegister();
+            for (ItemStack stack : allSaplings)
+                RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(1200).EUt(3).inputs(GTUtility.copyAmount(1, stack)).fluidInputs(Fluids.FOR_HONEY.getFluid(100)).fluidOutputs(Materials.Biomass.getFluid(150)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.POTATO)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.CARROT)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Blocks.CACTUS)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.REEDS)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Blocks.BROWN_MUSHROOM)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Blocks.RED_MUSHROOM)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.BEETROOT)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+        }
+
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(2880).EUt(3).inputs(MetaItems.PLANT_BALL.getStackForm()).fluidInputs(Fluids.JUICE.getFluid(180)).fluidOutputs(Materials.Biomass.getFluid(270)).buildAndRegister();
+            for (ItemStack stack : allSaplings)
+                RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(1200).EUt(3).inputs(GTUtility.copyAmount(1, stack)).fluidInputs(Fluids.JUICE.getFluid(100)).fluidOutputs(Materials.Biomass.getFluid(150)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.POTATO)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.CARROT)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Blocks.CACTUS)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.REEDS)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Blocks.BROWN_MUSHROOM)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Blocks.RED_MUSHROOM)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+            RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.BEETROOT)).fluidInputs(Fluids.JUICE.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
+        }
+
+        //Making Ethylene
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true)
+            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(1200).EUt(120).fluidInputs(Materials.SulfuricAcid.getFluid(1000), Fluids.BIO_ETHANOL.getFluid(1000)).fluidOutputs(GAMaterials.Ethylene.getFluid(1000), GAMaterials.DilutedSulfuricAcid.getFluid(1000)).buildAndRegister();
+        else
+            RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(1200).EUt(120).fluidInputs(Materials.SulfuricAcid.getFluid(1000), Materials.Ethanol.getFluid(1000)).fluidOutputs(GAMaterials.Ethylene.getFluid(1000), GAMaterials.DilutedSulfuricAcid.getFluid(1000)).buildAndRegister();
     }
 }
