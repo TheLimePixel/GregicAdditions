@@ -45,28 +45,17 @@ public class RecipeMapDistillTower<R extends RecipeBuilder<R>> extends RecipeMap
             fluidInputsCount = tmp;
             invertFluids = true;
         }
-        int[] inputSlotGrid = determineSlotsGrid(itemInputsCount);
+        int[] inputSlotGrid = determineSlotsGrid(itemInputsCount + fluidInputsCount);
         int itemSlotsToLeft = inputSlotGrid[0];
         int itemSlotsToDown = inputSlotGrid[1];
         int startInputsX = isOutputs ? 106 : (69 - itemSlotsToLeft * 18);
-        int startInputsY = 32 - (int) (itemSlotsToDown / 2.0 * 18);
+        int startInputsY = 48 - (int) (itemSlotsToDown / 2.0 * 18);
         for (int i = 0; i < itemSlotsToDown; i++) {
             for (int j = 0; j < itemSlotsToLeft; j++) {
                 int slotIndex = i * itemSlotsToLeft + j;
-                addSlot(builder, startInputsX + 18 * j, startInputsY + 18 * i, slotIndex, itemHandler, fluidHandler, invertFluids, isOutputs);
-            }
-        }
-
-        int fitemSlotsToLeft = 3;
-        int fitemSlotsToDown = 4;
-        int fstartInputsX = isOutputs ? 124 : (69 - fitemSlotsToLeft * 18);
-        int fstartInputsY = 32 - (int) (fitemSlotsToDown / 2.0 * 18);
-        for (int i = 0; i < fitemSlotsToDown; i++) {
-            for (int j = 0; j < fitemSlotsToLeft; j++) {
-                int slotIndex = i * fitemSlotsToLeft + j;
-                if (slotIndex >= fluidInputsCount)
-                    continue;
-                addSlot(builder, fstartInputsX + 18 * j, fstartInputsY + 18 * i, slotIndex, itemHandler, fluidHandler, true, isOutputs);
+                if(isOutputs && slotIndex > 0)
+                    slotIndex--;
+                addSlot(builder, startInputsX + 18 * j, startInputsY + 18 * i, slotIndex, itemHandler, fluidHandler, isOutputs && i * itemSlotsToLeft + j > 0 ? true : invertFluids, isOutputs);
             }
         }
     }
