@@ -28,7 +28,7 @@ public class RecipeMapDistillTower<R extends RecipeBuilder<R>> extends RecipeMap
             }
 
         };
-        builder.widget(new ProgressWidget(progressSupplier, 77, 22, 20, 20, GuiTextures.PROGRESS_BAR_ARROW, this.moveType));
+        builder.widget(new ProgressWidget(progressSupplier, 77, 37, 20, 20, GuiTextures.PROGRESS_BAR_ARROW, this.moveType));
         this.addInventorySlotGroup(builder, importItems, importFluids, false);
         this.addInventorySlotGroup(builder, exportItems, exportFluids, true);
         return builder;
@@ -53,7 +53,7 @@ public class RecipeMapDistillTower<R extends RecipeBuilder<R>> extends RecipeMap
         for (int i = 0; i < itemSlotsToDown; i++) {
             for (int j = 0; j < itemSlotsToLeft; j++) {
                 int slotIndex = i * itemSlotsToLeft + j;
-                if(isOutputs && slotIndex > 0)
+                if (isOutputs && slotIndex > 0)
                     slotIndex--;
                 addSlot(builder, startInputsX + 18 * j, startInputsY + 18 * i, slotIndex, itemHandler, fluidHandler, isOutputs && i * itemSlotsToLeft + j > 0 ? true : invertFluids, isOutputs);
             }

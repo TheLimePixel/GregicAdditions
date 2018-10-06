@@ -1,5 +1,6 @@
 package gregicadditions.item;
 
+import gregicadditions.GAConfig;
 import gregicadditions.tools.BendingCylinder;
 import gregicadditions.tools.SmallBendingCylinder;
 import gregtech.api.items.toolitem.ToolMetaItem;
@@ -22,25 +23,28 @@ public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> 
     public void registerRecipes() {
         for (Material material : IngotMaterial.MATERIAL_REGISTRY) {
             if (material instanceof IngotMaterial && !material.hasFlag(DustMaterial.MatFlags.NO_SMASHING)) {
-
                 IngotMaterial toolMaterial = (IngotMaterial) material;
 
-                ModHandler.addShapedRecipe(String.format("cylinder_%s", material.toString()),
-                        ((ToolMetaItem<?>.MetaToolValueItem) GAMetaItems.BENDING_CYLINDER).getStackForm(toolMaterial, null),
-                        "sfh", "XXX", "XXX",
-                        'X', new UnificationEntry(OrePrefix.ingot, toolMaterial));
+                if (GAConfig.GT6.BendingCylinders == true) {
+                    ModHandler.addShapedRecipe(String.format("cylinder_%s", material.toString()),
+                            ((ToolMetaItem<?>.MetaToolValueItem) GAMetaItems.BENDING_CYLINDER).getStackForm(toolMaterial, null),
+                            "sfh", "XXX", "XXX",
+                            'X', new UnificationEntry(OrePrefix.ingot, toolMaterial));
 
-                ModHandler.addShapedRecipe(String.format("small_cylinder_%s", material.toString()),
-                        ((ToolMetaItem<?>.MetaToolValueItem) GAMetaItems.SMALL_BENDING_CYLINDER).getStackForm(toolMaterial, null),
-                        "sfh", "XXX",
-                        'X', new UnificationEntry(OrePrefix.ingot, toolMaterial));
+                    ModHandler.addShapedRecipe(String.format("small_cylinder_%s", material.toString()),
+                            ((ToolMetaItem<?>.MetaToolValueItem) GAMetaItems.SMALL_BENDING_CYLINDER).getStackForm(toolMaterial, null),
+                            "sfh", "XXX",
+                            'X', new UnificationEntry(OrePrefix.ingot, toolMaterial));
+                }
 
-                //GT6 Wrench Recipe
-                if (!OreDictUnifier.get(OrePrefix.plate, material).isEmpty() && ((IngotMaterial) material).toolDurability != 0)
-                    ModHandler.addShapedRecipe(String.format("wrench_%s", material.toString()),
-                            MetaItems.WRENCH.getStackForm(toolMaterial, null),
-                            "XhX", "XXX", " X ",
-                            'X', new UnificationEntry(OrePrefix.plate, toolMaterial));
+                if (GAConfig.GT6.ExpensiveWrenches == true) {
+                    //GT6 Wrench Recipe
+                    if (!OreDictUnifier.get(OrePrefix.plate, material).isEmpty() && ((IngotMaterial) material).toolDurability != 0)
+                        ModHandler.addShapedRecipe(String.format("wrench_%s", material.toString()),
+                                MetaItems.WRENCH.getStackForm(toolMaterial, null),
+                                "XhX", "XXX", " X ",
+                                'X', new UnificationEntry(OrePrefix.plate, toolMaterial));
+                }
             }
         }
     }
