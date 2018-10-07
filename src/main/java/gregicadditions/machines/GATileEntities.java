@@ -59,6 +59,9 @@ public class GATileEntities {
     public static TileEntityCrackerUnit CRACKER_UNIT;
 
     public static TileEntityCokeOven COKE_OVEN;
+    public static TileEntityCokeFluidHatch COKE_FLUID_HATCH;
+    public static TileEntityCokeItemBus COKE_ITEM_BUS;
+
 
     public static void init() {
         CIRCUITASSEMBLER[0] = GregTechAPI.registerMetaTileEntity(2000, new SimpleMachineMetaTileEntity("circuit_assembler.lv", GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES, Textures.ASSEMBLER_OVERLAY, 1));
@@ -302,5 +305,8 @@ public class GATileEntities {
         FUSION_REACTOR[0] = GregTechAPI.registerMetaTileEntity(2504, new TileEntityFusionReactor("fusion_reactor.luv", 6));
         FUSION_REACTOR[1] = GregTechAPI.registerMetaTileEntity(2505, new TileEntityFusionReactor("fusion_reactor.zpm", 7));
         FUSION_REACTOR[2] = GregTechAPI.registerMetaTileEntity(2506, new TileEntityFusionReactor("fusion_reactor.uv", 8));
+
+        COKE_FLUID_HATCH = GregTechAPI.registerMetaTileEntity(2507, new TileEntityCokeFluidHatch("coke_fluid_hatch"));
+        COKE_ITEM_BUS = GregTechAPI.registerMetaTileEntity(2508, new TileEntityCokeItemBus("coke_item_bus"));
     }
 }

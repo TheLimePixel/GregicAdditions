@@ -8,6 +8,7 @@ import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.recipes.GARecipeMaps;
 import gregtech.api.capability.impl.FluidTankList;
+import gregtech.api.capability.impl.ItemHandlerList;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.gui.widgets.ProgressWidget;
@@ -15,11 +16,13 @@ import gregtech.api.gui.widgets.SlotWidget;
 import gregtech.api.gui.widgets.TankWidget;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
+import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.MultiblockControllerBase;
 import gregtech.api.multiblock.BlockPattern;
 import gregtech.api.multiblock.FactoryBlockPattern;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.render.ICubeRenderer;
+import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -32,6 +35,7 @@ import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.ArrayList;
@@ -52,6 +56,15 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
 
     @Override
     protected void updateFormedValid() {
+        FluidTankList fluidOutput = new FluidTankList(this.getAbilities(MultiblockAbility.EXPORT_FLUIDS));
+        if(exportFluids.getTankAt(0).getFluidAmount() > 0 && fluidOutput.getFluidTanks().size() > 0) {
+            exportFluids.drain(fluidOutput.fill(exportFluids.getTankAt(0).getFluid(), true), true);
+        }
+        ItemHandlerList itemOutput = new ItemHandlerList(this.getAbilities(MultiblockAbility.EXPORT_ITEMS));
+        if(!exportItems.getStackInSlot(0).isEmpty() && itemOutput.getSlots() > 0) {
+            exportItems.setStackInSlot(0, ItemHandlerHelper.insertItemStacked(itemOutput, exportItems.getStackInSlot(0), false));
+        }
+
         if (maxProgressDuration == 0) {
             if (tryPickNewRecipe()) {
                 if (wasActiveAndNeedUpdate) {
@@ -216,7 +229,9 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
                 .aisle("XXX", "XXX", "XXX")
                 .aisle("XXX", "X#X", "XXX")
                 .aisle("XXX", "XYX", "XXX")
-                .where('X', statePredicate(getCasingState()))
+                .where('X', statePredicate(getCasingState()).or(tilePredicate((state, tile) -> {
+                    return tile.metaTileEntityId.equals(GATileEntities.COKE_FLUID_HATCH.metaTileEntityId) || tile.metaTileEntityId.equals(GATileEntities.COKE_ITEM_BUS.metaTileEntityId);
+                })))
                 .where('#', blockPredicate(Blocks.AIR))
                 .where('Y', selfPredicate())
                 .build();
@@ -241,4 +256,5 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
                 .bindPlayerInventory(entityPlayer.inventory, GuiTextures.BRONZE_SLOT)
                 .build(getHolder(), entityPlayer);
     }
+
 }
