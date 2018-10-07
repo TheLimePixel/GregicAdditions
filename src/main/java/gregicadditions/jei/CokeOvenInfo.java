@@ -24,11 +24,13 @@ public class CokeOvenInfo extends MultiblockInfoPage {
     public List<MultiblockShapeInfo> getMatchingShapes() {
         MultiblockShapeInfo shapeInfo = MultiblockShapeInfo.builder() //Aisles go from back to front
                 .aisle("XXX", "XXX", "XXX")
-                .aisle("XXX", "X#X", "XXX")
+                .aisle("XHX", "X#X", "XBX")
                 .aisle("XXX", "XYX", "XXX")
                 .where('X', GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.COKE_OVEN_BRICKS))
                 .where('#', Blocks.AIR.getDefaultState())
                 .where('Y', GATileEntities.COKE_OVEN, EnumFacing.SOUTH)
+                .where('H', GATileEntities.COKE_FLUID_HATCH, EnumFacing.WEST)
+                .where('B', GATileEntities.COKE_ITEM_BUS, EnumFacing.EAST)
                 .build();
         return Lists.newArrayList(shapeInfo);
     }

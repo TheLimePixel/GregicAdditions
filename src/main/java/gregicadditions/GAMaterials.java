@@ -295,5 +295,7 @@ public class GAMaterials {
         OrePrefix.gemFlawed.setIgnored(LigniteCoke);
         OrePrefix.gemFlawless.setIgnored(LigniteCoke);
         OrePrefix.gemExquisite.setIgnored(LigniteCoke);
+        
+        Materials.Magnetite.setDirectSmelting(Materials.Iron);
     }
 }
