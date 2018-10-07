@@ -35,7 +35,7 @@ public class GAMachineRecipeRemoval {
             new MaterialStack(Materials.Lead, 4L)
     };
 
-    public static void postInit() {
+    public static void init() {
         for (Material m : IngotMaterial.MATERIAL_REGISTRY) {
 
             //Foil recipes
