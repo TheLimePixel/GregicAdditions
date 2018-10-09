@@ -653,4 +653,12 @@ metaitem.rubber_drop.name=Sticky Resin
 tile.metal_casing.primitive_bricks.name=Firebricks
 gregtech.machine.primitive_blast_furnace.bronze.tooltip=Structure: 3x3x4 (WxLxH) The entire structure is made out of Firebricks (32 in total)./nFirst Layer is a 3x3 square./nSecond, third, and fourth layers are hollow, without the middle block./nThis block goes on the middle of any side in the second layer./nThe sides of Blast Furnaces can be shared, if the side does not have a controller./n
 
-metaitem.tool.test.name=%s Test Tool
+gregtech.machine.drum.wood.name=Wooden Barrel
+gregtech.machine.drum.bronze.name=Bronze Drum
+gregtech.machine.drum.steel.name=Steel Drum
+gregtech.machine.drum.stainless_steel.name=Stainless Steel Drum
+gregtech.machine.drum.titanium.name=Titanium Drum
+gregtech.machine.drum.tungstensteel.name=Tungstensteel Drum
+
+fluid.tile.water=Water
+fluid.tile.lava=Lava

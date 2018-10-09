@@ -1,5 +1,6 @@
 package gregicadditions;
 
+import gregicadditions.machines.DrumRenderer;
 import gregtech.api.gui.resources.TextureArea;
 import gregtech.api.render.OrientedOverlayRenderer;
 import gregtech.api.render.OrientedOverlayRenderer.OverlayFace;
@@ -21,6 +22,9 @@ public class GATextures {
     public static OrientedOverlayRenderer MASS_FAB_OVERLAY;
 
     public static OrientedOverlayRenderer FUSION_REACTOR_OVERLAY;
+
+    public static DrumRenderer BARREL = new DrumRenderer("storage/drums/barrel");
+    public static DrumRenderer DRUM = new DrumRenderer("storage/drums/drum");
 
     //Gui Textures
     public static final TextureArea BRONZE_FLUID_SLOT = TextureArea.fullImage("textures/gui/steam/fluid_slot.png");

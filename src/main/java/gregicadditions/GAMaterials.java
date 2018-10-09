@@ -282,6 +282,10 @@ public class GAMaterials {
         Materials.GreenSapphire.addFlag(DustMaterial.MatFlags.GENERATE_PLATE);
         Materials.GreenSapphire.addFlag(GemMaterial.MatFlags.GENERATE_LENSE);
 
+        Materials.Iron.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
+        Materials.Steel.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
+        Materials.StainlessSteel.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
+
         Materials.Salt.addOreByProducts(Materials.Borax);
         Materials.RockSalt.addOreByProducts(Materials.Borax);
         Materials.Lepidolite.addOreByProducts(Materials.Boron);

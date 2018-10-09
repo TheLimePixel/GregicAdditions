@@ -7,6 +7,7 @@ import gregtech.api.metatileentity.SimpleGeneratorMetaTileEntity;
 import gregtech.api.metatileentity.SimpleMachineMetaTileEntity;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.render.Textures;
+import gregtech.api.unification.material.Materials;
 
 public class GATileEntities {
     public static SimpleMachineMetaTileEntity[] CIRCUITASSEMBLER = new SimpleMachineMetaTileEntity[8];
@@ -61,6 +62,13 @@ public class GATileEntities {
     public static TileEntityCokeOven COKE_OVEN;
     public static TileEntityCokeFluidHatch COKE_FLUID_HATCH;
     public static TileEntityCokeItemBus COKE_ITEM_BUS;
+
+    public static TileEntityDrum WOODEN_DRUM;
+    public static TileEntityDrum BRONZE_DRUM;
+    public static TileEntityDrum STEEL_DRUM;
+    public static TileEntityDrum STAINLESS_STEEL_DRUM;
+    public static TileEntityDrum TITANIUM_DRUM;
+    public static TileEntityDrum TUNGSTENSTEEL_DRUM;
 
 
     public static void init() {
@@ -308,5 +316,12 @@ public class GATileEntities {
 
         COKE_FLUID_HATCH = GregTechAPI.registerMetaTileEntity(2507, new TileEntityCokeFluidHatch("coke_fluid_hatch"));
         COKE_ITEM_BUS = GregTechAPI.registerMetaTileEntity(2508, new TileEntityCokeItemBus("coke_item_bus"));
+
+        WOODEN_DRUM = GregTechAPI.registerMetaTileEntity(2195, new TileEntityDrum("drum.wood", Materials.Wood, 16000));
+        BRONZE_DRUM = GregTechAPI.registerMetaTileEntity(2196, new TileEntityDrum("drum.bronze", Materials.Bronze, 32000));
+        STEEL_DRUM = GregTechAPI.registerMetaTileEntity(2197, new TileEntityDrum("drum.steel", Materials.Steel, 64000));
+        STAINLESS_STEEL_DRUM = GregTechAPI.registerMetaTileEntity(2198, new TileEntityDrum("drum.stainless_steel", Materials.StainlessSteel, 96000));
+        TITANIUM_DRUM = GregTechAPI.registerMetaTileEntity(2199, new TileEntityDrum("drum.titanium", Materials.Titanium, 128000));
+        TUNGSTENSTEEL_DRUM = GregTechAPI.registerMetaTileEntity(2200, new TileEntityDrum("drum.tungstensteel", Materials.TungstenSteel, 192000));
     }
 }
