@@ -283,6 +283,7 @@ public class GAMaterials {
         Materials.GreenSapphire.addFlag(GemMaterial.MatFlags.GENERATE_LENSE);
 
         Materials.Iron.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
+        Materials.Bronze.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
         Materials.Steel.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
         Materials.StainlessSteel.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
 

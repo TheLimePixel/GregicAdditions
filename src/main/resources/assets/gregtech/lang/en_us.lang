@@ -669,5 +669,12 @@ gregtech.machine.drum.stainless_steel.name=Stainless Steel Drum
 gregtech.machine.drum.titanium.name=Titanium Drum
 gregtech.machine.drum.tungstensteel.name=Tungstensteel Drum
 
+gregtech.machine.crate.wood.name=Wooden Crate
+gregtech.machine.crate.bronze.name=Bronze Crate
+gregtech.machine.crate.steel.name=Steel Crate
+gregtech.machine.crate.stainless_steel.name=Stainless Steel Crate
+gregtech.machine.crate.titanium.name=Titanium Crate
+gregtech.machine.crate.tungstensteel.name=Tungstensteel Crate
+
 fluid.tile.water=Water
 fluid.tile.lava=Lava

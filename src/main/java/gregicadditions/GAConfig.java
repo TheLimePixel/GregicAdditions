@@ -32,6 +32,10 @@ public class GAConfig {
         @Config.Comment("Set this to false to enable the GT5 Wrench recipes")
         @Config.Name("Wrenches are crafted with Plates instead of Ingots")
         public boolean ExpensiveWrenches = true;
+
+        @Config.Comment("Set this to false to disable Drums")
+        @Config.Name("Should Drums be registered?")
+        public boolean registerDums = true;
     }
 
     @Config.Comment("Config options for GT5U features")
@@ -78,5 +82,9 @@ public class GAConfig {
         @Config.Comment("Set this to false to disable the Forestry Integration")
         @Config.Name("Forestry's Ethanol and Seed Oil are used in recipes instead of GTCE's")
         public boolean ForestryIntegration = true;
+
+        @Config.Comment("Set this to false to disable Crates")
+        @Config.Name("Should Crates be registered?")
+        public boolean registerCrates = true;
     }
 }

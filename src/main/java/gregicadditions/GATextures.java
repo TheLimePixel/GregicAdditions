@@ -1,7 +1,9 @@
 package gregicadditions;
 
+import gregicadditions.machines.CrateRenderer;
 import gregicadditions.machines.DrumRenderer;
 import gregtech.api.gui.resources.TextureArea;
+import gregtech.api.render.ChestRenderer;
 import gregtech.api.render.OrientedOverlayRenderer;
 import gregtech.api.render.OrientedOverlayRenderer.OverlayFace;
 import gregtech.api.render.SimpleCubeRenderer;
@@ -25,6 +27,9 @@ public class GATextures {
 
     public static DrumRenderer BARREL = new DrumRenderer("storage/drums/barrel");
     public static DrumRenderer DRUM = new DrumRenderer("storage/drums/drum");
+
+    public static CrateRenderer WOODEN_CRATE = new CrateRenderer("storage/crates/wooden_crate");
+    public static CrateRenderer METAL_CRATE = new CrateRenderer("storage/crates/metal_crate");
 
     //Gui Textures
     public static final TextureArea BRONZE_FLUID_SLOT = TextureArea.fullImage("textures/gui/steam/fluid_slot.png");
