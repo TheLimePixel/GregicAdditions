@@ -8,6 +8,8 @@ import gregtech.api.metatileentity.SimpleMachineMetaTileEntity;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.render.Textures;
 import gregtech.api.unification.material.Materials;
+import gregtech.common.metatileentities.electric.MetaTileEntityAirCollector;
+import gregtech.common.metatileentities.electric.MetaTileEntityPump;
 
 public class GATileEntities {
     public static SimpleMachineMetaTileEntity[] CIRCUITASSEMBLER = new SimpleMachineMetaTileEntity[8];
@@ -70,6 +72,8 @@ public class GATileEntities {
     public static TileEntityDrum TITANIUM_DRUM;
     public static TileEntityDrum TUNGSTENSTEEL_DRUM;
 
+    public static MetaTileEntityPump[] PUMP = new MetaTileEntityPump[8];
+    public static MetaTileEntityAirCollector[] AIR_COLLECTOR = new MetaTileEntityAirCollector[8];
 
     public static void init() {
         CIRCUITASSEMBLER[0] = GregTechAPI.registerMetaTileEntity(2000, new SimpleMachineMetaTileEntity("circuit_assembler.lv", GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES, Textures.ASSEMBLER_OVERLAY, 1));
@@ -323,5 +327,13 @@ public class GATileEntities {
         STAINLESS_STEEL_DRUM = GregTechAPI.registerMetaTileEntity(2198, new TileEntityDrum("drum.stainless_steel", Materials.StainlessSteel, 96000));
         TITANIUM_DRUM = GregTechAPI.registerMetaTileEntity(2199, new TileEntityDrum("drum.titanium", Materials.Titanium, 128000));
         TUNGSTENSTEEL_DRUM = GregTechAPI.registerMetaTileEntity(2200, new TileEntityDrum("drum.tungstensteel", Materials.TungstenSteel, 192000));
+
+        PUMP[4] = GregTechAPI.registerMetaTileEntity(2201, new MetaTileEntityPump("pump.iv", 5));
+        PUMP[5] = GregTechAPI.registerMetaTileEntity(2202, new MetaTileEntityPump("pump.luv", 6));
+        PUMP[6] = GregTechAPI.registerMetaTileEntity(2203, new MetaTileEntityPump("pump.zpm", 7));
+        PUMP[7] = GregTechAPI.registerMetaTileEntity(2204, new MetaTileEntityPump("pump.uv", 8));
+
+        AIR_COLLECTOR[4] = GregTechAPI.registerMetaTileEntity(2205, new MetaTileEntityAirCollector("air_collector.iv", 5));
+        AIR_COLLECTOR[5] = GregTechAPI.registerMetaTileEntity(2206, new MetaTileEntityAirCollector("air_collector.luv", 6));
     }
 }

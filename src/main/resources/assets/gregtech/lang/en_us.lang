@@ -405,6 +405,15 @@ gregtech.machine.replicator.luv.name=Advanced Replicator V
 gregtech.machine.replicator.zpm.name=Advanced Replicator VI
 gregtech.machine.replicator.uv.name=Advanced Replicator VII
 
+gregtech.machine.pump.iv.name=Advanced Pump IV
+gregtech.machine.pump.luv.name=Advanced Pump V
+gregtech.machine.pump.zpm.name=Advanced Pump VI
+gregtech.machine.pump.uv.name=Advanced Pump VII
+
+gregtech.machine.air_collector.ev.name=Advanced Air Collector III
+gregtech.machine.air_collector.iv.name=Atmosphere Collector
+gregtech.machine.air_collector.luv.name=Atmosphere Collector
+
 gregtech.machine.replicator.tooltip=Producing The Purest Of Elements
 
 gregtech.machine.fusion_reactor.luv.name=Fusion Reactor Computer Mark 1
