@@ -731,7 +731,7 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(80).EUt(30).input(OrePrefix.dust, GAMaterials.Quicklime).fluidInputs(Materials.CarbonDioxide.getFluid(1000)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Calcite)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(80).EUt(30).input(OrePrefix.dust, GAMaterials.Magnesia).fluidInputs(Materials.CarbonDioxide.getFluid(1000)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Magnesite)).buildAndRegister();
 
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(240).EUt(30).input(OrePrefix.dust, Materials.Calcite).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.Quicklime)).fluidOutputs(Materials.CarbonDioxide.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(240).EUt(30).input(OrePrefix.dust, Materials.Calcite).notConsumable(new IntCircuitIngredient(1)).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.Quicklime)).fluidOutputs(Materials.CarbonDioxide.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(240).EUt(30).input(OrePrefix.dust, Materials.Magnesite).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.Magnesia)).fluidOutputs(Materials.CarbonDioxide.getFluid(1000)).buildAndRegister();
 
         //Circuit Rabbit Hole - Layer 1
@@ -999,7 +999,7 @@ public class GARecipeAddition {
         RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(80).EUt(16).input(OrePrefix.dust, Materials.Calcium).fluidInputs(GAMaterials.AceticAcid.getFluid(2000)).fluidOutputs(GAMaterials.CalciumAcetate.getFluid(2000)).buildAndRegister();
         RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(240).EUt(16).input(OrePrefix.dust, Materials.Calcite).fluidInputs(GAMaterials.AceticAcid.getFluid(2000)).fluidOutputs(GAMaterials.CalciumAcetate.getFluid(2000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(50).EUt(600).input(OrePrefix.dust, Materials.Aluminium, 4).fluidInputs(GAMaterials.IndiumConcentrate.getFluid(8000)).outputs(OreDictUnifier.get(OrePrefix.dustTiny, Materials.Indium)).fluidOutputs(GAMaterials.LeadZincSolution.getFluid(8000)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(30).EUt(240).fluidInputs(Materials.NitrogenDioxide.getFluid(3000), Materials.Water.getFluid(1000)).fluidOutputs(GAMaterials.NitricOxide.getFluid(1000), Materials.NitricAcid.getFluid(2000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(30).EUt(240).notConsumable(new IntCircuitIngredient(3)).fluidInputs(Materials.NitrogenDioxide.getFluid(3000), Materials.Water.getFluid(1000)).fluidOutputs(GAMaterials.NitricOxide.getFluid(1000), Materials.NitricAcid.getFluid(2000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(320).EUt(30).notConsumable(new IntCircuitIngredient(1)).fluidInputs(Materials.Oxygen.getFluid(10000), GAMaterials.Ammonia.getFluid(4000)).fluidOutputs(GAMaterials.NitricOxide.getFluid(4000), Materials.Water.getFluid(6000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(180).EUt(30).notConsumable(new IntCircuitIngredient(3)).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.AceticAcid.getFluid(1000), GAMaterials.Ethylene.getFluid(1000)).fluidOutputs(Materials.Water.getFluid(1000), GAMaterials.VinylAcetate.getFluid(1000)).buildAndRegister();
         RecipeMaps.ELECTROLYZER_RECIPES.recipeBuilder().duration(200).EUt(30).input(OrePrefix.dust, Materials.Sphalerite, 2).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Zinc), OreDictUnifier.get(OrePrefix.dust, Materials.Sulfur)).chancedOutput(OreDictUnifier.get(OrePrefix.dustTiny, Materials.Gallium), 2500).buildAndRegister();
@@ -1048,7 +1048,7 @@ public class GARecipeAddition {
 
         //Fuel Rabbit Hole - Layer 3
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(320).EUt(30).notConsumable(new IntCircuitIngredient(2)).fluidInputs(Materials.Oxygen.getFluid(4000), GAMaterials.Ammonia.getFluid(1000)).fluidOutputs(Materials.NitricAcid.getFluid(1000), Materials.Water.getFluid(1000)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(240).EUt(30).fluidInputs(Materials.Water.getFluid(1000), Materials.Oxygen.getFluid(1000), Materials.NitrogenDioxide.getFluid(2000)).fluidOutputs(Materials.NitricAcid.getFluid(2000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(240).EUt(30).notConsumable(new IntCircuitIngredient(4)).fluidInputs(Materials.Water.getFluid(1000), Materials.Oxygen.getFluid(1000), Materials.NitrogenDioxide.getFluid(2000)).fluidOutputs(Materials.NitricAcid.getFluid(2000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(320).EUt(480).notConsumable(new IntCircuitIngredient(24)).fluidInputs(Materials.Oxygen.getFluid(4000), Materials.Nitrogen.getFluid(1000), Materials.Hydrogen.getFluid(3000)).fluidOutputs(Materials.NitricAcid.getFluid(1000), Materials.Water.getFluid(1000)).buildAndRegister();
 
         //Assline Recipes

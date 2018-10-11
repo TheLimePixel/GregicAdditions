@@ -343,8 +343,10 @@ public class GATileEntities {
         PUMP[6] = GregTechAPI.registerMetaTileEntity(2203, new MetaTileEntityPump("pump.zpm", 7));
         PUMP[7] = GregTechAPI.registerMetaTileEntity(2204, new MetaTileEntityPump("pump.uv", 8));
 
-        AIR_COLLECTOR[4] = GregTechAPI.registerMetaTileEntity(2205, new MetaTileEntityAirCollector("air_collector.iv", 5));
-        AIR_COLLECTOR[5] = GregTechAPI.registerMetaTileEntity(2206, new MetaTileEntityAirCollector("air_collector.luv", 6));
+        if (GAConfig.Misc.highTierCollector==true) {
+            AIR_COLLECTOR[4] = GregTechAPI.registerMetaTileEntity(2205, new MetaTileEntityAirCollector("air_collector.iv", 5));
+            AIR_COLLECTOR[5] = GregTechAPI.registerMetaTileEntity(2206, new MetaTileEntityAirCollector("air_collector.luv", 6));
+        }
 
         if (GAConfig.Misc.registerCrates == true) {
             WOODEN_CRATE = GregTechAPI.registerMetaTileEntity(2207, new TileEntityCrate("crate.wood", Materials.Wood, 36));

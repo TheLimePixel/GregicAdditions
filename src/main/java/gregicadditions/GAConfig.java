@@ -86,5 +86,9 @@ public class GAConfig {
         @Config.Comment("Set this to false to disable Crates")
         @Config.Name("Should Crates be registered?")
         public boolean registerCrates = true;
+
+        @Config.Comment("Set this to false to disable the high tier Air Collectors")
+        @Config.Name("Air Collector have IV and LuV version")
+        public boolean highTierCollector = true;
     }
 }
