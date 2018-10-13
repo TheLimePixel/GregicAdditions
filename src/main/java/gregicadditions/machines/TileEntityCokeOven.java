@@ -22,7 +22,6 @@ import gregtech.api.multiblock.BlockPattern;
 import gregtech.api.multiblock.FactoryBlockPattern;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.render.ICubeRenderer;
-import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -56,12 +55,12 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
 
     @Override
     protected void updateFormedValid() {
-        FluidTankList fluidOutput = new FluidTankList(this.getAbilities(MultiblockAbility.EXPORT_FLUIDS));
-        if(exportFluids.getTankAt(0).getFluidAmount() > 0 && fluidOutput.getFluidTanks().size() > 0) {
+        FluidTankList fluidOutput = new FluidTankList(true, this.getAbilities(MultiblockAbility.EXPORT_FLUIDS));
+        if (exportFluids.getTankAt(0).getFluidAmount() > 0 && fluidOutput.getFluidTanks().size() > 0) {
             exportFluids.drain(fluidOutput.fill(exportFluids.getTankAt(0).getFluid(), true), true);
         }
         ItemHandlerList itemOutput = new ItemHandlerList(this.getAbilities(MultiblockAbility.EXPORT_ITEMS));
-        if(!exportItems.getStackInSlot(0).isEmpty() && itemOutput.getSlots() > 0) {
+        if (!exportItems.getStackInSlot(0).isEmpty() && itemOutput.getSlots() > 0) {
             exportItems.setStackInSlot(0, ItemHandlerHelper.insertItemStacked(itemOutput, exportItems.getStackInSlot(0), false));
         }
 
@@ -220,7 +219,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
 
     @Override
     protected FluidTankList createExportFluidHandler() {
-        return new FluidTankList(new FluidTank(64000));
+        return new FluidTankList(true, new FluidTank(64000));
     }
 
     @Override

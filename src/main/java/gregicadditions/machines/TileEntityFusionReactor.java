@@ -142,9 +142,9 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 
     private void initializeAbilities() {
         this.importItems = new ItemHandlerList(this.getAbilities(MultiblockAbility.IMPORT_ITEMS));
-        this.importFluids = new FluidTankList(this.getAbilities(MultiblockAbility.IMPORT_FLUIDS));
+        this.importFluids = new FluidTankList(true, this.getAbilities(MultiblockAbility.IMPORT_FLUIDS));
         this.exportItems = new ItemHandlerList(this.getAbilities(MultiblockAbility.EXPORT_ITEMS));
-        this.exportFluids = new FluidTankList(this.getAbilities(MultiblockAbility.EXPORT_FLUIDS));
+        this.exportFluids = new FluidTankList(true, this.getAbilities(MultiblockAbility.EXPORT_FLUIDS));
         this.inputEnergyContainers = new EnergyContainerList(this.getAbilities(this.shouldUseEnergyOutputs() ? MultiblockAbility.OUTPUT_ENERGY : MultiblockAbility.INPUT_ENERGY));
         this.energyContainer = new EnergyContainerHandler(this, getMaxEU(), GTValues.V[tier], 0, 0, 0) {
             public String getName() {
