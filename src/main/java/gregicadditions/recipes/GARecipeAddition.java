@@ -447,8 +447,8 @@ public class GARecipeAddition {
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(600).EUt(3840).input(OrePrefix.valueOf("circuitGA"), Tier.Elite, 2).inputs(OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.Tungsten, 2), OreDictUnifier.get(OrePrefix.gem, Materials.EnderEye)).fluidInputs(Materials.Osmium.getFluid(576)).outputs(MetaItems.EMITTER_IV.getStackForm()).buildAndRegister();
 
         //Coke Oven Recipes
-        GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).inputs(CountableIngredient.from(OreDictUnifier.get(OrePrefix.gem, Materials.Coal))).outputs(OreDictUnifier.get(OrePrefix.gem, GAMaterials.Coke)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
-        GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).inputs(CountableIngredient.from(OreDictUnifier.get(OrePrefix.gem, Materials.Lignite))).outputs(OreDictUnifier.get(OrePrefix.gem, GAMaterials.LigniteCoke)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
+        GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).input(OrePrefix.gem, Materials.Coal).outputs(OreDictUnifier.get(OrePrefix.gem, GAMaterials.Coke)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
+        GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).input(OrePrefix.gem, Materials.Lignite).outputs(OreDictUnifier.get(OrePrefix.gem, GAMaterials.LigniteCoke)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
         GARecipeMaps.COKE_OVEN_RECIPES.recipeBuilder().duration(1800).input(OrePrefix.log, Materials.Wood).outputs(new ItemStack(Items.COAL, 1, 1)).fluidOutputs(Materials.Creosote.getFluid(500)).buildAndRegister();
 
         //Pyrolise Oven Recipes
