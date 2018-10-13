@@ -1,6 +1,7 @@
 package gregicadditions.recipes;
 
 import forestry.core.fluids.Fluids;
+import gregicadditions.GAConfig;
 import gregicadditions.GAMaterials;
 import gregtech.api.GTValues;
 import gregtech.api.recipes.RecipeMaps;
@@ -54,18 +55,18 @@ public class GeneratorFuels {
         //Diesel Generator Fluids
         FuelLoader.registerDieselGeneratorFuel(GAMaterials.FishOil.getFluid(16), 1, GTValues.LV);
         FuelLoader.registerDieselGeneratorFuel(Materials.BioFuel.getFluid(16), 3, GTValues.LV);
-        FuelLoader.registerDieselGeneratorFuel(Materials.Creosote.getFluid(4), 1, GTValues.LV);
         FuelLoader.registerDieselGeneratorFuel(Materials.Oil.getFluid(2), 1, GTValues.LV);
         FuelLoader.registerDieselGeneratorFuel(Materials.SulfuricLightFuel.getFluid(4), 5, GTValues.LV);
         FuelLoader.registerDieselGeneratorFuel(GAMaterials.Methanol.getFluid(8), 21, GTValues.LV);
         FuelLoader.registerDieselGeneratorFuel(GAMaterials.RocketFuel.getFluid(2), 7, GTValues.LV);
-        FuelLoader.registerDieselGeneratorFuel(Materials.Ethanol.getFluid(1), 6, GTValues.LV);
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true)
+            FuelLoader.registerDieselGeneratorFuel(Fluids.BIO_ETHANOL.getFluid(1), 6, GTValues.LV);
+        else
+            FuelLoader.registerDieselGeneratorFuel(Materials.Ethanol.getFluid(1), 6, GTValues.LV);
         FuelLoader.registerDieselGeneratorFuel(GAMaterials.BioDiesel.getFluid(1), 8, GTValues.LV);
         FuelLoader.registerDieselGeneratorFuel(Materials.LightFuel.getFluid(32), 305, GTValues.LV);
         FuelLoader.registerDieselGeneratorFuel(Materials.Fuel.getFluid(1), 15, GTValues.LV);
         FuelLoader.registerDieselGeneratorFuel(Materials.NitroFuel.getFluid(2), 45, GTValues.LV);
-        if (Loader.isModLoaded("forestry"))
-            FuelLoader.registerDieselGeneratorFuel(Fluids.BIO_ETHANOL.getFluid(1), 6, GTValues.LV);
 
         //Naquadah Reactor
         registerNaquadahReactorFuel(Materials.NaquadahEnriched.getFluid(1), 750, GTValues.LV);
@@ -79,11 +80,13 @@ public class GeneratorFuels {
 
         //Smefuels
         FuelLoader.registerSemiFluidGeneratorFuel(GAMaterials.FishOil.getFluid(16), 1, GTValues.LV);
-        FuelLoader.registerSemiFluidGeneratorFuel(Materials.SeedOil.getFluid(16), 1, GTValues.LV);
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true)
+            FuelLoader.registerSemiFluidGeneratorFuel(Fluids.SEED_OIL.getFluid(16), 1, GTValues.LV);
+        else
+            FuelLoader.registerSemiFluidGeneratorFuel(Materials.SeedOil.getFluid(16), 1, GTValues.LV);
         FuelLoader.registerSemiFluidGeneratorFuel(Materials.Creosote.getFluid(4), 1, GTValues.LV);
         FuelLoader.registerSemiFluidGeneratorFuel(Materials.Biomass.getFluid(4), 1, GTValues.LV);
         FuelLoader.registerSemiFluidGeneratorFuel(Materials.OilLight.getFluid(8), 5, GTValues.LV);
-        FuelLoader.registerSemiFluidGeneratorFuel(Materials.Oil.getFluid(8), 5, GTValues.LV);
         FuelLoader.registerSemiFluidGeneratorFuel(Materials.OilMedium.getFluid(16), 15, GTValues.LV);
         FuelLoader.registerSemiFluidGeneratorFuel(Materials.OilHeavy.getFluid(4), 5, GTValues.LV);
         FuelLoader.registerSemiFluidGeneratorFuel(Materials.SulfuricHeavyFuel.getFluid(4), 5, GTValues.LV);
