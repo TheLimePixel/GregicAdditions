@@ -254,22 +254,6 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{MetaItems.CIRCUIT_ELITE.getStackForm(4), OreDictUnifier.get(OrePrefix.dust, Materials.NetherStar)}, new FluidStack[]{Materials.Osmium.getFluid(2304)});
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{MetaItems.CIRCUIT_MASTER.getStackForm(4), MetaItems.QUANTUM_STAR.getStackForm()}, new FluidStack[]{Materials.Osmium.getFluid(4608)});
 
-        //Remove Old Fuels
-        removeRecipesByInputs(RecipeMaps.GAS_TURBINE_FUELS, Materials.Methane.getFluid(60));
-        removeRecipesByInputs(RecipeMaps.GAS_TURBINE_FUELS, Materials.NaturalGas.getFluid(120));
-        removeRecipesByInputs(RecipeMaps.GAS_TURBINE_FUELS, Materials.LPG.getFluid(24));
-        removeRecipesByInputs(RecipeMaps.GAS_TURBINE_FUELS, Materials.Hydrogen.getFluid(120));
-        removeRecipesByInputs(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.BioFuel.getFluid(240));
-        removeRecipesByInputs(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.Fuel.getFluid(12));
-        removeRecipesByInputs(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.HeavyFuel.getFluid(13));
-        removeRecipesByInputs(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.SulfuricHeavyFuel.getFluid(48));
-        removeRecipesByInputs(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.SulfuricNaphtha.getFluid(12));
-        removeRecipesByInputs(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.Ethanol.getFluid(120));
-        removeRecipesByInputs(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.NitroFuel.getFluid(24));
-        removeRecipesByInputs(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.SulfuricLightFuel.getFluid(48));
-        removeRecipesByInputs(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.Naphtha.getFluid(12));
-        removeRecipesByInputs(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.LightFuel.getFluid(12));
-
         //Star Recipes
         removeRecipesByInputs(RecipeMaps.AUTOCLAVE_RECIPES,
                 new ItemStack[]{new ItemStack(Items.NETHER_STAR)},

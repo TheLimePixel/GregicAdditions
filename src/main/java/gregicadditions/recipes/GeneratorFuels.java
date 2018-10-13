@@ -2,59 +2,105 @@ package gregicadditions.recipes;
 
 import forestry.core.fluids.Fluids;
 import gregicadditions.GAMaterials;
+import gregtech.api.GTValues;
 import gregtech.api.recipes.RecipeMaps;
+import gregtech.api.recipes.machines.FuelRecipeMap;
+import gregtech.api.recipes.recipes.FuelRecipe;
 import gregtech.api.unification.material.Materials;
+import gregtech.loaders.recipe.FuelLoader;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Loader;
 
 public class GeneratorFuels {
     public static void init() {
+        //Removal
+        removeFuelRecipe(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.BioFuel.getFluid(2));
+        removeFuelRecipe(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.LightFuel.getFluid(1));
+        removeFuelRecipe(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.LightFuel.getFluid(1));
+        removeFuelRecipe(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.Fuel.getFluid(1));
+        removeFuelRecipe(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.Ethanol.getFluid(2));
+        removeFuelRecipe(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.NitroFuel.getFluid(1));
+        removeFuelRecipe(RecipeMaps.DIESEL_GENERATOR_FUELS, Materials.Steam.getFluid(32));
+        removeFuelRecipe(RecipeMaps.GAS_TURBINE_FUELS, Materials.Hydrogen.getFluid(1));
+        removeFuelRecipe(RecipeMaps.GAS_TURBINE_FUELS, Materials.Methane.getFluid(1));
+        removeFuelRecipe(RecipeMaps.GAS_TURBINE_FUELS, Materials.LPG.getFluid(1));
+        removeFuelRecipe(RecipeMaps.GAS_TURBINE_FUELS, Materials.NaturalGas.getFluid(1));
+        removeFuelRecipe(RecipeMaps.SEMI_FLUID_GENERATOR_FUELS, Materials.Creosote.getFluid(2));
+
         //Gas Turbine Fuels
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(Materials.NaturalGas.getFluid(200)).EUt(-32).duration(125).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(Materials.Hydrogen.getFluid(200)).EUt(-32).duration(125).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.CarbonMonoxde.getFluid(200)).EUt(-32).duration(150).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.WoodGas.getFluid(200)).EUt(-32).duration(150).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(Materials.SulfuricGas.getFluid(200)).EUt(-32).duration(155).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(Materials.SulfuricNaphtha.getFluid(200)).EUt(-32).duration(250).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.BioGas.getFluid(200)).EUt(-32).duration(250).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(Materials.Methane.getFluid(200)).EUt(-32).duration(650).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.Ethylene.getFluid(200)).EUt(-32).duration(800).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(Materials.Gas.getFluid(200)).EUt(-32).duration(1000).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.Ethane.getFluid(200)).EUt(-32).duration(1050).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.Propene.getFluid(200)).EUt(-32).duration(1200).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.Butadiene.getFluid(200)).EUt(-32).duration(1288).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.Propane.getFluid(200)).EUt(-32).duration(1450).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.RocketFuel.getFluid(200)).EUt(-32).duration(1563).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.Butene.getFluid(200)).EUt(-32).duration(1600).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.Phenol.getFluid(200)).EUt(-32).duration(1800).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.Benzene.getFluid(200)).EUt(-32).duration(1800).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(GAMaterials.Butane.getFluid(200)).EUt(-32).duration(1850).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(Materials.LPG.getFluid(200)).EUt(-32).duration(2000).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(Materials.Naphtha.getFluid(200)).EUt(-32).duration(2000).buildAndRegister();
-        RecipeMaps.GAS_TURBINE_FUELS.recipeBuilder().fluidInputs(Materials.Toluene.getFluid(200)).EUt(-32).duration(2050).buildAndRegister();
+        FuelLoader.registerGasGeneratorFuel(Materials.NaturalGas.getFluid(8), 5, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(Materials.Hydrogen.getFluid(8), 5, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(GAMaterials.CarbonMonoxde.getFluid(8), 6, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(GAMaterials.WoodGas.getFluid(8), 6, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(Materials.SulfuricGas.getFluid(32), 25, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(Materials.SulfuricNaphtha.getFluid(4), 5, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(GAMaterials.BioGas.getFluid(4), 45, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(Materials.Methane.getFluid(4), 14, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Ethylene.getFluid(1), 4, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(Materials.Gas.getFluid(1), 5, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Ethane.getFluid(4), 21, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Propene.getFluid(1), 6, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Butadiene.getFluid(16), 103, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Propane.getFluid(4), 29, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(GAMaterials.RocketFuel.getFluid(16), 125, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Butene.getFluid(1), 8, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Phenol.getFluid(1), 9, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Benzene.getFluid(1), 9, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Butane.getFluid(4), 37, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(Materials.LPG.getFluid(1), 10, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(Materials.Naphtha.getFluid(1), 10, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(Materials.Toluene.getFluid(4), 41, GTValues.LV);
 
         //Diesel Generator Fluids
-        RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(GAMaterials.FishOil.getFluid(200)).EUt(-32).duration(12).buildAndRegister();
-        RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.BioFuel.getFluid(200)).EUt(-32).duration(38).buildAndRegister();
-        RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Creosote.getFluid(200)).EUt(-32).duration(50).buildAndRegister();
-        RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.OilMedium.getFluid(200)).EUt(-32).duration(100).buildAndRegister();
-        RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.SulfuricLightFuel.getFluid(200)).EUt(-32).duration(250).buildAndRegister();
-        RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(GAMaterials.Methanol.getFluid(200)).EUt(-32).duration(525).buildAndRegister();
-        RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Ethanol.getFluid(200)).EUt(-32).duration(1200).buildAndRegister();
-        RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(GAMaterials.BioDiesel.getFluid(200)).EUt(-32).duration(1600).buildAndRegister();
-        RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.LightFuel.getFluid(200)).EUt(-32).duration(1905).buildAndRegister();
-        RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Fuel.getFluid(200)).EUt(-32).duration(3000).buildAndRegister();
-        RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.NitroFuel.getFluid(200)).EUt(-32).duration(4500).buildAndRegister();
+        FuelLoader.registerDieselGeneratorFuel(GAMaterials.FishOil.getFluid(16), 1, GTValues.LV);
+        FuelLoader.registerDieselGeneratorFuel(Materials.BioFuel.getFluid(16), 3, GTValues.LV);
+        FuelLoader.registerDieselGeneratorFuel(Materials.Creosote.getFluid(4), 1, GTValues.LV);
+        FuelLoader.registerDieselGeneratorFuel(Materials.Oil.getFluid(2), 1, GTValues.LV);
+        FuelLoader.registerDieselGeneratorFuel(Materials.SulfuricLightFuel.getFluid(4), 5, GTValues.LV);
+        FuelLoader.registerDieselGeneratorFuel(GAMaterials.Methanol.getFluid(8), 21, GTValues.LV);
+        FuelLoader.registerDieselGeneratorFuel(GAMaterials.RocketFuel.getFluid(2), 7, GTValues.LV);
+        FuelLoader.registerDieselGeneratorFuel(Materials.Ethanol.getFluid(1), 6, GTValues.LV);
+        FuelLoader.registerDieselGeneratorFuel(GAMaterials.BioDiesel.getFluid(1), 8, GTValues.LV);
+        FuelLoader.registerDieselGeneratorFuel(Materials.LightFuel.getFluid(32), 305, GTValues.LV);
+        FuelLoader.registerDieselGeneratorFuel(Materials.Fuel.getFluid(1), 15, GTValues.LV);
+        FuelLoader.registerDieselGeneratorFuel(Materials.NitroFuel.getFluid(2), 45, GTValues.LV);
         if (Loader.isModLoaded("forestry"))
-            RecipeMaps.DIESEL_GENERATOR_FUELS.recipeBuilder().fluidInputs(Fluids.BIO_ETHANOL.getFluid(200)).EUt(-32).duration(1200).buildAndRegister();
+            FuelLoader.registerDieselGeneratorFuel(Fluids.BIO_ETHANOL.getFluid(1), 6, GTValues.LV);
 
         //Naquadah Reactor
-        GARecipeMaps.NAQUADAH_REACTOR_FUELS.recipeBuilder().fluidInputs(Materials.NaquadahEnriched.getFluid(200)).fluidOutputs(Materials.Naquadah.getFluid(200)).EUt(-2048).duration(1465).buildAndRegister();
+        registerNaquadahReactorFuel(Materials.NaquadahEnriched.getFluid(1), 500, GTValues.LV);
 
         //Plasma Generator
-        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Helium.getPlasma(1000)).EUt(-524288).duration(8).buildAndRegister();
-        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Nitrogen.getPlasma(1000)).EUt(-524288).duration(27).buildAndRegister();
-        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Oxygen.getPlasma(1000)).EUt(-524288).duration(30).buildAndRegister();
-        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Iron.getPlasma(1000)).EUt(-524288).duration(109).buildAndRegister();
-        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder().fluidInputs(Materials.Nickel.getPlasma(1000)).EUt(-524288).duration(113).buildAndRegister();
+        registerPlasmaFuel(Materials.Helium.getPlasma(1), 2560, GTValues.LV);
+        registerPlasmaFuel(Materials.Nitrogen.getPlasma(1), 4032, GTValues.LV);
+        registerPlasmaFuel(Materials.Oxygen.getPlasma(1), 4096, GTValues.LV);
+        registerPlasmaFuel(Materials.Iron.getPlasma(16), 103219, GTValues.LV);
+        registerPlasmaFuel(Materials.Nickel.getPlasma(32), 213811, GTValues.LV);
+
+        //Smefuels
+        FuelLoader.registerSemiFluidGeneratorFuel(GAMaterials.FishOil.getFluid(16), 1, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.SeedOil.getFluid(16), 1, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.Creosote.getFluid(4), 1, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.Biomass.getFluid(4), 1, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.OilLight.getFluid(8), 5, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.Oil.getFluid(8), 5, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.OilMedium.getFluid(16), 15, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.OilHeavy.getFluid(4), 5, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.SulfuricHeavyFuel.getFluid(4), 5, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.HeavyFuel.getFluid(2), 15, GTValues.LV);
+    }
+
+    //Register Methods
+    public static void registerPlasmaFuel(FluidStack fuelStack, int duration, int tier) {
+        RecipeMaps.PLASMA_GENERATOR_FUELS.addRecipe(new FuelRecipe(fuelStack, duration, GTValues.V[tier]));
+    }
+
+    //Register Methods
+    public static void registerNaquadahReactorFuel(FluidStack fuelStack, int duration, int tier) {
+        GARecipeMaps.NAQUADAH_REACTOR_FUELS.addRecipe(new FuelRecipe(fuelStack, duration, GTValues.V[tier]));
+    }
+
+    private static void removeFuelRecipe(FuelRecipeMap map, FluidStack fluidStack) {
+        map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, fluidStack));
     }
 }
