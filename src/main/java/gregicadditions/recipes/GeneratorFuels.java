@@ -68,7 +68,7 @@ public class GeneratorFuels {
             FuelLoader.registerDieselGeneratorFuel(Fluids.BIO_ETHANOL.getFluid(1), 6, GTValues.LV);
 
         //Naquadah Reactor
-        registerNaquadahReactorFuel(Materials.NaquadahEnriched.getFluid(1), 500, GTValues.LV);
+        registerNaquadahReactorFuel(Materials.NaquadahEnriched.getFluid(1), 750, GTValues.LV);
 
         //Plasma Generator
         registerPlasmaFuel(Materials.Helium.getPlasma(1), 2560, GTValues.LV);
