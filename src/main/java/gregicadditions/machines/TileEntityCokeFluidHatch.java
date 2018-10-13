@@ -8,14 +8,12 @@ import gregtech.api.capability.impl.FluidTankList;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
-import gregtech.api.metatileentity.MetaTileEntityUIFactory;
 import gregtech.api.metatileentity.multiblock.IMultiblockAbilityPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.render.Textures;
 import gregtech.common.metatileentities.electric.multiblockpart.MetaTileEntityMultiblockPart;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -61,11 +59,11 @@ public class TileEntityCokeFluidHatch extends MetaTileEntityMultiblockPart imple
     }
 
     protected FluidTankList createImportFluidHandler() {
-        return this.isExportHatch ? new FluidTankList(new IFluidTank[0]) : new FluidTankList(new IFluidTank[]{new FluidTank(this.getInventorySize())});
+        return this.isExportHatch ? new FluidTankList(false, new IFluidTank[0]) : new FluidTankList(false, new IFluidTank[]{new FluidTank(this.getInventorySize())});
     }
 
     protected FluidTankList createExportFluidHandler() {
-        return this.isExportHatch ? new FluidTankList(new IFluidTank[]{new FluidTank(this.getInventorySize())}) : new FluidTankList(new IFluidTank[0]);
+        return this.isExportHatch ? new FluidTankList(false, new IFluidTank[]{new FluidTank(this.getInventorySize())}) : new FluidTankList(false, new IFluidTank[0]);
     }
 
     public MultiblockAbility<IFluidTank> getAbility() {

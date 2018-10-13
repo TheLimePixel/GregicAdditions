@@ -17,7 +17,6 @@ import gregtech.api.multiblock.PatternMatchContext;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.render.ICubeRenderer;
-import gregtech.api.render.Textures;
 import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.BlockMultiblockCasing;
 import gregtech.common.blocks.BlockWireCoil;
@@ -145,7 +144,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
         this.importFluids = new FluidTankList(true, this.getAbilities(MultiblockAbility.IMPORT_FLUIDS));
         this.exportItems = new ItemHandlerList(this.getAbilities(MultiblockAbility.EXPORT_ITEMS));
         this.exportFluids = new FluidTankList(true, this.getAbilities(MultiblockAbility.EXPORT_FLUIDS));
-        this.inputEnergyContainers = new EnergyContainerList(this.getAbilities(this.shouldUseEnergyOutputs() ? MultiblockAbility.OUTPUT_ENERGY : MultiblockAbility.INPUT_ENERGY));
+        this.inputEnergyContainers = new EnergyContainerList(this.getAbilities(MultiblockAbility.INPUT_ENERGY));
         this.energyContainer = new EnergyContainerHandler(this, getMaxEU(), GTValues.V[tier], 0, 0, 0) {
             public String getName() {
                 return "EnergyContainerInternal";
@@ -211,13 +210,12 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
             textList.add((new TextComponentTranslation("gregtech.multiblock.invalid_structure", new Object[0])).setStyle((new Style()).setColor(TextFormatting.RED)));
         }
         if (this.isStructureFormed()) {
-            boolean isGenerator = this.shouldUseEnergyOutputs();
             if (!this.recipeMapWorkable.isWorkingEnabled()) {
                 textList.add(new TextComponentTranslation("gregtech.multiblock.work_paused", new Object[0]));
             } else if (this.recipeMapWorkable.isActive()) {
                 textList.add(new TextComponentTranslation("gregtech.multiblock.running", new Object[0]));
                 int currentProgress;
-                if (!isGenerator) {
+                if (energyContainer.getEnergyCapacity() > 0) {
                     currentProgress = (int) (this.recipeMapWorkable.getProgressPercent() * 100.0D);
                     textList.add(new TextComponentTranslation("gregtech.multiblock.progress", new Object[]{currentProgress}));
                 } else {
