@@ -27,6 +27,10 @@ public class GeneratorFuels {
         removeFuelRecipe(RecipeMaps.GAS_TURBINE_FUELS, Materials.LPG.getFluid(1));
         removeFuelRecipe(RecipeMaps.GAS_TURBINE_FUELS, Materials.NaturalGas.getFluid(1));
         removeFuelRecipe(RecipeMaps.SEMI_FLUID_GENERATOR_FUELS, Materials.Creosote.getFluid(2));
+        removeFuelRecipe(RecipeMaps.STEAM_TURBINE_FUELS, Materials.Steam.getFluid(32));
+
+        //Steam Turbine
+        FuelLoader.registerSteamGeneratorFuel(Materials.Steam.getFluid(64),1, GTValues.LV);
 
         //Gas Turbine Fuels
         FuelLoader.registerGasGeneratorFuel(Materials.NaturalGas.getFluid(8), 5, GTValues.LV);

@@ -830,6 +830,8 @@ public class GARecipeAddition {
 
         //Assline Casing
         ModHandler.addShapedRecipe("assline_casing", GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.TUNGSTENSTEEL_GEARBOX_CASING, 2), "PhP", "AFA", "PwP", 'P', "plateSteel", 'A', MetaItems.ROBOT_ARM_IV.getStackForm(), 'F', OreDictUnifier.get(OrePrefix.frameGt, Materials.TungstenSteel));
+        ModHandler.removeRecipeByName(new ResourceLocation("gregtech:casing_assembler_casing"));
+        ModHandler.addShapedRecipe("ga_assmbler_casing", MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.ASSEMBLER_CASING,3), "CCC", "CFC", "CMC", 'C', "circuitGAElite", 'F', "frameGtTungstenSteel", 'M', MetaItems.ELECTRIC_MOTOR_IV.getStackForm());
 
         //Cutting Machine Recipes
         for (MaterialStack stack : sawLubricants) {
