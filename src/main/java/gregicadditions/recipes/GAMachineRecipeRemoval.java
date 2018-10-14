@@ -290,6 +290,8 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Oxygen.getFluid(500), Materials.Hydrogen.getFluid(1000));
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Hydrogen.getFluid(2000), Materials.Oxygen.getFluid(1000));
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dust, Materials.Carbon)}, new FluidStack[]{Materials.Hydrogen.getFluid(4000)});
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Nitrogen.getFluid(1000), Materials.Oxygen.getFluid(2000));
+        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Oxygen.getFluid(2000), Materials.Nitrogen.getFluid(1000));
 
         //Remove Simple Cetane-Boosted Diesel Recipes
         removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Glyceryl.getFluid(250), Materials.LightFuel.getFluid(1000));
