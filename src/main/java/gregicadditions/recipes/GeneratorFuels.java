@@ -57,7 +57,6 @@ public class GeneratorFuels {
         FuelLoader.registerGasGeneratorFuel(Materials.Toluene.getFluid(4), 41, GTValues.LV);
 
         //Diesel Generator Fluids
-        FuelLoader.registerDieselGeneratorFuel(GAMaterials.FishOil.getFluid(16), 1, GTValues.LV);
         FuelLoader.registerDieselGeneratorFuel(Materials.BioFuel.getFluid(16), 3, GTValues.LV);
         FuelLoader.registerDieselGeneratorFuel(Materials.Oil.getFluid(2), 1, GTValues.LV);
         FuelLoader.registerDieselGeneratorFuel(Materials.SulfuricLightFuel.getFluid(4), 5, GTValues.LV);
