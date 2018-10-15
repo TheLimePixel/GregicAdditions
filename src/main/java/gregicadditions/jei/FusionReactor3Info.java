@@ -61,7 +61,7 @@ public class FusionReactor3Info extends MultiblockInfoPage {
 
     @Override
     public String[] getDescription() {
-        return new String[]{I18n.format("gregtech.multiblock.fusion_reactor_mk33description")};
+        return new String[]{I18n.format("gregtech.multiblock.fusion_reactor_mk3.description")};
     }
 
 }
