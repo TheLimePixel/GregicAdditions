@@ -30,31 +30,31 @@ public class GeneratorFuels {
         removeFuelRecipe(RecipeMaps.STEAM_TURBINE_FUELS, Materials.Steam.getFluid(32));
 
         //Steam Turbine
-        FuelLoader.registerSteamGeneratorFuel(Materials.Steam.getFluid(64),1, GTValues.LV);
+        FuelLoader.registerSteamGeneratorFuel(Materials.Steam.getFluid(64), 1, GTValues.LV);
 
         //Gas Turbine Fuels
         FuelLoader.registerGasGeneratorFuel(Materials.NaturalGas.getFluid(8), 5, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(Materials.Hydrogen.getFluid(8), 5, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(GAMaterials.CarbonMonoxde.getFluid(8), 6, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(GAMaterials.WoodGas.getFluid(8), 6, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(Materials.SulfuricGas.getFluid(32), 25, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(Materials.SulfuricNaphtha.getFluid(4), 5, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(GAMaterials.BioGas.getFluid(4), 45, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(Materials.Methane.getFluid(4), 14, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Ethylene.getFluid(1), 4, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(Materials.Gas.getFluid(1), 5, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Ethane.getFluid(4), 21, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Propene.getFluid(1), 6, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Butadiene.getFluid(16), 103, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Propane.getFluid(4), 29, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(GAMaterials.RocketFuel.getFluid(16), 125, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Butene.getFluid(1), 8, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Phenol.getFluid(1), 9, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Benzene.getFluid(1), 9, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(GAMaterials.Butane.getFluid(4), 37, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(Materials.LPG.getFluid(1), 10, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(Materials.Naphtha.getFluid(1), 10, GTValues.LV);
-        FuelLoader.registerSteamGeneratorFuel(Materials.Toluene.getFluid(4), 41, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(Materials.Hydrogen.getFluid(8), 5, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(GAMaterials.CarbonMonoxde.getFluid(8), 6, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(GAMaterials.WoodGas.getFluid(8), 6, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(Materials.SulfuricGas.getFluid(32), 25, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(Materials.SulfuricNaphtha.getFluid(4), 5, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(GAMaterials.BioGas.getFluid(4), 45, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(Materials.Methane.getFluid(4), 14, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(GAMaterials.Ethylene.getFluid(1), 4, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(Materials.Gas.getFluid(1), 5, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(GAMaterials.Ethane.getFluid(4), 21, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(GAMaterials.Propene.getFluid(1), 6, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(GAMaterials.Butadiene.getFluid(16), 103, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(GAMaterials.Propane.getFluid(4), 29, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(GAMaterials.RocketFuel.getFluid(16), 125, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(GAMaterials.Butene.getFluid(1), 8, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(GAMaterials.Phenol.getFluid(1), 9, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(GAMaterials.Benzene.getFluid(1), 9, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(GAMaterials.Butane.getFluid(4), 37, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(Materials.LPG.getFluid(1), 10, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(Materials.Naphtha.getFluid(1), 10, GTValues.LV);
+        FuelLoader.registerGasGeneratorFuel(Materials.Toluene.getFluid(4), 41, GTValues.LV);
 
         //Diesel Generator Fluids
         FuelLoader.registerDieselGeneratorFuel(GAMaterials.FishOil.getFluid(16), 1, GTValues.LV);
