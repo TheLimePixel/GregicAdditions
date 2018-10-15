@@ -4,11 +4,13 @@ import gregtech.api.multiblock.BlockPattern;
 import gregtech.api.multiblock.BlockWorldState;
 import gregtech.api.multiblock.IPatternCenterPredicate;
 import gregtech.api.multiblock.PatternMatchContext;
+import gregtech.api.util.IntRange;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.apache.commons.lang3.ArrayUtils;
 
+import java.util.List;
 import java.util.function.Predicate;
 
 public class SingleLimitBlockPattern extends BlockPattern {
@@ -20,8 +22,8 @@ public class SingleLimitBlockPattern extends BlockPattern {
     private final RelativeDirection[] structureDir;
     private final int[][] aisleRepetitions;
 
-    public SingleLimitBlockPattern(Predicate<BlockWorldState>[][][] predicatesIn, RelativeDirection[] structureDir, int[][] aisleRepetitions, Predicate<BlockWorldState>[] predicatesCheckLayers) {
-        super(predicatesIn, structureDir, aisleRepetitions);
+    public SingleLimitBlockPattern(Predicate<BlockWorldState>[][][] predicatesIn, List<org.apache.commons.lang3.tuple.Pair<Predicate<BlockWorldState>, IntRange>> countMatches, RelativeDirection[] structureDir, int[][] aisleRepetitions, Predicate<BlockWorldState>[] predicatesCheckLayers) {
+        super(predicatesIn, countMatches, structureDir, aisleRepetitions);
         this.predicatesCheckLayers = predicatesCheckLayers;
         blockMatches = predicatesIn;
         this.aisleRepetitions = aisleRepetitions;

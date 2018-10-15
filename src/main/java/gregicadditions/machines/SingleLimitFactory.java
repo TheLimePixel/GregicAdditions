@@ -3,8 +3,10 @@ package gregicadditions.machines;
 import com.google.common.base.Joiner;
 import gregtech.api.multiblock.BlockPattern;
 import gregtech.api.multiblock.BlockWorldState;
+import gregtech.api.util.IntRange;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ public class SingleLimitFactory {
     private final List<String[]> depth = new ArrayList<>();
     private final List<int[]> aisleRepetitions = new ArrayList<>();
     private Predicate<BlockWorldState>[] predicatesCheckLayers;
+    private final Map<Character, IntRange> countLimits = new HashMap<>();
     private final Map<Character, Predicate<BlockWorldState>> symbolMap = new HashMap<>();
     private int aisleHeight;
     private int rowWidth;
@@ -112,7 +115,7 @@ public class SingleLimitFactory {
 
 
     public SingleLimitFactory addCheck(int layer, Predicate<BlockWorldState> predicate) {
-        if(this.predicatesCheckLayers == null)
+        if (this.predicatesCheckLayers == null)
             this.predicatesCheckLayers = new Predicate[this.depth.size()];
         this.predicatesCheckLayers[layer] = predicate;
 
@@ -133,7 +136,7 @@ public class SingleLimitFactory {
     }
 
     public BlockPattern build() {
-        return new SingleLimitBlockPattern(this.makePredicateArray(), structureDir, aisleRepetitions.toArray(new int[aisleRepetitions.size()][]), predicatesCheckLayers);
+        return new SingleLimitBlockPattern(this.makePredicateArray(), makeCountLimitsList(), structureDir, aisleRepetitions.toArray(new int[aisleRepetitions.size()][]), predicatesCheckLayers);
     }
 
     @SuppressWarnings("unchecked")
@@ -165,4 +168,14 @@ public class SingleLimitFactory {
             throw new IllegalStateException("Predicates for character(s) " + COMMA_JOIN.join(list) + " are missing");
         }
     }
+
+    private List<Pair<Predicate<BlockWorldState>, IntRange>> makeCountLimitsList() {
+        List<Pair<Predicate<BlockWorldState>, IntRange>> array = new ArrayList<>(countLimits.size());
+        for (Map.Entry<Character, IntRange> entry : this.countLimits.entrySet()) {
+            Predicate<BlockWorldState> predicate = this.symbolMap.get(entry.getKey());
+            array.add(Pair.of(predicate, entry.getValue()));
+        }
+        return array;
+    }
+
 }
