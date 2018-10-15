@@ -16,6 +16,7 @@ import gregtech.api.gui.widgets.SlotWidget;
 import gregtech.api.gui.widgets.TankWidget;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
+import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.MultiblockControllerBase;
 import gregtech.api.multiblock.BlockPattern;
@@ -197,7 +198,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
     }
 
     @Override
-    public ICubeRenderer getBaseTexture() {
+    public ICubeRenderer getBaseTexture(IMultiblockPart sourcePart) {
         return GATextures.COKE_OVEN_BRICKS;
     }
 
@@ -228,6 +229,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
                 .aisle("XXX", "XXX", "XXX")
                 .aisle("XXX", "X#X", "XXX")
                 .aisle("XXX", "XYX", "XXX")
+                .setAmountAtLeast('X', 20)
                 .where('X', statePredicate(getCasingState()).or(tilePredicate((state, tile) -> {
                     return tile.metaTileEntityId.equals(GATileEntities.COKE_FLUID_HATCH.metaTileEntityId) || tile.metaTileEntityId.equals(GATileEntities.COKE_ITEM_BUS.metaTileEntityId);
                 })))
