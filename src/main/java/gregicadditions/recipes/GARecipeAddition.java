@@ -831,7 +831,7 @@ public class GARecipeAddition {
         //Assline Casing
         ModHandler.addShapedRecipe("assline_casing", GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.TUNGSTENSTEEL_GEARBOX_CASING, 2), "PhP", "AFA", "PwP", 'P', "plateSteel", 'A', MetaItems.ROBOT_ARM_IV.getStackForm(), 'F', OreDictUnifier.get(OrePrefix.frameGt, Materials.TungstenSteel));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:casing_assembler_casing"));
-        ModHandler.addShapedRecipe("ga_assmbler_casing", MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.ASSEMBLER_CASING,3), "CCC", "CFC", "CMC", 'C', "circuitGAElite", 'F', "frameGtTungstenSteel", 'M', MetaItems.ELECTRIC_MOTOR_IV.getStackForm());
+        ModHandler.addShapedRecipe("ga_assmbler_casing", MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.ASSEMBLER_CASING, 3), "CCC", "CFC", "CMC", 'C', "circuitGAElite", 'F', "frameGtTungstenSteel", 'M', MetaItems.ELECTRIC_MOTOR_IV.getStackForm());
 
         //Cutting Machine Recipes
         for (MaterialStack stack : sawLubricants) {
@@ -968,11 +968,12 @@ public class GARecipeAddition {
         for (OrePrefix Prefix : Arrays.asList(OrePrefix.dust, OrePrefix.dustSmall, OrePrefix.dustTiny))
             RecipeMaps.MIXER_RECIPES.recipeBuilder().duration((int) (300L * Prefix.materialAmount / 3628800L)).EUt(8).input(Prefix, Materials.Indium).input(Prefix, Materials.Gallium).input(Prefix, Materials.Phosphorus).outputs(OreDictUnifier.getDust(GAMaterials.IndiumGalliumPhosphide, 3L * Prefix.materialAmount)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.NitricOxide.getFluid(1000)).fluidOutputs(Materials.NitrogenDioxide.getFluid(1000)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(1250).EUt(30).notConsumable(new IntCircuitIngredient(1)).fluidInputs(Materials.Nitrogen.getFluid(1000),Materials.Oxygen.getFluid(2000)).fluidOutputs(Materials.NitrogenDioxide.getFluid(3000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(1250).EUt(30).notConsumable(new IntCircuitIngredient(1)).fluidInputs(Materials.Nitrogen.getFluid(1000), Materials.Oxygen.getFluid(2000)).fluidOutputs(Materials.NitrogenDioxide.getFluid(3000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).notConsumable(new IntCircuitIngredient(0)).fluidInputs(Materials.Air.getFluid(1000), GAMaterials.VinylAcetate.getFluid(144)).fluidOutputs(GAMaterials.PolyvinylAcetate.getFluid(144)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).notConsumable(new IntCircuitIngredient(0)).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.VinylAcetate.getFluid(144)).fluidOutputs(GAMaterials.PolyvinylAcetate.getFluid(216)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).notConsumable(new IntCircuitIngredient(1)).fluidInputs(Materials.Air.getFluid(7500), GAMaterials.VinylAcetate.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(GAMaterials.PolyvinylAcetate.getFluid(3240)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(800).EUt(30).notConsumable(new IntCircuitIngredient(1)).fluidInputs(Materials.Oxygen.getFluid(7500), GAMaterials.VinylAcetate.getFluid(2160), Materials.TitaniumTetrachloride.getFluid(100)).fluidOutputs(GAMaterials.PolyvinylAcetate.getFluid(4320)).buildAndRegister();
+        RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(300).EUt(30).input(OrePrefix.dust, Materials.Gallium).input(OrePrefix.dust, Materials.Arsenic).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.GalliumArsenide, 2)).buildAndRegister();
 
         //Circuit Rabbit Hole - Layer 5
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(1484).EUt(5).inputs(FluidCellIngredient.getIngredient(Materials.LiquidAir, 53)).outputs(GAMetaItems.getFilledCell(Materials.Nitrogen.getMaterialFluid(), 40), GAMetaItems.getFilledCell(Materials.Oxygen.getMaterialFluid(), 11), GAMetaItems.getFilledCell(Materials.Argon.getMaterialFluid()), GAMetaItems.getFilledCell(Materials.NobleGases.getMaterialFluid())).buildAndRegister();
