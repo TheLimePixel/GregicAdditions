@@ -82,18 +82,18 @@ public class GeneratorFuels {
         registerPlasmaFuel(Materials.Nickel.getPlasma(32), 213811, GTValues.LV);
 
         //Smefuels
-        FuelLoader.registerSemiFluidGeneratorFuel(GAMaterials.FishOil.getFluid(16), 1, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(GAMaterials.FishOil.getFluid(64), 1, GTValues.LV);
         if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true)
-            FuelLoader.registerSemiFluidGeneratorFuel(Fluids.SEED_OIL.getFluid(16), 1, GTValues.LV);
+            FuelLoader.registerSemiFluidGeneratorFuel(Fluids.SEED_OIL.getFluid(64), 1, GTValues.LV);
         else
-            FuelLoader.registerSemiFluidGeneratorFuel(Materials.SeedOil.getFluid(16), 1, GTValues.LV);
-        FuelLoader.registerSemiFluidGeneratorFuel(Materials.Creosote.getFluid(4), 1, GTValues.LV);
-        FuelLoader.registerSemiFluidGeneratorFuel(Materials.Biomass.getFluid(4), 1, GTValues.LV);
-        FuelLoader.registerSemiFluidGeneratorFuel(Materials.OilLight.getFluid(8), 5, GTValues.LV);
-        FuelLoader.registerSemiFluidGeneratorFuel(Materials.OilMedium.getFluid(16), 15, GTValues.LV);
-        FuelLoader.registerSemiFluidGeneratorFuel(Materials.OilHeavy.getFluid(4), 5, GTValues.LV);
-        FuelLoader.registerSemiFluidGeneratorFuel(Materials.SulfuricHeavyFuel.getFluid(4), 5, GTValues.LV);
-        FuelLoader.registerSemiFluidGeneratorFuel(Materials.HeavyFuel.getFluid(2), 15, GTValues.LV);
+            FuelLoader.registerSemiFluidGeneratorFuel(Materials.SeedOil.getFluid(64), 1, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.Creosote.getFluid(16), 1, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.Biomass.getFluid(16), 1, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.OilLight.getFluid(32), 5, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.OilMedium.getFluid(64), 15, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.OilHeavy.getFluid(16), 5, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.SulfuricHeavyFuel.getFluid(16), 5, GTValues.LV);
+        FuelLoader.registerSemiFluidGeneratorFuel(Materials.HeavyFuel.getFluid(8), 15, GTValues.LV);
     }
 
     //Register Methods
