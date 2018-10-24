@@ -31,7 +31,7 @@ public class GAMetaBlocks {
         TRANSPARENT_CASING = new GATransparentCasing();
         TRANSPARENT_CASING.setRegistryName("ga_transparent_casing");
 
-        MetaBlocks.createFluidPipeBlock(GAMaterials.Ultimate, new FluidPipeProperties(1500, 48000, true));
+        MetaBlocks.createFluidPipeBlock(GAMaterials.Ultimate, new FluidPipeProperties(1500, 12000, true));
         MetaBlocks.createFluidPipeBlock(GAMaterials.Plasma, new FluidPipeProperties(1000000, 30, true));
     }
 

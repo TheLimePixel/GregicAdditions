@@ -22,7 +22,7 @@ public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> 
 
     public void registerRecipes() {
         for (Material material : IngotMaterial.MATERIAL_REGISTRY) {
-            if (material instanceof IngotMaterial && !material.hasFlag(DustMaterial.MatFlags.NO_SMASHING)) {
+            if (material instanceof IngotMaterial && !material.hasFlag(DustMaterial.MatFlags.NO_SMASHING) && ((IngotMaterial) material).toolDurability != 0) {
                 IngotMaterial toolMaterial = (IngotMaterial) material;
 
                 if (GAConfig.GT6.BendingCylinders == true) {
@@ -37,13 +37,12 @@ public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> 
                             'X', new UnificationEntry(OrePrefix.ingot, toolMaterial));
                 }
 
-                if (GAConfig.GT6.ExpensiveWrenches == true) {
-                    //GT6 Wrench Recipe
-                    if (!OreDictUnifier.get(OrePrefix.plate, material).isEmpty() && ((IngotMaterial) material).toolDurability != 0)
-                        ModHandler.addShapedRecipe(String.format("wrench_%s", material.toString()),
-                                MetaItems.WRENCH.getStackForm(toolMaterial, null),
-                                "XhX", "XXX", " X ",
-                                'X', new UnificationEntry(OrePrefix.plate, toolMaterial));
+                //GT6 Wrench Recipe
+                if (GAConfig.GT6.ExpensiveWrenches == true && !OreDictUnifier.get(OrePrefix.plate, material).isEmpty()) {
+                    ModHandler.addShapedRecipe(String.format("wrench_%s", material.toString()),
+                            MetaItems.WRENCH.getStackForm(toolMaterial, null),
+                            "XhX", "XXX", " X ",
+                            'X', new UnificationEntry(OrePrefix.plate, toolMaterial));
                 }
             }
         }
