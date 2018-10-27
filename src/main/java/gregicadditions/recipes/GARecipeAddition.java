@@ -1036,7 +1036,7 @@ public class GARecipeAddition {
     public static void init2() {
         //Fuel Rabbit Hole - Layer 1
         RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(20).EUt(480).fluidInputs(GAMaterials.BioDiesel.getFluid(1000), GAMaterials.Tetranitromethane.getFluid(40)).fluidOutputs(Materials.NitroFuel.getFluid(750)).buildAndRegister();
-        RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(20).EUt(480).fluidInputs(Materials.Fuel.getFluid(1000), GAMaterials.Tetranitromethane.getFluid(20)).fluidOutputs(Materials.NitroFuel.getFluid(500)).buildAndRegister();
+        RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(20).EUt(480).fluidInputs(Materials.Fuel.getFluid(1000), GAMaterials.Tetranitromethane.getFluid(20)).fluidOutputs(Materials.NitroFuel.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(1000).EUt(388).notConsumable(new IntCircuitIngredient(1)).fluidInputs(Materials.NitrogenDioxide.getFluid(1000), Materials.Hydrogen.getFluid(3000), Materials.Oxygen.getFluid(500)).fluidOutputs(Materials.Water.getFluid(4000), GAMaterials.RocketFuel.getFluid(3000)).buildAndRegister();
         RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(60).EUt(16).fluidInputs(Materials.Oxygen.getFluid(1000), GAMaterials.Dimethylhydrazine.getFluid(1000)).fluidOutputs(GAMaterials.RocketFuel.getFluid(3000)).buildAndRegister();
         RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(60).EUt(16).fluidInputs(GAMaterials.DinitrogenTetroxide.getFluid(1000), GAMaterials.Dimethylhydrazine.getFluid(1000)).fluidOutputs(GAMaterials.RocketFuel.getFluid(6000)).buildAndRegister();
@@ -1143,7 +1143,8 @@ public class GARecipeAddition {
                 OreDictUnifier.get(OrePrefix.plate, Materials.HSSG, 2),
                 OreDictUnifier.get(OrePrefix.ring, Materials.HSSG, 4),
                 OreDictUnifier.get(OrePrefix.valueOf("round"), Materials.HSSG, 32),
-                OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.YttriumBariumCuprate, 2)).fluidInputs(
+                OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.YttriumBariumCuprate, 2))
+                .notConsumable(new IntCircuitIngredient(1)).fluidInputs(
                 GAMaterials.StyreneButadieneRubber.getFluid(1440),
                 Materials.Lubricant.getFluid(250))
                 .outputs(MetaItems.CONVEYOR_MODULE_LUV.getStackForm()).duration(600).EUt(15360)
@@ -1154,7 +1155,8 @@ public class GARecipeAddition {
                 OreDictUnifier.get(OrePrefix.plate, Materials.HSSE, 2),
                 OreDictUnifier.get(OrePrefix.ring, Materials.HSSE, 4),
                 OreDictUnifier.get(OrePrefix.valueOf("round"), Materials.HSSE, 32),
-                OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.VanadiumGallium, 2)).fluidInputs(
+                OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.VanadiumGallium, 2))
+                .notConsumable(new IntCircuitIngredient(1)).fluidInputs(
                 GAMaterials.StyreneButadieneRubber.getFluid(2880),
                 Materials.Lubricant.getFluid(750))
                 .outputs(MetaItems.CONVEYOR_MODULE_ZPM.getStackForm()).duration(600).EUt(61440)
@@ -1165,7 +1167,8 @@ public class GARecipeAddition {
                 OreDictUnifier.get(OrePrefix.plate, GAMaterials.Neutronium, 2),
                 OreDictUnifier.get(OrePrefix.ring, GAMaterials.Neutronium, 4),
                 OreDictUnifier.get(OrePrefix.valueOf("round"), GAMaterials.Neutronium, 32),
-                OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.NiobiumTitanium, 2)).fluidInputs(
+                OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.NiobiumTitanium, 2))
+                .notConsumable(new IntCircuitIngredient(1)).fluidInputs(
                 GAMaterials.StyreneButadieneRubber.getFluid(2880),
                 Materials.Lubricant.getFluid(2000))
                 .outputs(MetaItems.CONVEYOR_MODULE_UV.getStackForm()).duration(600).EUt(245760)
@@ -1179,7 +1182,8 @@ public class GARecipeAddition {
                 OreDictUnifier.get(OrePrefix.stick, Materials.HSSG, 4),
                 OreDictUnifier.get(OrePrefix.gear, Materials.HSSG, 1),
                 OreDictUnifier.get(OrePrefix.gearSmall, Materials.HSSG, 2),
-                OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.YttriumBariumCuprate, 4)).fluidInputs(
+                OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.YttriumBariumCuprate, 4))
+                .notConsumable(new IntCircuitIngredient(2)).fluidInputs(
                 Materials.SolderingAlloy.getFluid(144),
                 Materials.Lubricant.getFluid(250))
                 .outputs(MetaItems.ELECTRIC_PISTON_LUV.getStackForm()).duration(600).EUt(15360)
@@ -1194,7 +1198,8 @@ public class GARecipeAddition {
                 OreDictUnifier.get(OrePrefix.stick, Materials.HSSE, 4),
                 OreDictUnifier.get(OrePrefix.gear, Materials.HSSE, 1),
                 OreDictUnifier.get(OrePrefix.gearSmall, Materials.HSSE, 2),
-                OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.VanadiumGallium, 4)).fluidInputs(
+                OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.VanadiumGallium, 4))
+                .notConsumable(new IntCircuitIngredient(2)).fluidInputs(
                 Materials.SolderingAlloy.getFluid(288),
                 Materials.Lubricant.getFluid(750))
                 .outputs(MetaItems.ELECTRIC_PISTON_ZPM.getStackForm()).duration(600).EUt(61440)
@@ -1208,7 +1213,8 @@ public class GARecipeAddition {
                 OreDictUnifier.get(OrePrefix.stick, GAMaterials.Neutronium, 4),
                 OreDictUnifier.get(OrePrefix.gear, GAMaterials.Neutronium, 1),
                 OreDictUnifier.get(OrePrefix.gearSmall, GAMaterials.Neutronium, 2),
-                OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.NiobiumTitanium, 4)).fluidInputs(
+                OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.NiobiumTitanium, 4))
+                .notConsumable(new IntCircuitIngredient(2)).fluidInputs(
                 Materials.SolderingAlloy.getFluid(1296),
                 Materials.Lubricant.getFluid(2000))
                 .outputs(MetaItems.ELECTRIC_PISTON_UV.getStackForm()).duration(600).EUt(245760)
@@ -1471,10 +1477,10 @@ public class GARecipeAddition {
 
         GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
                 MetaBlocks.WIRE_COIL.getItemVariant(BlockWireCoil.CoilType.FUSION_COIL),
-                GAMetaItems.WETWARE_COMPUTER.getStackForm(),
-                GAMetaItems.WETWARE_COMPUTER.getStackForm(),
-                GAMetaItems.WETWARE_COMPUTER.getStackForm(),
-                GAMetaItems.WETWARE_COMPUTER.getStackForm(),
+                GAMetaItems.WETWARE_MAINFRAME.getStackForm(),
+                GAMetaItems.WETWARE_MAINFRAME.getStackForm(),
+                GAMetaItems.WETWARE_MAINFRAME.getStackForm(),
+                GAMetaItems.WETWARE_MAINFRAME.getStackForm(),
                 OreDictUnifier.get(OrePrefix.plate, Materials.Americium, 4),
                 MetaItems.FIELD_GENERATOR_ZPM.getStackForm(2),
                 GAMetaItems.HPIC.getStackForm(64),
