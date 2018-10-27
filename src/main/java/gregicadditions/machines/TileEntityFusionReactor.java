@@ -37,6 +37,11 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 
     public TileEntityFusionReactor(String metaTileEntityId, int tier) {
         super(metaTileEntityId, RecipeMaps.FUSION_RECIPES);
+        this.recipeMapWorkable = new MultiblockRecipeMapWorkable(this) {
+            protected int getOverclockingTier(long voltage) {
+                return 0;
+            }
+        };
         this.tier = tier;
         this.reinitializeStructurePattern();
         this.energyContainer = new EnergyContainerHandler(this, Integer.MAX_VALUE, 0, 0, 0, 0) {
@@ -118,13 +123,8 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
     }
 
     private long getMaxEU() {
-        long val = 0;
         List<IEnergyContainer> eConts = ObfuscationReflectionHelper.getPrivateValue(EnergyContainerList.class, this.inputEnergyContainers, "energyContainerList");
-        for (IEnergyContainer energyContainer : eConts) {
-            int tier = (int) (Math.log(energyContainer.getInputVoltage() / 8L) / Math.log(4));
-            val += (long) Math.pow(2, (tier - 6)) * 100000L;
-        }
-        return val;
+        return eConts.size() * 100000L * (tier - 5);
     }
 
     protected void formStructure(PatternMatchContext context) {
