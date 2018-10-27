@@ -1,12 +1,14 @@
 package gregicadditions.machines;
 
 import gregicadditions.recipes.GARecipeMaps;
+import gregtech.api.capability.impl.*;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.multiblock.BlockPattern;
+import gregtech.api.multiblock.PatternMatchContext;
 import gregtech.api.render.ICubeRenderer;
 import gregtech.api.render.Textures;
 import gregtech.common.blocks.BlockMetalCasing;
@@ -16,6 +18,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.IFluidTank;
+import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.List;
 
@@ -66,6 +70,38 @@ public class TileEntityDistillTower extends RecipeMapMultiblockController {
 
     protected IBlockState getCasingState() {
         return MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STAINLESS_CLEAN);
+    }
+
+    protected void initializeInventory() {
+        ItemStackHandler emptyInventory = new ItemStackHandler(0);
+        FluidTankList emptyFluidInventory = new FluidTankList(false, new IFluidTank[0]);
+        this.itemInventory = new ItemHandlerProxy(emptyInventory, emptyInventory);
+        this.fluidInventory = new FluidHandlerProxy(emptyFluidInventory, emptyFluidInventory);
+    }
+
+    protected void formStructure(PatternMatchContext context) {
+        super.formStructure(context);
+        this.initializeAbilities();
+    }
+
+    public void invalidateStructure() {
+        super.invalidateStructure();
+        this.resetTileAbilities();
+    }
+
+    private void initializeAbilities() {
+        this.importItems = new ItemHandlerList(this.getAbilities(MultiblockAbility.IMPORT_ITEMS));
+        this.importFluids = new FluidTankList(false, this.getAbilities(MultiblockAbility.IMPORT_FLUIDS));
+        this.exportItems = new ItemHandlerList(this.getAbilities(MultiblockAbility.EXPORT_ITEMS));
+        this.exportFluids = new FluidTankList(false, this.getAbilities(MultiblockAbility.EXPORT_FLUIDS));
+        this.energyContainer = new EnergyContainerList(this.getAbilities(MultiblockAbility.INPUT_ENERGY));
+    }
+
+    private void resetTileAbilities() {
+        this.importItems = new ItemStackHandler(0);
+        this.importFluids = new FluidTankList(false, new IFluidTank[0]);
+        this.exportItems = new ItemStackHandler(0);
+        this.exportFluids = new FluidTankList(false, new IFluidTank[0]);
     }
 }
 
