@@ -925,7 +925,7 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(60).EUt(8).fluidInputs(Materials.Chlorine.getFluid(1000), Materials.Hydrogen.getFluid(1000)).fluidOutputs(GAMaterials.HydrochloricAcid.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(60).EUt(30).input(OrePrefix.dust, Materials.Salt, 2).fluidInputs(Materials.SulfuricAcid.getFluid(1000)).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.SodiumBisulfate)).fluidOutputs(GAMaterials.HydrochloricAcid.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(80).EUt(30).notConsumable(new IntCircuitIngredient(1)).fluidInputs(Materials.Chlorine.getFluid(6000), Materials.Methane.getFluid(1000)).fluidOutputs(GAMaterials.HydrochloricAcid.getFluid(3000), GAMaterials.Chloroform.getFluid(1000)).buildAndRegister();
-        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(80).EUt(30).notConsumable(new IntCircuitIngredient(2)).fluidInputs(Materials.Chlorine.getFluid(2000), Materials.Methane.getFluid(1000)).fluidOutputs(GAMaterials.HydrochloricAcid.getFluid(1000), GAMaterials.Chloromethane.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(80).EUt(30).notConsumable(new IntCircuitIngredient(3)).fluidInputs(Materials.Chlorine.getFluid(2000), Materials.Methane.getFluid(1000)).fluidOutputs(GAMaterials.HydrochloricAcid.getFluid(1000), GAMaterials.Chloromethane.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(30).fluidInputs(Materials.Chlorine.getFluid(2000), GAMaterials.Benzene.getFluid(500)).fluidOutputs(GAMaterials.HydrochloricAcid.getFluid(1000), GAMaterials.Dichlorobenzene.getFluid(500)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(GAMaterials.Propene.getFluid(1000), Materials.Chlorine.getFluid(2000)).fluidOutputs(GAMaterials.HydrochloricAcid.getFluid(1000), GAMaterials.AllylChloride.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(30).fluidInputs(Materials.Chlorine.getFluid(2000), GAMaterials.Ethylene.getFluid(1000)).fluidOutputs(GAMaterials.VinylChloride.getFluid(1000), GAMaterials.HydrochloricAcid.getFluid(1000)).buildAndRegister();
@@ -1843,7 +1843,8 @@ public class GARecipeAddition {
                         break;
                     }
                 }
-                recipesToRemove.add(recipe.getRegistryName());
+                if (GAConfig.GT5U.RemoveBlockUncraftingRecipes == true)
+                    recipesToRemove.add(recipe.getRegistryName());
                 if (!isIngot) {
                     RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).outputs(recipe.getRecipeOutput()).buildAndRegister();
                 }

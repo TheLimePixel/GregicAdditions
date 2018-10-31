@@ -51,6 +51,8 @@ public class GAConfig {
         public boolean GenerateCompressorRecipes = true;
         @Config.Name("Compression - Remove 3x3 crafting recipes for blocks")
         public boolean Remove3x3BlockRecipes = true;
+        @Config.Name("Compression - Remove crafting recipes for uncompressing blocks")
+        public boolean RemoveBlockUncraftingRecipes = true;
 
         @Config.Comment("Set to false to enable Log>Charcoal smelting recipes")
         @Config.Name("All Log to Charcoal smelting recipes will be removed")

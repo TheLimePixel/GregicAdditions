@@ -55,7 +55,7 @@ public class GAMachineRecipeRemoval {
             }
 
             //Remove GTCE's weird fine wire recipes
-            if (!OreDictUnifier.get(OrePrefix.wireFine, m).isEmpty() && !OreDictUnifier.get(OrePrefix.stick, m).isEmpty() && GAConfig.GT5U.OldFineWireRecipes == true && GAConfig.GT6.BendingCylinders == false) {
+            if (!OreDictUnifier.get(OrePrefix.wireFine, m).isEmpty() && !OreDictUnifier.get(OrePrefix.stick, m).isEmpty() && GAConfig.GT5U.OldFineWireRecipes == true) {
                 removeRecipesByInputs(RecipeMaps.WIREMILL_RECIPES, OreDictUnifier.get(OrePrefix.stick, m));
             }
 
