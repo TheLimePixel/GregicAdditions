@@ -2,7 +2,9 @@ package gregicadditions.machines;
 
 import com.google.common.collect.Lists;
 import gregicadditions.recipes.GARecipeMaps;
-import gregtech.api.capability.impl.*;
+import gregtech.api.capability.impl.EnergyContainerList;
+import gregtech.api.capability.impl.FluidTankList;
+import gregtech.api.capability.impl.ItemHandlerList;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -19,7 +21,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.IFluidTank;
 import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.List;
@@ -71,13 +72,6 @@ public class TileEntityDistillTower extends RecipeMapMultiblockController {
 
     protected IBlockState getCasingState() {
         return MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STAINLESS_CLEAN);
-    }
-
-    protected void initializeInventory() {
-        ItemStackHandler emptyInventory = new ItemStackHandler(0);
-        FluidTankList emptyFluidInventory = new FluidTankList(false, new IFluidTank[0]);
-        this.itemInventory = new ItemHandlerProxy(emptyInventory, emptyInventory);
-        this.fluidInventory = new FluidHandlerProxy(emptyFluidInventory, emptyFluidInventory);
     }
 
     protected void formStructure(PatternMatchContext context) {
