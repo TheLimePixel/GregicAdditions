@@ -312,13 +312,6 @@ public class GAMachineRecipeRemoval {
 
         //Remove Conflicting Redstone Plate Recipe
         removeRecipesByInputs(RecipeMaps.COMPRESSOR_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Redstone));
-
-        if (GAConfig.Misc.logicalSteel == true) {
-            removeRecipesByInputs(RecipeMaps.BLAST_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.ingot, Materials.Iron)}, new FluidStack[]{Materials.Oxygen.getFluid(1000)});
-            removeRecipesByInputs(RecipeMaps.BLAST_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.ingot, Materials.WroughtIron)}, new FluidStack[]{Materials.Oxygen.getFluid(1000)});
-            removeRecipesByInputs(RecipeMaps.BLAST_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.ingot, Materials.PigIron)}, new FluidStack[]{Materials.Oxygen.getFluid(1000)});
-        }
-
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {

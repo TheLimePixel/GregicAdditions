@@ -287,6 +287,8 @@ public class GAMaterials {
         Materials.Steel.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
         Materials.StainlessSteel.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
 
+        Materials.Steel.addFlag(Material.MatFlags.DISABLE_DECOMPOSITION);
+
         Materials.Salt.addOreByProducts(Materials.Borax);
         Materials.RockSalt.addOreByProducts(Materials.Borax);
         Materials.Lepidolite.addOreByProducts(Materials.Boron);

@@ -180,9 +180,5 @@ public class GAConfig {
         @Config.Comment("Set this to false to disable the high tier Air Collectors")
         @Config.Name("Air Collector have IV and LuV version")
         public boolean highTierCollector = true;
-
-        @Config.Comment("Set this to false to enable the GT5 Steel recipe in the EBF")
-        @Config.Name("Steel is made with Carbon instead of Oxygen in the EBF")
-        public boolean logicalSteel = true;
     }
 }

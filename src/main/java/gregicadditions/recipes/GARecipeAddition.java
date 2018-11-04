@@ -1697,13 +1697,6 @@ public class GARecipeAddition {
         //Redstone and glowstone melting
         RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(80).EUt(32).input(OrePrefix.dust, Materials.Redstone).fluidOutputs(Materials.Redstone.getFluid(144)).buildAndRegister();
         RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(80).EUt(32).input(OrePrefix.dust, Materials.Glowstone).fluidOutputs(Materials.Glowstone.getFluid(144)).buildAndRegister();
-
-        if (GAConfig.Misc.logicalSteel==true) {
-            RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(2800).EUt(120).blastFurnaceTemp(1000).input(OrePrefix.nugget,Materials.Iron,50).input(OrePrefix.dustTiny,Materials.Carbon).outputs(OreDictUnifier.get(OrePrefix.nugget,Materials.Steel,50),OreDictUnifier.get(OrePrefix.dustTiny,Materials.DarkAsh)).buildAndRegister();
-            RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(560).EUt(120).blastFurnaceTemp(1000).input(OrePrefix.nugget,Materials.WroughtIron,50).input(OrePrefix.dustTiny,Materials.Carbon).outputs(OreDictUnifier.get(OrePrefix.nugget,Materials.Steel,50),OreDictUnifier.get(OrePrefix.dustTiny,Materials.DarkAsh)).buildAndRegister();
-            RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(25200).EUt(120).blastFurnaceTemp(1000).input(OrePrefix.ingot,Materials.Iron,50).input(OrePrefix.dust,Materials.Carbon).outputs(OreDictUnifier.get(OrePrefix.ingot,Materials.Steel,50),OreDictUnifier.get(OrePrefix.dust,Materials.DarkAsh)).buildAndRegister();
-            RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(5040).EUt(120).blastFurnaceTemp(1000).input(OrePrefix.ingot,Materials.WroughtIron,50).input(OrePrefix.dust,Materials.Carbon).outputs(OreDictUnifier.get(OrePrefix.ingot,Materials.Steel,50),OreDictUnifier.get(OrePrefix.dust,Materials.DarkAsh)).buildAndRegister();
-        }
     }
 
     public static void forestrySupport() {
