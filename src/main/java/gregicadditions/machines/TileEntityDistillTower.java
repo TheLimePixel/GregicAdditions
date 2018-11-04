@@ -1,5 +1,6 @@
 package gregicadditions.machines;
 
+import com.google.common.collect.Lists;
 import gregicadditions.recipes.GARecipeMaps;
 import gregtech.api.capability.impl.*;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -90,18 +91,19 @@ public class TileEntityDistillTower extends RecipeMapMultiblockController {
     }
 
     private void initializeAbilities() {
-        this.importItems = new ItemHandlerList(this.getAbilities(MultiblockAbility.IMPORT_ITEMS));
-        this.importFluids = new FluidTankList(false, this.getAbilities(MultiblockAbility.IMPORT_FLUIDS));
-        this.exportItems = new ItemHandlerList(this.getAbilities(MultiblockAbility.EXPORT_ITEMS));
-        this.exportFluids = new FluidTankList(false, this.getAbilities(MultiblockAbility.EXPORT_FLUIDS));
+        this.inputInventory = new ItemHandlerList(getAbilities(MultiblockAbility.IMPORT_ITEMS));
+        this.inputFluidInventory = new FluidTankList(false, getAbilities(MultiblockAbility.IMPORT_FLUIDS));
+        this.outputInventory = new ItemHandlerList(getAbilities(MultiblockAbility.EXPORT_ITEMS));
+        this.outputFluidInventory = new FluidTankList(false, getAbilities(MultiblockAbility.EXPORT_FLUIDS));
         this.energyContainer = new EnergyContainerList(this.getAbilities(MultiblockAbility.INPUT_ENERGY));
     }
 
     private void resetTileAbilities() {
-        this.importItems = new ItemStackHandler(0);
-        this.importFluids = new FluidTankList(false, new IFluidTank[0]);
-        this.exportItems = new ItemStackHandler(0);
-        this.exportFluids = new FluidTankList(false, new IFluidTank[0]);
+        this.inputInventory = new ItemStackHandler(0);
+        this.inputFluidInventory = new FluidTankList(false);
+        this.outputInventory = new ItemStackHandler(0);
+        this.outputFluidInventory = new FluidTankList(false);
+        this.energyContainer = new EnergyContainerList(Lists.newArrayList());
     }
 }
 
