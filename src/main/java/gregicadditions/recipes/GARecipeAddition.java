@@ -1666,9 +1666,9 @@ public class GARecipeAddition {
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(144).EUt(5).inputs(new ItemStack(Items.APPLE)).fluidOutputs(Materials.Methane.getFluid(18)).buildAndRegister();
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(144).EUt(5).inputs(new ItemStack(Items.NETHER_WART)).fluidOutputs(Materials.Methane.getFluid(18)).buildAndRegister();
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(144).EUt(5).inputs(new ItemStack(Blocks.BROWN_MUSHROOM)).fluidOutputs(Materials.Methane.getFluid(18)).buildAndRegister();
-        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(144).EUt(5).inputs(new ItemStack(Blocks.BROWN_MUSHROOM)).fluidOutputs(Materials.Methane.getFluid(18)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(144).EUt(5).inputs(new ItemStack(Blocks.RED_MUSHROOM)).fluidOutputs(Materials.Methane.getFluid(18)).buildAndRegister();
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(144).EUt(5).inputs(new ItemStack(Items.SPIDER_EYE)).fluidOutputs(Materials.Methane.getFluid(18)).buildAndRegister();
-        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(192).EUt(5).inputs(new ItemStack(Items.POTATO)).fluidOutputs(Materials.Methane.getFluid(24)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(192).EUt(5).inputs(new ItemStack(Items.BAKED_POTATO)).fluidOutputs(Materials.Methane.getFluid(24)).buildAndRegister();
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Blocks.PUMPKIN)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Items.CARROT)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
         RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(288).EUt(5).inputs(new ItemStack(Items.COOKED_BEEF)).fluidOutputs(Materials.Methane.getFluid(36)).buildAndRegister();
@@ -1697,6 +1697,13 @@ public class GARecipeAddition {
         //Redstone and glowstone melting
         RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(80).EUt(32).input(OrePrefix.dust, Materials.Redstone).fluidOutputs(Materials.Redstone.getFluid(144)).buildAndRegister();
         RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(80).EUt(32).input(OrePrefix.dust, Materials.Glowstone).fluidOutputs(Materials.Glowstone.getFluid(144)).buildAndRegister();
+
+        if (GAConfig.Misc.logicalSteel==true) {
+            RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(2800).EUt(120).blastFurnaceTemp(1000).input(OrePrefix.nugget,Materials.Iron,50).input(OrePrefix.dustTiny,Materials.Carbon).outputs(OreDictUnifier.get(OrePrefix.nugget,Materials.Steel,50),OreDictUnifier.get(OrePrefix.dustTiny,Materials.DarkAsh)).buildAndRegister();
+            RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(560).EUt(120).blastFurnaceTemp(1000).input(OrePrefix.nugget,Materials.WroughtIron,50).input(OrePrefix.dustTiny,Materials.Carbon).outputs(OreDictUnifier.get(OrePrefix.nugget,Materials.Steel,50),OreDictUnifier.get(OrePrefix.dustTiny,Materials.DarkAsh)).buildAndRegister();
+            RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(25200).EUt(120).blastFurnaceTemp(1000).input(OrePrefix.ingot,Materials.Iron,50).input(OrePrefix.dust,Materials.Carbon).outputs(OreDictUnifier.get(OrePrefix.ingot,Materials.Steel,50),OreDictUnifier.get(OrePrefix.dust,Materials.DarkAsh)).buildAndRegister();
+            RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(5040).EUt(120).blastFurnaceTemp(1000).input(OrePrefix.ingot,Materials.WroughtIron,50).input(OrePrefix.dust,Materials.Carbon).outputs(OreDictUnifier.get(OrePrefix.ingot,Materials.Steel,50),OreDictUnifier.get(OrePrefix.dust,Materials.DarkAsh)).buildAndRegister();
+        }
     }
 
     public static void forestrySupport() {
