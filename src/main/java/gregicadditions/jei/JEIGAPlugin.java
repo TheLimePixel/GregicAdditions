@@ -1,5 +1,6 @@
 package gregicadditions.jei;
 
+import gregicadditions.machines.GATileEntities;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
@@ -15,5 +16,7 @@ public class JEIGAPlugin implements IModPlugin {
     @Override
     public void register(IModRegistry registry) {
         GAMultiblockInfoCategory.registerRecipes(registry);
+
+        registry.addRecipeCatalyst(GATileEntities.COKE_OVEN.getStackForm(), "gregtech:coke_oven");
     }
 }
