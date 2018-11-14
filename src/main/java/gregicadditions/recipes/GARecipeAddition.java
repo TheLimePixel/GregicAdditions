@@ -1697,6 +1697,46 @@ public class GARecipeAddition {
         //Redstone and glowstone melting
         RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(80).EUt(32).input(OrePrefix.dust, Materials.Redstone).fluidOutputs(Materials.Redstone.getFluid(144)).buildAndRegister();
         RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(80).EUt(32).input(OrePrefix.dust, Materials.Glowstone).fluidOutputs(Materials.Glowstone.getFluid(144)).buildAndRegister();
+
+        //Gem Tool Part Fixes
+        for (Material material : GemMaterial.MATERIAL_REGISTRY) {
+            if (!OreDictUnifier.get(OrePrefix.gem, material).isEmpty() && !OreDictUnifier.get(OrePrefix.toolHeadHammer, material).isEmpty() && material != Materials.Flint) {
+                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadAxe, material));
+                ModHandler.addShapedRecipe("axe_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadAxe, material), "GG", "Gf", 'G', new UnificationEntry(OrePrefix.gem, material));
+                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadFile, material));
+                ModHandler.addShapedRecipe("file_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadFile, material), "G", "G", "f", 'G', new UnificationEntry(OrePrefix.gem, material));
+                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadHammer, material));
+                ModHandler.addShapedRecipe("hammer_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadHammer, material), "GG ", "GGf", "GG ", 'G', new UnificationEntry(OrePrefix.gem, material));
+                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadHoe, material));
+                ModHandler.addShapedRecipe("hoe_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadHoe, material), "GGf", 'G', new UnificationEntry(OrePrefix.gem, material));
+                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadPickaxe, material));
+                ModHandler.addShapedRecipe("pickaxe_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadPickaxe, material), "GGG", "f  ", 'G', new UnificationEntry(OrePrefix.gem, material));
+                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadPlow, material));
+                ModHandler.addShapedRecipe("flow_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadPlow, material), "GG", "GG", " f", 'G', new UnificationEntry(OrePrefix.gem, material));
+                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadSaw, material));
+                ModHandler.addShapedRecipe("saw_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadSaw, material), "GG", "f ", 'G', new UnificationEntry(OrePrefix.gem, material));
+                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadSense, material));
+                ModHandler.addShapedRecipe("sense_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadSense, material), "GGG", " f ", 'G', new UnificationEntry(OrePrefix.gem, material));
+                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadShovel, material));
+                ModHandler.addShapedRecipe("shovel_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadShovel, material), "fG", 'G', new UnificationEntry(OrePrefix.gem, material));
+                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadSword, material));
+                ModHandler.addShapedRecipe("sword_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadSword, material), " G", "fG", 'G', new UnificationEntry(OrePrefix.gem, material));
+                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadUniversalSpade, material));
+                ModHandler.addShapedRecipe("universal_spade_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadUniversalSpade, material), "GGG", "GfG", " G ", 'G', new UnificationEntry(OrePrefix.gem, material));
+            }
+        }
+
+        //Misc Recipe Patches
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).input(OrePrefix.dust, Materials.NetherQuartz).outputs(OreDictUnifier.get(OrePrefix.plate, Materials.NetherQuartz)).buildAndRegister();
+        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).input(OrePrefix.dust, Materials.CertusQuartz).outputs(OreDictUnifier.get(OrePrefix.plate, Materials.CertusQuartz)).buildAndRegister();
+
+        //Dust Uncrafting Fixes
+        for (Material m : DustMaterial.MATERIAL_REGISTRY) {
+            if (!OreDictUnifier.get(OrePrefix.dustSmall, m).isEmpty()) {
+                ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.dustSmall, m));
+                ModHandler.addShapedRecipe("dust_small_" + m.toString(), OreDictUnifier.get(OrePrefix.dustSmall, m, 4), " D", "  ", 'D', new UnificationEntry(OrePrefix.dust, m));
+            }
+        }
     }
 
     public static void forestrySupport() {
