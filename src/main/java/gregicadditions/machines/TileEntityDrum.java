@@ -56,6 +56,11 @@ public class TileEntityDrum extends MetaTileEntity {
     }
 
     @Override
+    public int getComparatorValue() {
+        return fluidTank.comparatorValue;
+    }
+
+    @Override
     public boolean isOpaqueCube() {
         return false;
     }
@@ -68,7 +73,7 @@ public class TileEntityDrum extends MetaTileEntity {
     @Override
     protected void initializeInventory() {
         super.initializeInventory();
-        this.fluidTank = new SyncFluidTank(tankSize);
+        this.fluidTank = new SyncFluidTank(tankSize, this);
         this.fluidInventory = fluidTank;
     }
 
@@ -200,9 +205,13 @@ public class TileEntityDrum extends MetaTileEntity {
     }
 
     private class SyncFluidTank extends FluidTank {
+        public int comparatorValue;
+        private TileEntityDrum te;
 
-        public SyncFluidTank(int capacity) {
+        public SyncFluidTank(int capacity, TileEntityDrum te) {
             super(capacity);
+            this.comparatorValue = 0;
+            this.te = te;
         }
 
         @Override
@@ -223,7 +232,15 @@ public class TileEntityDrum extends MetaTileEntity {
                     buf.writeCompoundTag(tagCompound);
                 }
             });
-        }
 
+            int newValue = 0;
+            if (newFluid != null && newFluid.amount > 0) {
+                newValue = 1 + ((14*newFluid.amount) / capacity);
+            }
+            if (newValue != comparatorValue) {
+                this.comparatorValue = newValue;
+                this.te.markDirty();
+            }
+        }
     }
 }
