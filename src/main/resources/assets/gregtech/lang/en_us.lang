@@ -159,6 +159,21 @@ metaitem.plate.iridium.alloy.name=Iridium Alloy Plate
 metaitem.plate.iridium.alloy.uncompressed.name=Uncompressed Iridium Alloy Plate
 metaitem.neutron.reflector.name=Neutron Reflector
 
+metaitem.electrode.apatite.name=Apatine Electrode
+metaitem.electrode.blaze.name=Blazing Electrode
+metaitem.electrode.bronze.name=Bronze Electrode
+metaitem.electrode.copper.name=Copper Electrode
+metaitem.electrode.diamond.name=Diamantine Electrode
+metaitem.electrode.emerald.name=Emerald Electrode
+metaitem.electrode.ender.name=Ender Electrode
+metaitem.electrode.gold.name=Golden Electrode
+metaitem.electrode.iron.name=Iron Electrode
+metaitem.electrode.lapis.name=Lapis Electrode
+metaitem.electrode.obsidian.name=Obsidian Electrode
+metaitem.electrode.orchid.name=Orchid Electrode
+metaitem.electrode.rubber.name=Rubberised Electrode
+metaitem.electrode.tin.name=Tin Electrode
+
 gregtech.machine.circuit_assembler.lv.name=Basic Circuit Assembling Machine
 gregtech.machine.circuit_assembler.mv.name=Advanced Circuit Assembling Machine
 gregtech.machine.circuit_assembler.hv.name=Advanced Circuit Assembling Machine II

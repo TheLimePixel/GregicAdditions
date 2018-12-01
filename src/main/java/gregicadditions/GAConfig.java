@@ -36,6 +36,10 @@ public class GAConfig {
         @Config.Comment("Set this to false to disable Drums")
         @Config.Name("Should Drums be registered?")
         public boolean registerDums = true;
+
+        @Config.Comment("Set this to false to disable the support for Forestry Electron Tubes")
+        @Config.Name("Should Electrodes be registered?")
+        public boolean electrodes = true;
     }
 
     @Config.Comment("Config options for GT5U features")

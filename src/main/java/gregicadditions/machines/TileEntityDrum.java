@@ -235,7 +235,7 @@ public class TileEntityDrum extends MetaTileEntity {
 
             int newValue = 0;
             if (newFluid != null && newFluid.amount > 0) {
-                newValue = 1 + ((14*newFluid.amount) / capacity);
+                newValue = 1 + ((14 * newFluid.amount) / capacity);
             }
             if (newValue != comparatorValue) {
                 this.comparatorValue = newValue;

@@ -282,12 +282,18 @@ public class GAMaterials {
         Materials.GreenSapphire.addFlag(DustMaterial.MatFlags.GENERATE_PLATE);
         Materials.GreenSapphire.addFlag(GemMaterial.MatFlags.GENERATE_LENSE);
 
+
+        Materials.Apatite.addFlag(SolidMaterial.MatFlags.GENERATE_ROD);
+
         Materials.Iron.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
         Materials.Bronze.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
         Materials.Steel.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
         Materials.StainlessSteel.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
 
         Materials.Steel.addFlag(Material.MatFlags.DISABLE_DECOMPOSITION);
+
+        Materials.Rubber.addFlag(IngotMaterial.MatFlags.GENERATE_BOLT_SCREW);
+        Materials.Apatite.addFlag(IngotMaterial.MatFlags.GENERATE_BOLT_SCREW);
 
         Materials.Salt.addOreByProducts(Materials.Borax);
         Materials.RockSalt.addOreByProducts(Materials.Borax);

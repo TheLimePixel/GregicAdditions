@@ -1,5 +1,6 @@
 package gregicadditions.item;
 
+import gregicadditions.GAConfig;
 import gregicadditions.GAMaterials;
 import gregtech.api.items.materialitem.MaterialMetaItem;
 import gregtech.api.items.metaitem.ElectricStats;
@@ -9,6 +10,7 @@ import gregtech.api.unification.material.MarkerMaterials.Tier;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.MetaItems;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -112,6 +114,26 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.PLATE_IRIDIUM_ALLOY = addItem(105, "plate.iridium.alloy");
         GAMetaItems.PLATE_IRIDIUM_ALLOY_UNCOMPRESSED = addItem(106, "plate.iridium.alloy.uncompressed");
         GAMetaItems.NEUTRON_REFLECTOR = addItem(107, "neutron.reflector");
+
+        if (Loader.isModLoaded("forestry") && GAConfig.GT6.electrodes) {
+            GAMetaItems.ELECTRODE_APATITE = addItem(108, "electrode.apatite");
+            GAMetaItems.ELECTRODE_BLAZE = addItem(109, "electrode.blaze");
+            GAMetaItems.ELECTRODE_BRONZE = addItem(110, "electrode.bronze");
+            GAMetaItems.ELECTRODE_COPPER = addItem(111, "electrode.copper");
+            GAMetaItems.ELECTRODE_DIAMOND = addItem(112, "electrode.diamond");
+            GAMetaItems.ELECTRODE_EMERALD = addItem(113, "electrode.emerald");
+            GAMetaItems.ELECTRODE_ENDER = addItem(114, "electrode.ender");
+            GAMetaItems.ELECTRODE_GOLD = addItem(115, "electrode.gold");
+            if (Loader.isModLoaded("ic2"))
+                GAMetaItems.ELECTRODE_IRON = addItem(116, "electrode.iron");
+            GAMetaItems.ELECTRODE_LAPIS = addItem(117, "electrode.lapis");
+            GAMetaItems.ELECTRODE_OBSIDIAN = addItem(118, "electrode.obsidian");
+            if (Loader.isModLoaded("extrautils2"))
+                GAMetaItems.ELECTRODE_ORCHID = addItem(119, "electrode.orchid");
+            if (Loader.isModLoaded("ic2") || Loader.isModLoaded("techreborn"))
+                GAMetaItems.ELECTRODE_RUBBER = addItem(120, "electrode.rubber");
+            GAMetaItems.ELECTRODE_TIN = addItem(121, "electrode.tin");
+        }
 
         MetaItems.CIRCUIT_BASIC.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
         MetaItems.CIRCUIT_PARTS_ADVANCED.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);

@@ -108,6 +108,21 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem PLATE_IRIDIUM_ALLOY_UNCOMPRESSED;
     public static MetaItem<?>.MetaValueItem NEUTRON_REFLECTOR;
 
+    public static MetaItem<?>.MetaValueItem ELECTRODE_APATITE;
+    public static MetaItem<?>.MetaValueItem ELECTRODE_BLAZE;
+    public static MetaItem<?>.MetaValueItem ELECTRODE_BRONZE;
+    public static MetaItem<?>.MetaValueItem ELECTRODE_COPPER;
+    public static MetaItem<?>.MetaValueItem ELECTRODE_DIAMOND;
+    public static MetaItem<?>.MetaValueItem ELECTRODE_EMERALD;
+    public static MetaItem<?>.MetaValueItem ELECTRODE_ENDER;
+    public static MetaItem<?>.MetaValueItem ELECTRODE_GOLD;
+    public static MetaItem<?>.MetaValueItem ELECTRODE_IRON;
+    public static MetaItem<?>.MetaValueItem ELECTRODE_LAPIS;
+    public static MetaItem<?>.MetaValueItem ELECTRODE_OBSIDIAN;
+    public static MetaItem<?>.MetaValueItem ELECTRODE_ORCHID;
+    public static MetaItem<?>.MetaValueItem ELECTRODE_RUBBER;
+    public static MetaItem<?>.MetaValueItem ELECTRODE_TIN;
+
     public static MetaItem<?>.MetaValueItem BENDING_CYLINDER;
     public static MetaItem<?>.MetaValueItem SMALL_BENDING_CYLINDER;
 
