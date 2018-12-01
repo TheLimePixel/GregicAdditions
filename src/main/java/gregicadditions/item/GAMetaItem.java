@@ -124,13 +124,13 @@ public class GAMetaItem extends MaterialMetaItem {
             GAMetaItems.ELECTRODE_EMERALD = addItem(113, "electrode.emerald");
             GAMetaItems.ELECTRODE_ENDER = addItem(114, "electrode.ender");
             GAMetaItems.ELECTRODE_GOLD = addItem(115, "electrode.gold");
-            if (Loader.isModLoaded("ic2"))
+            if (Loader.isModLoaded("ic2") || Loader.isModLoaded("binniecore"))
                 GAMetaItems.ELECTRODE_IRON = addItem(116, "electrode.iron");
             GAMetaItems.ELECTRODE_LAPIS = addItem(117, "electrode.lapis");
             GAMetaItems.ELECTRODE_OBSIDIAN = addItem(118, "electrode.obsidian");
             if (Loader.isModLoaded("extrautils2"))
                 GAMetaItems.ELECTRODE_ORCHID = addItem(119, "electrode.orchid");
-            if (Loader.isModLoaded("ic2") || Loader.isModLoaded("techreborn"))
+            if (Loader.isModLoaded("ic2") || Loader.isModLoaded("techreborn") || Loader.isModLoaded("binniecore"))
                 GAMetaItems.ELECTRODE_RUBBER = addItem(120, "electrode.rubber");
             GAMetaItems.ELECTRODE_TIN = addItem(121, "electrode.tin");
         }
