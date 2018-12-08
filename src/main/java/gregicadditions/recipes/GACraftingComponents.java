@@ -317,7 +317,6 @@ public enum GACraftingComponents {
             switch (tier) {
                 case 0:
                 case 1:
-                    return new UnificationEntry(OrePrefix.gem, Materials.Diamond);
                 case 2:
                     return new UnificationEntry(OrePrefix.gem, Materials.Diamond);
                 default:

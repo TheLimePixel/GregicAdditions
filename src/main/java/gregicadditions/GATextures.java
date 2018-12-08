@@ -3,7 +3,6 @@ package gregicadditions;
 import gregicadditions.machines.CrateRenderer;
 import gregicadditions.machines.DrumRenderer;
 import gregtech.api.gui.resources.TextureArea;
-import gregtech.api.render.ChestRenderer;
 import gregtech.api.render.OrientedOverlayRenderer;
 import gregtech.api.render.OrientedOverlayRenderer.OverlayFace;
 import gregtech.api.render.SimpleCubeRenderer;
@@ -24,6 +23,8 @@ public class GATextures {
     public static OrientedOverlayRenderer MASS_FAB_OVERLAY;
 
     public static OrientedOverlayRenderer FUSION_REACTOR_OVERLAY;
+
+    public static OrientedOverlayRenderer BREAKER_OVERLAY;
 
     public static DrumRenderer BARREL = new DrumRenderer("storage/drums/barrel");
     public static DrumRenderer DRUM = new DrumRenderer("storage/drums/drum");
@@ -52,5 +53,7 @@ public class GATextures {
         MASS_FAB_OVERLAY = new OrientedOverlayRenderer("machines/mass_fab", new OverlayFace[]{OverlayFace.FRONT});
 
         FUSION_REACTOR_OVERLAY = new OrientedOverlayRenderer("machines/fusion_reactor", new OverlayFace[]{OverlayFace.FRONT});
+
+        BREAKER_OVERLAY = new OrientedOverlayRenderer("machines/rock_breaker", new OverlayFace[]{OverlayFace.BACK});
     }
 }
