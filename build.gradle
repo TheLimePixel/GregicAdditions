@@ -11,8 +11,8 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 
 version = "${minecraft_version}-${mod_version}"
-group = "gtplusplus"
-archivesBaseName = "GTplusplus"
+group = "gregicadditions"
+archivesBaseName = "GregicAdditions"
 
 sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
@@ -25,7 +25,7 @@ minecraft {
     mappings = "snapshot_20171003"
 
     replace("@VERSION@",project.version)
-    replaceIn("GTplusplus.java")
+    replaceIn("GregicAdditions.java")
 }
 
 repositories {
