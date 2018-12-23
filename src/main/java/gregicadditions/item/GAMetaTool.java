@@ -8,7 +8,7 @@ import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.DustMaterial;
-import gregtech.api.unification.material.type.GemMaterial;
+import gregtech.api.unification.material.type.SolidMaterial;
 import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.ore.OrePrefix;
@@ -48,9 +48,10 @@ public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> 
                 }
             }
         }
-        for (Material material : GemMaterial.MATERIAL_REGISTRY) {
+        for (Material material : Material.MATERIAL_REGISTRY) {
             if (!OreDictUnifier.get(OrePrefix.gem, material).isEmpty() && !OreDictUnifier.get(OrePrefix.toolHeadHammer, material).isEmpty() && material != Materials.Flint) {
-                GemMaterial toolMaterial = (GemMaterial) material;
+//                GemMaterial toolMaterial = (GemMaterial) material;
+                SolidMaterial toolMaterial = (SolidMaterial) material;
                 ModHandler.addMirroredShapedRecipe(String.format("hammer_%s", material.toString()),
                         (MetaItems.HARD_HAMMER).getStackForm(toolMaterial, Materials.Wood),
                         "GG ", "GGS", "GG ",
