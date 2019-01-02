@@ -33,7 +33,6 @@ public class GregicAdditions {
 
     public GregicAdditions() {
         GAEnums.preInit();
-        new GAMaterials();
     }
 
     @EventHandler

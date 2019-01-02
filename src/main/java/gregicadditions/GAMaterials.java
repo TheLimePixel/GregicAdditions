@@ -3,12 +3,14 @@ package gregicadditions;
 import com.google.common.collect.ImmutableList;
 import gregicadditions.item.BasicMaterial;
 import gregtech.api.unification.Element;
+import gregtech.api.unification.material.IMaterialHandler;
 import gregtech.api.unification.material.MaterialIconSet;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.*;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
 
+@IMaterialHandler.RegisterMaterialHandler
 public class GAMaterials {
     public static DustMaterial Brick;
     public static DustMaterial Fireclay;
