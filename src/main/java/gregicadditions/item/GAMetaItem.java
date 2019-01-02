@@ -176,9 +176,7 @@ public class GAMetaItem extends MaterialMetaItem {
                 GAMetaItems.SPRUCE_FORM.getStackForm().getMetadata()
         };
 
-        if (ArrayUtils.contains(idsToKeepInGrid, stack.getMetadata()))
-            return true;
-        return false;
+        return ArrayUtils.contains(idsToKeepInGrid, stack.getMetadata());
     }
 
 

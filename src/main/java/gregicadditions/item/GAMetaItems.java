@@ -16,7 +16,7 @@ import java.util.List;
 public class GAMetaItems {
 
 
-    public static List<MetaItem<?>> ITEMS = MetaItem.getMetaItems();
+    private static List<MetaItem<?>> ITEMS = MetaItem.getMetaItems();
 
     public static MetaItem<?>.MetaValueItem NANO_ASSEMBLY;
     public static MetaItem<?>.MetaValueItem INTEGRATED_ASSEMBLY;

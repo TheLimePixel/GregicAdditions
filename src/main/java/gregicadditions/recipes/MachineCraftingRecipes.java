@@ -197,20 +197,20 @@ public class MachineCraftingRecipes {
 
         //Storage
         ModHandler.addShapedRecipe("wooden_barrel", GATileEntities.WOODEN_DRUM.getStackForm(), "rSs", "PRP", "PRP", 'S', "slimeball", 'P', "plankWood", 'R', "stickLongIron");
-        if (GAConfig.GT6.BendingCurvedPlates == true && GAConfig.GT6.BendingCylinders == true && GAConfig.GT6.registerDums == true) {
+        if (GAConfig.GT6.BendingCurvedPlates  && GAConfig.GT6.BendingCylinders  && GAConfig.GT6.registerDums ) {
             ModHandler.addShapedRecipe("bronze_drum", GATileEntities.BRONZE_DRUM.getStackForm(), " h ", "PRP", "PRP", 'P', "plateCurvedBronze", 'R', "stickLongBronze");
             ModHandler.addShapedRecipe("steel_drum", GATileEntities.STEEL_DRUM.getStackForm(), " h ", "PRP", "PRP", 'P', "plateCurvedSteel", 'R', "stickLongSteel");
             ModHandler.addShapedRecipe("stainless_steel_drum", GATileEntities.STAINLESS_STEEL_DRUM.getStackForm(), " h ", "PRP", "PRP", 'P', "plateCurvedStainlessSteel", 'R', "stickLongStainlessSteel");
             ModHandler.addShapedRecipe("titanium_drum", GATileEntities.TITANIUM_DRUM.getStackForm(), " h ", "PRP", "PRP", 'P', "plateCurvedTitanium", 'R', "stickLongTitanium");
             ModHandler.addShapedRecipe("tungstensteel_drum", GATileEntities.TUNGSTENSTEEL_DRUM.getStackForm(), " h ", "PRP", "PRP", 'P', "plateCurvedTungstenSteel", 'R', "stickLongTungstenSteel");
-        } else if ((GAConfig.GT6.BendingCurvedPlates == false || GAConfig.GT6.BendingCylinders == false) && GAConfig.GT6.registerDums == true) {
+        } else if ((GAConfig.GT6.BendingCurvedPlates == false || GAConfig.GT6.BendingCylinders == false) && GAConfig.GT6.registerDums ) {
             ModHandler.addShapedRecipe("bronze_drum", GATileEntities.BRONZE_DRUM.getStackForm(), " h ", "PRP", "PRP", 'P', "plateBronze", 'R', "stickLongBronze");
             ModHandler.addShapedRecipe("steel_drum", GATileEntities.STEEL_DRUM.getStackForm(), " h ", "PRP", "PRP", 'P', "plateSteel", 'R', "stickLongSteel");
             ModHandler.addShapedRecipe("stainless_steel_drum", GATileEntities.STAINLESS_STEEL_DRUM.getStackForm(), " h ", "PRP", "PRP", 'P', "plateStainlessSteel", 'R', "stickLongStainlessSteel");
             ModHandler.addShapedRecipe("titanium_drum", GATileEntities.TITANIUM_DRUM.getStackForm(), " h ", "PRP", "PRP", 'P', "plateTitanium", 'R', "stickLongTitanium");
             ModHandler.addShapedRecipe("tungstensteel_drum", GATileEntities.TUNGSTENSTEEL_DRUM.getStackForm(), " h ", "PRP", "PRP", 'P', "plateTungstenSteel", 'R', "stickLongTungstenSteel");
         }
-        if (GAConfig.Misc.registerCrates == true) {
+        if (GAConfig.Misc.registerCrates ) {
             ModHandler.addShapedRecipe("wooden_crate", GATileEntities.WOODEN_CRATE.getStackForm(), "RPR", "PsP", "RPR", 'P', "plankWood", 'R', "screwIron");
             ModHandler.addShapedRecipe("bronze_crate", GATileEntities.BRONZE_CRATE.getStackForm(), "RPR", "PhP", "RPR", 'P', "plateBronze", 'R', "stickLongBronze");
             ModHandler.addShapedRecipe("steel_crate", GATileEntities.STEEL_CRATE.getStackForm(), "RPR", "PhP", "RPR", 'P', "plateSteel", 'R', "stickLongSteel");
@@ -279,87 +279,87 @@ public class MachineCraftingRecipes {
         registerMachineRecipe(MetaTileEntities.PLASMA_ARC_FURNACE, "WGW", "CMC", "TPT", 'M', HULL, 'P', PLATE, 'C', BETTER_CIRCUIT, 'W', CABLE_QUAD, 'T', PUMP, 'G', new UnificationEntry(OrePrefix.ingot, Materials.Graphite));
         registerMachineRecipe(MetaTileEntities.PUMP, "WGW", "GMG", "TGT", 'M', HULL, 'W', CIRCUIT, 'G', PUMP, 'T', PIPE);
         registerMachineRecipe(MetaTileEntities.AIR_COLLECTOR, "WFW", "PHP", "WCW", 'W', Blocks.IRON_BARS, 'F', OreDictNames.craftingFilter, 'P', PUMP, 'H', HULL, 'C', CIRCUIT);
-        if (GAConfig.GT5U.highTierPumps == true)
+        if (GAConfig.GT5U.highTierPumps )
             registerMachineRecipe(GATileEntities.PUMP, "WGW", "GMG", "TGT", 'M', HULL, 'W', CIRCUIT, 'G', PUMP, 'T', PIPE);
-        if (GAConfig.GT5U.highTierAlloySmelter == true)
+        if (GAConfig.GT5U.highTierAlloySmelter )
             registerMachineRecipe(GATileEntities.ALLOY_SMELTER, "ECE", "CMC", "WCW", 'M', HULL, 'E', CIRCUIT, 'W', CABLE, 'C', COIL_HEATING_DOUBLE);
-        if (GAConfig.GT5U.highTierAssemblers == true)
+        if (GAConfig.GT5U.highTierAssemblers )
             registerMachineRecipe(GATileEntities.ASSEMBLER, "ACA", "VMV", "WCW", 'M', HULL, 'V', CONVEYOR, 'A', ROBOT_ARM, 'C', CIRCUIT, 'W', CABLE);
-        if (GAConfig.GT5U.highTierBenders == true)
+        if (GAConfig.GT5U.highTierBenders )
             registerMachineRecipe(GATileEntities.BENDER, "PWP", "CMC", "EWE", 'M', HULL, 'E', MOTOR, 'P', PISTON, 'C', CIRCUIT, 'W', CABLE);
-        if (GAConfig.GT5U.highTierCanners == true)
+        if (GAConfig.GT5U.highTierCanners )
             registerMachineRecipe(GATileEntities.CANNER, "WPW", "CMC", "GGG", 'M', HULL, 'P', PUMP, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS);
-        if (GAConfig.GT5U.highTierCompressors == true)
+        if (GAConfig.GT5U.highTierCompressors )
             registerMachineRecipe(GATileEntities.COMPRESSOR, " C ", "PMP", "WCW", 'M', HULL, 'P', PISTON, 'C', CIRCUIT, 'W', CABLE);
-        if (GAConfig.GT5U.highTierCutters == true)
+        if (GAConfig.GT5U.highTierCutters )
             registerMachineRecipe(GATileEntities.CUTTER, "WCG", "VMB", "CWE", 'M', HULL, 'E', MOTOR, 'V', CONVEYOR, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS, 'B', OreDictNames.craftingDiamondBlade);
-        if (GAConfig.GT5U.highTierElectricFurnace == true)
+        if (GAConfig.GT5U.highTierElectricFurnace )
             registerMachineRecipe(GATileEntities.ELECTRIC_FURNACE, "ECE", "CMC", "WCW", 'M', HULL, 'E', CIRCUIT, 'W', CABLE, 'C', COIL_HEATING);
-        if (GAConfig.GT5U.highTierExtractors == true)
+        if (GAConfig.GT5U.highTierExtractors )
             registerMachineRecipe(GATileEntities.EXTRACTOR, "GCG", "EMP", "WCW", 'M', HULL, 'E', PISTON, 'P', PUMP, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS);
-        if (GAConfig.GT5U.highTierExtruders == true)
+        if (GAConfig.GT5U.highTierExtruders )
             registerMachineRecipe(GATileEntities.EXTRUDER, "CCE", "XMP", "CCE", 'M', HULL, 'X', PISTON, 'E', CIRCUIT, 'P', PIPE, 'C', COIL_HEATING_DOUBLE);
-        if (GAConfig.GT5U.highTierLathes == true)
+        if (GAConfig.GT5U.highTierLathes )
             registerMachineRecipe(GATileEntities.LATHE, "WCW", "EMD", "CWP", 'M', HULL, 'E', MOTOR, 'P', PISTON, 'C', CIRCUIT, 'W', CABLE, 'D', DIAMOND);
-        if (GAConfig.GT5U.highTierMacerators == true)
+        if (GAConfig.GT5U.highTierMacerators )
             registerMachineRecipe(GATileEntities.MACERATOR, "PEG", "WWM", "CCW", 'M', HULL, 'E', MOTOR, 'P', PISTON, 'C', CIRCUIT, 'W', CABLE, 'G', GRINDER);
-        if (GAConfig.GT5U.highTierMicrowaves == true)
+        if (GAConfig.GT5U.highTierMicrowaves )
             registerMachineRecipe(GATileEntities.MICROWAVE, "LWC", "LMR", "LEC", 'M', HULL, 'E', MOTOR, 'R', EMITTER, 'C', CIRCUIT, 'W', CABLE, 'L', new UnificationEntry(OrePrefix.plate, Materials.Lead));
-        if (GAConfig.GT5U.highTierWiremills == true)
+        if (GAConfig.GT5U.highTierWiremills )
             registerMachineRecipe(GATileEntities.WIREMILL, "EWE", "CMC", "EWE", 'M', HULL, 'E', MOTOR, 'C', CIRCUIT, 'W', CABLE);
-        if (GAConfig.GT5U.highTierCentrifuges == true)
+        if (GAConfig.GT5U.highTierCentrifuges )
             registerMachineRecipe(GATileEntities.CENTRIFUGE, "CEC", "WMW", "CEC", 'M', HULL, 'E', MOTOR, 'C', CIRCUIT, 'W', CABLE);
-        if (GAConfig.GT5U.highTierElectrolyzers == true)
+        if (GAConfig.GT5U.highTierElectrolyzers )
             registerMachineRecipe(GATileEntities.ELECTROLYZER, "IGI", "IMI", "CWC", 'M', HULL, 'C', CIRCUIT, 'W', CABLE, 'I', WIRE, 'G', GLASS);
-        if (GAConfig.GT5U.highTierThermalCentrifuges == true)
+        if (GAConfig.GT5U.highTierThermalCentrifuges )
             registerMachineRecipe(GATileEntities.THERMAL_CENTRIFUGE, "CEC", "OMO", "WEW", 'M', HULL, 'E', MOTOR, 'C', CIRCUIT, 'W', CABLE, 'O', COIL_HEATING_DOUBLE);
-        if (GAConfig.GT5U.highTierOreWashers == true)
+        if (GAConfig.GT5U.highTierOreWashers )
             registerMachineRecipe(GATileEntities.ORE_WASHER, "RGR", "CEC", "WMW", 'M', HULL, 'R', ROTOR, 'E', MOTOR, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS);
-        if (GAConfig.GT5U.highTierPackers == true)
+        if (GAConfig.GT5U.highTierPackers )
             registerMachineRecipe(GATileEntities.PACKER, "BCB", "RMV", "WCW", 'M', HULL, 'R', ROBOT_ARM, 'V', CONVEYOR, 'C', CIRCUIT, 'W', CABLE, 'B', OreDictNames.chestWood);
-        if (GAConfig.GT5U.highTierUnpackers == true)
+        if (GAConfig.GT5U.highTierUnpackers )
             registerMachineRecipe(GATileEntities.UNPACKER, "BCB", "VMR", "WCW", 'M', HULL, 'R', ROBOT_ARM, 'V', CONVEYOR, 'C', CIRCUIT, 'W', CABLE, 'B', OreDictNames.chestWood);
-        if (GAConfig.GT5U.highTierChemicalReactors == true)
+        if (GAConfig.GT5U.highTierChemicalReactors )
             registerMachineRecipe(GATileEntities.CHEMICAL_REACTOR, "GRG", "WEW", "CMC", 'M', HULL, 'R', ROTOR, 'E', MOTOR, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS);
-        if (GAConfig.GT5U.highTierFluidCanners == true)
+        if (GAConfig.GT5U.highTierFluidCanners )
             registerMachineRecipe(GATileEntities.FLUID_CANNER, "GCG", "GMG", "WPW", 'M', HULL, 'P', PUMP, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS);
-        if (GAConfig.GT5U.highTierBreweries == true)
+        if (GAConfig.GT5U.highTierBreweries )
             registerMachineRecipe(GATileEntities.BREWERY, "GPG", "WMW", "CBC", 'M', HULL, 'P', PUMP, 'B', STICK_DISTILLATION, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS);
-        if (GAConfig.GT5U.highTierFermenters == true)
+        if (GAConfig.GT5U.highTierFermenters )
             registerMachineRecipe(GATileEntities.FERMENTER, "WPW", "GMG", "WCW", 'M', HULL, 'P', PUMP, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS);
-        if (GAConfig.GT5U.highTierFluidExtractors == true)
+        if (GAConfig.GT5U.highTierFluidExtractors )
             registerMachineRecipe(GATileEntities.FLUID_EXTRACTOR, "GCG", "PME", "WCW", 'M', HULL, 'E', PISTON, 'P', PUMP, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS);
-        if (GAConfig.GT5U.highTierFluidSolidifiers == true)
+        if (GAConfig.GT5U.highTierFluidSolidifiers )
             registerMachineRecipe(GATileEntities.FLUID_SOLIDIFIER, "PGP", "WMW", "CBC", 'M', HULL, 'P', PUMP, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS, 'B', OreDictNames.chestWood);
-        if (GAConfig.GT5U.highTierDistilleries == true)
+        if (GAConfig.GT5U.highTierDistilleries )
             registerMachineRecipe(GATileEntities.DISTILLERY, "GBG", "CMC", "WPW", 'M', HULL, 'P', PUMP, 'B', STICK_DISTILLATION, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS);
-        if (GAConfig.GT5U.highTierChemicalBaths == true)
+        if (GAConfig.GT5U.highTierChemicalBaths )
             registerMachineRecipe(GATileEntities.CHEMICAL_BATH, "VGW", "PGV", "CMC", 'M', HULL, 'P', PUMP, 'V', CONVEYOR, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS);
-        if (GAConfig.GT5U.highTierPolarizers == true)
+        if (GAConfig.GT5U.highTierPolarizers )
             registerMachineRecipe(GATileEntities.POLARIZER, "ZSZ", "WMW", "ZSZ", 'M', HULL, 'S', STICK_ELECTROMAGNETIC, 'Z', COIL_ELECTRIC, 'W', CABLE);
-        if (GAConfig.GT5U.highTierElectromagneticSeparators == true)
+        if (GAConfig.GT5U.highTierElectromagneticSeparators )
             registerMachineRecipe(GATileEntities.ELECTROMAGNETIC_SEPARATOR, "VWZ", "WMS", "CWZ", 'M', HULL, 'S', STICK_ELECTROMAGNETIC, 'Z', COIL_ELECTRIC, 'V', CONVEYOR, 'C', CIRCUIT, 'W', CABLE);
-        if (GAConfig.GT5U.highTierAutoclaves == true)
+        if (GAConfig.GT5U.highTierAutoclaves )
             registerMachineRecipe(GATileEntities.AUTOCLAVE, "IGI", "IMI", "CPC", 'M', HULL, 'P', PUMP, 'C', CIRCUIT, 'I', PLATE, 'G', GLASS);
-        if (GAConfig.GT5U.highTierMixers == true)
+        if (GAConfig.GT5U.highTierMixers )
             registerMachineRecipe(GATileEntities.MIXER, "GRG", "GEG", "CMC", 'M', HULL, 'E', MOTOR, 'R', ROTOR, 'C', CIRCUIT, 'G', GLASS);
-        if (GAConfig.GT5U.highTierLaserEngravers == true)
+        if (GAConfig.GT5U.highTierLaserEngravers )
             registerMachineRecipe(GATileEntities.LASER_ENGRAVER, "PEP", "CMC", "WCW", 'M', HULL, 'E', EMITTER, 'P', PISTON, 'C', CIRCUIT, 'W', CABLE);
-        if (GAConfig.GT5U.highTierFormingPresses == true)
+        if (GAConfig.GT5U.highTierFormingPresses )
             registerMachineRecipe(GATileEntities.FORMING_PRESS, "WPW", "CMC", "WPW", 'M', HULL, 'P', PISTON, 'C', CIRCUIT, 'W', CABLE);
-        if (GAConfig.GT5U.highTierForgeHammers == true)
+        if (GAConfig.GT5U.highTierForgeHammers )
             registerMachineRecipe(GATileEntities.FORGE_HAMMER, "WPW", "CMC", "WAW", 'M', HULL, 'P', PISTON, 'C', CIRCUIT, 'W', CABLE, 'A', OreDictNames.craftingAnvil);
-        if (GAConfig.GT5U.highTierFluidHeaters == true)
+        if (GAConfig.GT5U.highTierFluidHeaters )
             registerMachineRecipe(GATileEntities.FLUID_HEATER, "OGO", "PMP", "WCW", 'M', HULL, 'P', PUMP, 'O', COIL_HEATING_DOUBLE, 'C', CIRCUIT, 'W', CABLE, 'G', GLASS);
-        if (GAConfig.GT5U.highTierSifters == true)
+        if (GAConfig.GT5U.highTierSifters )
             registerMachineRecipe(GATileEntities.SIFTER, "WFW", "PMP", "CFC", 'M', HULL, 'P', PISTON, 'F', OreDictNames.craftingFilter, 'C', CIRCUIT, 'W', CABLE);
-        if (GAConfig.GT5U.highTierArcFurnaces == true)
+        if (GAConfig.GT5U.highTierArcFurnaces )
             registerMachineRecipe(GATileEntities.ARC_FURNACE, "WGW", "CMC", "PPP", 'M', HULL, 'P', PLATE, 'C', CIRCUIT, 'W', CABLE_QUAD, 'G', new UnificationEntry(OrePrefix.ingot, Materials.Graphite));
-        if (GAConfig.GT5U.highTierPlasmaArcFurnaces == true)
+        if (GAConfig.GT5U.highTierPlasmaArcFurnaces )
             registerMachineRecipe(GATileEntities.PLASMA_ARC_FURNACE, "WGW", "CMC", "TPT", 'M', HULL, 'P', PLATE, 'C', BETTER_CIRCUIT, 'W', CABLE_QUAD, 'T', PUMP, 'G', new UnificationEntry(OrePrefix.ingot, Materials.Graphite));
         registerMachineRecipe(GATileEntities.MASS_FAB, "CFC", "QMQ", "CFC", 'M', HULL, 'Q', CABLE_QUAD, 'C', BETTER_CIRCUIT, 'F', FIELD_GENERATOR);
         registerMachineRecipe(GATileEntities.REPLICATOR, "EFE", "CMC", "EQE", 'M', HULL, 'Q', CABLE_QUAD, 'C', BETTER_CIRCUIT, 'F', FIELD_GENERATOR, 'E', EMITTER);
-        if (GAConfig.Misc.highTierCollector == true)
+        if (GAConfig.Misc.highTierCollector )
             registerMachineRecipe(GATileEntities.AIR_COLLECTOR, "WFW", "PHP", "WCW", 'W', Blocks.IRON_BARS, 'F', OreDictNames.craftingFilter, 'P', PUMP, 'H', HULL, 'C', CIRCUIT);
         registerMachineRecipe(GATileEntities.ROCK_BREAKER, "QPQ", "CMC", "GGG", 'M', HULL, 'Q', CABLE, 'C', CIRCUIT, 'P', PISTON, 'G', GLASS);
     }

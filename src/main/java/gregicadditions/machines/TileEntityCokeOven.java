@@ -25,7 +25,6 @@ import gregtech.api.recipes.Recipe;
 import gregtech.api.render.ICubeRenderer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -233,7 +232,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
                 .where('X', statePredicate(getCasingState()).or(tilePredicate((state, tile) -> {
                     return tile.metaTileEntityId.equals(GATileEntities.COKE_FLUID_HATCH.metaTileEntityId) || tile.metaTileEntityId.equals(GATileEntities.COKE_ITEM_BUS.metaTileEntityId);
                 })))
-                .where('#', blockPredicate(Blocks.AIR))
+                .where('#', isAirPredicate())
                 .where('Y', selfPredicate())
                 .build();
     }

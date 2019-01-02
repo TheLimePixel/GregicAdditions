@@ -27,7 +27,7 @@ public class GregicAdditions {
             clientSide = "gregicadditions.ClientProxy",
             serverSide = "gregicadditions.CommonProxy"
     )
-    public static CommonProxy proxy;
+    private static CommonProxy proxy;
 
     public static Logger logger;
 
