@@ -145,8 +145,6 @@ public class GAConfig {
         public boolean highTierPumps = true;
         @Config.Name("Should higher tier Replicators be registered?")
         public boolean highTierReplicators = true;
-        @Config.Name("Should higher tier Rock Breakers be registered?")
-        public boolean highTierRockBreakers = true;
         @Config.Name("Should higher tier Sifting Machines be registered?")
         public boolean highTierSifters = true;
         @Config.Name("Should higher tier Thermal Centrifuges be registered?")
