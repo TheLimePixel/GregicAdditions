@@ -145,7 +145,7 @@ public class GARecipeAddition {
         ModHandler.addSmeltingRecipe(GAMetaItems.COMPRESSED_FIRECLAY.getStackForm(), GAMetaItems.FIRECLAY_BRICK.getStackForm());
 
         //GT6 Bending
-        if (GAConfig.GT6.BendingCurvedPlates == true && GAConfig.GT6.BendingCylinders == true) {
+        if (GAConfig.GT6.BendingCurvedPlates  && GAConfig.GT6.BendingCylinders ) {
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:iron_bucket"));
             ModHandler.addShapedRecipe("bucket", new ItemStack(Items.BUCKET), "ChC", " P ", 'C', "plateCurvedIron", 'P', "plateIron");
             RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(200).EUt(4).input(OrePrefix.valueOf("plateCurved"), Materials.Iron, 2).input(OrePrefix.plate, Materials.Iron).outputs(new ItemStack(Items.BUCKET)).buildAndRegister();
@@ -172,31 +172,31 @@ public class GARecipeAddition {
             ModHandler.addShapedRecipe("chain_boots", new ItemStack(Items.CHAINMAIL_BOOTS), "R R", "RhR", 'R', "ringIron");
         }
         for (Material m : IngotMaterial.MATERIAL_REGISTRY) {
-            if (!OreDictUnifier.get(OrePrefix.ring, m).isEmpty() && !OreDictUnifier.get(OrePrefix.stick, m).isEmpty() && m != Materials.Rubber && m != GAMaterials.StyreneButadieneRubber && m != GAMaterials.SiliconeRubber && GAConfig.GT6.BendingRings == true && GAConfig.GT6.BendingCylinders == true) {
+            if (!OreDictUnifier.get(OrePrefix.ring, m).isEmpty() && !OreDictUnifier.get(OrePrefix.stick, m).isEmpty() && m != Materials.Rubber && m != GAMaterials.StyreneButadieneRubber && m != GAMaterials.SiliconeRubber && GAConfig.GT6.BendingRings  && GAConfig.GT6.BendingCylinders ) {
                 ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.ring, m));
                 ModHandler.addShapedRecipe("tod_to_ring_" + m.toString(), OreDictUnifier.get(OrePrefix.ring, m), "hS", " C", 'S', OreDictUnifier.get(OrePrefix.stick, m), 'C', "craftingToolBendingCylinderSmall");
             }
-            if (!OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m).isEmpty() && GAConfig.GT6.BendingCurvedPlates == true && GAConfig.GT6.BendingCylinders == true) {
+            if (!OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m).isEmpty() && GAConfig.GT6.BendingCurvedPlates  && GAConfig.GT6.BendingCylinders ) {
                 ModHandler.addShapedRecipe("curved_plate_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), "h", "P", "C", 'P', new UnificationEntry(OrePrefix.plate, m), 'C', "craftingToolBendingCylinder");
                 ModHandler.addShapedRecipe("flatten_plate_" + m.toString(), OreDictUnifier.get(OrePrefix.plate, m), "h", "C", 'C', new UnificationEntry(OrePrefix.valueOf("plateCurved"), m));
                 RecipeMaps.BENDER_RECIPES.recipeBuilder().EUt(24).duration((int) m.getMass()).input(OrePrefix.plate, m).circuitMeta(0).outputs(OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m)).buildAndRegister();
             }
-            if (!OreDictUnifier.get(OrePrefix.rotor, m).isEmpty() && GAConfig.GT6.BendingRotors == true && GAConfig.GT6.BendingCylinders == true) {
+            if (!OreDictUnifier.get(OrePrefix.rotor, m).isEmpty() && GAConfig.GT6.BendingRotors  && GAConfig.GT6.BendingCylinders ) {
                 ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.rotor, m));
                 ModHandler.addShapedRecipe("ga_rotor_" + m.toString(), OreDictUnifier.get(OrePrefix.rotor, m), "ChC", "SRf", "CdC", 'C', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'S', OreDictUnifier.get(OrePrefix.screw, m), 'R', OreDictUnifier.get(OrePrefix.ring, m));
                 RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(240).EUt(24).inputs(OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m, 4), OreDictUnifier.get(OrePrefix.ring, m)).fluidInputs(Materials.SolderingAlloy.getFluid(32)).outputs(OreDictUnifier.get(OrePrefix.rotor, m)).buildAndRegister();
             }
             if (!OreDictUnifier.get(OrePrefix.foil, m).isEmpty()) {
-                if (GAConfig.GT6.BendingFoils == true && GAConfig.GT6.BendingCylinders == true) {
+                if (GAConfig.GT6.BendingFoils  && GAConfig.GT6.BendingCylinders ) {
                     ModHandler.addShapedRecipe("foil_" + m.toString(), OreDictUnifier.get(OrePrefix.foil, m, 2), "hPC", 'P', new UnificationEntry(OrePrefix.plate, m), 'C', "craftingToolBendingCylinder");
                 }
-                if (GAConfig.GT6.BendingFoilsAutomatic == true && GAConfig.GT6.BendingCylinders == true) {
+                if (GAConfig.GT6.BendingFoilsAutomatic  && GAConfig.GT6.BendingCylinders ) {
                     GARecipeMaps.CLUSTER_MILL_RECIPES.recipeBuilder().EUt(24).duration((int) m.getMass()).input(OrePrefix.plate, m).outputs(OreDictUnifier.get(OrePrefix.foil, m, 4)).buildAndRegister();
                 } else if (GAConfig.GT6.BendingFoilsAutomatic == false || GAConfig.GT6.BendingCylinders == false) {
                     RecipeMaps.BENDER_RECIPES.recipeBuilder().EUt(24).duration((int) m.getMass()).circuitMeta(4).input(OrePrefix.plate, m).outputs(OreDictUnifier.get(OrePrefix.foil, m, 4)).buildAndRegister();
                 }
             }
-            if ((!OreDictUnifier.get(OrePrefix.wireGtSingle, m).isEmpty() && !OreDictUnifier.get(OrePrefix.wireFine, m).isEmpty()) && GAConfig.GT5U.OldFineWireRecipes == true && GAConfig.GT6.BendingCylinders == true) {
+            if ((!OreDictUnifier.get(OrePrefix.wireGtSingle, m).isEmpty() && !OreDictUnifier.get(OrePrefix.wireFine, m).isEmpty()) && GAConfig.GT5U.OldFineWireRecipes  && GAConfig.GT6.BendingCylinders ) {
                 RecipeMaps.WIREMILL_RECIPES.recipeBuilder().EUt(9).duration(200).inputs(OreDictUnifier.get(OrePrefix.wireGtSingle, m)).outputs(OreDictUnifier.get(OrePrefix.wireFine, m, 4)).buildAndRegister();
             }
 
@@ -207,7 +207,7 @@ public class GARecipeAddition {
 
             ModHandler.addShapedRecipe("plasma_pipe", OreDictUnifier.get(OrePrefix.pipeMedium, GAMaterials.Plasma), "ESE", "NTN", "ESE", 'E', "platePlastic", 'S', OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor), 'N', "plateNeodymiumMagnetic", 'T', OreDictUnifier.get(OrePrefix.pipeSmall, Materials.Titanium));
 
-            if (GAConfig.GT6.BendingPipes == true && GAConfig.GT6.BendingCylinders == true) {
+            if (GAConfig.GT6.BendingPipes  && GAConfig.GT6.BendingCylinders ) {
                 ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.pipeSmall, Materials.Wood));
                 ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.pipeMedium, Materials.Wood));
                 ModHandler.addShapedRecipe("pipe_ga_wood", OreDictUnifier.get(OrePrefix.pipeMedium, Materials.Wood, 2), "PPP", "sCh", "PPP", 'P', "plankWood", 'C', "craftingToolBendingCylinder");
@@ -216,7 +216,7 @@ public class GARecipeAddition {
             }
 
             //Cables
-            if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.cableGtSingle, m).isEmpty() && m != Materials.RedAlloy && m != Materials.Cobalt && m != Materials.Zinc && m != Materials.SolderingAlloy && m != Materials.Tin && m != Materials.Lead && GAConfig.GT5U.CablesGT5U == true) {
+            if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.cableGtSingle, m).isEmpty() && m != Materials.RedAlloy && m != Materials.Cobalt && m != Materials.Zinc && m != Materials.SolderingAlloy && m != Materials.Tin && m != Materials.Lead && GAConfig.GT5U.CablesGT5U ) {
                 for (MaterialStack stackFluid : cableFluids) {
                     IngotMaterial fluid = (IngotMaterial) stackFluid.material;
                     int multiplier = (int) stackFluid.amount;
@@ -266,7 +266,7 @@ public class GARecipeAddition {
             }
 
             //GT6 Plate Recipe
-            if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.plate, m).isEmpty() && !OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m).isEmpty() && GAConfig.GT6.PlateDoubleIngot == true) {
+            if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.plate, m).isEmpty() && !OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m).isEmpty() && GAConfig.GT6.PlateDoubleIngot ) {
                 ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.plate, m));
                 ModHandler.addShapedRecipe("ingot_double_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m), "h", "I", "I", 'I', new UnificationEntry(OrePrefix.ingot, m));
                 ModHandler.addShapedRecipe("double_ingot_to_plate_" + m.toString(), OreDictUnifier.get(OrePrefix.plate, m), "h", "I", 'I', OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m));
@@ -275,7 +275,7 @@ public class GARecipeAddition {
 
         //Pipes
         for (Material m : IngotMaterial.MATERIAL_REGISTRY) {
-            if (!OreDictUnifier.get(OrePrefix.pipeMedium, m).isEmpty() && GAConfig.GT6.BendingPipes == true) {
+            if (!OreDictUnifier.get(OrePrefix.pipeMedium, m).isEmpty() && GAConfig.GT6.BendingPipes ) {
                 ModHandler.removeRecipeByName(new ResourceLocation("gregtech:small_" + m.toString() + "_pipe"));
                 ModHandler.removeRecipeByName(new ResourceLocation("gregtech:medium_" + m.toString() + "_pipe"));
                 ModHandler.removeRecipeByName(new ResourceLocation("gregtech:large_" + m.toString() + "_pipe"));
@@ -1569,7 +1569,7 @@ public class GARecipeAddition {
 
         //Dust Packing
         for (Material m : DustMaterial.MATERIAL_REGISTRY) {
-            if (!OreDictUnifier.get(OrePrefix.dust, m).isEmpty() && GAConfig.Misc.PackagerDustRecipes == true) {
+            if (!OreDictUnifier.get(OrePrefix.dust, m).isEmpty() && GAConfig.Misc.PackagerDustRecipes ) {
                 RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).input(OrePrefix.dustSmall, m, 4).notConsumable(MetaItems.SCHEMATIC_DUST.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.dust, m)).buildAndRegister();
                 RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).input(OrePrefix.dustTiny, m, 9).notConsumable(MetaItems.SCHEMATIC_DUST.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.dust, m)).buildAndRegister();
             }
@@ -1743,7 +1743,7 @@ public class GARecipeAddition {
 
     public static void forestrySupport() {
         //Distillation Support
-        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration ) {
             GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(16).EUt(96).fluidInputs(Fluids.SEED_OIL.getFluid(24)).fluidOutputs(Materials.Lubricant.getFluid(12)).buildAndRegister();
             GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(40).EUt(256).fluidInputs(GAMaterials.WoodVinegar.getFluid(1000)).fluidOutputs(GAMaterials.AceticAcid.getFluid(100), Materials.Water.getFluid(500), Fluids.BIO_ETHANOL.getFluid(10), GAMaterials.Methanol.getFluid(300), GAMaterials.Acetone.getFluid(50), GAMaterials.MethylAcetate.getFluid(10)).buildAndRegister();
             GARecipeMaps.DISTILLATION_RECIPES.recipeBuilder().duration(75).EUt(180).fluidInputs(GAMaterials.FermentedBiomass.getFluid(1000)).fluidOutputs(GAMaterials.AceticAcid.getFluid(25), Materials.Water.getFluid(375), Fluids.BIO_ETHANOL.getFluid(150), GAMaterials.Methanol.getFluid(150), GAMaterials.Ammonia.getFluid(100), Materials.CarbonDioxide.getFluid(400), Materials.Methane.getFluid(600)).buildAndRegister();
@@ -1756,7 +1756,7 @@ public class GARecipeAddition {
         }
 
         //Extracting Seed Oil
-        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration ) {
             RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(128).EUt(5).inputs(new ItemStack(Items.WHEAT_SEEDS)).fluidOutputs(Fluids.SEED_OIL.getFluid(10)).buildAndRegister();
             RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(128).EUt(5).inputs(new ItemStack(Items.MELON_SEEDS)).fluidOutputs(Fluids.SEED_OIL.getFluid(10)).buildAndRegister();
             RecipeMaps.FLUID_EXTRACTION_RECIPES.recipeBuilder().duration(128).EUt(5).inputs(new ItemStack(Items.PUMPKIN_SEEDS)).fluidOutputs(Fluids.SEED_OIL.getFluid(10)).buildAndRegister();
@@ -1768,7 +1768,7 @@ public class GARecipeAddition {
         }
 
         //Making BioDiesel
-        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration ) {
             RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).input(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide).fluidInputs(Fluids.SEED_OIL.getFluid(6000), GAMaterials.Methanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
             RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).input(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide).fluidInputs(Fluids.SEED_OIL.getFluid(6000), Fluids.BIO_ETHANOL.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
             RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).input(OrePrefix.dustTiny, GAMaterials.SodiumHydroxide).fluidInputs(GAMaterials.FishOil.getFluid(6000), GAMaterials.Methanol.getFluid(1000)).fluidOutputs(GAMaterials.Glycerol.getFluid(1000), GAMaterials.BioDiesel.getFluid(6000)).buildAndRegister();
@@ -1785,7 +1785,7 @@ public class GARecipeAddition {
             DustMaterial dust = (DustMaterial) lubeDust.material;
             RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(128).EUt(4).input(OrePrefix.dust, dust).fluidInputs(Materials.Oil.getFluid(750)).fluidOutputs(Materials.Lubricant.getFluid(750)).buildAndRegister();
             RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(128).EUt(4).input(OrePrefix.dust, dust).fluidInputs(Materials.Creosote.getFluid(750)).fluidOutputs(Materials.Lubricant.getFluid(750)).buildAndRegister();
-            if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true)
+            if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration )
                 RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(128).EUt(4).input(OrePrefix.dust, dust).fluidInputs(Fluids.SEED_OIL.getFluid(750)).fluidOutputs(Materials.Lubricant.getFluid(750)).buildAndRegister();
             else
                 RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(128).EUt(4).input(OrePrefix.dust, dust).fluidInputs(Materials.SeedOil.getFluid(750)).fluidOutputs(Materials.Lubricant.getFluid(750)).buildAndRegister();
@@ -1796,7 +1796,7 @@ public class GARecipeAddition {
                 .collect(Collectors.toList());
 
         //Biomass
-        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration ) {
             RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(2880).EUt(3).inputs(MetaItems.PLANT_BALL.getStackForm()).fluidInputs(Fluids.FOR_HONEY.getFluid(180)).fluidOutputs(Materials.Biomass.getFluid(270)).buildAndRegister();
             for (ItemStack stack : allSaplings)
                 RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(1200).EUt(3).inputs(GTUtility.copyAmount(1, stack)).fluidInputs(Fluids.FOR_HONEY.getFluid(100)).fluidOutputs(Materials.Biomass.getFluid(150)).buildAndRegister();
@@ -1809,7 +1809,7 @@ public class GARecipeAddition {
             RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(320).EUt(3).inputs(new ItemStack(Items.BEETROOT)).fluidInputs(Fluids.FOR_HONEY.getFluid(20)).fluidOutputs(Materials.Biomass.getFluid(30)).buildAndRegister();
         }
 
-        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true) {
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration ) {
             RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(2880).EUt(3).inputs(MetaItems.PLANT_BALL.getStackForm()).fluidInputs(Fluids.JUICE.getFluid(180)).fluidOutputs(Materials.Biomass.getFluid(270)).buildAndRegister();
             for (ItemStack stack : allSaplings)
                 RecipeMaps.BREWING_RECIPES.recipeBuilder().duration(1200).EUt(3).inputs(GTUtility.copyAmount(1, stack)).fluidInputs(Fluids.JUICE.getFluid(100)).fluidOutputs(Materials.Biomass.getFluid(150)).buildAndRegister();
@@ -1823,7 +1823,7 @@ public class GARecipeAddition {
         }
 
         //Making Ethylene
-        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration == true)
+        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration )
             RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(1200).EUt(120).fluidInputs(Materials.SulfuricAcid.getFluid(1000), Fluids.BIO_ETHANOL.getFluid(1000)).fluidOutputs(GAMaterials.Ethylene.getFluid(1000), GAMaterials.DilutedSulfuricAcid.getFluid(1000)).buildAndRegister();
         else
             RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(1200).EUt(120).fluidInputs(Materials.SulfuricAcid.getFluid(1000), Materials.Ethanol.getFluid(1000)).fluidOutputs(GAMaterials.Ethylene.getFluid(1000), GAMaterials.DilutedSulfuricAcid.getFluid(1000)).buildAndRegister();
@@ -1894,9 +1894,9 @@ public class GARecipeAddition {
                         }
                     }
                     if (match) {
-                        if (GAConfig.GT5U.Remove3x3BlockRecipes == true)
+                        if (GAConfig.GT5U.Remove3x3BlockRecipes )
                             recipesToRemove.add(recipe.getRegistryName());
-                        if (GAConfig.GT5U.GenerateCompressorRecipes == true)
+                        if (GAConfig.GT5U.GenerateCompressorRecipes )
                             RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).outputs(recipe.getRecipeOutput()).buildAndRegister();
                     }
                 }
@@ -1910,7 +1910,7 @@ public class GARecipeAddition {
                             break;
                         }
                     }
-                    if (match && !recipesToRemove.contains(recipe.getRegistryName()) && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustTiny") && recipe.getRecipeOutput().getCount() == 1 && GAConfig.Misc.Packager3x3Recipes == true) {
+                    if (match && !recipesToRemove.contains(recipe.getRegistryName()) && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustTiny") && recipe.getRecipeOutput().getCount() == 1 && GAConfig.Misc.Packager3x3Recipes ) {
                         RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).notConsumable(MetaItems.SCHEMATIC_3X3.getStackForm()).outputs(recipe.getRecipeOutput()).buildAndRegister();
                     }
                 }
@@ -1924,7 +1924,7 @@ public class GARecipeAddition {
                             break;
                         }
                     }
-                    if (match && !recipesToRemove.contains(recipe.getRegistryName()) && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustSmall") && recipe.getRecipeOutput().getCount() == 1 && GAConfig.Misc.Packager2x2Recipes == true) {
+                    if (match && !recipesToRemove.contains(recipe.getRegistryName()) && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustSmall") && recipe.getRecipeOutput().getCount() == 1 && GAConfig.Misc.Packager2x2Recipes ) {
                         RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).notConsumable(MetaItems.SCHEMATIC_2X2.getStackForm()).outputs(recipe.getRecipeOutput()).buildAndRegister();
                     }
                 }
@@ -1937,7 +1937,7 @@ public class GARecipeAddition {
                         break;
                     }
                 }
-                if (GAConfig.GT5U.RemoveBlockUncraftingRecipes == true)
+                if (GAConfig.GT5U.RemoveBlockUncraftingRecipes )
                     recipesToRemove.add(recipe.getRegistryName());
                 if (!isIngot) {
                     RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).outputs(recipe.getRecipeOutput()).buildAndRegister();
@@ -1954,7 +1954,7 @@ public class GARecipeAddition {
             ModHandler.removeRecipeByName(r);
         recipesToRemove.clear();
 
-        if (GAConfig.GT5U.GenerateCompressorRecipes == true) {
+        if (GAConfig.GT5U.GenerateCompressorRecipes ) {
             ModHandler.removeRecipeByName(new ResourceLocation("minecraft:glowstone"));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_compress_glowstone"));
             ModHandler.removeRecipeByName(new ResourceLocation("minecraft:quartz_block"));
@@ -1969,7 +1969,7 @@ public class GARecipeAddition {
                 continue;
             for (int i : OreDictionary.getOreIDs(recipe.getRecipeOutput())) {
                 if (OreDictionary.getOreName(i).equals("plankWood") && recipe.getIngredients().size() == 1 && recipe.getRecipeOutput().getCount() == 4) {
-                    if (GAConfig.GT5U.GeneratedSawingRecipes == true) {
+                    if (GAConfig.GT5U.GeneratedSawingRecipes ) {
                         ModHandler.removeRecipeByName(recipe.getRegistryName());
                         ModHandler.addShapelessRecipe("log_to_4_" + recipe.getRecipeOutput().toString(), GTUtility.copyAmount(4, recipe.getRecipeOutput()), recipe.getIngredients().get(0).getMatchingStacks()[0], ToolDictNames.craftingToolSaw);
                         ModHandler.addShapelessRecipe("log_to_2_" + recipe.getRecipeOutput().toString(), GTUtility.copyAmount(2, recipe.getRecipeOutput()), recipe.getIngredients().get(0).getMatchingStacks()[0]);
@@ -1989,7 +1989,7 @@ public class GARecipeAddition {
 
         for (ItemStack stack : allWoodLogs) {
             ItemStack smeltingOutput = ModHandler.getSmeltingOutput(stack);
-            if (!smeltingOutput.isEmpty() && smeltingOutput.getItem() == Items.COAL && smeltingOutput.getMetadata() == 1 && GAConfig.GT5U.DisableLogToCharcoalSmeltg == true) {
+            if (!smeltingOutput.isEmpty() && smeltingOutput.getItem() == Items.COAL && smeltingOutput.getMetadata() == 1 && GAConfig.GT5U.DisableLogToCharcoalSmeltg ) {
                 ItemStack woodStack = stack.copy();
                 woodStack.setItemDamage(OreDictionary.WILDCARD_VALUE);
                 ModHandler.removeFurnaceSmelting(woodStack);

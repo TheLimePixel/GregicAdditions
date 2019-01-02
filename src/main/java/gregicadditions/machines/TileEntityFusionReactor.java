@@ -86,9 +86,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
                     return false;
                 })))
                 .where('I', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.IMPORT_FLUIDS)))
-                .where('#', (tile) -> {
-                    return true;
-                })
+                .where('#', (tile) -> true)
                 .build();
     }
 
@@ -97,7 +95,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
         return GATextures.FUSION_TEXTURE;
     }
 
-    protected IBlockState getCasingState() {
+    private IBlockState getCasingState() {
 
         switch (tier) {
             case 6:
@@ -110,7 +108,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
         }
     }
 
-    protected IBlockState getCoilState() {
+    private IBlockState getCoilState() {
 
         switch (tier) {
             case 6:

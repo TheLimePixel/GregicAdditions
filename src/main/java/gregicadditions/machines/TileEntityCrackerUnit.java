@@ -14,7 +14,6 @@ import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.BlockWireCoil;
 import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 
 public class TileEntityCrackerUnit extends RecipeMapMultiblockController {
 
@@ -41,7 +40,7 @@ public class TileEntityCrackerUnit extends RecipeMapMultiblockController {
                 .setAmountAtLeast('H', 20)
                 .where('O', selfPredicate())
                 .where('H', statePredicate(getCasingState()).or(abilityPartPredicate(ALLOWED_ABILITIES)))
-                .where('#', blockPredicate(Blocks.AIR))
+                .where('#', isAirPredicate())
                 .where('C', statePredicate(getCoilState()))
                 .build();
     }
