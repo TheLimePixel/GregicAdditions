@@ -135,6 +135,11 @@ public class GAMetaItem extends MaterialMetaItem {
             GAMetaItems.ELECTRODE_TIN = addItem(121, "electrode.tin");
         }
 
+        if (GAConfig.GT5U.enableZPMandUVBats) {
+            GAMetaItems.ENERGY_MODULE = addItem(122, "energy.module").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(10000000000L, 7)}).setModelAmount(8);
+            GAMetaItems.ENERGY_CLUSTER = addItem(123, "energy.cluster").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(100000000000L, 8)}).setModelAmount(8);
+        }
+
         MetaItems.CIRCUIT_BASIC.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
         MetaItems.CIRCUIT_PARTS_ADVANCED.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
         MetaItems.CIRCUIT_GOOD.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Good);

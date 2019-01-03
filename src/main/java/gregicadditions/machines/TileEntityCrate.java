@@ -58,8 +58,20 @@ public class TileEntityCrate extends MetaTileEntity {
     @Override
     protected void initializeInventory() {
         super.initializeInventory();
-        this.inventory = new ItemStackHandler(inventorySize);
+        this.inventory = new ItemStackHandler(inventorySize) {
+            @Override
+            protected void onContentsChanged(int slot) {
+                super.onContentsChanged(slot);
+                updateComparatorValue(true);
+            }
+        };
         this.itemInventory = inventory;
+        updateComparatorValue(true);
+    }
+
+    @Override
+    public int getComparatorValue() {
+        return GTUtility.calcRedstoneFromItemHandler(inventory);
     }
 
     @Override

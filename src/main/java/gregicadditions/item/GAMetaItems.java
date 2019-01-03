@@ -107,6 +107,8 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem PLATE_IRIDIUM_ALLOY;
     public static MetaItem<?>.MetaValueItem PLATE_IRIDIUM_ALLOY_UNCOMPRESSED;
     public static MetaItem<?>.MetaValueItem NEUTRON_REFLECTOR;
+    public static MetaItem<?>.MetaValueItem ENERGY_MODULE;
+    public static MetaItem<?>.MetaValueItem ENERGY_CLUSTER;
 
     public static MetaItem<?>.MetaValueItem ELECTRODE_APATITE;
     public static MetaItem<?>.MetaValueItem ELECTRODE_BLAZE;

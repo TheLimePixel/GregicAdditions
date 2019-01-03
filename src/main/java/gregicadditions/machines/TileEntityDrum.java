@@ -12,6 +12,7 @@ import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.material.type.SolidMaterial;
 import gregtech.api.util.GTUtility;
+import gregtech.api.util.WatchedFluidTank;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,6 +21,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.fluids.FluidStack;
@@ -57,7 +59,11 @@ public class TileEntityDrum extends MetaTileEntity {
 
     @Override
     public int getComparatorValue() {
-        return fluidTank.comparatorValue;
+        FluidTank fluidTank = this.fluidTank;
+        int fluidAmount = fluidTank.getFluidAmount();
+        int maxCapacity = fluidTank.getCapacity();
+        float f = fluidAmount / (maxCapacity * 1.0f);
+        return MathHelper.floor(f * 14.0f) + (fluidAmount > 0 ? 1 : 0);
     }
 
     @Override
@@ -73,8 +79,9 @@ public class TileEntityDrum extends MetaTileEntity {
     @Override
     protected void initializeInventory() {
         super.initializeInventory();
-        this.fluidTank = new SyncFluidTank(tankSize, this);
+        this.fluidTank = new SyncFluidTank(tankSize);
         this.fluidInventory = fluidTank;
+        updateComparatorValue(true);
     }
 
     @Override
@@ -204,14 +211,11 @@ public class TileEntityDrum extends MetaTileEntity {
         return false;
     }
 
-    private class SyncFluidTank extends FluidTank {
-        public int comparatorValue;
-        private TileEntityDrum te;
+    private class SyncFluidTank extends WatchedFluidTank {
 
-        public SyncFluidTank(int capacity, TileEntityDrum te) {
+
+        public SyncFluidTank(int capacity) {
             super(capacity);
-            this.comparatorValue = 0;
-            this.te = te;
         }
 
         @Override
@@ -222,24 +226,26 @@ public class TileEntityDrum extends MetaTileEntity {
         }
 
         @Override
-        protected void onContentsChanged() {
-            FluidStack newFluid = getFluid();
-            writeCustomData(-200, buf -> {
-                buf.writeBoolean(newFluid != null);
-                if (newFluid != null) {
-                    NBTTagCompound tagCompound = new NBTTagCompound();
-                    newFluid.writeToNBT(tagCompound);
-                    buf.writeCompoundTag(tagCompound);
-                }
-            });
-
-            int newValue = 0;
-            if (newFluid != null && newFluid.amount > 0) {
-                newValue = 1 + ((14 * newFluid.amount) / capacity);
+        protected void onFluidChanged(FluidStack newFluidStack, FluidStack oldFluidStack) {
+            updateComparatorValue(true);
+            if (getWorld() != null && !getWorld().isRemote) {
+                onContentsChangedOnServer(newFluidStack, oldFluidStack);
             }
-            if (newValue != comparatorValue) {
-                this.comparatorValue = newValue;
-                this.te.markDirty();
+        }
+
+        private void onContentsChangedOnServer(FluidStack newFluid, FluidStack oldFluidStack) {
+
+            if (newFluid != null && newFluid.isFluidEqual(oldFluidStack)) {
+                writeCustomData(-201, buf -> buf.writeInt(newFluid.amount));
+            } else {
+                writeCustomData(-200, buf -> {
+                    buf.writeBoolean(newFluid != null);
+                    if (newFluid != null) {
+                        NBTTagCompound tagCompound = new NBTTagCompound();
+                        newFluid.writeToNBT(tagCompound);
+                        buf.writeCompoundTag(tagCompound);
+                    }
+                });
             }
         }
     }
