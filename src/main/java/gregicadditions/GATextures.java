@@ -35,7 +35,6 @@ public class GATextures {
     public static final TextureArea BRONZE_FLUID_SLOT = TextureArea.fullImage("textures/gui/steam/fluid_slot.png");
     public static final TextureArea COAL_OVERLAY = TextureArea.fullImage("textures/gui/steam/bronze/overlay_bronze_coal.png");
 
-    public static OrientedOverlayRenderer BREAKER_OVERLAY;
 
     static {
         COKE_OVEN_BRICKS = new SimpleCubeRenderer("casings/solid/machine_coke_oven_bricks");
@@ -53,7 +52,5 @@ public class GATextures {
         MASS_FAB_OVERLAY = new OrientedOverlayRenderer("machines/mass_fab", new OverlayFace[]{OverlayFace.FRONT});
 
         FUSION_REACTOR_OVERLAY = new OrientedOverlayRenderer("machines/fusion_reactor", new OverlayFace[]{OverlayFace.FRONT});
-
-        BREAKER_OVERLAY = new OrientedOverlayRenderer("machines/rock_breaker", new OverlayFace[]{OverlayFace.BACK});
     }
 }
