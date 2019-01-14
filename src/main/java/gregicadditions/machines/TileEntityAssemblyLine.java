@@ -18,11 +18,12 @@ import gregtech.common.blocks.BlockMultiblockCasing;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.ResourceLocation;
 
 import static gregtech.api.multiblock.BlockPattern.RelativeDirection.*;
 
 public class TileEntityAssemblyLine extends RecipeMapMultiblockController {
-    public TileEntityAssemblyLine(String metaTileEntityId) {
+    public TileEntityAssemblyLine(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GARecipeMaps.ASSEMBLY_LINE_RECIPES);
     }
 

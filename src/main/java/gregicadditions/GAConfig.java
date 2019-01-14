@@ -158,9 +158,11 @@ public class GAConfig {
         @Config.Name("Should higher tier Wiremills be registered?")
         public boolean highTierWiremills = true;
 
-        @Config.Comment("Set this to true to enable the Energy Module and Cluster")
-        @Config.Name("Enable an extra ZPM and UV Battery (this also makes the Ultimate Battery harder to make")
+        @Config.Comment("Set these to true to enable certain Batteries.")
+        @Config.Name("Batteries - Enable an extra ZPM and UV Battery (this also makes the Ultimate Battery harder to make)")
         public boolean enableZPMandUVBats = false;
+        @Config.Name("Batteries - Replace the Ultimate Battery with a MAX Battery")
+        public boolean replaceUVwithMAXBat = false;
     }
 
     @Config.Comment("Config options of miscellaneous features")

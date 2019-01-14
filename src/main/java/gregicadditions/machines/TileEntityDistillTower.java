@@ -17,6 +17,7 @@ import gregtech.api.render.Textures;
 import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.fluids.FluidStack;
@@ -27,7 +28,7 @@ import java.util.List;
 import static gregtech.api.multiblock.BlockPattern.RelativeDirection.*;
 
 public class TileEntityDistillTower extends RecipeMapMultiblockController {
-    public TileEntityDistillTower(String metaTileEntityId) {
+    public TileEntityDistillTower(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GARecipeMaps.DISTILLATION_RECIPES);
     }
 

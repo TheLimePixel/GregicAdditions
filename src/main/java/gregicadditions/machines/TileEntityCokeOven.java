@@ -30,6 +30,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
@@ -49,7 +50,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
     private boolean isActive;
     private boolean wasActiveAndNeedUpdate;
 
-    public TileEntityCokeOven(String metaTileEntityId) {
+    public TileEntityCokeOven(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId);
     }
 
@@ -167,6 +168,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
     public void receiveInitialSyncData(PacketBuffer buf) {
         super.receiveInitialSyncData(buf);
         this.isActive = buf.readBoolean();
+        getHolder().scheduleChunkForRenderUpdate();
     }
 
     @Override

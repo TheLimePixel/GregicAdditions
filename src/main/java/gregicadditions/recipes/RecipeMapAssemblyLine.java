@@ -42,12 +42,11 @@ public class RecipeMapAssemblyLine<R extends RecipeBuilder<R>> extends RecipeMap
     }
 
 
-
-    private void addInventorySlotGroup(ModularUI.Builder builder, IItemHandlerModifiable itemHandler, FluidTankList fluidHandler, boolean isOutputs) {
+    protected void addInventorySlotGroup(ModularUI.Builder builder, IItemHandlerModifiable itemHandler, FluidTankList fluidHandler, boolean isOutputs) {
         int itemInputsCount = itemHandler.getSlots();
         int fluidInputsCount = fluidHandler.getTanks();
         boolean invertFluids = false;
-        if(itemInputsCount == 0) {
+        if (itemInputsCount == 0) {
             int tmp = itemInputsCount;
             itemInputsCount = fluidInputsCount;
             fluidInputsCount = tmp;
@@ -58,29 +57,29 @@ public class RecipeMapAssemblyLine<R extends RecipeBuilder<R>> extends RecipeMap
         int itemSlotsToDown = inputSlotGrid[1];
         int startInputsX = isOutputs ? 138 : (101 - itemSlotsToLeft * 18);
         int startInputsY = 32 - (int) (itemSlotsToDown / 2.0 * 18);
-        for(int i = 0; i < itemSlotsToDown; i++) {
+        for (int i = 0; i < itemSlotsToDown; i++) {
             for (int j = 0; j < itemSlotsToLeft; j++) {
                 int slotIndex = i * itemSlotsToLeft + j;
                 addSlot(builder, startInputsX + 18 * j, startInputsY + 18 * i, slotIndex, itemHandler, fluidHandler, invertFluids, isOutputs);
             }
         }
-        if(fluidInputsCount > 0 || invertFluids) {
-            if(itemSlotsToDown >= fluidInputsCount) {
+        if (fluidInputsCount > 0 || invertFluids) {
+            if (itemSlotsToDown >= fluidInputsCount) {
                 int startSpecX = isOutputs ? startInputsX + itemSlotsToLeft * 18 : startInputsX - 18;
-                for(int i = 0; i < fluidInputsCount; i++) {
+                for (int i = 0; i < fluidInputsCount; i++) {
                     addSlot(builder, startSpecX, startInputsY + 18 * i, i, itemHandler, fluidHandler, !invertFluids, isOutputs);
                 }
             } else {
                 int startSpecY = startInputsY + itemSlotsToDown * 18;
                 int offsetX = isOutputs ? 0 : 18;
-                for(int i = 0; i < fluidInputsCount; i++) {
+                for (int i = 0; i < fluidInputsCount; i++) {
                     addSlot(builder, startInputsX - offsetX + 18 * i, startSpecY, i, itemHandler, fluidHandler, !invertFluids, isOutputs);
                 }
             }
         }
     }
 
-    private static int[] determineSlotsGrid(int itemInputsCount) {
+    protected static int[] determineSlotsGrid(int itemInputsCount) {
         int itemSlotsToLeft = 0;
         int itemSlotsToDown = 0;
         double sqrt = Math.sqrt(itemInputsCount);
@@ -96,6 +95,6 @@ public class RecipeMapAssemblyLine<R extends RecipeBuilder<R>> extends RecipeMap
             itemSlotsToDown = itemInputsCount / 2;
             itemSlotsToLeft = 2;
         }
-        return new int[] {itemSlotsToLeft, itemSlotsToDown};
+        return new int[]{itemSlotsToLeft, itemSlotsToDown};
     }
 }

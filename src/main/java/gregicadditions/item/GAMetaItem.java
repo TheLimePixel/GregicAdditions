@@ -4,14 +4,15 @@ import gregicadditions.GAConfig;
 import gregicadditions.GAMaterials;
 import gregtech.api.items.materialitem.MaterialMetaItem;
 import gregtech.api.items.metaitem.ElectricStats;
-import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.items.metaitem.stats.IMetaItemStats;
 import gregtech.api.unification.material.MarkerMaterials.Tier;
+import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
+import gregtech.api.unification.stack.ItemMaterialInfo;
+import gregtech.api.unification.stack.MaterialStack;
 import gregtech.common.items.MetaItems;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.apache.commons.lang3.ArrayUtils;
 
 public class GAMetaItem extends MaterialMetaItem {
@@ -140,6 +141,31 @@ public class GAMetaItem extends MaterialMetaItem {
             GAMetaItems.ENERGY_CLUSTER = addItem(123, "energy.cluster").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(100000000000L, 8)}).setModelAmount(8);
         }
 
+        if (GAConfig.GT5U.replaceUVwithMAXBat) {
+            GAMetaItems.MAX_BATTERY = addItem(124, "max.battery").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(9223372036854775807L, 9)}).setModelAmount(8);
+            MetaItems.ZPM2.setInvisible();
+        }
+
+        GAMetaItems.PLANK_OAK = addItem(125, "plank.oak").setBurnValue(75);
+        GAMetaItems.PLANK_SPRUCE = addItem(126, "plank.spruce").setBurnValue(75);
+        GAMetaItems.PLANK_BIRCH = addItem(127, "plank.birch").setBurnValue(75);
+        GAMetaItems.PLANK_JUNGLE = addItem(128, "plank.jungle").setBurnValue(75);
+        GAMetaItems.PLANK_ACACIA = addItem(129, "plank.acacia").setBurnValue(75);
+        GAMetaItems.PLANK_DARKOAK = addItem(130, "plank.darkoak").setBurnValue(75);
+
+        GAMetaItems.SCHEMATIC = addItem(131, "schematic")
+                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)))
+        ;
+        GAMetaItems.SCHEMATIC_2X2 = addItem(132, "schematic.2by2")
+                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)))
+        ;
+        GAMetaItems.SCHEMATIC_3X3 = addItem(133, "schematic.3by3")
+                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)))
+        ;
+        GAMetaItems.SCHEMATIC_DUST = addItem(134, "schematic.dust")
+                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)))
+        ;
+
         MetaItems.CIRCUIT_BASIC.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
         MetaItems.CIRCUIT_PARTS_ADVANCED.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
         MetaItems.CIRCUIT_GOOD.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Good);
@@ -156,18 +182,6 @@ public class GAMetaItem extends MaterialMetaItem {
         MetaItems.CIRCUIT_PARTS_WIRING_ADVANCED.setInvisible();
         MetaItems.CIRCUIT_PARTS_WIRING_ELITE.setInvisible();
         MetaItems.CIRCUIT_PRIMITIVE.setInvisible();
-
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.COMPONENT_FILTER, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC_DUST, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC_2X2, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.SCHEMATIC_3X3, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.PLANK_OAK, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.PLANK_BIRCH, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.PLANK_SPRUCE, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.PLANK_JUNGLE, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.PLANK_ACACIA, true, "visible");
-        ObfuscationReflectionHelper.setPrivateValue(MetaItem.MetaValueItem.class, MetaItems.PLANK_DARKOAK, true, "visible");
     }
 
     public boolean hasContainerItem(ItemStack stack) {
@@ -183,7 +197,6 @@ public class GAMetaItem extends MaterialMetaItem {
 
         return ArrayUtils.contains(idsToKeepInGrid, stack.getMetadata());
     }
-
 
     public ItemStack getContainerItem(ItemStack stack) {
         return stack.copy();

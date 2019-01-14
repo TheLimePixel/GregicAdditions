@@ -24,6 +24,7 @@ import gregtech.common.blocks.BlockWireCoil;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.*;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
@@ -35,7 +36,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
     private final int tier;
     private EnergyContainerList inputEnergyContainers;
 
-    public TileEntityFusionReactor(String metaTileEntityId, int tier) {
+    public TileEntityFusionReactor(ResourceLocation metaTileEntityId, int tier) {
         super(metaTileEntityId, RecipeMaps.FUSION_RECIPES);
         this.recipeMapWorkable = new MultiblockRecipeMapWorkable(this) {
             protected int getOverclockingTier(long voltage) {

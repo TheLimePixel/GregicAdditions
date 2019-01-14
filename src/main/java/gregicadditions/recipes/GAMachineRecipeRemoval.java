@@ -45,24 +45,24 @@ public class GAMachineRecipeRemoval {
                     IntCircuitIngredient.getIntegratedCircuit(0));
 
             //Remove Old Rotor Recipe
-            if (!OreDictUnifier.get(OrePrefix.rotor, m).isEmpty() && GAConfig.GT6.BendingRotors  && GAConfig.GT6.BendingCylinders )
+            if (!OreDictUnifier.get(OrePrefix.rotor, m).isEmpty() && GAConfig.GT6.BendingRotors && GAConfig.GT6.BendingCylinders)
                 removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
                         new ItemStack[]{OreDictUnifier.get(OrePrefix.plate, m, 4), OreDictUnifier.get(OrePrefix.ring, m)},
                         new FluidStack[]{Materials.SolderingAlloy.getFluid(32)});
 
             //Remove Old Wrench Recipes
-            if (m instanceof IngotMaterial && !m.hasFlag(DustMaterial.MatFlags.NO_SMASHING) && GAConfig.GT6.ExpensiveWrenches ) {
+            if (m instanceof IngotMaterial && !m.hasFlag(DustMaterial.MatFlags.NO_SMASHING) && GAConfig.GT6.ExpensiveWrenches) {
                 ModHandler.removeRecipeByName(new ResourceLocation(String.format("gregtech:wrench_%s", m.toString())));
             }
 
             //Remove GTCE's weird fine wire recipes
-            if (!OreDictUnifier.get(OrePrefix.wireFine, m).isEmpty() && !OreDictUnifier.get(OrePrefix.stick, m).isEmpty() && GAConfig.GT5U.OldFineWireRecipes ) {
+            if (!OreDictUnifier.get(OrePrefix.wireFine, m).isEmpty() && !OreDictUnifier.get(OrePrefix.stick, m).isEmpty() && GAConfig.GT5U.OldFineWireRecipes) {
                 removeRecipesByInputs(RecipeMaps.WIREMILL_RECIPES, OreDictUnifier.get(OrePrefix.stick, m));
             }
 
 
             //Remove EV+ Cable Recipes
-            if (GAConfig.GT5U.CablesGT5U ) {
+            if (GAConfig.GT5U.CablesGT5U) {
                 removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
                         new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtSingle, m), IntCircuitIngredient.getIntegratedCircuit(24)},
                         new FluidStack[]{Materials.Rubber.getFluid(144)});
@@ -93,7 +93,7 @@ public class GAMachineRecipeRemoval {
             }
         }
         //Remove Old Bucket Recipe
-        if (GAConfig.GT6.BendingCurvedPlates ) {
+        if (GAConfig.GT6.BendingCurvedPlates) {
             removeRecipesByInputs(RecipeMaps.BENDER_RECIPES,
                     OreDictUnifier.get(OrePrefix.plate, Materials.Iron, 12),
                     IntCircuitIngredient.getIntegratedCircuit(1));

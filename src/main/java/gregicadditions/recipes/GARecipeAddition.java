@@ -116,12 +116,12 @@ public class GARecipeAddition {
         ModHandler.addSmeltingRecipe(GAMetaItems.COMPRESSED_CLAY.getStackForm(), new ItemStack(Items.BRICK));
         RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(200).EUt(8).inputs(GAMetaItems.COMPRESSED_CLAY.getStackForm(), new ItemStack(Blocks.SAND, 2)).outputs(GAMetaItems.COKE_BRICK.getStackForm()).buildAndRegister();
         RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(200).EUt(2).inputs(new ItemStack(Items.CLAY_BALL)).notConsumable(MetaItems.SHAPE_MOLD_INGOT).outputs(new ItemStack(Items.BRICK)).buildAndRegister();
-        ModHandler.addShapelessRecipe("acacia_form", GAMetaItems.ACACIA_FORM.getStackForm(), MetaItems.PLANK_ACACIA.getStackForm(), ToolDictNames.craftingToolKnife);
-        ModHandler.addShapelessRecipe("birch_form", GAMetaItems.BIRCH_FORM.getStackForm(), MetaItems.PLANK_BIRCH.getStackForm(), ToolDictNames.craftingToolKnife);
-        ModHandler.addShapelessRecipe("darkoak_form", GAMetaItems.DARK_OAK_FORM.getStackForm(), MetaItems.PLANK_DARKOAK.getStackForm(), ToolDictNames.craftingToolKnife);
-        ModHandler.addShapelessRecipe("jungle_form", GAMetaItems.JUNGLE_FORM.getStackForm(), MetaItems.PLANK_JUNGLE.getStackForm(), ToolDictNames.craftingToolKnife);
-        ModHandler.addShapelessRecipe("oak_form", GAMetaItems.OAK_FORM.getStackForm(), MetaItems.PLANK_OAK.getStackForm(), ToolDictNames.craftingToolKnife);
-        ModHandler.addShapelessRecipe("spruce_form", GAMetaItems.SPRUCE_FORM.getStackForm(), MetaItems.PLANK_SPRUCE.getStackForm(), ToolDictNames.craftingToolKnife);
+        ModHandler.addShapelessRecipe("acacia_form", GAMetaItems.ACACIA_FORM.getStackForm(), GAMetaItems.PLANK_ACACIA.getStackForm(), ToolDictNames.craftingToolKnife);
+        ModHandler.addShapelessRecipe("birch_form", GAMetaItems.BIRCH_FORM.getStackForm(), GAMetaItems.PLANK_BIRCH.getStackForm(), ToolDictNames.craftingToolKnife);
+        ModHandler.addShapelessRecipe("darkoak_form", GAMetaItems.DARK_OAK_FORM.getStackForm(), GAMetaItems.PLANK_DARKOAK.getStackForm(), ToolDictNames.craftingToolKnife);
+        ModHandler.addShapelessRecipe("jungle_form", GAMetaItems.JUNGLE_FORM.getStackForm(), GAMetaItems.PLANK_JUNGLE.getStackForm(), ToolDictNames.craftingToolKnife);
+        ModHandler.addShapelessRecipe("oak_form", GAMetaItems.OAK_FORM.getStackForm(), GAMetaItems.PLANK_OAK.getStackForm(), ToolDictNames.craftingToolKnife);
+        ModHandler.addShapelessRecipe("spruce_form", GAMetaItems.SPRUCE_FORM.getStackForm(), GAMetaItems.PLANK_SPRUCE.getStackForm(), ToolDictNames.craftingToolKnife);
         ModHandler.addShapelessRecipe("clay_brick", GAMetaItems.COMPRESSED_CLAY.getStackForm(), new ItemStack(Items.CLAY_BALL), "formWood");
         ModHandler.addShapedRecipe("eight_clay_brick", GAMetaItems.COMPRESSED_CLAY.getStackForm(8), "BBB", "BFB", "BBB", 'B', new ItemStack(Items.CLAY_BALL), 'F', "formWood");
         ModHandler.addShapedRecipe("coke_brick", GAMetaItems.COMPRESSED_COKE_CLAY.getStackForm(3), "BBB", "SFS", "SSS", 'B', new ItemStack(Items.CLAY_BALL), 'S', new ItemStack(Blocks.SAND), 'F', "formWood");
@@ -1434,6 +1434,8 @@ public class GARecipeAddition {
                 .outputs(GAMetaItems.WETWARE_MAINFRAME.getStackForm()).duration(2000).EUt(300000)
                 .buildAndRegister();
 
+        ItemStack last_bat = (GAConfig.GT5U.replaceUVwithMAXBat ? GAMetaItems.MAX_BATTERY : MetaItems.ZPM2).getStackForm();
+
         if (GAConfig.GT5U.enableZPMandUVBats) {
             GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
                     OreDictUnifier.get(OrePrefix.plate, Materials.Europium, 16),
@@ -1484,7 +1486,7 @@ public class GARecipeAddition {
                     Materials.SolderingAlloy.getFluid(2880),
                     Materials.Water.getFluid(16000),
                     Materials.Naquadria.getFluid(1152))
-                    .outputs(MetaItems.ZPM2.getStackForm()).duration(2000).EUt(300000)
+                    .outputs(last_bat).duration(2000).EUt(300000)
                     .buildAndRegister();
         } else
             GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
@@ -1500,7 +1502,7 @@ public class GARecipeAddition {
                     GAMetaItems.SMD_DIODE.getStackForm(16),
                     OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor, 32)).fluidInputs(
                     Materials.SolderingAlloy.getFluid(2880), Materials.Water.getFluid(16000))
-                    .outputs(MetaItems.ZPM2.getStackForm()).duration(2000).EUt(300000)
+                    .outputs(last_bat).duration(2000).EUt(300000)
                     .buildAndRegister();
 
         GARecipeMaps.ASSEMBLY_LINE_RECIPES.recipeBuilder().inputs(
@@ -1625,13 +1627,13 @@ public class GARecipeAddition {
         //Dust Packing
         for (Material m : DustMaterial.MATERIAL_REGISTRY) {
             if (!OreDictUnifier.get(OrePrefix.dust, m).isEmpty() && GAConfig.Misc.PackagerDustRecipes) {
-                RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).input(OrePrefix.dustSmall, m, 4).notConsumable(MetaItems.SCHEMATIC_DUST.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.dust, m)).buildAndRegister();
-                RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).input(OrePrefix.dustTiny, m, 9).notConsumable(MetaItems.SCHEMATIC_DUST.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.dust, m)).buildAndRegister();
+                RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).input(OrePrefix.dustSmall, m, 4).notConsumable(GAMetaItems.SCHEMATIC_DUST.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.dust, m)).buildAndRegister();
+                RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).input(OrePrefix.dustTiny, m, 9).notConsumable(GAMetaItems.SCHEMATIC_DUST.getStackForm()).outputs(OreDictUnifier.get(OrePrefix.dust, m)).buildAndRegister();
             }
         }
 
         //Schematic Recipes
-        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(3200).EUt(4).input(OrePrefix.valueOf("circuitGA"), Tier.Good, 4).input(OrePrefix.plate, Materials.StainlessSteel, 2).outputs(MetaItems.SCHEMATIC.getStackForm()).buildAndRegister();
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(3200).EUt(4).input(OrePrefix.valueOf("circuitGA"), Tier.Good, 4).input(OrePrefix.plate, Materials.StainlessSteel, 2).outputs(GAMetaItems.SCHEMATIC.getStackForm()).buildAndRegister();
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:schematic/schematic_1"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:schematic/schematic_c"));
 
@@ -1679,39 +1681,6 @@ public class GARecipeAddition {
         RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Blocks.BROWN_MUSHROOM, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
         RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Blocks.RED_MUSHROOM, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
         RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Items.BEETROOT, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_CUCUMBER.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_ONION.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_GRAPES.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_MTOMATO.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_TOMATO.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_LEMON.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_OIL_BERRY.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_ARGENTIA.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_AURELIA.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_BAUXITE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_BOBS_YER_UNCLE_RANKS.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_CHILLY.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_COPPON.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_FERRU.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_ILMENITE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_INDIGO.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_IRIDIUM.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_MANGANESE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_MILK_WART.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_NAQUADAH.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_NICKEL.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_OSMIUM.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_PITCHBLENDE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_PLATINUM.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_PLUMBILIA.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_SCHEELITE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_TEALEAF.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_THORIUM.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_TINE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_URANINITE.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_UUA_BERRY.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_UUM_BERRY.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(MetaItems.CROP_DROP_ZINC.getStackForm(8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
 
         //Bentonite
         RecipeMaps.ELECTROLYZER_RECIPES.recipeBuilder().duration(480).EUt(120).input(OrePrefix.dust, Materials.Bentonite, 30).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Sodium), OreDictUnifier.get(OrePrefix.dust, Materials.Magnesium, 6), OreDictUnifier.get(OrePrefix.dust, Materials.Silicon, 12)).fluidOutputs(Materials.Hydrogen.getFluid(6000), Materials.Water.getFluid(5000)).buildAndRegister();
@@ -1794,6 +1763,19 @@ public class GARecipeAddition {
                 ModHandler.addShapedRecipe("dust_small_" + m.toString(), OreDictUnifier.get(OrePrefix.dustSmall, m, 4), " D", "  ", 'D', new UnificationEntry(OrePrefix.dust, m));
             }
         }
+
+        //Things GTCE Removed
+        ModHandler.addShapedRecipe("oak_plank",GAMetaItems.PLANK_OAK.getStackForm(),"s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB));
+        ModHandler.addShapedRecipe("spruce_plank",GAMetaItems.PLANK_SPRUCE.getStackForm(),"s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 1));
+        ModHandler.addShapedRecipe("birch_plank",GAMetaItems.PLANK_BIRCH.getStackForm(),"s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 2));
+        ModHandler.addShapedRecipe("jungle_plank",GAMetaItems.PLANK_JUNGLE.getStackForm(),"s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 3));
+        ModHandler.addShapedRecipe("acacia_plank",GAMetaItems.PLANK_ACACIA.getStackForm(),"s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 4));
+        ModHandler.addShapedRecipe("dark_oak_plank",GAMetaItems.PLANK_DARKOAK.getStackForm(),"s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 5));
+
+        ModHandler.addShapedRecipe("3x3_schematic",GAMetaItems.SCHEMATIC_3X3.getStackForm(), "  d", " S ", "   ", 'S', GAMetaItems.SCHEMATIC.getStackForm());
+        ModHandler.addShapedRecipe("2x2_schematic",GAMetaItems.SCHEMATIC_2X2.getStackForm(), " d ", " S ", "   ", 'S', GAMetaItems.SCHEMATIC.getStackForm());
+        ModHandler.addShapedRecipe("dust_schematic",GAMetaItems.SCHEMATIC_DUST.getStackForm(), "   ", " S ", "  d", 'S', GAMetaItems.SCHEMATIC.getStackForm());
+
     }
 
     public static void forestrySupport() {
@@ -1966,7 +1948,7 @@ public class GARecipeAddition {
                         }
                     }
                     if (match && !recipesToRemove.contains(recipe.getRegistryName()) && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustTiny") && recipe.getRecipeOutput().getCount() == 1 && GAConfig.Misc.Packager3x3Recipes) {
-                        RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).notConsumable(MetaItems.SCHEMATIC_3X3.getStackForm()).outputs(recipe.getRecipeOutput()).buildAndRegister();
+                        RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).notConsumable(GAMetaItems.SCHEMATIC_3X3.getStackForm()).outputs(recipe.getRecipeOutput()).buildAndRegister();
                     }
                 }
             }
@@ -1980,7 +1962,7 @@ public class GARecipeAddition {
                         }
                     }
                     if (match && !recipesToRemove.contains(recipe.getRegistryName()) && !GAMetaItems.hasPrefix(recipe.getRecipeOutput(), "dust", "dustSmall") && recipe.getRecipeOutput().getCount() == 1 && GAConfig.Misc.Packager2x2Recipes) {
-                        RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).notConsumable(MetaItems.SCHEMATIC_2X2.getStackForm()).outputs(recipe.getRecipeOutput()).buildAndRegister();
+                        RecipeMaps.PACKER_RECIPES.recipeBuilder().duration(100).EUt(4).inputs(CountableIngredient.from(recipe.getIngredients().get(0).getMatchingStacks()[0], recipe.getIngredients().size())).notConsumable(GAMetaItems.SCHEMATIC_2X2.getStackForm()).outputs(recipe.getRecipeOutput()).buildAndRegister();
                     }
                 }
             }

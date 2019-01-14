@@ -17,6 +17,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.IFluidTank;
@@ -28,7 +29,7 @@ public class TileEntityCokeFluidHatch extends MetaTileEntityMultiblockPart imple
     private static final int INVENTORY_SIZE = 4000;
     private boolean isExportHatch = true;
 
-    public TileEntityCokeFluidHatch(String metaTileEntityId) {
+    public TileEntityCokeFluidHatch(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, 0);
         this.initializeInventory();
     }

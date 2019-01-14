@@ -16,6 +16,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
@@ -27,7 +28,7 @@ public class TileEntityCokeItemBus extends MetaTileEntityMultiblockPart implemen
     private static final int INVENTORY_SIZE = 1;
     private final boolean isExportHatch = true;
 
-    public TileEntityCokeItemBus(String metaTileEntityId) {
+    public TileEntityCokeItemBus(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, 0);
         this.initializeInventory();
     }
@@ -76,6 +77,7 @@ public class TileEntityCokeItemBus extends MetaTileEntityMultiblockPart implemen
     protected ModularUI createUI(EntityPlayer entityPlayer) {
         return null;
     }
+
     public boolean onRightClick(EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         return false;
     }

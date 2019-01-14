@@ -19,9 +19,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
@@ -33,7 +35,7 @@ public class TileEntityCrate extends MetaTileEntity {
     private final int inventorySize;
     private ItemStackHandler inventory;
 
-    public TileEntityCrate(String metaTileEntityId, SolidMaterial material, int inventorySize) {
+    public TileEntityCrate(ResourceLocation metaTileEntityId, SolidMaterial material, int inventorySize) {
         super(metaTileEntityId);
         this.material = material;
         this.inventorySize = inventorySize;
@@ -71,7 +73,7 @@ public class TileEntityCrate extends MetaTileEntity {
 
     @Override
     public int getComparatorValue() {
-        return GTUtility.calcRedstoneFromItemHandler(inventory);
+        return ItemHandlerHelper.calcRedstoneFromInventory(inventory);
     }
 
     @Override

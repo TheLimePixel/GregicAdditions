@@ -21,6 +21,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
@@ -40,7 +41,7 @@ public class TileEntityDrum extends MetaTileEntity {
     private final SolidMaterial material;
     private SyncFluidTank fluidTank;
 
-    public TileEntityDrum(String metaTileEntityId, SolidMaterial material, int tankSize) {
+    public TileEntityDrum(ResourceLocation metaTileEntityId, SolidMaterial material, int tankSize) {
         super(metaTileEntityId);
         this.tankSize = tankSize;
         this.material = material;
