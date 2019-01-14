@@ -82,6 +82,8 @@ public class GATileEntities {
     public static TileEntityCrate TITANIUM_CRATE;
     public static TileEntityCrate TUNGSTENSTEEL_CRATE;
 
+    public static TileEntityRockBreaker[] ROCK_BREAKER = new TileEntityRockBreaker[8];
+
     public static MetaTileEntityPump[] PUMP = new MetaTileEntityPump[8];
     public static MetaTileEntityAirCollector[] AIR_COLLECTOR = new MetaTileEntityAirCollector[8];
 
@@ -442,6 +444,18 @@ public class GATileEntities {
             STAINLESS_STEEL_CRATE = GregTechAPI.registerMetaTileEntity(2210, new TileEntityCrate(location("crate.stainless_steel"), Materials.StainlessSteel, 90));
             TITANIUM_CRATE = GregTechAPI.registerMetaTileEntity(2211, new TileEntityCrate(location("crate.titanium"), Materials.Titanium, 108));
             TUNGSTENSTEEL_CRATE = GregTechAPI.registerMetaTileEntity(2212, new TileEntityCrate(location("crate.tungstensteel"), Materials.TungstenSteel, 126));
+        }
+
+
+        ROCK_BREAKER[0] = GregTechAPI.registerMetaTileEntity(2213, new TileEntityRockBreaker(location("rock_breaker.lv"), GATextures.BREAKER_OVERLAY, 1));
+        ROCK_BREAKER[1] = GregTechAPI.registerMetaTileEntity(2214, new TileEntityRockBreaker(location("rock_breaker.mv"), GATextures.BREAKER_OVERLAY, 2));
+        ROCK_BREAKER[2] = GregTechAPI.registerMetaTileEntity(2215, new TileEntityRockBreaker(location("rock_breaker.hv"), GATextures.BREAKER_OVERLAY, 3));
+        ROCK_BREAKER[3] = GregTechAPI.registerMetaTileEntity(2216, new TileEntityRockBreaker(location("rock_breaker.ev"), GATextures.BREAKER_OVERLAY, 4));
+        if (GAConfig.GT5U.highTierRockBreakers) {
+            ROCK_BREAKER[4] = GregTechAPI.registerMetaTileEntity(2217, new TileEntityRockBreaker(location("rock_breaker.iv"), GATextures.BREAKER_OVERLAY, 5));
+            ROCK_BREAKER[5] = GregTechAPI.registerMetaTileEntity(2218, new TileEntityRockBreaker(location("rock_breaker.luv"), GATextures.BREAKER_OVERLAY, 6));
+            ROCK_BREAKER[6] = GregTechAPI.registerMetaTileEntity(2219, new TileEntityRockBreaker(location("rock_breaker.zpm"), GATextures.BREAKER_OVERLAY, 7));
+            ROCK_BREAKER[7] = GregTechAPI.registerMetaTileEntity(2220, new TileEntityRockBreaker(location("rock_breaker.uv"), GATextures.BREAKER_OVERLAY, 8));
         }
     }
 
