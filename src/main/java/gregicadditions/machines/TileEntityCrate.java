@@ -48,6 +48,11 @@ public class TileEntityCrate extends MetaTileEntity {
     }
 
     @Override
+    public boolean hasFrontFacing() {
+        return false;
+    }
+
+    @Override
     public int getLightOpacity() {
         return 1;
     }

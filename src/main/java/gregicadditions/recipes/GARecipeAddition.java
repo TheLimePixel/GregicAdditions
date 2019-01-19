@@ -980,8 +980,8 @@ public class GARecipeAddition {
         RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(300).EUt(30).input(OrePrefix.dust, Materials.Gallium).input(OrePrefix.dust, Materials.Arsenic).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.GalliumArsenide, 2)).buildAndRegister();
 
         //Circuit Rabbit Hole - Layer 5
-        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(1484).EUt(5).inputs(FluidCellIngredient.getIngredient(Materials.LiquidAir, 53)).outputs(GAMetaItems.getFilledCell(Materials.Nitrogen.getMaterialFluid(), 40), GAMetaItems.getFilledCell(Materials.Oxygen.getMaterialFluid(), 11), GAMetaItems.getFilledCell(Materials.Argon.getMaterialFluid()), GAMetaItems.getFilledCell(Materials.NobleGases.getMaterialFluid())).buildAndRegister();
-        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(680).EUt(5).inputs(FluidCellIngredient.getIngredient(Materials.NobleGases, 34)).outputs(GAMetaItems.getFilledCell(Materials.CarbonDioxide.getMaterialFluid(), 21), GAMetaItems.getFilledCell(Materials.Helium.getMaterialFluid(), 9), GAMetaItems.getFilledCell(Materials.Methane.getMaterialFluid(), 3), GAMetaItems.getFilledCell(Materials.Deuterium.getMaterialFluid())).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(1484).EUt(5).fluidInputs(Materials.LiquidAir.getFluid(53000)).fluidOutputs(Materials.Nitrogen.getFluid(32000), Materials.Nitrogen.getFluid(8000), Materials.Oxygen.getFluid(11000), Materials.Argon.getFluid(1000), Materials.NobleGases.getFluid(1000)).buildAndRegister();
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(680).EUt(5).fluidInputs(Materials.NobleGases.getFluid(34000)).fluidOutputs(Materials.CarbonDioxide.getFluid(21000), Materials.Helium.getFluid(9000), Materials.Methane.getFluid(3000), Materials.Deuterium.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(96).fluidInputs(Materials.Hydrogen.getFluid(6000), Materials.CarbonDioxide.getFluid(1000)).fluidOutputs(Materials.Water.getFluid(1000), GAMaterials.Methanol.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(96).notConsumable(new IntCircuitIngredient(0)).fluidInputs(Materials.Hydrogen.getFluid(4000), GAMaterials.CarbonMonoxde.getFluid(1000)).fluidOutputs(GAMaterials.Methanol.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(320).EUt(96).input(OrePrefix.dust, Materials.Carbon).notConsumable(new IntCircuitIngredient(3)).fluidInputs(Materials.Hydrogen.getFluid(4000), Materials.Oxygen.getFluid(1000)).fluidOutputs(GAMaterials.Methanol.getFluid(1000)).buildAndRegister();
@@ -1765,16 +1765,16 @@ public class GARecipeAddition {
         }
 
         //Things GTCE Removed
-        ModHandler.addShapedRecipe("oak_plank",GAMetaItems.PLANK_OAK.getStackForm(),"s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB));
-        ModHandler.addShapedRecipe("spruce_plank",GAMetaItems.PLANK_SPRUCE.getStackForm(),"s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 1));
-        ModHandler.addShapedRecipe("birch_plank",GAMetaItems.PLANK_BIRCH.getStackForm(),"s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 2));
-        ModHandler.addShapedRecipe("jungle_plank",GAMetaItems.PLANK_JUNGLE.getStackForm(),"s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 3));
-        ModHandler.addShapedRecipe("acacia_plank",GAMetaItems.PLANK_ACACIA.getStackForm(),"s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 4));
-        ModHandler.addShapedRecipe("dark_oak_plank",GAMetaItems.PLANK_DARKOAK.getStackForm(),"s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 5));
+        ModHandler.addShapedRecipe("oak_plank", GAMetaItems.PLANK_OAK.getStackForm(), "s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB));
+        ModHandler.addShapedRecipe("spruce_plank", GAMetaItems.PLANK_SPRUCE.getStackForm(), "s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 1));
+        ModHandler.addShapedRecipe("birch_plank", GAMetaItems.PLANK_BIRCH.getStackForm(), "s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 2));
+        ModHandler.addShapedRecipe("jungle_plank", GAMetaItems.PLANK_JUNGLE.getStackForm(), "s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 3));
+        ModHandler.addShapedRecipe("acacia_plank", GAMetaItems.PLANK_ACACIA.getStackForm(), "s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 4));
+        ModHandler.addShapedRecipe("dark_oak_plank", GAMetaItems.PLANK_DARKOAK.getStackForm(), "s ", " S", 'S', new ItemStack(Blocks.WOODEN_SLAB, 1, 5));
 
-        ModHandler.addShapedRecipe("3x3_schematic",GAMetaItems.SCHEMATIC_3X3.getStackForm(), "  d", " S ", "   ", 'S', GAMetaItems.SCHEMATIC.getStackForm());
-        ModHandler.addShapedRecipe("2x2_schematic",GAMetaItems.SCHEMATIC_2X2.getStackForm(), " d ", " S ", "   ", 'S', GAMetaItems.SCHEMATIC.getStackForm());
-        ModHandler.addShapedRecipe("dust_schematic",GAMetaItems.SCHEMATIC_DUST.getStackForm(), "   ", " S ", "  d", 'S', GAMetaItems.SCHEMATIC.getStackForm());
+        ModHandler.addShapedRecipe("3x3_schematic", GAMetaItems.SCHEMATIC_3X3.getStackForm(), "  d", " S ", "   ", 'S', GAMetaItems.SCHEMATIC.getStackForm());
+        ModHandler.addShapedRecipe("2x2_schematic", GAMetaItems.SCHEMATIC_2X2.getStackForm(), " d ", " S ", "   ", 'S', GAMetaItems.SCHEMATIC.getStackForm());
+        ModHandler.addShapedRecipe("dust_schematic", GAMetaItems.SCHEMATIC_DUST.getStackForm(), "   ", " S ", "  d", 'S', GAMetaItems.SCHEMATIC.getStackForm());
 
     }
 

@@ -418,9 +418,9 @@ public class GATileEntities {
             WOODEN_DRUM = GregTechAPI.registerMetaTileEntity(2195, new TileEntityDrum(location("drum.wood"), Materials.Wood, 16000));
             BRONZE_DRUM = GregTechAPI.registerMetaTileEntity(2196, new TileEntityDrum(location("drum.bronze"), Materials.Bronze, 32000));
             STEEL_DRUM = GregTechAPI.registerMetaTileEntity(2197, new TileEntityDrum(location("drum.steel"), Materials.Steel, 64000));
-            STAINLESS_STEEL_DRUM = GregTechAPI.registerMetaTileEntity(2198, new TileEntityDrum(location("drum.stainless_steel"), Materials.StainlessSteel, 96000));
-            TITANIUM_DRUM = GregTechAPI.registerMetaTileEntity(2199, new TileEntityDrum(location("drum.titanium"), Materials.Titanium, 128000));
-            TUNGSTENSTEEL_DRUM = GregTechAPI.registerMetaTileEntity(2200, new TileEntityDrum(location("drum.tungstensteel"), Materials.TungstenSteel, 192000));
+            STAINLESS_STEEL_DRUM = GregTechAPI.registerMetaTileEntity(2198, new TileEntityDrum(location("drum.stainless_steel"), Materials.StainlessSteel, 128000));
+            TITANIUM_DRUM = GregTechAPI.registerMetaTileEntity(2199, new TileEntityDrum(location("drum.titanium"), Materials.Titanium, 192000));
+            TUNGSTENSTEEL_DRUM = GregTechAPI.registerMetaTileEntity(2200, new TileEntityDrum(location("drum.tungstensteel"), Materials.TungstenSteel, 256000));
         }
 
         if (GAConfig.GT5U.highTierPumps) {
