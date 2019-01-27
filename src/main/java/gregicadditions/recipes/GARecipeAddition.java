@@ -306,7 +306,7 @@ public class GARecipeAddition {
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(600).EUt(30).input(OrePrefix.dust, GAMaterials.RawStyreneButadieneRubber, 9).input(OrePrefix.dust, Materials.Sulfur).fluidOutputs(GAMaterials.StyreneButadieneRubber.getFluid(1296)).buildAndRegister();
 
         //Polyphenylene Process
-        RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(60).EUt(30).input(OrePrefix.dust, Materials.Sodium, 2).input(OrePrefix.dust, Materials.Sulfur).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.GASodiumSulfide)).buildAndRegister();
+        RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(60).EUt(30).input(OrePrefix.dust, Materials.Sodium, 2).input(OrePrefix.dust, Materials.Sulfur).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.GASodiumSulfide, 3)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(240).EUt(360).input(OrePrefix.dust, GAMaterials.GASodiumSulfide).fluidInputs(GAMaterials.Dichlorobenzene.getFluid(1000), Materials.Air.getFluid(16000)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Salt, 2)).fluidOutputs(GAMaterials.PolyphenyleneSulfide.getFluid(1000)).buildAndRegister();
         RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(240).EUt(360).input(OrePrefix.dust, GAMaterials.GASodiumSulfide).fluidInputs(GAMaterials.Dichlorobenzene.getFluid(1000), Materials.Oxygen.getFluid(8000)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Salt, 2)).fluidOutputs(GAMaterials.PolyphenyleneSulfide.getFluid(1500)).buildAndRegister();
 
