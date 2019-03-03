@@ -22,7 +22,6 @@ import gregtech.api.unification.stack.MaterialStack;
 public class GAMaterials implements IMaterialHandler {
 	public static DustMaterial Brick;
 	public static DustMaterial Fireclay;
-	public static GemMaterial Coke;
 	public static DustMaterial PhosphorousPentoxide;
 	public static FluidMaterial PhosphoricAcid;
 	public static FluidMaterial PolyvinylAcetate;
@@ -152,8 +151,6 @@ public class GAMaterials implements IMaterialHandler {
 
 		Brick = new DustMaterial(999, "ga_brick", 12016192, MaterialIconSet.ROUGH, 1, ImmutableList.of(new MaterialStack(Materials.Aluminium, 4), new MaterialStack(Materials.Silicon, 3), new MaterialStack(Materials.Oxygen, 12)), Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
 		Fireclay = new DustMaterial(998, "ga_fireclay", 9601139, MaterialIconSet.ROUGH, 1, ImmutableList.of(new MaterialStack(Materials.Clay, 1), new MaterialStack(Brick, 1)), Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
-		Coke = new GemMaterial(997, "ga_coke", 7303040, MaterialIconSet.valueOf("COKE"), 1, ImmutableList.of(new MaterialStack(Materials.Carbon, 1)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING | SolidMaterial.MatFlags.MORTAR_GRINDABLE | Material.MatFlags.FLAMMABLE | DustMaterial.MatFlags.NO_SMELTING | DustMaterial.MatFlags.NO_SMASHING);
-		Coke.setBurnTime(3200);
 		PhosphorousPentoxide = new DustMaterial(996, "phosphorous_pentoxide", 8158464, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Phosphorus, 4), new MaterialStack(Materials.Oxygen, 10)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
 		PhosphoricAcid = new FluidMaterial(995, "phosphoric_acid", 11447824, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Hydrogen, 3), new MaterialStack(Materials.Phosphorus, 4)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
 		PolyvinylAcetate = new FluidMaterial(994, "polyvinyl_acetate", 13139532, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Carbon, 4), new MaterialStack(Materials.Hydrogen, 6), new MaterialStack(Materials.Oxygen, 2)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
@@ -302,11 +299,6 @@ public class GAMaterials implements IMaterialHandler {
 		Materials.Salt.addOreByProducts(Materials.Borax);
 		Materials.RockSalt.addOreByProducts(Materials.Borax);
 		Materials.Lepidolite.addOreByProducts(Materials.Boron);
-
-		OrePrefix.gemChipped.setIgnored(Coke);
-		OrePrefix.gemFlawed.setIgnored(Coke);
-		OrePrefix.gemFlawless.setIgnored(Coke);
-		OrePrefix.gemExquisite.setIgnored(Coke);
 
 		OrePrefix.gemChipped.setIgnored(LigniteCoke);
 		OrePrefix.gemFlawed.setIgnored(LigniteCoke);
