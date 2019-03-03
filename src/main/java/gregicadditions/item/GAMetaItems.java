@@ -31,7 +31,6 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem GLOWSTONE_BOULE;
     public static MetaItem<?>.MetaValueItem NAQUADAH_BOULE;
     public static MetaItem<?>.MetaValueItem SILICON_BOULE;
-    public static MetaItem<?>.MetaValueItem COKE_BRICK;
     public static MetaItem<?>.MetaValueItem FIRECLAY_BRICK;
     public static MetaItem<?>.MetaValueItem ADVANCED_CIRCUIT;
     public static MetaItem<?>.MetaValueItem GOOD_CIRCUIT;

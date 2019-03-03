@@ -40,7 +40,6 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.GLOWSTONE_BOULE = addItem(10, "boule.glowstone");
         GAMetaItems.NAQUADAH_BOULE = addItem(11, "boule.naquadah");
         GAMetaItems.SILICON_BOULE = addItem(12, "boule.silicon");
-        GAMetaItems.COKE_BRICK = addItem(13, "brick.coke");
         GAMetaItems.FIRECLAY_BRICK = addItem(14, "brick.fireclay").setUnificationData(OrePrefix.ingot, GAMaterials.Fireclay);
         GAMetaItems.ADVANCED_CIRCUIT = addItem(15, "circuit.advanced.regular").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Advanced);
         GAMetaItems.GOOD_CIRCUIT = addItem(16, "circuit.good.regular").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Good);
