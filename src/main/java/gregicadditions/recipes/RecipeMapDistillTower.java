@@ -1,18 +1,17 @@
 package gregicadditions.recipes;
 
+import java.util.function.DoubleSupplier;
+
 import gregtech.api.capability.impl.FluidTankList;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.ModularUI;
-import gregtech.api.gui.resources.TextureArea;
 import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.recipes.RecipeBuilder;
 import gregtech.api.recipes.RecipeMap;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
-import java.util.function.DoubleSupplier;
-
-public class RecipeMapDistillTower<R extends RecipeBuilder<R>> extends RecipeMap {
+public class RecipeMapDistillTower<R extends RecipeBuilder<R>> extends RecipeMap<R> {
     private ProgressWidget.MoveType moveType;
 
     public RecipeMapDistillTower(String unlocalizedName, int minInputs, int maxInputs, int minOutputs, int maxOutputs, int minFluidInputs, int maxFluidInputs, int minFluidOutputs, int maxFluidOutputs, int amperage, R defaultRecipe) {

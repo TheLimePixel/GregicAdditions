@@ -95,11 +95,11 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
     private boolean tryPickNewRecipe() {
         ItemStack inputStack = importItems.getStackInSlot(0);
         if (inputStack.isEmpty()) return false;
-        Recipe recipe = GARecipeMaps.COKE_OVEN_RECIPES.findRecipe(Integer.MAX_VALUE, Collections.singletonList(inputStack), Collections.EMPTY_LIST);
+        Recipe recipe = GARecipeMaps.COKE_OVEN_RECIPES.findRecipe(Integer.MAX_VALUE, Collections.singletonList(inputStack), Collections.emptyList());
         if (recipe == null) return false;
         NonNullList<ItemStack> outputs = NonNullList.create();
         outputs.add(recipe.getOutputs().get(0).copy());
-        List<FluidStack> fluidOutputs = new ArrayList();
+        List<FluidStack> fluidOutputs = new ArrayList<>();
         fluidOutputs.addAll(recipe.getFluidOutputs());
         if (MetaTileEntity.addItemsToItemHandler(exportItems, true, outputs) &&
                 MetaTileEntity.addFluidsToFluidHandler(exportFluids, true, fluidOutputs)) {
@@ -151,7 +151,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
                 this.outputsList.add(new ItemStack(itemOutputs.getCompoundTagAt(i)));
             }
             NBTTagList fluidOutputs = data.getTagList("FluidOutputs", Constants.NBT.TAG_COMPOUND);
-            this.outputFluids = new ArrayList();
+            this.outputFluids = new ArrayList<>();
             for (int i = 0; i < fluidOutputs.tagCount(); i++) {
                 this.outputFluids.add(FluidStack.loadFluidStackFromNBT(fluidOutputs.getCompoundTagAt(i)));
             }

@@ -114,7 +114,8 @@ public class SingleLimitFactory {
     }
 
 
-    public SingleLimitFactory addCheck(int layer, Predicate<BlockWorldState> predicate) {
+    @SuppressWarnings("unchecked")
+	public SingleLimitFactory addCheck(int layer, Predicate<BlockWorldState> predicate) {
         if (this.predicatesCheckLayers == null)
             this.predicatesCheckLayers = new Predicate[this.depth.size()];
         this.predicatesCheckLayers[layer] = predicate;

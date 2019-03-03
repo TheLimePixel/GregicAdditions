@@ -12,7 +12,7 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 
 import java.util.function.DoubleSupplier;
 
-public class RecipeMapAssemblyLine<R extends RecipeBuilder<R>> extends RecipeMap {
+public class RecipeMapAssemblyLine<R extends RecipeBuilder<R>> extends RecipeMap<R> {
     private TextureArea progressBarTexture;
     private ProgressWidget.MoveType moveType;
 

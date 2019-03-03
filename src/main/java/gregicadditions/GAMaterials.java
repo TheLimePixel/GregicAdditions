@@ -146,7 +146,6 @@ public class GAMaterials implements IMaterialHandler {
 	@Override
 	public void onMaterialsInit() {}
 	static {
-		long STD_SOLID = DustMaterial.MatFlags.GENERATE_PLATE | SolidMaterial.MatFlags.GENERATE_ROD | IngotMaterial.MatFlags.GENERATE_BOLT_SCREW;
 		long STD_METAL = DustMaterial.MatFlags.GENERATE_PLATE;
 		long EXT_METAL = STD_METAL | SolidMaterial.MatFlags.GENERATE_ROD | IngotMaterial.MatFlags.GENERATE_BOLT_SCREW;
 		long EXT2_METAL = EXT_METAL | SolidMaterial.MatFlags.GENERATE_GEAR | IngotMaterial.MatFlags.GENERATE_FOIL | IngotMaterial.MatFlags.GENERATE_FINE_WIRE;

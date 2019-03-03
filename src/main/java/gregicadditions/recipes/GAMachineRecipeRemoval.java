@@ -1,8 +1,13 @@
 package gregicadditions.recipes;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import gregicadditions.GAConfig;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.recipes.Recipe;
+import gregtech.api.recipes.RecipeBuilder;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
@@ -23,10 +28,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidStack;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class GAMachineRecipeRemoval {
 
@@ -323,21 +324,21 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.CUTTER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.block, Materials.CertusQuartz)}, new FluidStack[]{Materials.Lubricant.getFluid(18)});
     }
 
-    private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {
+    private static <R extends RecipeBuilder<R>> void removeRecipesByInputs(RecipeMap<R> map, ItemStack... itemInputs) {
         List<ItemStack> inputs = new ArrayList<>();
         for (ItemStack s : itemInputs)
             inputs.add(s);
-        map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, inputs, Collections.EMPTY_LIST));
+        map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, inputs, Collections.emptyList()));
     }
 
-    private static void removeRecipesByInputs(RecipeMap map, FluidStack... fluidInputs) {
+    private static <R extends RecipeBuilder<R>> void removeRecipesByInputs(RecipeMap<R> map, FluidStack... fluidInputs) {
         List<FluidStack> inputs = new ArrayList<>();
         for (FluidStack s : fluidInputs)
             inputs.add(s);
-        map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, Collections.EMPTY_LIST, inputs));
+        map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, Collections.emptyList(), inputs));
     }
 
-    private static void removeRecipesByInputs(RecipeMap map, ItemStack[] itemInputs, FluidStack[] fluidInputs) {
+    private static <R extends RecipeBuilder<R>> void removeRecipesByInputs(RecipeMap<R> map, ItemStack[] itemInputs, FluidStack[] fluidInputs) {
         List<ItemStack> itemIn = new ArrayList<>();
         for (ItemStack s : itemInputs)
             itemIn.add(s);
@@ -347,9 +348,9 @@ public class GAMachineRecipeRemoval {
         map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, itemIn, fluidIn));
     }
 
-    private static void removeAllRecipes(RecipeMap map) {
+    private static <R extends RecipeBuilder<R>> void removeAllRecipes(RecipeMap<R> map) {
 
-        List<Recipe> recipes = new ArrayList();
+        List<Recipe> recipes = new ArrayList<>();
         recipes.addAll(map.getRecipeList());
 
         for (Recipe r : recipes)
