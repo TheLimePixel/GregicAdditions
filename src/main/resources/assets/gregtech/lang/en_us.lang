@@ -58,7 +58,6 @@ metaitem.component.smd.transistor.tooltip=Electronic Component
 metaitem.component.transistor.name=Transistor
 metaitem.component.transistor.tooltip=Basic Electronic Component
 metaitem.compressed.clay.name=Unfired Clay Brick
-metaitem.compressed.coke.clay.name=Unfired Coke Oven Brick
 metaitem.compressed.fireclay.name=Compressed Fireclay
 metaitem.compressed.fireclay.tooltip=Brick-Shaped
 metaitem.computer.crystal.name=Ultimate Crystalcomputer
@@ -395,10 +394,10 @@ gtadditions.machine.wiremill.luv.name=Advanced Wiremill V
 gtadditions.machine.wiremill.zpm.name=Advanced Wiremill VI
 gtadditions.machine.wiremill.uv.name=Advanced Wiremill VII
 
-gtadditions.machine.distill_tower.name=Distillation Tower
+gtadditions.machine.distill_tower.name=[Deprecated] Distillation Tower
 gtadditions.machine.assembly_line.name=Assembly Line
-gtadditions.machine.coke_oven.name=Coke Oven
-gtadditions.machine.cracker_unit.name=Cracking Unit
+gtadditions.machine.coke_oven.name=[Deprecated] Coke Oven
+gtadditions.machine.cracker_unit.name=[Deprecated] Cracking Unit
 
 gtadditions.machine.naquadah_reactor.mk1.name=Naquadah Reactor Mk. 1
 gtadditions.machine.naquadah_reactor.mk2.name=Naquadah Reactor Mk. 2
@@ -438,8 +437,8 @@ gtadditions.machine.fusion_reactor.luv.name=Fusion Reactor Computer Mark 1
 gtadditions.machine.fusion_reactor.zpm.name=Fusion Reactor Computer Mark 2
 gtadditions.machine.fusion_reactor.uv.name=Fusion Reactor Computer Mark 3
 
-gtadditions.machine.coke_item_bus.name=Coke Oven Chute
-gtadditions.machine.coke_fluid_hatch.name=Coke Oven Faucet
+gtadditions.machine.coke_item_bus.name=[Deprecated] Coke Oven Chute
+gtadditions.machine.coke_fluid_hatch.name=[Deprecated] Coke Oven Faucet
 
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 tile.ga_multiblock_casing.tungstensteel_gearbox_casing.name=Assembly Line Casing
@@ -450,13 +449,13 @@ metaitem.tool.bending_cylinder_small.name=Small %s Bending Cylinder
 
 recipemap.cluster_mill.name=Cluster Mill
 recipemap.circuit_assembler.name=Circuit Assembler
-recipemap.coke_oven.name=Coke Oven
-recipemap.distill_tower.name=Distillation Tower
+recipemap.coke_oven.name=[Deprecated] Coke Oven
+recipemap.distill_tower.name=[Deprecated] Distillation Tower
 recipemap.assembly_line.name=Assembly Line
 recipemap.naquadah_reactor.name=Naquadah Reactor Fuels
 recipemap.replicator.name=Replicator
 recipemap.mass_fab.name=Mass Fabricator
-recipemap.cracker_unit.name=Cracking Recipes
+recipemap.cracker_unit.name=[Deprecated] Cracking Recipes
 
 recipemap.plasma_generator.name=Plasma Turbine Fuels
 
