@@ -12,7 +12,7 @@ import net.minecraft.world.IBlockAccess;
 public class GAMultiblockCasing extends VariantBlock<GAMultiblockCasing.CasingType> {
     public GAMultiblockCasing() {
         super(Material.IRON);
-        setUnlocalizedName("ga_multiblock_casing");
+        setTranslationKey("ga_multiblock_casing");
         setHardness(5.0f);
         setResistance(10.0f);
         setSoundType(SoundType.METAL);

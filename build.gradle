@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "${minecraft_version}-${mod_version}"
+version = "1.12.2-2.0.0"
 group = "gregicadditions"
 archivesBaseName = "GregicAdditions"
 
@@ -20,23 +20,15 @@ compileJava {
 }
 
 minecraft {
-    version = "${minecraft_version}-14.23.4.2749"
+    version = "1.12.2-14.23.5.2768"
     runDir = "run"
-    mappings = "snapshot_20171003"
+    mappings = "stable_39"
 
     replace("@VERSION@",project.version)
     replaceIn("GregicAdditions.java")
 }
 
 repositories {
-    maven {
-        name = "ChickenBones maven"
-        url = "http://chickenbones.net/maven/"
-    }
-    maven {
-        name = "tterrag maven"
-        url = "http://maven.tterrag.com/"
-    }
     maven {
         name = "Progwml6 maven"
         url = "http://dvs1.progwml6.com/files/maven/"
@@ -49,17 +41,16 @@ repositories {
         name = "Forestry Maven"
         url = "http://maven.ic2.player.to"
     }
+	maven {
+		url "http://tehnut.info/maven"
+	}
 }
 
 dependencies {
-    deobfCompile "codechicken:ChickenASM:${short_version}-${chickenasm_version}"
-    deobfCompile "codechicken:CodeChickenLib:${minecraft_version}-${ccl_version}:deobf"
-    deobfCompile "codechicken:ForgeMultipart:${minecraft_version}-${multipart_version}:deobf"
-    deobfCompile "CraftTweaker2:CraftTweaker2-MC${stripped_version}-Main:${crafttweaker_version}"
-    deobfCompile "mezz.jei:jei_${minecraft_version}:${jei_version}"
-    deobfCompile "net.sengir.forestry:forestry_${minecraft_version}:${forestry_version}"
-    compile files("libs/gregtech-${minecraft_version}-${gt_version}.jar")
-    compile files("libs/GTCEBees-${minecraft_version}-${gtcebees_version}.jar")
+    deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.+"
+    deobfCompile "mezz.jei:jei_1.12.2:+"
+	deobfCompile "mcp.mobius.waila:Hwyla:1.8+"
+    deobfCompile "net.sengir.forestry:forestry_1.12.2:+"
 }
 
 processResources {

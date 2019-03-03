@@ -3,7 +3,6 @@ package gregicadditions;
 import gregicadditions.machines.CrateRenderer;
 import gregicadditions.machines.DrumRenderer;
 import gregtech.api.gui.resources.TextureArea;
-import gregtech.api.render.ChestRenderer;
 import gregtech.api.render.OrientedOverlayRenderer;
 import gregtech.api.render.OrientedOverlayRenderer.OverlayFace;
 import gregtech.api.render.SimpleCubeRenderer;

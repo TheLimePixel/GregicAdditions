@@ -1,5 +1,13 @@
 package gregicadditions.machines;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.tuple.Pair;
+
+import gnu.trove.map.hash.TIntObjectHashMap;
 import gregtech.api.multiblock.BlockPattern;
 import gregtech.api.multiblock.BlockWorldState;
 import gregtech.api.multiblock.IPatternCenterPredicate;
@@ -8,10 +16,6 @@ import gregtech.api.util.IntRange;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.apache.commons.lang3.ArrayUtils;
-
-import java.util.List;
-import java.util.function.Predicate;
 
 public class SingleLimitBlockPattern extends BlockPattern {
 
@@ -22,8 +26,8 @@ public class SingleLimitBlockPattern extends BlockPattern {
     private final RelativeDirection[] structureDir;
     private final int[][] aisleRepetitions;
 
-    public SingleLimitBlockPattern(Predicate<BlockWorldState>[][][] predicatesIn, List<org.apache.commons.lang3.tuple.Pair<Predicate<BlockWorldState>, IntRange>> countMatches, RelativeDirection[] structureDir, int[][] aisleRepetitions, Predicate<BlockWorldState>[] predicatesCheckLayers) {
-        super(predicatesIn, countMatches, structureDir, aisleRepetitions);
+    public SingleLimitBlockPattern(Predicate<BlockWorldState>[][][] predicatesIn, List<Pair<Predicate<BlockWorldState>, IntRange>> countMatches, RelativeDirection[] structureDir, int[][] aisleRepetitions, Predicate<BlockWorldState>[] predicatesCheckLayers) {
+        super(predicatesIn, countMatches, new TIntObjectHashMap<>(), new ArrayList<>(), structureDir, aisleRepetitions);
         this.predicatesCheckLayers = predicatesCheckLayers;
         blockMatches = predicatesIn;
         this.aisleRepetitions = aisleRepetitions;
@@ -57,7 +61,8 @@ public class SingleLimitBlockPattern extends BlockPattern {
         }
     }
 
-    public PatternMatchContext checkPatternAt(World world, BlockPos centerPos, EnumFacing facing) {
+    @Override
+	public PatternMatchContext checkPatternAt(World world, BlockPos centerPos, EnumFacing facing) {
         BlockWorldState worldState = new BlockWorldState();
         BlockPos.MutableBlockPos blockPos = new BlockPos.MutableBlockPos();
         PatternMatchContext matchContext = new PatternMatchContext();
@@ -75,7 +80,7 @@ public class SingleLimitBlockPattern extends BlockPattern {
                         setActualRelativeOffset(blockPos, x, y, z, facing);
                         blockPos.setPos(blockPos.getX() + centerPos.getX(), blockPos.getY() + centerPos.getY(), blockPos.getZ() + centerPos.getZ());
 
-                        worldState.update(world, blockPos, matchContext);
+                        worldState.update(world, blockPos, matchContext, new PatternMatchContext());
 
                         if (predicatesCheckLayers != null && predicatesCheckLayers[c] != null) {
                             if (hasBlock && predicatesCheckLayers[c].test(worldState))

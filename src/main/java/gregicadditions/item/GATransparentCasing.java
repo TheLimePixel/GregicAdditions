@@ -17,7 +17,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class GATransparentCasing extends VariantBlock<GATransparentCasing.CasingType> {
     public GATransparentCasing() {
         super(Material.IRON);
-        setUnlocalizedName("ga_transparent_casing");
+        setTranslationKey("ga_transparent_casing");
         setHardness(5.0f);
         setResistance(5000.0f);
         setSoundType(SoundType.GLASS);
@@ -35,12 +35,14 @@ public class GATransparentCasing extends VariantBlock<GATransparentCasing.Casing
         return BlockRenderLayer.TRANSLUCENT;
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
         IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
         Block block = iblockstate.getBlock();
