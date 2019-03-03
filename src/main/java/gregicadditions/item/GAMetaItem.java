@@ -25,7 +25,8 @@ public class GAMetaItem extends MaterialMetaItem {
                 null, null, null, null, null, null, null);
     }
 
-    public void registerSubItems() {
+    @Override
+	public void registerSubItems() {
         GAMetaItems.NANO_ASSEMBLY = addItem(0, "assembly.nano").setUnificationData(OrePrefix.valueOf("circuitGA"), GAMaterials.Extreme);
         GAMetaItems.INTEGRATED_ASSEMBLY = addItem(1, "assembly.normal").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Advanced);
         GAMetaItems.WETWARE_ASSEMBLY = addItem(2, "assembly.wetware").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Ultimate);
@@ -184,7 +185,8 @@ public class GAMetaItem extends MaterialMetaItem {
         MetaItems.CIRCUIT_PRIMITIVE.setInvisible();
     }
 
-    public boolean hasContainerItem(ItemStack stack) {
+    @Override
+	public boolean hasContainerItem(ItemStack stack) {
 
         int[] idsToKeepInGrid = new int[]{
                 GAMetaItems.ACACIA_FORM.getStackForm().getMetadata(),
@@ -198,7 +200,8 @@ public class GAMetaItem extends MaterialMetaItem {
         return ArrayUtils.contains(idsToKeepInGrid, stack.getMetadata());
     }
 
-    public ItemStack getContainerItem(ItemStack stack) {
+    @Override
+	public ItemStack getContainerItem(ItemStack stack) {
         return stack.copy();
     }
 }

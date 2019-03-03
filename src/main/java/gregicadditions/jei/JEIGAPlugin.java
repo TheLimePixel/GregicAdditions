@@ -9,7 +9,8 @@ import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 @JEIPlugin
 public class JEIGAPlugin implements IModPlugin {
 
-    public void registerCategories(IRecipeCategoryRegistration registry) {
+    @Override
+	public void registerCategories(IRecipeCategoryRegistration registry) {
         registry.addRecipeCategories(new GAMultiblockInfoCategory(registry.getJeiHelpers()));
     }
 

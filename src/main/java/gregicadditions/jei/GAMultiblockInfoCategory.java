@@ -31,23 +31,28 @@ public class GAMultiblockInfoCategory implements IRecipeCategory<MultiblockInfoR
         ), "gtadditions:multiblock_info");
     }
 
-    public String getUid() {
+    @Override
+	public String getUid() {
         return "gtadditions:multiblock_info";
     }
 
-    public String getTitle() {
+    @Override
+	public String getTitle() {
         return I18n.format("gregtech.multiblock.title", new Object[0]);
     }
 
-    public String getModName() {
+    @Override
+	public String getModName() {
         return "gtadditions";
     }
 
-    public IDrawable getBackground() {
+    @Override
+	public IDrawable getBackground() {
         return this.background;
     }
 
-    public void setRecipe(IRecipeLayout recipeLayout, MultiblockInfoRecipeWrapper recipeWrapper, IIngredients ingredients) {
+    @Override
+	public void setRecipe(IRecipeLayout recipeLayout, MultiblockInfoRecipeWrapper recipeWrapper, IIngredients ingredients) {
         recipeWrapper.setRecipeLayout((RecipeLayout) recipeLayout);
     }
 }

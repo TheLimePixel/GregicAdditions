@@ -74,12 +74,14 @@ public class TileEntityDistillTower extends RecipeMapMultiblockController {
         return MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STAINLESS_CLEAN);
     }
 
-    protected void formStructure(PatternMatchContext context) {
+    @Override
+	protected void formStructure(PatternMatchContext context) {
         super.formStructure(context);
         this.initializeAbilities();
     }
 
-    public void invalidateStructure() {
+    @Override
+	public void invalidateStructure() {
         super.invalidateStructure();
         this.resetTileAbilities();
     }

@@ -22,7 +22,8 @@ public class GAMultiblockShapeInfo extends MultiblockShapeInfo {
         this.blocks = blocks;
     }
 
-    public BlockInfo[][][] getBlocks() {
+    @Override
+	public BlockInfo[][][] getBlocks() {
         return blocks;
     }
 
@@ -35,21 +36,25 @@ public class GAMultiblockShapeInfo extends MultiblockShapeInfo {
         private List<String[]> shape = new ArrayList<>();
         private Map<Character, BlockInfo> symbolMap = new HashMap<>();
 
-        public Builder aisle(String... data) {
+        @Override
+		public Builder aisle(String... data) {
             this.shape.add(data);
             return this;
         }
 
-        public Builder where(char symbol, BlockInfo value) {
+        @Override
+		public Builder where(char symbol, BlockInfo value) {
             this.symbolMap.put(symbol, value);
             return this;
         }
 
-        public Builder where(char symbol, IBlockState blockState) {
+        @Override
+		public Builder where(char symbol, IBlockState blockState) {
             return where(symbol, new BlockInfo(blockState));
         }
 
-        public Builder where(char symbol, MetaTileEntity tileEntity, EnumFacing frontSide) {
+        @Override
+		public Builder where(char symbol, MetaTileEntity tileEntity, EnumFacing frontSide) {
             MetaTileEntityHolder holder = new MetaTileEntityHolder();
             holder.setMetaTileEntity(tileEntity);
             holder.getMetaTileEntity().setFrontFacing(frontSide);
@@ -84,7 +89,8 @@ public class GAMultiblockShapeInfo extends MultiblockShapeInfo {
             return blockInfos;
         }
 
-        public GAMultiblockShapeInfo build() {
+        @Override
+		public GAMultiblockShapeInfo build() {
             return new GAMultiblockShapeInfo(bakeArray());
         }
 

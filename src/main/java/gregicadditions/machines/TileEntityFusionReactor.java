@@ -39,14 +39,16 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
     public TileEntityFusionReactor(ResourceLocation metaTileEntityId, int tier) {
         super(metaTileEntityId, RecipeMaps.FUSION_RECIPES);
         this.recipeMapWorkable = new MultiblockRecipeMapWorkable(this) {
-            protected int getOverclockingTier(long voltage) {
+            @Override
+			protected int getOverclockingTier(long voltage) {
                 return 0;
             }
         };
         this.tier = tier;
         this.reinitializeStructurePattern();
         this.energyContainer = new EnergyContainerHandler(this, Integer.MAX_VALUE, 0, 0, 0, 0) {
-            public String getName() {
+            @Override
+			public String getName() {
                 return "EnergyContainerInternal";
             }
         };
@@ -59,7 +61,8 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 
     @Override
     protected BlockPattern createStructurePattern() {
-        return FactoryBlockPattern.start().start(LEFT, DOWN, BACK)
+        FactoryBlockPattern.start();
+		return FactoryBlockPattern.start(LEFT, DOWN, BACK)
                 .aisle("###############", "######OCO######", "###############")
                 .aisle("######ICI######", "####CCcccCC####", "######ICI######")
                 .aisle("####CC###CC####", "###EccOCOccE###", "####CC###CC####")
@@ -126,7 +129,8 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
         return eConts.size() * 100000L * (tier - 5);
     }
 
-    protected void formStructure(PatternMatchContext context) {
+    @Override
+	protected void formStructure(PatternMatchContext context) {
         long energyStored = this.energyContainer.getEnergyStored();
         super.formStructure(context);
         this.initializeAbilities();
@@ -140,13 +144,15 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
         this.outputFluidInventory = new FluidTankList(true, getAbilities(MultiblockAbility.EXPORT_FLUIDS));
         this.inputEnergyContainers = new EnergyContainerList(this.getAbilities(MultiblockAbility.INPUT_ENERGY));
         this.energyContainer = new EnergyContainerHandler(this, getMaxEU(), GTValues.V[tier], 0, 0, 0) {
-            public String getName() {
+            @Override
+			public String getName() {
                 return "EnergyContainerInternal";
             }
         };
     }
 
-    protected void updateFormedValid() {
+    @Override
+	protected void updateFormedValid() {
         if (!getWorld().isRemote) {
             if (this.inputEnergyContainers.getEnergyStored() > 0) {
                 long energyAdded = this.energyContainer.addEnergy(this.inputEnergyContainers.getEnergyStored());
@@ -199,7 +205,8 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
         }
     }
 
-    protected void addDisplayText(List<ITextComponent> textList) {
+    @Override
+	protected void addDisplayText(List<ITextComponent> textList) {
         if (!this.isStructureFormed()) {
             textList.add((new TextComponentTranslation("gregtech.multiblock.invalid_structure", new Object[0])).setStyle((new Style()).setColor(TextFormatting.RED)));
         }
@@ -228,7 +235,8 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
         textList.add(new TextComponentString("EU: " + this.energyContainer.getEnergyStored() + " / " + this.energyContainer.getEnergyCapacity()));
     }
 
-    public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
+    @Override
+	public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
         this.getBaseTexture(null).render(renderState, translation, pipeline);
         GATextures.FUSION_REACTOR_OVERLAY.render(renderState, translation, pipeline, this.getFrontFacing(), this.recipeMapWorkable.isActive());
     }

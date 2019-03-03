@@ -37,7 +37,7 @@ public class GAMachineRecipeRemoval {
     };
 
     public static void init() {
-        for (Material m : IngotMaterial.MATERIAL_REGISTRY) {
+        for (Material m : Material.MATERIAL_REGISTRY) {
 
             //Foil recipes
             removeRecipesByInputs(RecipeMaps.BENDER_RECIPES,

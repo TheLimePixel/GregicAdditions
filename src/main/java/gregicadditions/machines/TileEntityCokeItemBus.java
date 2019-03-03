@@ -33,11 +33,13 @@ public class TileEntityCokeItemBus extends MetaTileEntityMultiblockPart implemen
         this.initializeInventory();
     }
 
-    public MetaTileEntity createMetaTileEntity(MetaTileEntityHolder holder) {
+    @Override
+	public MetaTileEntity createMetaTileEntity(MetaTileEntityHolder holder) {
         return new TileEntityCokeItemBus(this.metaTileEntityId);
     }
 
-    public void update() {
+    @Override
+	public void update() {
         super.update();
         if (!this.getWorld().isRemote && this.getTimer() % 5L == 0L) {
             if (this.isExportHatch) {
@@ -49,7 +51,8 @@ public class TileEntityCokeItemBus extends MetaTileEntityMultiblockPart implemen
 
     }
 
-    public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
+    @Override
+	public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
         GATextures.COKE_OVEN_BRICKS.render(renderState, translation, pipeline);
         (this.isExportHatch ? Textures.PIPE_OUT_OVERLAY : Textures.PIPE_IN_OVERLAY).renderSided(this.getFrontFacing(), renderState, translation, pipeline);
     }
@@ -58,23 +61,28 @@ public class TileEntityCokeItemBus extends MetaTileEntityMultiblockPart implemen
         return INVENTORY_SIZE;
     }
 
-    protected IItemHandlerModifiable createExportItemHandler() {
+    @Override
+	protected IItemHandlerModifiable createExportItemHandler() {
         return this.isExportHatch ? new ItemStackHandler(this.getInventorySize()) : new ItemStackHandler(0);
     }
 
-    protected IItemHandlerModifiable createImportItemHandler() {
+    @Override
+	protected IItemHandlerModifiable createImportItemHandler() {
         return this.isExportHatch ? new ItemStackHandler(0) : new ItemStackHandler(this.getInventorySize());
     }
 
-    public MultiblockAbility<IItemHandlerModifiable> getAbility() {
+    @Override
+	public MultiblockAbility<IItemHandlerModifiable> getAbility() {
         return this.isExportHatch ? MultiblockAbility.EXPORT_ITEMS : MultiblockAbility.IMPORT_ITEMS;
     }
 
-    public void registerAbilities(List<IItemHandlerModifiable> abilityList) {
+    @Override
+	public void registerAbilities(List<IItemHandlerModifiable> abilityList) {
         abilityList.add(this.isExportHatch ? this.exportItems : this.importItems);
     }
 
-    protected ModularUI createUI(EntityPlayer entityPlayer) {
+    @Override
+	protected ModularUI createUI(EntityPlayer entityPlayer) {
         return null;
     }
 
@@ -82,7 +90,8 @@ public class TileEntityCokeItemBus extends MetaTileEntityMultiblockPart implemen
         return false;
     }
 
-    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
+    @Override
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
         tooltip.add(I18n.format("gregtech.universal.tooltip.item_storage_capacity", new Object[]{this.getInventorySize()}));
     }
 }

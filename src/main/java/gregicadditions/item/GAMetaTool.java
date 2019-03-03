@@ -24,7 +24,7 @@ public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> 
     }
 
     public void registerRecipes() {
-        for (Material material : IngotMaterial.MATERIAL_REGISTRY) {
+        for (Material material : Material.MATERIAL_REGISTRY) {
             if (material instanceof IngotMaterial && !material.hasFlag(DustMaterial.MatFlags.NO_SMASHING) && ((IngotMaterial) material).toolDurability != 0) {
                 IngotMaterial toolMaterial = (IngotMaterial) material;
 
