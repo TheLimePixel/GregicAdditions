@@ -20,8 +20,7 @@ import gregtech.api.unification.stack.MaterialStack;
 
 @IMaterialHandler.RegisterMaterialHandler
 public class GAMaterials implements IMaterialHandler {
-	public static DustMaterial Brick;
-	public static DustMaterial Fireclay;
+
 	public static DustMaterial PhosphorousPentoxide;
 	public static FluidMaterial PhosphoricAcid;
 	public static FluidMaterial PolyvinylAcetate;
@@ -149,8 +148,6 @@ public class GAMaterials implements IMaterialHandler {
 		long EXT_METAL = STD_METAL | SolidMaterial.MatFlags.GENERATE_ROD | IngotMaterial.MatFlags.GENERATE_BOLT_SCREW;
 		long EXT2_METAL = EXT_METAL | SolidMaterial.MatFlags.GENERATE_GEAR | IngotMaterial.MatFlags.GENERATE_FOIL | IngotMaterial.MatFlags.GENERATE_FINE_WIRE;
 
-		Brick = new DustMaterial(999, "ga_brick", 12016192, MaterialIconSet.ROUGH, 1, ImmutableList.of(new MaterialStack(Materials.Aluminium, 4), new MaterialStack(Materials.Silicon, 3), new MaterialStack(Materials.Oxygen, 12)), Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
-		Fireclay = new DustMaterial(998, "ga_fireclay", 9601139, MaterialIconSet.ROUGH, 1, ImmutableList.of(new MaterialStack(Materials.Clay, 1), new MaterialStack(Brick, 1)), Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
 		PhosphorousPentoxide = new DustMaterial(996, "phosphorous_pentoxide", 8158464, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Phosphorus, 4), new MaterialStack(Materials.Oxygen, 10)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
 		PhosphoricAcid = new FluidMaterial(995, "phosphoric_acid", 11447824, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Hydrogen, 3), new MaterialStack(Materials.Phosphorus, 4)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
 		PolyvinylAcetate = new FluidMaterial(994, "polyvinyl_acetate", 13139532, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Carbon, 4), new MaterialStack(Materials.Hydrogen, 6), new MaterialStack(Materials.Oxygen, 2)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
