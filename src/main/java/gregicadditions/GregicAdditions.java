@@ -19,7 +19,7 @@ import org.apache.logging.log4j.Logger;
 )
 public class GregicAdditions {
     public static final String MODID = "gtadditions";
-    public static final String NAME = "Gregic Additions";
+    public static final String NAME = "Shadows of Greg";
     public static final String VERSION = "@VERSION@";
 
     @SidedProxy(
