@@ -6,7 +6,7 @@ import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.ColourMultiplier;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
-import gregicadditions.GATextures;
+import gregicadditions.client.ClientHandler;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
@@ -170,20 +170,20 @@ public class TileEntityDrum extends MetaTileEntity {
     @SideOnly(Side.CLIENT)
     public TextureAtlasSprite getParticleTexture() {
         return material.toString().contains("wood") ?
-                GATextures.BARREL.getParticleTexture() :
-                GATextures.DRUM.getParticleTexture();
+                ClientHandler.BARREL.getParticleTexture() :
+                ClientHandler.DRUM.getParticleTexture();
     }
 
     @Override
     public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
         if (material.toString().contains("wood")) {
             ColourMultiplier multiplier = new ColourMultiplier(GTUtility.convertRGBtoOpaqueRGBA_CL(getPaintingColorForRendering()));
-            GATextures.BARREL.render(renderState, translation, ArrayUtils.add(pipeline, multiplier), getFrontFacing());
+            ClientHandler.BARREL.render(renderState, translation, ArrayUtils.add(pipeline, multiplier), getFrontFacing());
         } else {
             ColourMultiplier multiplier = new ColourMultiplier(ColourRGBA.multiply(
                     GTUtility.convertRGBtoOpaqueRGBA_CL(material.materialRGB),
                     GTUtility.convertRGBtoOpaqueRGBA_CL(getPaintingColorForRendering())));
-            GATextures.DRUM.render(renderState, translation, ArrayUtils.add(pipeline, multiplier), getFrontFacing());
+            ClientHandler.DRUM.render(renderState, translation, ArrayUtils.add(pipeline, multiplier), getFrontFacing());
         }
     }
 

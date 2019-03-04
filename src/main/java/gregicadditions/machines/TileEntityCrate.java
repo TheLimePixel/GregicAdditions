@@ -4,7 +4,7 @@ import codechicken.lib.colour.ColourRGBA;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
-import gregicadditions.GATextures;
+import gregicadditions.client.ClientHandler;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.gui.ModularUI.Builder;
@@ -90,18 +90,18 @@ public class TileEntityCrate extends MetaTileEntity {
     @SideOnly(Side.CLIENT)
     public TextureAtlasSprite getParticleTexture() {
         return material.toString().contains("wood") ? Textures.WOODEN_CHEST.getParticleTexture() :
-                GATextures.METAL_CRATE.getParticleTexture();
+                ClientHandler.METAL_CRATE.getParticleTexture();
     }
 
     @Override
     public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
         if(material.toString().contains("wood")) {
-            GATextures.WOODEN_CRATE.render(renderState, translation, GTUtility.convertRGBtoOpaqueRGBA_CL(getPaintingColorForRendering()), pipeline);
+            ClientHandler.WOODEN_CRATE.render(renderState, translation, GTUtility.convertRGBtoOpaqueRGBA_CL(getPaintingColorForRendering()), pipeline);
         } else {
             int baseColor = ColourRGBA.multiply(
                     GTUtility.convertRGBtoOpaqueRGBA_CL(material.materialRGB),
                     GTUtility.convertRGBtoOpaqueRGBA_CL(getPaintingColorForRendering()));
-            GATextures.METAL_CRATE.render(renderState, translation, baseColor, pipeline);
+            ClientHandler.METAL_CRATE.render(renderState, translation, baseColor, pipeline);
         }
     }
 

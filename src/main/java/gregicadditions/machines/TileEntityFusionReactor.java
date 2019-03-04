@@ -3,7 +3,7 @@ package gregicadditions.machines;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
-import gregicadditions.GATextures;
+import gregicadditions.client.ClientHandler;
 import gregtech.api.GTValues;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.capability.impl.*;
@@ -96,7 +96,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart sourcePart) {
-        return GATextures.FUSION_TEXTURE;
+        return ClientHandler.FUSION_TEXTURE;
     }
 
     private IBlockState getCasingState() {
@@ -238,7 +238,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
     @Override
 	public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
         this.getBaseTexture(null).render(renderState, translation, pipeline);
-        GATextures.FUSION_REACTOR_OVERLAY.render(renderState, translation, pipeline, this.getFrontFacing(), this.recipeMapWorkable.isActive());
+        ClientHandler.FUSION_REACTOR_OVERLAY.render(renderState, translation, pipeline, this.getFrontFacing(), this.recipeMapWorkable.isActive());
     }
 }
 

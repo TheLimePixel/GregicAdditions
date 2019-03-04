@@ -168,8 +168,8 @@ public class GAMetaItems {
             fluidHandlerItem.fill(new FluidStack(fluid, 1000), true);
 
         } catch (Exception e) {
-            GregicAdditions.logger.error("The fluid " + fluid.toString() + " failed to do something with getFilledCell");
-            GregicAdditions.logger.error(e);
+            GregicAdditions.LOGGER.error("The fluid " + fluid.toString() + " failed to do something with getFilledCell");
+            GregicAdditions.LOGGER.error(e);
             fluidHandlerItem.fill(new FluidStack(FluidRegistry.WATER, 1000), true);
         }
         fluidCell = fluidHandlerItem.getContainer();

@@ -1,8 +1,8 @@
 package gregicadditions.machines;
 
 import gregicadditions.GAConfig;
-import gregicadditions.GATextures;
 import gregicadditions.GregicAdditions;
+import gregicadditions.client.ClientHandler;
 import gregicadditions.recipes.GARecipeMaps;
 import gregtech.api.GregTechAPI;
 import gregtech.api.metatileentity.SimpleGeneratorMetaTileEntity;
@@ -374,31 +374,31 @@ public class GATileEntities {
             WIREMILL[7] = GregTechAPI.registerMetaTileEntity(2171, new SimpleMachineMetaTileEntity(location("wiremill.uv"), RecipeMaps.WIREMILL_RECIPES, Textures.WIREMILL_OVERLAY, 8));
         }
 
-        NAQUADAH_REACTOR[3] = GregTechAPI.registerMetaTileEntity(2172, new SimpleGeneratorMetaTileEntity(location("naquadah_reactor.mk1"), GARecipeMaps.NAQUADAH_REACTOR_FUELS, GATextures.NAQADAH_OVERLAY, 4));
-        NAQUADAH_REACTOR[4] = GregTechAPI.registerMetaTileEntity(2173, new SimpleGeneratorMetaTileEntity(location("naquadah_reactor.mk2"), GARecipeMaps.NAQUADAH_REACTOR_FUELS, GATextures.NAQADAH_OVERLAY, 5));
-        NAQUADAH_REACTOR[5] = GregTechAPI.registerMetaTileEntity(2174, new SimpleGeneratorMetaTileEntity(location("naquadah_reactor.mk3"), GARecipeMaps.NAQUADAH_REACTOR_FUELS, GATextures.NAQADAH_OVERLAY, 6));
-        NAQUADAH_REACTOR[6] = GregTechAPI.registerMetaTileEntity(2191, new SimpleGeneratorMetaTileEntity(location("naquadah_reactor.mk4"), GARecipeMaps.NAQUADAH_REACTOR_FUELS, GATextures.NAQADAH_OVERLAY, 7));
+        NAQUADAH_REACTOR[3] = GregTechAPI.registerMetaTileEntity(2172, new SimpleGeneratorMetaTileEntity(location("naquadah_reactor.mk1"), GARecipeMaps.NAQUADAH_REACTOR_FUELS, ClientHandler.NAQADAH_OVERLAY, 4));
+        NAQUADAH_REACTOR[4] = GregTechAPI.registerMetaTileEntity(2173, new SimpleGeneratorMetaTileEntity(location("naquadah_reactor.mk2"), GARecipeMaps.NAQUADAH_REACTOR_FUELS, ClientHandler.NAQADAH_OVERLAY, 5));
+        NAQUADAH_REACTOR[5] = GregTechAPI.registerMetaTileEntity(2174, new SimpleGeneratorMetaTileEntity(location("naquadah_reactor.mk3"), GARecipeMaps.NAQUADAH_REACTOR_FUELS, ClientHandler.NAQADAH_OVERLAY, 6));
+        NAQUADAH_REACTOR[6] = GregTechAPI.registerMetaTileEntity(2191, new SimpleGeneratorMetaTileEntity(location("naquadah_reactor.mk4"), GARecipeMaps.NAQUADAH_REACTOR_FUELS, ClientHandler.NAQADAH_OVERLAY, 7));
 
-        MASS_FAB[0] = GregTechAPI.registerMetaTileEntity(2175, new SimpleMachineMetaTileEntity(location("mass_fab.lv"), GARecipeMaps.MASS_FAB_RECIPES, GATextures.MASS_FAB_OVERLAY, 1));
-        MASS_FAB[1] = GregTechAPI.registerMetaTileEntity(2176, new SimpleMachineMetaTileEntity(location("mass_fab.mv"), GARecipeMaps.MASS_FAB_RECIPES, GATextures.MASS_FAB_OVERLAY, 2));
-        MASS_FAB[2] = GregTechAPI.registerMetaTileEntity(2177, new SimpleMachineMetaTileEntity(location("mass_fab.hv"), GARecipeMaps.MASS_FAB_RECIPES, GATextures.MASS_FAB_OVERLAY, 3));
-        MASS_FAB[3] = GregTechAPI.registerMetaTileEntity(2178, new SimpleMachineMetaTileEntity(location("mass_fab.ev"), GARecipeMaps.MASS_FAB_RECIPES, GATextures.MASS_FAB_OVERLAY, 4));
+        MASS_FAB[0] = GregTechAPI.registerMetaTileEntity(2175, new SimpleMachineMetaTileEntity(location("mass_fab.lv"), GARecipeMaps.MASS_FAB_RECIPES, ClientHandler.MASS_FAB_OVERLAY, 1));
+        MASS_FAB[1] = GregTechAPI.registerMetaTileEntity(2176, new SimpleMachineMetaTileEntity(location("mass_fab.mv"), GARecipeMaps.MASS_FAB_RECIPES, ClientHandler.MASS_FAB_OVERLAY, 2));
+        MASS_FAB[2] = GregTechAPI.registerMetaTileEntity(2177, new SimpleMachineMetaTileEntity(location("mass_fab.hv"), GARecipeMaps.MASS_FAB_RECIPES, ClientHandler.MASS_FAB_OVERLAY, 3));
+        MASS_FAB[3] = GregTechAPI.registerMetaTileEntity(2178, new SimpleMachineMetaTileEntity(location("mass_fab.ev"), GARecipeMaps.MASS_FAB_RECIPES, ClientHandler.MASS_FAB_OVERLAY, 4));
         if (GAConfig.GT5U.highTierMassFabs) {
-            MASS_FAB[4] = GregTechAPI.registerMetaTileEntity(2179, new SimpleMachineMetaTileEntity(location("mass_fab.iv"), GARecipeMaps.MASS_FAB_RECIPES, GATextures.MASS_FAB_OVERLAY, 5));
-            MASS_FAB[5] = GregTechAPI.registerMetaTileEntity(2180, new SimpleMachineMetaTileEntity(location("mass_fab.luv"), GARecipeMaps.MASS_FAB_RECIPES, GATextures.MASS_FAB_OVERLAY, 6));
-            MASS_FAB[6] = GregTechAPI.registerMetaTileEntity(2181, new SimpleMachineMetaTileEntity(location("mass_fab.zpm"), GARecipeMaps.MASS_FAB_RECIPES, GATextures.MASS_FAB_OVERLAY, 7));
-            MASS_FAB[7] = GregTechAPI.registerMetaTileEntity(2182, new SimpleMachineMetaTileEntity(location("mass_fab.uv"), GARecipeMaps.MASS_FAB_RECIPES, GATextures.MASS_FAB_OVERLAY, 8));
+            MASS_FAB[4] = GregTechAPI.registerMetaTileEntity(2179, new SimpleMachineMetaTileEntity(location("mass_fab.iv"), GARecipeMaps.MASS_FAB_RECIPES, ClientHandler.MASS_FAB_OVERLAY, 5));
+            MASS_FAB[5] = GregTechAPI.registerMetaTileEntity(2180, new SimpleMachineMetaTileEntity(location("mass_fab.luv"), GARecipeMaps.MASS_FAB_RECIPES, ClientHandler.MASS_FAB_OVERLAY, 6));
+            MASS_FAB[6] = GregTechAPI.registerMetaTileEntity(2181, new SimpleMachineMetaTileEntity(location("mass_fab.zpm"), GARecipeMaps.MASS_FAB_RECIPES, ClientHandler.MASS_FAB_OVERLAY, 7));
+            MASS_FAB[7] = GregTechAPI.registerMetaTileEntity(2182, new SimpleMachineMetaTileEntity(location("mass_fab.uv"), GARecipeMaps.MASS_FAB_RECIPES, ClientHandler.MASS_FAB_OVERLAY, 8));
         }
 
-        REPLICATOR[0] = GregTechAPI.registerMetaTileEntity(2183, new SimpleMachineMetaTileEntity(location("replicator.lv"), GARecipeMaps.REPLICATOR_RECIPES, GATextures.REPLICATOR_OVERLAY, 1));
-        REPLICATOR[1] = GregTechAPI.registerMetaTileEntity(2184, new SimpleMachineMetaTileEntity(location("replicator.mv"), GARecipeMaps.REPLICATOR_RECIPES, GATextures.REPLICATOR_OVERLAY, 2));
-        REPLICATOR[2] = GregTechAPI.registerMetaTileEntity(2185, new SimpleMachineMetaTileEntity(location("replicator.hv"), GARecipeMaps.REPLICATOR_RECIPES, GATextures.REPLICATOR_OVERLAY, 3));
-        REPLICATOR[3] = GregTechAPI.registerMetaTileEntity(2186, new SimpleMachineMetaTileEntity(location("replicator.ev"), GARecipeMaps.REPLICATOR_RECIPES, GATextures.REPLICATOR_OVERLAY, 4));
+        REPLICATOR[0] = GregTechAPI.registerMetaTileEntity(2183, new SimpleMachineMetaTileEntity(location("replicator.lv"), GARecipeMaps.REPLICATOR_RECIPES, ClientHandler.REPLICATOR_OVERLAY, 1));
+        REPLICATOR[1] = GregTechAPI.registerMetaTileEntity(2184, new SimpleMachineMetaTileEntity(location("replicator.mv"), GARecipeMaps.REPLICATOR_RECIPES, ClientHandler.REPLICATOR_OVERLAY, 2));
+        REPLICATOR[2] = GregTechAPI.registerMetaTileEntity(2185, new SimpleMachineMetaTileEntity(location("replicator.hv"), GARecipeMaps.REPLICATOR_RECIPES, ClientHandler.REPLICATOR_OVERLAY, 3));
+        REPLICATOR[3] = GregTechAPI.registerMetaTileEntity(2186, new SimpleMachineMetaTileEntity(location("replicator.ev"), GARecipeMaps.REPLICATOR_RECIPES, ClientHandler.REPLICATOR_OVERLAY, 4));
         if (GAConfig.GT5U.highTierReplicators) {
-            REPLICATOR[4] = GregTechAPI.registerMetaTileEntity(2187, new SimpleMachineMetaTileEntity(location("replicator.iv"), GARecipeMaps.REPLICATOR_RECIPES, GATextures.REPLICATOR_OVERLAY, 5));
-            REPLICATOR[5] = GregTechAPI.registerMetaTileEntity(2188, new SimpleMachineMetaTileEntity(location("replicator.luv"), GARecipeMaps.REPLICATOR_RECIPES, GATextures.REPLICATOR_OVERLAY, 6));
-            REPLICATOR[6] = GregTechAPI.registerMetaTileEntity(2189, new SimpleMachineMetaTileEntity(location("replicator.zpm"), GARecipeMaps.REPLICATOR_RECIPES, GATextures.REPLICATOR_OVERLAY, 7));
-            REPLICATOR[7] = GregTechAPI.registerMetaTileEntity(2190, new SimpleMachineMetaTileEntity(location("replicator.uv"), GARecipeMaps.REPLICATOR_RECIPES, GATextures.REPLICATOR_OVERLAY, 8));
+            REPLICATOR[4] = GregTechAPI.registerMetaTileEntity(2187, new SimpleMachineMetaTileEntity(location("replicator.iv"), GARecipeMaps.REPLICATOR_RECIPES, ClientHandler.REPLICATOR_OVERLAY, 5));
+            REPLICATOR[5] = GregTechAPI.registerMetaTileEntity(2188, new SimpleMachineMetaTileEntity(location("replicator.luv"), GARecipeMaps.REPLICATOR_RECIPES, ClientHandler.REPLICATOR_OVERLAY, 6));
+            REPLICATOR[6] = GregTechAPI.registerMetaTileEntity(2189, new SimpleMachineMetaTileEntity(location("replicator.zpm"), GARecipeMaps.REPLICATOR_RECIPES, ClientHandler.REPLICATOR_OVERLAY, 7));
+            REPLICATOR[7] = GregTechAPI.registerMetaTileEntity(2190, new SimpleMachineMetaTileEntity(location("replicator.uv"), GARecipeMaps.REPLICATOR_RECIPES, ClientHandler.REPLICATOR_OVERLAY, 8));
         }
 
         COKE_OVEN = GregTechAPI.registerMetaTileEntity(2500, new TileEntityCokeOven(location("coke_oven")));

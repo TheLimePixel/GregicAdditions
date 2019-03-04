@@ -3,7 +3,7 @@ package gregicadditions.machines;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
-import gregicadditions.GATextures;
+import gregicadditions.client.ClientHandler;
 import gregtech.api.capability.impl.FluidTankList;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -54,7 +54,7 @@ public class TileEntityCokeFluidHatch extends MetaTileEntityMultiblockPart imple
 
     @Override
 	public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
-        GATextures.COKE_OVEN_BRICKS.render(renderState, translation, pipeline);
+        ClientHandler.COKE_OVEN_BRICKS.render(renderState, translation, pipeline);
         (this.isExportHatch ? Textures.PIPE_OUT_OVERLAY : Textures.PIPE_IN_OVERLAY).renderSided(this.getFrontFacing(), renderState, translation, pipeline);
     }
 
