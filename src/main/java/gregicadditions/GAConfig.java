@@ -143,6 +143,8 @@ public class GAConfig {
         public boolean highTierLaserEngravers = true;
         @Config.Name("Should higher tier Pumps be registered?")
         public boolean highTierPumps = true;
+        @Config.Name("Should higher tier Rock Breakers be registered?")
+        public boolean highTierRockBreakers = true;
         @Config.Name("Should higher tier Replicators be registered?")
         public boolean highTierReplicators = true;
         @Config.Name("Should higher tier Sifting Machines be registered?")

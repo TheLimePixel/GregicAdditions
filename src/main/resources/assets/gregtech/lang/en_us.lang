@@ -435,6 +435,16 @@ gtadditions.machine.fusion_reactor.uv.name=Fusion Reactor Computer Mark 3
 gtadditions.machine.ga_coke_item_bus.name=Coke Oven Chute
 gtadditions.machine.ga_coke_fluid_hatch.name=Coke Oven Faucet
 
+gtadditions.machine.rock_breaker.lv.name=Basic Rock Breaker
+gtadditions.machine.rock_breaker.mv.name=Advanced Rock Breaker
+gtadditions.machine.rock_breaker.hv.name=Advanced Rock Breaker II
+gtadditions.machine.rock_breaker.ev.name=Advanced Rock Breaker III
+gtadditions.machine.rock_breaker.iv.name=Rock Destroyer
+gtadditions.machine.rock_breaker.luv.name=Rock Destroyer
+gtadditions.machine.rock_breaker.zpm.name=Rock Destroyer
+gtadditions.machine.rock_breaker.uv.name=Rock Destroyer
+
+gregtech.machine.rock_breaker.tooltip=Put Water and Lava adjacent
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 tile.ga_multiblock_casing.tungstensteel_gearbox_casing.name=Assembly Line Casing
 tile.ga_transparent_casing.reinforced_glass.name=Reinforced Glass

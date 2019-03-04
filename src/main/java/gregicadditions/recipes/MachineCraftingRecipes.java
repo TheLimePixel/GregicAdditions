@@ -359,6 +359,7 @@ public class MachineCraftingRecipes {
         registerMachineRecipe(GATileEntities.REPLICATOR, "EFE", "CMC", "EQE", 'M', HULL, 'Q', CABLE_QUAD, 'C', BETTER_CIRCUIT, 'F', FIELD_GENERATOR, 'E', EMITTER);
         if (GAConfig.Misc.highTierCollector)
             registerMachineRecipe(GATileEntities.AIR_COLLECTOR, "WFW", "PHP", "WCW", 'W', Blocks.IRON_BARS, 'F', MetaItems.ITEM_FILTER, 'P', PUMP, 'H', HULL, 'C', CIRCUIT);
+        registerMachineRecipe(GATileEntities.ROCK_BREAKER, "QPQ", "CMC", "GGG", 'M', HULL, 'Q', CABLE, 'C', CIRCUIT, 'P', PISTON, 'G', GLASS);
     }
 
     public static <T extends MetaTileEntity> void registerMachineRecipe(T[] metaTileEntities, Object... recipe) {
