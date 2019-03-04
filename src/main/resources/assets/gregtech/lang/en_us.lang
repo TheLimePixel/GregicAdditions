@@ -24,8 +24,8 @@ metaitem.boule.glowstone.name=Glowstone doped Monocrystalline Silicon Boule
 metaitem.boule.glowstone.tooltip=Raw Circuit
 metaitem.boule.naquadah.name=Naquadah doped Monocrystalline Silicon Boule
 metaitem.boule.naquadah.tooltip=Raw Circuit
-metaitem.brick.coke.name=Coke Oven Brick
-metaitem.brick.fireclay.name=Firebrick
+metaitem.ga_brick.coke.name=Coke Oven Brick
+metaitem.ga_brick.fireclay.name=Firebrick
 metaitem.circuit.advanced.regular.name=Advanced Circuit
 metaitem.circuit.advanced.regular.tooltip=An Advanced Circuit
 metaitem.circuit.good.regular.name=Good Integrated Circuit
@@ -57,10 +57,10 @@ metaitem.component.smd.transistor.name=SMD Transistor
 metaitem.component.smd.transistor.tooltip=Electronic Component
 metaitem.component.transistor.name=Transistor
 metaitem.component.transistor.tooltip=Basic Electronic Component
-metaitem.compressed.clay.name=Unfired Clay Brick
-metaitem.compressed.coke.clay.name=Unfired Coke Oven Brick
-metaitem.compressed.fireclay.name=Compressed Fireclay
-metaitem.compressed.fireclay.tooltip=Brick-Shaped
+metaitem.ga_compressed.clay.name=Unfired Clay Brick
+metaitem.ga_compressed.coke.clay.name=Unfired Coke Oven Brick
+metaitem.ga_compressed.fireclay.name=Compressed Fireclay
+metaitem.ga_compressed.fireclay.tooltip=Brick-Shaped
 metaitem.computer.crystal.name=Ultimate Crystalcomputer
 metaitem.computer.crystal.tooltip=An Ultimate Circuit
 metaitem.computer.nano.name=Elite Nanocomputer
@@ -137,12 +137,6 @@ metaitem.wafer.silicon.name=Wafer
 metaitem.wafer.silicon.tooltip=Raw Circuit
 metaitem.wafer.soc.name=SoC Wafer
 metaitem.wafer.soc.tooltip=Raw Circuit
-metaitem.form.acacia.name=Acacia Brick Form
-metaitem.form.birch.name=Birch Brick Form
-metaitem.form.darkoak.name=Dark Oak Brick Form
-metaitem.form.jungle.name=Jungle Brick Form
-metaitem.form.oak.name=Oak Brick Form
-metaitem.form.spruce.name=Spruce Brick Form
 metaitem.carbon.fibers.name=Raw Carbon Fibers
 metaitem.plate.mixed.metal.name=Mixed Metal plate
 metaitem.plate.advanced.alloy.name=Advanced Alloy Plate
@@ -397,7 +391,7 @@ gtadditions.machine.wiremill.uv.name=Advanced Wiremill VII
 
 gtadditions.machine.distill_tower.name=Distillation Tower
 gtadditions.machine.assembly_line.name=Assembly Line
-gtadditions.machine.coke_oven.name=Coke Oven
+gtadditions.machine.ga_coke_oven.name=Coke Oven
 gtadditions.machine.cracker_unit.name=Cracking Unit
 
 gtadditions.machine.naquadah_reactor.mk1.name=Naquadah Reactor Mk. 1
@@ -438,8 +432,8 @@ gtadditions.machine.fusion_reactor.luv.name=Fusion Reactor Computer Mark 1
 gtadditions.machine.fusion_reactor.zpm.name=Fusion Reactor Computer Mark 2
 gtadditions.machine.fusion_reactor.uv.name=Fusion Reactor Computer Mark 3
 
-gtadditions.machine.coke_item_bus.name=Coke Oven Chute
-gtadditions.machine.coke_fluid_hatch.name=Coke Oven Faucet
+gtadditions.machine.ga_coke_item_bus.name=Coke Oven Chute
+gtadditions.machine.ga_coke_fluid_hatch.name=Coke Oven Faucet
 
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 tile.ga_multiblock_casing.tungstensteel_gearbox_casing.name=Assembly Line Casing
@@ -460,8 +454,6 @@ recipemap.cracker_unit.name=Cracking Recipes
 
 recipemap.plasma_generator.name=Plasma Turbine Fuels
 
-material.brick=Brick
-material.fireclay=Fireclay
 material.coke=Coal Coke
 material.phosphorous_pentoxide=Phosphorous Pentoxide
 material.phosphoric_acid=Phosphoric Acid

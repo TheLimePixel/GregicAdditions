@@ -8,8 +8,9 @@ import gregtech.api.unification.material.type.DustMaterial;
 import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.ore.OrePrefix;
-import gregtech.api.util.Condition;
 import net.minecraftforge.common.util.EnumHelper;
+
+import java.util.function.Predicate;
 
 public class GAEnums {
     public static void preInit() {
@@ -22,33 +23,26 @@ public class GAEnums {
         EnumHelper.addEnum(MaterialIconSet.class, "COKE", new Class[0]);
 
         EnumHelper.addEnum(OrePrefix.class, "plateCurved",
-                new Class[]{String.class, long.class, Material.class, MaterialIconType.class, long.class, Condition.class},
+                new Class[]{String.class, long.class, Material.class, MaterialIconType.class, long.class, Predicate.class},
                 "Curved Plate", GTValues.M, null, MaterialIconType.valueOf("plateCurved"), OrePrefix.Flags.ENABLE_UNIFICATION,
-                OrePrefix.and(instanceOfIngotMat(), OrePrefix.hasFlag(DustMaterial.MatFlags.GENERATE_PLATE)));
+                pred((mat) -> mat instanceof IngotMaterial && mat.hasFlag(DustMaterial.MatFlags.GENERATE_PLATE)));
+
         EnumHelper.addEnum(OrePrefix.class, "ingotDouble",
-                new Class[]{String.class, long.class, Material.class, MaterialIconType.class, long.class, Condition.class},
+                new Class[]{String.class, long.class, Material.class, MaterialIconType.class, long.class, Predicate.class},
                 "Double Ingot", GTValues.M, null, MaterialIconType.valueOf("ingotDouble"), OrePrefix.Flags.ENABLE_UNIFICATION,
-                OrePrefix.and(instanceOfIngotMat(), OrePrefix.hasFlag(DustMaterial.MatFlags.GENERATE_PLATE)));
+                pred((mat) -> mat instanceof IngotMaterial && mat.hasFlag(DustMaterial.MatFlags.GENERATE_PLATE)));
         EnumHelper.addEnum(OrePrefix.class, "round",
-                new Class[]{String.class, long.class, Material.class, MaterialIconType.class, long.class, Condition.class},
+                new Class[]{String.class, long.class, Material.class, MaterialIconType.class, long.class, Predicate.class},
                 "Round", GTValues.M, null, MaterialIconType.valueOf("round"), OrePrefix.Flags.ENABLE_UNIFICATION,
-                OrePrefix.and(instanceOfIngotMat(), OrePrefix.hasFlag(IngotMaterial.MatFlags.GENERATE_SMALL_GEAR)));
+                pred((mat) -> mat instanceof IngotMaterial && mat.hasFlag(DustMaterial.MatFlags.GENERATE_PLATE)));
 
         EnumHelper.addEnum(OrePrefix.class, "circuitGA",
-                new Class[]{String.class, long.class, Material.class, MaterialIconType.class, long.class, Condition.class},
+                new Class[]{String.class, long.class, Material.class, MaterialIconType.class, long.class, Predicate.class},
                 "GA Circuits", -1L, null, null, OrePrefix.Flags.ENABLE_UNIFICATION | OrePrefix.Flags.DISALLOW_RECYCLING,
                 null);
     }
 
-    public static Condition<Material> instanceOfDustMat() {
-        return (mat) -> {
-            return mat instanceof DustMaterial;
-        };
-    }
-
-    public static Condition<Material> instanceOfIngotMat() {
-        return (mat) -> {
-            return mat instanceof IngotMaterial;
-        };
+    private static Predicate<Material> pred(Predicate<Material> in) {
+        return mat -> in.test(mat);
     }
 }

@@ -90,12 +90,6 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem RAM_WAFER;
     public static MetaItem<?>.MetaValueItem SILICON_WAFER;
     public static MetaItem<?>.MetaValueItem SOC_WAFER;
-    public static MetaItem<?>.MetaValueItem ACACIA_FORM;
-    public static MetaItem<?>.MetaValueItem BIRCH_FORM;
-    public static MetaItem<?>.MetaValueItem DARK_OAK_FORM;
-    public static MetaItem<?>.MetaValueItem JUNGLE_FORM;
-    public static MetaItem<?>.MetaValueItem OAK_FORM;
-    public static MetaItem<?>.MetaValueItem SPRUCE_FORM;
     public static MetaItem<?>.MetaValueItem RAW_CARBON_FIBERS;
     public static MetaItem<?>.MetaValueItem ADVANCED_ALLOY_PLATE;
     public static MetaItem<?>.MetaValueItem MIXED_METAL_PLATE;
@@ -103,7 +97,6 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem CRYSTAL_CPU;
     public static MetaItem<?>.MetaValueItem CRYSTAL_SOC;
     public static MetaItem<?>.MetaValueItem STEMCELLS;
-    public static MetaItem<?>.MetaValueItem LAPOTRON_CRYSTAL;
     public static MetaItem<?>.MetaValueItem PLATE_IRIDIUM_ALLOY;
     public static MetaItem<?>.MetaValueItem PLATE_IRIDIUM_ALLOY_UNCOMPRESSED;
     public static MetaItem<?>.MetaValueItem NEUTRON_REFLECTOR;
@@ -128,13 +121,6 @@ public class GAMetaItems {
 
     public static MetaItem<?>.MetaValueItem BENDING_CYLINDER;
     public static MetaItem<?>.MetaValueItem SMALL_BENDING_CYLINDER;
-
-    public static MetaItem<?>.MetaValueItem PLANK_OAK;
-    public static MetaItem<?>.MetaValueItem PLANK_SPRUCE;
-    public static MetaItem<?>.MetaValueItem PLANK_BIRCH;
-    public static MetaItem<?>.MetaValueItem PLANK_JUNGLE;
-    public static MetaItem<?>.MetaValueItem PLANK_ACACIA;
-    public static MetaItem<?>.MetaValueItem PLANK_DARKOAK;
 
     public static MetaItem<?>.MetaValueItem SCHEMATIC;
     public static MetaItem<?>.MetaValueItem SCHEMATIC_2X2;
@@ -177,10 +163,6 @@ public class GAMetaItems {
         fluidCell = fluidHandlerItem.getContainer();
         fluidCell.setCount(count);
         return fluidCell;
-    }
-
-    public static ItemStack getFilledCell(Fluid fluid) {
-        return getFilledCell(fluid, 1);
     }
 
     public static boolean hasPrefix(ItemStack stack, String prefix, String... ignore) {

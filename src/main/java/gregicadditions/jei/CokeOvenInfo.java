@@ -37,7 +37,7 @@ public class CokeOvenInfo extends MultiblockInfoPage {
 
     @Override
     public String[] getDescription() {
-        return new String[]{I18n.format("gregtech.multiblock.coke_oven.description")};
+        return new String[]{I18n.format("gregtech.multiblock.ga_coke_oven.description")};
     }
 
 }

@@ -102,9 +102,6 @@ public class GAMachineRecipeRemoval {
                     IntCircuitIngredient.getIntegratedCircuit(1));
         }
 
-        //Fix Brick Exploit
-        removeRecipesByInputs(RecipeMaps.MACERATOR_RECIPES, new ItemStack(Items.BRICK));
-
         //Remove GTCE Circuit recipes
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
                 OreDictUnifier.get(OrePrefix.plate, Materials.Silicon, 2),
@@ -236,7 +233,6 @@ public class GAMachineRecipeRemoval {
                 new FluidStack[]{Materials.Chlorine.getFluid(2000)});
 
         //Remove GT5 Ash Centrifuging
-        removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.DarkAsh, 2));
         removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Ash));
 
         //Remove Alloy Smelter Rubber Recipe
@@ -282,7 +278,6 @@ public class GAMachineRecipeRemoval {
 
         //Electrolyzing Fixes
         removeRecipesByInputs(RecipeMaps.ELECTROLYZER_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Sphalerite, 2));
-        removeRecipesByInputs(RecipeMaps.ELECTROLYZER_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Bentonite, 66));
 
         //Remove Silicon incompatability with Boule recipes
         removeRecipesByInputs(RecipeMaps.BLAST_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Silicon));
@@ -321,6 +316,12 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.CUTTER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.block, Materials.CertusQuartz)}, new FluidStack[]{Materials.DistilledWater.getFluid(55)});
         removeRecipesByInputs(RecipeMaps.CUTTER_RECIPES, new ItemStack[]{new ItemStack(Blocks.QUARTZ_BLOCK)}, new FluidStack[]{Materials.Lubricant.getFluid(18)});
         removeRecipesByInputs(RecipeMaps.CUTTER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.block, Materials.CertusQuartz)}, new FluidStack[]{Materials.Lubricant.getFluid(18)});
+
+        //GTCE Coke And Firebrick recipes
+        removeRecipesByInputs(RecipeMaps.COMPRESSOR_RECIPES, MetaItems.COMPRESSED_FIRECLAY.getStackForm());
+        ModHandler.removeRecipes(MetaItems.COMPRESSED_CLAY.getStackForm());
+        ModHandler.removeFurnaceSmelting(MetaItems.FIRECLAY_BRICK.getStackForm());
+        ModHandler.removeFurnaceSmelting(MetaItems.COKE_OVEN_BRICK.getStackForm());
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {

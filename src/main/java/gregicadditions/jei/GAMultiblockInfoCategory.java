@@ -22,8 +22,6 @@ public class GAMultiblockInfoCategory implements IRecipeCategory<MultiblockInfoR
         registry.addRecipes(Lists.newArrayList(
                 new MultiblockInfoRecipeWrapper(new CokeOvenInfo()),
                 new MultiblockInfoRecipeWrapper(new AssemblyLineInfo()),
-                new MultiblockInfoRecipeWrapper(new CrackerUnitInfo()),
-                new MultiblockInfoRecipeWrapper(new DistillTowerInfo()),
                 new MultiblockInfoRecipeWrapper(new FusionReactor1Info()),
                 new MultiblockInfoRecipeWrapper(new FusionReactor2Info()),
                 new MultiblockInfoRecipeWrapper(new FusionReactor3Info())

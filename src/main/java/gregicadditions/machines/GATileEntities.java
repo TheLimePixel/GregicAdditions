@@ -60,9 +60,7 @@ public class GATileEntities {
     public static SimpleMachineMetaTileEntity[] MASS_FAB = new SimpleMachineMetaTileEntity[8];
     public static TileEntityFusionReactor[] FUSION_REACTOR = new TileEntityFusionReactor[3];
 
-    public static TileEntityDistillTower DISTILL_TOWER;
     public static TileEntityAssemblyLine ASSEMBLY_LINE;
-    public static TileEntityCrackerUnit CRACKER_UNIT;
 
     public static TileEntityCokeOven COKE_OVEN;
     public static TileEntityCokeFluidHatch COKE_FLUID_HATCH;
@@ -401,18 +399,16 @@ public class GATileEntities {
             REPLICATOR[7] = GregTechAPI.registerMetaTileEntity(2190, new SimpleMachineMetaTileEntity(location("replicator.uv"), GARecipeMaps.REPLICATOR_RECIPES, GATextures.REPLICATOR_OVERLAY, 8));
         }
 
-        COKE_OVEN = GregTechAPI.registerMetaTileEntity(2500, new TileEntityCokeOven(location("coke_oven")));
+        COKE_OVEN = GregTechAPI.registerMetaTileEntity(2500, new TileEntityCokeOven(location("ga_coke_oven")));
 
-        DISTILL_TOWER = GregTechAPI.registerMetaTileEntity(2501, new TileEntityDistillTower(location("distill_tower")));
         ASSEMBLY_LINE = GregTechAPI.registerMetaTileEntity(2502, new TileEntityAssemblyLine(location("assembly_line")));
-        CRACKER_UNIT = GregTechAPI.registerMetaTileEntity(2503, new TileEntityCrackerUnit(location("cracker_unit")));
 
         FUSION_REACTOR[0] = GregTechAPI.registerMetaTileEntity(2504, new TileEntityFusionReactor(location("fusion_reactor.luv"), 6));
         FUSION_REACTOR[1] = GregTechAPI.registerMetaTileEntity(2505, new TileEntityFusionReactor(location("fusion_reactor.zpm"), 7));
         FUSION_REACTOR[2] = GregTechAPI.registerMetaTileEntity(2506, new TileEntityFusionReactor(location("fusion_reactor.uv"), 8));
 
-        COKE_FLUID_HATCH = GregTechAPI.registerMetaTileEntity(2507, new TileEntityCokeFluidHatch(location("coke_fluid_hatch")));
-        COKE_ITEM_BUS = GregTechAPI.registerMetaTileEntity(2508, new TileEntityCokeItemBus(location("coke_item_bus")));
+        COKE_FLUID_HATCH = GregTechAPI.registerMetaTileEntity(2507, new TileEntityCokeFluidHatch(location("ga_coke_fluid_hatch")));
+        COKE_ITEM_BUS = GregTechAPI.registerMetaTileEntity(2508, new TileEntityCokeItemBus(location("ga_coke_item_bus")));
 
         if (GAConfig.GT6.registerDums) {
             WOODEN_DRUM = GregTechAPI.registerMetaTileEntity(2195, new TileEntityDrum(location("drum.wood"), Materials.Wood, 16000));

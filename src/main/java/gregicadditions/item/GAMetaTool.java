@@ -29,12 +29,12 @@ public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> 
 
                 if (GAConfig.GT6.BendingCylinders) {
                     ModHandler.addShapedRecipe(String.format("cylinder_%s", material.toString()),
-                            ((ToolMetaItem<?>.MetaToolValueItem) GAMetaItems.BENDING_CYLINDER).getStackForm(toolMaterial, null),
+                            ((ToolMetaItem<?>.MetaToolValueItem) GAMetaItems.BENDING_CYLINDER).getStackForm(toolMaterial),
                             "sfh", "XXX", "XXX",
                             'X', new UnificationEntry(OrePrefix.ingot, toolMaterial));
 
                     ModHandler.addShapedRecipe(String.format("small_cylinder_%s", material.toString()),
-                            ((ToolMetaItem<?>.MetaToolValueItem) GAMetaItems.SMALL_BENDING_CYLINDER).getStackForm(toolMaterial, null),
+                            ((ToolMetaItem<?>.MetaToolValueItem) GAMetaItems.SMALL_BENDING_CYLINDER).getStackForm(toolMaterial),
                             "sfh", "XXX",
                             'X', new UnificationEntry(OrePrefix.ingot, toolMaterial));
                 }
@@ -42,7 +42,7 @@ public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> 
                 //GT6 Wrench Recipe
                 if (GAConfig.GT6.ExpensiveWrenches && !OreDictUnifier.get(OrePrefix.plate, material).isEmpty()) {
                     ModHandler.addShapedRecipe(String.format("ga_wrench_%s", material.toString()),
-                            MetaItems.WRENCH.getStackForm(toolMaterial, null),
+                            MetaItems.WRENCH.getStackForm(toolMaterial),
                             "XhX", "XXX", " X ",
                             'X', new UnificationEntry(OrePrefix.plate, toolMaterial));
                 }
@@ -53,7 +53,7 @@ public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> 
 //                GemMaterial toolMaterial = (GemMaterial) material;
                 SolidMaterial toolMaterial = (SolidMaterial) material;
                 ModHandler.addMirroredShapedRecipe(String.format("gem_hammer_%s", material.toString()),
-                        (MetaItems.HARD_HAMMER).getStackForm(toolMaterial, Materials.Wood),
+                        (MetaItems.HARD_HAMMER).getStackForm(toolMaterial),
                         "GG ", "GGS", "GG ",
                         'G', new UnificationEntry(OrePrefix.gem, toolMaterial), 'S', new UnificationEntry(OrePrefix.stick, Materials.Wood));
             }

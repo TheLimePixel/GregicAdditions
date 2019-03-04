@@ -12,9 +12,6 @@ import gregtech.api.unification.stack.MaterialStack;
 
 @IMaterialHandler.RegisterMaterialHandler
 public class GAMaterials {
-    public static DustMaterial Brick;
-    public static DustMaterial Fireclay;
-    public static GemMaterial Coke;
     public static DustMaterial PhosphorousPentoxide;
     public static FluidMaterial PhosphoricAcid;
     public static FluidMaterial PolyvinylAcetate;
@@ -148,16 +145,12 @@ public class GAMaterials {
                 gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_FOIL |
                 gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_FINE_WIRE;
 
-        Brick = new DustMaterial(999, "brick", 12016192, MaterialIconSet.ROUGH, 1, ImmutableList.of(new MaterialStack(Materials.Aluminium, 4), new MaterialStack(Materials.Silicon, 3), new MaterialStack(Materials.Oxygen, 12)), Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
-        Fireclay = new DustMaterial(998, "fireclay", 9601139, MaterialIconSet.ROUGH, 1, ImmutableList.of(new MaterialStack(Materials.Clay, 1), new MaterialStack(Brick, 1)), Material.MatFlags.DISABLE_DECOMPOSITION | DustMaterial.MatFlags.EXCLUDE_BLOCK_CRAFTING_RECIPES);
-        Coke = new GemMaterial(997, "coke", 7303040, MaterialIconSet.valueOf("COKE"), 1, ImmutableList.of(new MaterialStack(Materials.Carbon, 1)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING | SolidMaterial.MatFlags.MORTAR_GRINDABLE | Material.MatFlags.FLAMMABLE | DustMaterial.MatFlags.NO_SMELTING | DustMaterial.MatFlags.NO_SMASHING);
-        Coke.setBurnTime(3200);
         PhosphorousPentoxide = new DustMaterial(996, "phosphorous_pentoxide", 8158464, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Phosphorus, 4), new MaterialStack(Materials.Oxygen, 10)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         PhosphoricAcid = new FluidMaterial(995, "phosphoric_acid", 11447824, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Hydrogen, 3), new MaterialStack(Materials.Phosphorus, 4)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         PolyvinylAcetate = new FluidMaterial(994, "polyvinyl_acetate", 13139532, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Carbon, 4), new MaterialStack(Materials.Hydrogen, 6), new MaterialStack(Materials.Oxygen, 2)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
         Phenol = new FluidMaterial(993, "phenol", 6635559, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Carbon, 6), new MaterialStack(Materials.Hydrogen, 6), new MaterialStack(Materials.Oxygen, 1)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         BisphenolA = new FluidMaterial(992, "bisphenol_a", 10848014, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Carbon, 15), new MaterialStack(Materials.Hydrogen, 16), new MaterialStack(Materials.Oxygen, 2)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        ReinforcedEpoxyResin = new IngotMaterial(991, "reinforced_epoxy_resin", 7491595, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Carbon, 6), new MaterialStack(Materials.Hydrogen, 4), new MaterialStack(Materials.Oxygen, 1)), DustMaterial.MatFlags.GENERATE_PLATE, (Element) null, 6.0F, 64);
+        ReinforcedEpoxyResin = new IngotMaterial(991, "reinforced_epoxy_resin", 7491595, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Carbon, 6), new MaterialStack(Materials.Hydrogen, 4), new MaterialStack(Materials.Oxygen, 1)), DustMaterial.MatFlags.GENERATE_PLATE, 7, 6.0F, 64);
         BorosilicateGlass = new IngotMaterial(990, "borosilicate_glass", 13424588, MaterialIconSet.METALLIC, 1, ImmutableList.of(new MaterialStack(Materials.Boron, 1), new MaterialStack(Materials.SiliconDioxide, 7)), Material.MatFlags.DECOMPOSITION_BY_CENTRIFUGING);
         PolyvinylChloride = new IngotMaterial(989, "polyvinyl_chloride", 10069156, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Carbon, 2), new MaterialStack(Materials.Hydrogen, 3), new MaterialStack(Materials.Chlorine, 1)), EXT_METAL | IngotMaterial.MatFlags.GENERATE_FOIL);
         VinylChloride = new FluidMaterial(988, "vinyl_chloride", 11582395, MaterialIconSet.GAS, ImmutableList.of(new MaterialStack(Materials.Carbon, 2), new MaterialStack(Materials.Hydrogen, 3), new MaterialStack(Materials.Chlorine, 1)), FluidMaterial.MatFlags.STATE_GAS | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
@@ -176,7 +169,7 @@ public class GAMaterials {
         FishOil = new FluidMaterial(975, "fish_oil", 14467421, MaterialIconSet.FLUID, ImmutableList.of(), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         Methanol = new FluidMaterial(974, "methanol", 8941584, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Carbon, 1), new MaterialStack(Materials.Hydrogen, 4), new MaterialStack(Materials.Oxygen, 1)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         CarbonMonoxde = new FluidMaterial(973, "carbon_monoxide", 1655660, MaterialIconSet.GAS, ImmutableList.of(new MaterialStack(Materials.Carbon, 1), new MaterialStack(Materials.Oxygen, 1)), FluidMaterial.MatFlags.STATE_GAS | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        Neutronium = new IngotMaterial(972, "neutronium", 12829635, MaterialIconSet.METALLIC, 6, ImmutableList.of(), EXT2_METAL | gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_RING | gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_ROTOR | gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_SMALL_GEAR | gregtech.api.unification.material.type.SolidMaterial.MatFlags.GENERATE_LONG_ROD, Element.valueOf("Nt"), 24.0F, 655360);
+        Neutronium = new IngotMaterial(972, "neutronium", 12829635, MaterialIconSet.METALLIC, 6, ImmutableList.of(), EXT2_METAL | gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_RING | gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_ROTOR | gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_SMALL_GEAR | gregtech.api.unification.material.type.SolidMaterial.MatFlags.GENERATE_LONG_ROD | SolidMaterial.MatFlags.GENERATE_FRAME, Element.valueOf("Nt"), 24.0F, 12, 655360);
         DilutedSulfuricAcid = new FluidMaterial(971, "diluted_sulfuric_acid", 9987366, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Hydrogen, 2), new MaterialStack(Materials.Sulfur, 1), new MaterialStack(Materials.Oxygen, 4)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         SodiumBisulfate = new DustMaterial(970, "sodium_bisulfate", 10291, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Sodium, 1), new MaterialStack(Materials.Hydrogen, 1), new MaterialStack(Materials.Sulfur, 1), new MaterialStack(Materials.Oxygen, 4)), Material.MatFlags.DISABLE_DECOMPOSITION);
         Chloroform = new FluidMaterial(969, "chloroform", 7351936, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Carbon, 1), new MaterialStack(Materials.Hydrogen, 1), new MaterialStack(Materials.Chlorine, 3)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
@@ -212,8 +205,8 @@ public class GAMaterials {
         SterilizedGrowthMedium = new FluidMaterial(939, "sterilized_growth_medium", 11306862, MaterialIconSet.FLUID, ImmutableList.of(), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         Meat = new DustMaterial(938, "meat", 12667980, MaterialIconSet.SAND, 1, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
         VinylAcetate = new FluidMaterial(936, "vinyl_acetate", 13144428, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Carbon, 4), new MaterialStack(Materials.Hydrogen, 6), new MaterialStack(Materials.Oxygen, 2)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
-        GalliumArsenide = new IngotMaterial(935, "gallium_arsenide", 7500402, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Arsenic, 1), new MaterialStack(Materials.Gallium, 1)), Material.MatFlags.DECOMPOSITION_BY_CENTRIFUGING | DustMaterial.MatFlags.GENERATE_PLATE, (Element) null, 1200);
-        PolyphenyleneSulfide = new IngotMaterial(934, "polyphenylene_sulfide", 8743424, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Carbon, 6), new MaterialStack(Materials.Hydrogen, 4), new MaterialStack(Materials.Sulfur, 1)), Material.MatFlags.DISABLE_DECOMPOSITION | EXT_METAL | IngotMaterial.MatFlags.GENERATE_FOIL, (Element) null, 6.0F, 32);
+        GalliumArsenide = new IngotMaterial(935, "gallium_arsenide", 7500402, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Arsenic, 1), new MaterialStack(Materials.Gallium, 1)), Material.MatFlags.DECOMPOSITION_BY_CENTRIFUGING | DustMaterial.MatFlags.GENERATE_PLATE, null, 1200);
+        PolyphenyleneSulfide = new IngotMaterial(934, "polyphenylene_sulfide", 8743424, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Carbon, 6), new MaterialStack(Materials.Hydrogen, 4), new MaterialStack(Materials.Sulfur, 1)), Material.MatFlags.DISABLE_DECOMPOSITION | EXT_METAL | IngotMaterial.MatFlags.GENERATE_FOIL, 7, 6.0F, 32);
         NickelSulfateSolution = new FluidMaterial(933, "nickel_sulfate_water_solution", 4109888, MaterialIconSet.FLUID, ImmutableList.of(), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         BlueVitriolSolution = new FluidMaterial(932, "blue_vitriol_water_solution", 4761024, MaterialIconSet.FLUID, ImmutableList.of(), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         Propane = new FluidMaterial(931, "propane", 12890952, MaterialIconSet.GAS, ImmutableList.of(new MaterialStack(Materials.Carbon, 3), new MaterialStack(Materials.Hydrogen, 8)), FluidMaterial.MatFlags.STATE_GAS | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
@@ -226,7 +219,7 @@ public class GAMaterials {
         IndiumGalliumPhosphide = new IngotMaterial(924, "indium_gallium_phosphide", 8220052, MaterialIconSet.DULL, 1, ImmutableList.of(new MaterialStack(Materials.Indium, 1), new MaterialStack(Materials.Gallium, 1), new MaterialStack(Materials.Phosphorus, 1)), Material.MatFlags.DECOMPOSITION_BY_CENTRIFUGING | DustMaterial.MatFlags.GENERATE_PLATE);
         PlatinumGroupSludge = new DustMaterial(923, "platinum_group_sludge", 4864, MaterialIconSet.POWDER, 1, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
         FerriteMixture = new DustMaterial(922, "ferrite_mixture", 9803157, MaterialIconSet.METALLIC, 1, ImmutableList.of(new MaterialStack(Materials.Nickel, 1), new MaterialStack(Materials.Zinc, 1), new MaterialStack(Materials.Iron, 4)), Material.MatFlags.DISABLE_DECOMPOSITION);
-        NickelZincFerrite = new IngotMaterial(921, "nickel_zinc_ferrite", 3092271, MaterialIconSet.METALLIC, 0, ImmutableList.of(new MaterialStack(Materials.Nickel, 1), new MaterialStack(Materials.Zinc, 1), new MaterialStack(Materials.Iron, 4), new MaterialStack(Materials.Oxygen, 8)), EXT_METAL, (Element) null, 1500);
+        NickelZincFerrite = new IngotMaterial(921, "nickel_zinc_ferrite", 3092271, MaterialIconSet.METALLIC, 0, ImmutableList.of(new MaterialStack(Materials.Nickel, 1), new MaterialStack(Materials.Zinc, 1), new MaterialStack(Materials.Iron, 4), new MaterialStack(Materials.Oxygen, 8)), EXT_METAL, null, 1500);
         IndiumConcentrate = new FluidMaterial(920, "indium_concentrate", 205130, MaterialIconSet.FLUID, ImmutableList.of(), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         LeadZincSolution = new FluidMaterial(919, "lead_zinc_solution", 3213570, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Lead, 1), new MaterialStack(Materials.Silver, 1), new MaterialStack(Materials.Zinc, 1), new MaterialStack(Materials.Sulfur, 3), new MaterialStack(Materials.Water, 1)), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         Tetrafluoroethylene = new FluidMaterial(918, "tetrafluoroethylene", 6776679, MaterialIconSet.GAS, ImmutableList.of(new MaterialStack(Materials.Carbon, 2), new MaterialStack(Materials.Fluorine, 4)), FluidMaterial.MatFlags.STATE_GAS | Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
@@ -284,7 +277,6 @@ public class GAMaterials {
         Materials.GreenSapphire.addFlag(DustMaterial.MatFlags.GENERATE_PLATE);
         Materials.GreenSapphire.addFlag(GemMaterial.MatFlags.GENERATE_LENSE);
 
-
         Materials.Apatite.addFlag(SolidMaterial.MatFlags.GENERATE_ROD);
 
         Materials.Iron.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
@@ -297,14 +289,11 @@ public class GAMaterials {
         Materials.Rubber.addFlag(IngotMaterial.MatFlags.GENERATE_BOLT_SCREW);
         Materials.Apatite.addFlag(IngotMaterial.MatFlags.GENERATE_BOLT_SCREW);
 
+        Materials.Tritanium.addFlag(SolidMaterial.MatFlags.GENERATE_FRAME);
+
         Materials.Salt.addOreByProducts(Materials.Borax);
         Materials.RockSalt.addOreByProducts(Materials.Borax);
         Materials.Lepidolite.addOreByProducts(Materials.Boron);
-
-        OrePrefix.gemChipped.setIgnored(Coke);
-        OrePrefix.gemFlawed.setIgnored(Coke);
-        OrePrefix.gemFlawless.setIgnored(Coke);
-        OrePrefix.gemExquisite.setIgnored(Coke);
 
         OrePrefix.gemChipped.setIgnored(LigniteCoke);
         OrePrefix.gemFlawed.setIgnored(LigniteCoke);

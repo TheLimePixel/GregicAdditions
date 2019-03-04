@@ -11,9 +11,7 @@ import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.ItemMaterialInfo;
 import gregtech.api.unification.stack.MaterialStack;
 import gregtech.common.items.MetaItems;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
-import org.apache.commons.lang3.ArrayUtils;
 
 public class GAMetaItem extends MaterialMetaItem {
 
@@ -39,8 +37,8 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.GLOWSTONE_BOULE = addItem(10, "boule.glowstone");
         GAMetaItems.NAQUADAH_BOULE = addItem(11, "boule.naquadah");
         GAMetaItems.SILICON_BOULE = addItem(12, "boule.silicon");
-        GAMetaItems.COKE_BRICK = addItem(13, "brick.coke");
-        GAMetaItems.FIRECLAY_BRICK = addItem(14, "brick.fireclay").setUnificationData(OrePrefix.ingot, GAMaterials.Fireclay);
+        GAMetaItems.COKE_BRICK = addItem(13, "ga_brick.coke");
+        GAMetaItems.FIRECLAY_BRICK = addItem(14, "ga_brick.fireclay").setUnificationData(OrePrefix.ingot, Materials.Fireclay);
         GAMetaItems.ADVANCED_CIRCUIT = addItem(15, "circuit.advanced.regular").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Advanced);
         GAMetaItems.GOOD_CIRCUIT = addItem(16, "circuit.good.regular").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Good);
         GAMetaItems.BASIC_CIRCUIT = addItem(17, "circuit.basic.regular").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
@@ -57,9 +55,9 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.SMD_RESISTOR = addItem(28, "component.smd.resistor");
         GAMetaItems.SMD_TRANSISTOR = addItem(29, "component.smd.transistor");
         GAMetaItems.TRANSISTOR = addItem(30, "component.transistor");
-        GAMetaItems.COMPRESSED_CLAY = addItem(31, "compressed.clay");
-        GAMetaItems.COMPRESSED_COKE_CLAY = addItem(32, "compressed.coke.clay");
-        GAMetaItems.COMPRESSED_FIRECLAY = addItem(33, "compressed.fireclay");
+        GAMetaItems.COMPRESSED_CLAY = addItem(31, "ga_compressed.clay");
+        GAMetaItems.COMPRESSED_COKE_CLAY = addItem(32, "ga_compressed.coke.clay");
+        GAMetaItems.COMPRESSED_FIRECLAY = addItem(33, "ga_compressed.fireclay");
         GAMetaItems.CRYSTAL_COMPUTER = addItem(34, "computer.crystal").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Ultimate);
         GAMetaItems.NANO_COMPUTER = addItem(35, "computer.nano").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Elite);
         GAMetaItems.QUANTUM_COMPUTER = addItem(36, "computer.quantum").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Master);
@@ -98,12 +96,6 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.RAM_WAFER = addItem(69, "wafer.ram");
         GAMetaItems.SILICON_WAFER = addItem(70, "wafer.silicon");
         GAMetaItems.SOC_WAFER = addItem(71, "wafer.soc");
-        GAMetaItems.ACACIA_FORM = addItem(72, "form.acacia").addOreDict("formWood").setMaxStackSize(1);
-        GAMetaItems.BIRCH_FORM = addItem(73, "form.birch").addOreDict("formWood").setMaxStackSize(1);
-        GAMetaItems.DARK_OAK_FORM = addItem(74, "form.darkoak").addOreDict("formWood").setMaxStackSize(1);
-        GAMetaItems.JUNGLE_FORM = addItem(75, "form.jungle").addOreDict("formWood").setMaxStackSize(1);
-        GAMetaItems.OAK_FORM = addItem(76, "form.oak").addOreDict("formWood").setMaxStackSize(1);
-        GAMetaItems.SPRUCE_FORM = addItem(77, "form.spruce").addOreDict("formWood").setMaxStackSize(1);
         GAMetaItems.RAW_CARBON_FIBERS = addItem(79, "carbon.fibers");
         GAMetaItems.MIXED_METAL_PLATE = addItem(80, "plate.mixed.metal");
         GAMetaItems.ADVANCED_ALLOY_PLATE = addItem(81, "plate.advanced.alloy");
@@ -111,7 +103,6 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.CRYSTAL_CPU = addItem(83, "crystal.cpu");
         GAMetaItems.CRYSTAL_SOC = addItem(84, "crystal.soc");
         GAMetaItems.STEMCELLS = addItem(85, "stemcells");
-        GAMetaItems.LAPOTRON_CRYSTAL = addItem(104, "crystal.lapotron").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(10000000L, 4)}).setModelAmount(8);
         GAMetaItems.PLATE_IRIDIUM_ALLOY = addItem(105, "plate.iridium.alloy");
         GAMetaItems.PLATE_IRIDIUM_ALLOY_UNCOMPRESSED = addItem(106, "plate.iridium.alloy.uncompressed");
         GAMetaItems.NEUTRON_REFLECTOR = addItem(107, "neutron.reflector");
@@ -146,13 +137,6 @@ public class GAMetaItem extends MaterialMetaItem {
             MetaItems.ZPM2.setInvisible();
         }
 
-        GAMetaItems.PLANK_OAK = addItem(125, "plank.oak").setBurnValue(75);
-        GAMetaItems.PLANK_SPRUCE = addItem(126, "plank.spruce").setBurnValue(75);
-        GAMetaItems.PLANK_BIRCH = addItem(127, "plank.birch").setBurnValue(75);
-        GAMetaItems.PLANK_JUNGLE = addItem(128, "plank.jungle").setBurnValue(75);
-        GAMetaItems.PLANK_ACACIA = addItem(129, "plank.acacia").setBurnValue(75);
-        GAMetaItems.PLANK_DARKOAK = addItem(130, "plank.darkoak").setBurnValue(75);
-
         GAMetaItems.SCHEMATIC = addItem(131, "schematic")
                 .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)))
         ;
@@ -182,23 +166,9 @@ public class GAMetaItem extends MaterialMetaItem {
         MetaItems.CIRCUIT_PARTS_WIRING_ADVANCED.setInvisible();
         MetaItems.CIRCUIT_PARTS_WIRING_ELITE.setInvisible();
         MetaItems.CIRCUIT_PRIMITIVE.setInvisible();
-    }
-
-    public boolean hasContainerItem(ItemStack stack) {
-
-        int[] idsToKeepInGrid = new int[]{
-                GAMetaItems.ACACIA_FORM.getStackForm().getMetadata(),
-                GAMetaItems.BIRCH_FORM.getStackForm().getMetadata(),
-                GAMetaItems.DARK_OAK_FORM.getStackForm().getMetadata(),
-                GAMetaItems.JUNGLE_FORM.getStackForm().getMetadata(),
-                GAMetaItems.OAK_FORM.getStackForm().getMetadata(),
-                GAMetaItems.SPRUCE_FORM.getStackForm().getMetadata()
-        };
-
-        return ArrayUtils.contains(idsToKeepInGrid, stack.getMetadata());
-    }
-
-    public ItemStack getContainerItem(ItemStack stack) {
-        return stack.copy();
+        MetaItems.COMPRESSED_CLAY.setInvisible();
+        MetaItems.COMPRESSED_FIRECLAY.setInvisible();
+        MetaItems.COKE_OVEN_BRICK.setInvisible();
+        MetaItems.FIRECLAY_BRICK.setInvisible();
     }
 }
