@@ -43,7 +43,7 @@ public class TileEntityRockBreaker extends TieredMetaTileEntity {
         super.update();
         if (!getWorld().isRemote) {
             long energyToConsume = GTValues.V[getTier()] / 16;
-            int waitTime = (int) (32 / (Math.pow(2, getTier())));
+            int waitTime = (int) Math.ceil(32 / (Math.pow(2, getTier())));
             if (checkSides(Blocks.LAVA) && checkSides(Blocks.WATER) && getTimer() % waitTime == 0 && energyContainer.getEnergyStored() >= energyToConsume) {
                 exportItems.insertItem(0, new ItemStack(Blocks.COBBLESTONE), false);
                 energyContainer.removeEnergy(energyToConsume);
