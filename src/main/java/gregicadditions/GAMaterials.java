@@ -303,19 +303,5 @@ public class GAMaterials implements IMaterialHandler {
 		OrePrefix.gemExquisite.setIgnored(LigniteCoke);
 
 		Materials.Magnetite.setDirectSmelting(Materials.Iron);
-
-		Material mt = null;
-		try {
-			for (Material m : Material.MATERIAL_REGISTRY) {
-				mt = m;
-				m.toCamelCaseString();
-			}
-		} catch (NullPointerException e) {
-			System.out.println(mt);
-			System.out.println(mt.materialRGB);
-			System.out.println(mt.getMass());
-			System.out.println(mt.getUnlocalizedName());
-			throw new NullPointerException();
-		}
 	}
 }
