@@ -1,7 +1,5 @@
 package gregicadditions.item;
 
-import java.util.List;
-
 import gregicadditions.GregicAdditions;
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.common.items.MetaItems;
@@ -12,6 +10,8 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.List;
 
 public class GAMetaItems {
 
@@ -48,6 +48,16 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem TRANSISTOR;
 	public static MetaItem<?>.MetaValueItem COMPRESSED_CLAY;
 	public static MetaItem<?>.MetaValueItem COMPRESSED_COKE_CLAY;
+	public static MetaItem<?>.MetaValueItem COMPRESSED_FIRECLAY;
+	public static MetaItem<?>.MetaValueItem CRYSTAL_COMPUTER;
+	public static MetaItem<?>.MetaValueItem NANO_COMPUTER;
+	public static MetaItem<?>.MetaValueItem QUANTUM_COMPUTER;
+	public static MetaItem<?>.MetaValueItem WETWARE_COMPUTER;
+	public static MetaItem<?>.MetaValueItem CRYSTAL_MAINFRAME;
+	public static MetaItem<?>.MetaValueItem NANO_MAINFRAME;
+	public static MetaItem<?>.MetaValueItem INTEGRATED_MAINFRAME;
+	public static MetaItem<?>.MetaValueItem QUANTUM_MAINFRAME;
+	public static MetaItem<?>.MetaValueItem WETWARE_MAINFRAME;
 	public static MetaItem<?>.MetaValueItem ASOC;
 	public static MetaItem<?>.MetaValueItem LOGIC_CIRCUIT;
 	public static MetaItem<?>.MetaValueItem CPU;
@@ -63,6 +73,20 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem NANOPROCESSOR;
 	public static MetaItem<?>.MetaValueItem QUANTUMPROCESSOR;
 	public static MetaItem<?>.MetaValueItem WETWAREPROCESSOR;
+	public static MetaItem<?>.MetaValueItem ASOC_WAFER;
+	public static MetaItem<?>.MetaValueItem LOGIC_CIRCUIT_WAFER;
+	public static MetaItem<?>.MetaValueItem CPU_WAFER;
+	public static MetaItem<?>.MetaValueItem GLOWSTONE_WAFER;
+	public static MetaItem<?>.MetaValueItem HPIC_WAFER;
+	public static MetaItem<?>.MetaValueItem NAND_WAFER;
+	public static MetaItem<?>.MetaValueItem NANOCPU_WAFER;
+	public static MetaItem<?>.MetaValueItem NAQUADAH_WAFER;
+	public static MetaItem<?>.MetaValueItem NOR_WAFER;
+	public static MetaItem<?>.MetaValueItem PIC_WAFER;
+	public static MetaItem<?>.MetaValueItem QBIT_CPU_WAFER;
+	public static MetaItem<?>.MetaValueItem RAM_WAFER;
+	public static MetaItem<?>.MetaValueItem SILICON_WAFER;
+	public static MetaItem<?>.MetaValueItem SOC_WAFER;
 	public static MetaItem<?>.MetaValueItem ACACIA_FORM;
 	public static MetaItem<?>.MetaValueItem BIRCH_FORM;
 	public static MetaItem<?>.MetaValueItem DARK_OAK_FORM;
@@ -70,6 +94,8 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem OAK_FORM;
 	public static MetaItem<?>.MetaValueItem SPRUCE_FORM;
 	public static MetaItem<?>.MetaValueItem RAW_CARBON_FIBERS;
+	public static MetaItem<?>.MetaValueItem ADVANCED_ALLOY_PLATE;
+	public static MetaItem<?>.MetaValueItem MIXED_METAL_PLATE;
 	public static MetaItem<?>.MetaValueItem RAW_CRYSTAL_CHIP;
 	public static MetaItem<?>.MetaValueItem CRYSTAL_CPU;
 	public static MetaItem<?>.MetaValueItem CRYSTAL_SOC;

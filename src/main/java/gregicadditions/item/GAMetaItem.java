@@ -46,6 +46,7 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.TRANSISTOR = addItem(30, "component.transistor");
 		GAMetaItems.COMPRESSED_CLAY = addItem(31, "compressed.clay");
 		GAMetaItems.COMPRESSED_COKE_CLAY = addItem(32, "compressed.coke.clay");
+		GAMetaItems.COMPRESSED_FIRECLAY = addItem(33, "compressed.fireclay");
 		GAMetaItems.ASOC = addItem(43, "plate.asoc");
 		GAMetaItems.LOGIC_CIRCUIT = addItem(44, "plate.circuit");
 		GAMetaItems.CPU = addItem(45, "plate.cpu");
@@ -57,6 +58,20 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.QBIT_CPU = addItem(51, "plate.qbit");
 		GAMetaItems.RAM = addItem(52, "plate.ram");
 		GAMetaItems.SOC = addItem(53, "plate.soc");
+		GAMetaItems.ASOC_WAFER = addItem(58, "wafer.asoc");
+		GAMetaItems.LOGIC_CIRCUIT_WAFER = addItem(59, "wafer.circuit");
+		GAMetaItems.CPU_WAFER = addItem(60, "wafer.cpu");
+		GAMetaItems.GLOWSTONE_WAFER = addItem(61, "wafer.glowstone");
+		GAMetaItems.HPIC_WAFER = addItem(62, "wafer.hpic");
+		GAMetaItems.NAND_WAFER = addItem(63, "wafer.nand");
+		GAMetaItems.NANOCPU_WAFER = addItem(64, "wafer.nanocpu");
+		GAMetaItems.NAQUADAH_WAFER = addItem(65, "wafer.naquadah");
+		GAMetaItems.NOR_WAFER = addItem(66, "wafer.nor");
+		GAMetaItems.PIC_WAFER = addItem(67, "wafer.pic");
+		GAMetaItems.QBIT_CPU_WAFER = addItem(68, "wafer.qbit");
+		GAMetaItems.RAM_WAFER = addItem(69, "wafer.ram");
+		GAMetaItems.SILICON_WAFER = addItem(70, "wafer.silicon");
+		GAMetaItems.SOC_WAFER = addItem(71, "wafer.soc");
 		GAMetaItems.ACACIA_FORM = addItem(72, "form.acacia").addOreDict("formWood").setMaxStackSize(1);
 		GAMetaItems.BIRCH_FORM = addItem(73, "form.birch").addOreDict("formWood").setMaxStackSize(1);
 		GAMetaItems.DARK_OAK_FORM = addItem(74, "form.darkoak").addOreDict("formWood").setMaxStackSize(1);
@@ -64,6 +79,8 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.OAK_FORM = addItem(76, "form.oak").addOreDict("formWood").setMaxStackSize(1);
 		GAMetaItems.SPRUCE_FORM = addItem(77, "form.spruce").addOreDict("formWood").setMaxStackSize(1);
 		GAMetaItems.RAW_CARBON_FIBERS = addItem(79, "carbon.fibers");
+		GAMetaItems.MIXED_METAL_PLATE = addItem(80, "plate.mixed.metal");
+		GAMetaItems.ADVANCED_ALLOY_PLATE = addItem(81, "plate.advanced.alloy");
 		GAMetaItems.RAW_CRYSTAL_CHIP = addItem(82, "crystal.raw");
 		GAMetaItems.CRYSTAL_CPU = addItem(83, "crystal.cpu");
 		GAMetaItems.CRYSTAL_SOC = addItem(84, "crystal.soc");
