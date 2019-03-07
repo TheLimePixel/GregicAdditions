@@ -1,5 +1,7 @@
 package gregicadditions.recipes;
 
+import static gregtech.api.GTValues.W;
+
 import gregicadditions.GAMaterials;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GATransparentCasing;
@@ -13,63 +15,7 @@ import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
-import static gregtech.api.GTValues.W;
-
 public enum GACraftingComponents {
-	CIRCUIT {
-		@Override
-		Object getIngredient(int tier) {
-			switch (tier) {
-			case 0:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Primitive);
-			case 1:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Basic);
-			case 2:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Good);
-			case 3:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Advanced);
-			case 4:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), GAMaterials.Extreme);
-			case 5:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Elite);
-			case 6:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Master);
-			case 7:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Ultimate);
-			case 8:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Superconductor);
-			default:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), GAMaterials.Infinite);
-			}
-		}
-	},
-	BETTER_CIRCUIT {
-		@Override
-		Object getIngredient(int tier) {
-			switch (tier + 1) {
-			case 0:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Primitive);
-			case 1:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Basic);
-			case 2:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Good);
-			case 3:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Advanced);
-			case 4:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), GAMaterials.Extreme);
-			case 5:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Elite);
-			case 6:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Master);
-			case 7:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Ultimate);
-			case 8:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Superconductor);
-			default:
-				return new UnificationEntry(OrePrefix.valueOf("circuitGA"), GAMaterials.Infinite);
-			}
-		}
-	},
 	PUMP {
 		@Override
 		Object getIngredient(int tier) {
@@ -192,11 +138,11 @@ public enum GACraftingComponents {
 			case 5:
 				return new UnificationEntry(OrePrefix.pipeMedium, Materials.TungstenSteel);
 			case 6:
-				return new UnificationEntry(OrePrefix.pipeSmall, GAMaterials.Ultimate);
+				return new UnificationEntry(OrePrefix.pipeSmall, Materials.Ultimet);
 			case 7:
-				return new UnificationEntry(OrePrefix.pipeMedium, GAMaterials.Ultimate);
+				return new UnificationEntry(OrePrefix.pipeMedium, Materials.Ultimet);
 			default:
-				return new UnificationEntry(OrePrefix.pipeLarge, GAMaterials.Ultimate);
+				return new UnificationEntry(OrePrefix.pipeLarge, Materials.Ultimet);
 
 			}
 		}
@@ -234,7 +180,7 @@ public enum GACraftingComponents {
 			case 7:
 				return new UnificationEntry(OrePrefix.plate, Materials.HSSE);
 			default:
-				return new UnificationEntry(OrePrefix.plate, GAMaterials.Neutronium);
+				return new UnificationEntry(OrePrefix.plate, GAMaterials.NEUTRONIUM);
 
 			}
 		}
