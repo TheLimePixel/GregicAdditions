@@ -1,6 +1,11 @@
 package gregicadditions.item;
 
-import gregicadditions.GAMaterials;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import gregtech.api.unification.material.Materials;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.pipelike.fluidpipe.FluidPipeProperties;
 import net.minecraft.block.Block;
@@ -11,11 +16,6 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class GAMetaBlocks {
 
@@ -30,8 +30,8 @@ public class GAMetaBlocks {
 		TRANSPARENT_CASING = new GATransparentCasing();
 		TRANSPARENT_CASING.setRegistryName("ga_transparent_casing");
 
-		MetaBlocks.FLUID_PIPE.addPipeMaterial(GAMaterials.Ultimate, new FluidPipeProperties(1500, 12000, true));
-		MetaBlocks.FLUID_PIPE.addPipeMaterial(GAMaterials.Plasma, new FluidPipeProperties(1000000, 30, true));
+		MetaBlocks.FLUID_PIPE.addPipeMaterial(Materials.Ultimet, new FluidPipeProperties(1500, 12000, true));
+		//MetaBlocks.FLUID_PIPE.addPipeMaterial(GAMaterials.Plasma, new FluidPipeProperties(1000000, 30, true));
 	}
 
 	@SideOnly(Side.CLIENT)
