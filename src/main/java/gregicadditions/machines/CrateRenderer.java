@@ -17,33 +17,33 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.lang3.ArrayUtils;
 
 public class CrateRenderer implements TextureUtils.IIconRegister {
-    private final String basePath;
+	private final String basePath;
 
-    @SideOnly(Side.CLIENT)
-    private TextureAtlasSprite sideSprite;
+	@SideOnly(Side.CLIENT)
+	private TextureAtlasSprite sideSprite;
 
-    public CrateRenderer(String basePath) {
-        this.basePath = basePath;
-        Textures.iconRegisters.add(this);
-    }
+	public CrateRenderer(String basePath) {
+		this.basePath = basePath;
+		Textures.iconRegisters.add(this);
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(TextureMap textureMap) {
-        this.sideSprite = textureMap.registerSprite(new ResourceLocation(GTValues.MODID, "blocks/" + basePath));
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(TextureMap textureMap) {
+		this.sideSprite = textureMap.registerSprite(new ResourceLocation(GTValues.MODID, "blocks/" + basePath));
+	}
 
-    public void render(CCRenderState renderState, Matrix4 translation, int baseColor, IVertexOperation[] pipeline) {
+	public void render(CCRenderState renderState, Matrix4 translation, int baseColor, IVertexOperation[] pipeline) {
 
-        IVertexOperation[] basePipeline = ArrayUtils.add(pipeline, new ColourMultiplier(baseColor));
+		IVertexOperation[] basePipeline = ArrayUtils.add(pipeline, new ColourMultiplier(baseColor));
 
-        for (EnumFacing renderSide : EnumFacing.VALUES) {
-            Textures.renderFace(renderState, translation, basePipeline, renderSide, Cuboid6.full, sideSprite);
-        }
-    }
+		for (EnumFacing renderSide : EnumFacing.VALUES) {
+			Textures.renderFace(renderState, translation, basePipeline, renderSide, Cuboid6.full, sideSprite);
+		}
+	}
 
-    @SideOnly(Side.CLIENT)
-    public TextureAtlasSprite getParticleTexture() {
-        return sideSprite;
-    }
+	@SideOnly(Side.CLIENT)
+	public TextureAtlasSprite getParticleTexture() {
+		return sideSprite;
+	}
 }

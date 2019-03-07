@@ -23,53 +23,37 @@ import net.minecraft.util.ResourceLocation;
 import static gregtech.api.multiblock.BlockPattern.RelativeDirection.*;
 
 public class TileEntityAssemblyLine extends RecipeMapMultiblockController {
-    public TileEntityAssemblyLine(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, GARecipeMaps.ASSEMBLY_LINE_RECIPES);
-    }
+	public TileEntityAssemblyLine(ResourceLocation metaTileEntityId) {
+		super(metaTileEntityId, GARecipeMaps.ASSEMBLY_LINE_RECIPES);
+	}
 
-    @Override
-    public MetaTileEntity createMetaTileEntity(MetaTileEntityHolder holder) {
-        return new TileEntityAssemblyLine(metaTileEntityId);
-    }
+	@Override
+	public MetaTileEntity createMetaTileEntity(MetaTileEntityHolder holder) {
+		return new TileEntityAssemblyLine(metaTileEntityId);
+	}
 
-    @Override
-    protected BlockPattern createStructurePattern() {
-		return FactoryBlockPattern.start(LEFT, DOWN, BACK)
-                .aisle("#Y#", "GAG", "RTR", "COC")
-                .aisle("#Y#", "GAG", "RTR", "FIF").setRepeatable(3, 14)
-                .aisle("#Y#", "GSG", "RTR", "FIF")
-                .where('S', selfPredicate())
-                .where('C', statePredicate(getCasingState()))
-                .where('F', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.IMPORT_FLUIDS)))
-                .where('O', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.EXPORT_ITEMS)))
-                .where('Y', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.INPUT_ENERGY)))
-                .where('I', tilePredicate((state, tile) -> {
-                    return tile.metaTileEntityId.equals(MetaTileEntities.ITEM_IMPORT_BUS[0].metaTileEntityId);
-                }))
-                .where('G', statePredicate(MetaBlocks.MUTLIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.GRATE_CASING)))
-                .where('A', statePredicate(MetaBlocks.MUTLIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.ASSEMBLER_CASING)))
-                .where('R', statePredicate(GAMetaBlocks.TRANSPARENT_CASING.getState(GATransparentCasing.CasingType.REINFORCED_GLASS)))
-                .where('T', statePredicate(GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.TUNGSTENSTEEL_GEARBOX_CASING)))
-                .where('#', (tile) -> {
-                    return true;
-                })
-                .build();
-        /*return FactoryBlockPattern.start(RIGHT, UP, FRONT)
-                .aisle("YXX", "XXX")
-                .aisle("YXX", "XXX")
-                .where('X', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.IMPORT_ITEMS, MultiblockAbility.INPUT_ENERGY, MultiblockAbility.EXPORT_ITEMS)))
-                //.where('#', blockPredicate(Blocks.AIR))
-                .where('Y', selfPredicate())
-                .build();*/
-    }
+	@Override
+	protected BlockPattern createStructurePattern() {
+		return FactoryBlockPattern.start(LEFT, DOWN, BACK).aisle("#Y#", "GAG", "RTR", "COC").aisle("#Y#", "GAG", "RTR", "FIF").setRepeatable(3, 14).aisle("#Y#", "GSG", "RTR", "FIF").where('S', selfPredicate()).where('C', statePredicate(getCasingState())).where('F', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.IMPORT_FLUIDS))).where('O', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.EXPORT_ITEMS))).where('Y', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.INPUT_ENERGY))).where('I', tilePredicate((state, tile) -> {
+			return tile.metaTileEntityId.equals(MetaTileEntities.ITEM_IMPORT_BUS[0].metaTileEntityId);
+		})).where('G', statePredicate(MetaBlocks.MUTLIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.GRATE_CASING))).where('A', statePredicate(MetaBlocks.MUTLIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.ASSEMBLER_CASING))).where('R', statePredicate(GAMetaBlocks.TRANSPARENT_CASING.getState(GATransparentCasing.CasingType.REINFORCED_GLASS))).where('T', statePredicate(GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.TUNGSTENSTEEL_GEARBOX_CASING))).where('#', (tile) -> {
+			return true;
+		}).build();
+		/*return FactoryBlockPattern.start(RIGHT, UP, FRONT)
+		        .aisle("YXX", "XXX")
+		        .aisle("YXX", "XXX")
+		        .where('X', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.IMPORT_ITEMS, MultiblockAbility.INPUT_ENERGY, MultiblockAbility.EXPORT_ITEMS)))
+		        //.where('#', blockPredicate(Blocks.AIR))
+		        .where('Y', selfPredicate())
+		        .build();*/
+	}
 
-    @Override
-    public ICubeRenderer getBaseTexture(IMultiblockPart sourcePart) {
-        return Textures.SOLID_STEEL_CASING;
-    }
+	@Override
+	public ICubeRenderer getBaseTexture(IMultiblockPart sourcePart) {
+		return Textures.SOLID_STEEL_CASING;
+	}
 
-    protected IBlockState getCasingState() {
-        return MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID);
-    }
+	protected IBlockState getCasingState() {
+		return MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID);
+	}
 }
-

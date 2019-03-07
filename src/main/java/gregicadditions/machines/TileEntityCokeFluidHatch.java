@@ -26,73 +26,73 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class TileEntityCokeFluidHatch extends MetaTileEntityMultiblockPart implements IMultiblockAbilityPart<IFluidTank> {
-    private static final int INVENTORY_SIZE = 4000;
-    private boolean isExportHatch = true;
+	private static final int INVENTORY_SIZE = 4000;
+	private boolean isExportHatch = true;
 
-    public TileEntityCokeFluidHatch(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, 0);
-        this.initializeInventory();
-    }
+	public TileEntityCokeFluidHatch(ResourceLocation metaTileEntityId) {
+		super(metaTileEntityId, 0);
+		this.initializeInventory();
+	}
 
-    @Override
+	@Override
 	public MetaTileEntity createMetaTileEntity(MetaTileEntityHolder holder) {
-        return new TileEntityCokeFluidHatch(this.metaTileEntityId);
-    }
+		return new TileEntityCokeFluidHatch(this.metaTileEntityId);
+	}
 
-    @Override
+	@Override
 	public void update() {
-        super.update();
-        if (!this.getWorld().isRemote && this.getTimer() % 5L == 0L) {
-            if (this.isExportHatch) {
-                this.pushFluidsIntoNearbyHandlers(new EnumFacing[]{this.getFrontFacing()});
-            } else {
-                this.pullFluidsFromNearbyHandlers(new EnumFacing[]{this.getFrontFacing()});
-            }
-        }
+		super.update();
+		if (!this.getWorld().isRemote && this.getTimer() % 5L == 0L) {
+			if (this.isExportHatch) {
+				this.pushFluidsIntoNearbyHandlers(new EnumFacing[] { this.getFrontFacing() });
+			} else {
+				this.pullFluidsFromNearbyHandlers(new EnumFacing[] { this.getFrontFacing() });
+			}
+		}
 
-    }
+	}
 
-    @Override
+	@Override
 	public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
-        ClientHandler.COKE_OVEN_BRICKS.render(renderState, translation, pipeline);
-        (this.isExportHatch ? Textures.PIPE_OUT_OVERLAY : Textures.PIPE_IN_OVERLAY).renderSided(this.getFrontFacing(), renderState, translation, pipeline);
-    }
+		ClientHandler.COKE_OVEN_BRICKS.render(renderState, translation, pipeline);
+		(this.isExportHatch ? Textures.PIPE_OUT_OVERLAY : Textures.PIPE_IN_OVERLAY).renderSided(this.getFrontFacing(), renderState, translation, pipeline);
+	}
 
-    private int getInventorySize() {
-        return INVENTORY_SIZE;
-    }
+	private int getInventorySize() {
+		return INVENTORY_SIZE;
+	}
 
-    @Override
+	@Override
 	protected FluidTankList createImportFluidHandler() {
-        return this.isExportHatch ? new FluidTankList(false, new IFluidTank[0]) : new FluidTankList(false, new IFluidTank[]{new FluidTank(this.getInventorySize())});
-    }
+		return this.isExportHatch ? new FluidTankList(false, new IFluidTank[0]) : new FluidTankList(false, new IFluidTank[] { new FluidTank(this.getInventorySize()) });
+	}
 
-    @Override
+	@Override
 	protected FluidTankList createExportFluidHandler() {
-        return this.isExportHatch ? new FluidTankList(false, new IFluidTank[]{new FluidTank(this.getInventorySize())}) : new FluidTankList(false, new IFluidTank[0]);
-    }
+		return this.isExportHatch ? new FluidTankList(false, new IFluidTank[] { new FluidTank(this.getInventorySize()) }) : new FluidTankList(false, new IFluidTank[0]);
+	}
 
-    @Override
+	@Override
 	public MultiblockAbility<IFluidTank> getAbility() {
-        return this.isExportHatch ? MultiblockAbility.EXPORT_FLUIDS : MultiblockAbility.IMPORT_FLUIDS;
-    }
+		return this.isExportHatch ? MultiblockAbility.EXPORT_FLUIDS : MultiblockAbility.IMPORT_FLUIDS;
+	}
 
-    @Override
+	@Override
 	public void registerAbilities(List<IFluidTank> abilityList) {
-        abilityList.addAll(this.isExportHatch ? this.exportFluids.getFluidTanks() : this.importFluids.getFluidTanks());
-    }
+		abilityList.addAll(this.isExportHatch ? this.exportFluids.getFluidTanks() : this.importFluids.getFluidTanks());
+	}
 
-    @Override
+	@Override
 	protected ModularUI createUI(EntityPlayer entityPlayer) {
-        return null;
-    }
+		return null;
+	}
 
-    public boolean onRightClick(EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        return false;
-    }
+	public boolean onRightClick(EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		return false;
+	}
 
-    @Override
+	@Override
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
-        tooltip.add(I18n.format("gregtech.universal.tooltip.fluid_storage_capacity", new Object[]{this.getInventorySize()}));
-    }
+		tooltip.add(I18n.format("gregtech.universal.tooltip.fluid_storage_capacity", new Object[] { this.getInventorySize() }));
+	}
 }

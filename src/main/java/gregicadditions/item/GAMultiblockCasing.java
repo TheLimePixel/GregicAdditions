@@ -10,37 +10,36 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 public class GAMultiblockCasing extends VariantBlock<GAMultiblockCasing.CasingType> {
-    public GAMultiblockCasing() {
-        super(Material.IRON);
-        setTranslationKey("ga_multiblock_casing");
-        setHardness(5.0f);
-        setResistance(10.0f);
-        setSoundType(SoundType.METAL);
-        setHarvestLevel("wrench", 2);
-        setDefaultState(getState(CasingType.COKE_OVEN_BRICKS));
-    }
+	public GAMultiblockCasing() {
+		super(Material.IRON);
+		setTranslationKey("ga_multiblock_casing");
+		setHardness(5.0f);
+		setResistance(10.0f);
+		setSoundType(SoundType.METAL);
+		setHarvestLevel("wrench", 2);
+		setDefaultState(getState(CasingType.COKE_OVEN_BRICKS));
+	}
 
-    @Override
-    public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, EntityLiving.SpawnPlacementType type) {
-        return false;
-    }
+	@Override
+	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, EntityLiving.SpawnPlacementType type) {
+		return false;
+	}
 
+	public enum CasingType implements IStringSerializable {
 
-    public enum CasingType implements IStringSerializable {
+		COKE_OVEN_BRICKS("coke_oven_bricks"),
+		TUNGSTENSTEEL_GEARBOX_CASING("tungstensteel_gearbox_casing");
 
-        COKE_OVEN_BRICKS("coke_oven_bricks"),
-        TUNGSTENSTEEL_GEARBOX_CASING("tungstensteel_gearbox_casing");
+		private final String name;
 
-        private final String name;
+		CasingType(String name) {
+			this.name = name;
+		}
 
-        CasingType(String name) {
-            this.name = name;
-        }
+		@Override
+		public String getName() {
+			return this.name;
+		}
 
-        @Override
-        public String getName() {
-            return this.name;
-        }
-
-    }
+	}
 }

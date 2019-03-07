@@ -9,15 +9,15 @@ import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 @JEIPlugin
 public class JEIGAPlugin implements IModPlugin {
 
-    @Override
+	@Override
 	public void registerCategories(IRecipeCategoryRegistration registry) {
-        registry.addRecipeCategories(new GAMultiblockInfoCategory(registry.getJeiHelpers()));
-    }
+		registry.addRecipeCategories(new GAMultiblockInfoCategory(registry.getJeiHelpers()));
+	}
 
-    @Override
-    public void register(IModRegistry registry) {
-        GAMultiblockInfoCategory.registerRecipes(registry);
+	@Override
+	public void register(IModRegistry registry) {
+		GAMultiblockInfoCategory.registerRecipes(registry);
 
-        registry.addRecipeCatalyst(GATileEntities.COKE_OVEN.getStackForm(), "gregtech:coke_oven");
-    }
+		registry.addRecipeCatalyst(GATileEntities.COKE_OVEN.getStackForm(), "gregtech:coke_oven");
+	}
 }

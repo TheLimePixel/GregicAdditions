@@ -15,56 +15,55 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class GATransparentCasing extends VariantBlock<GATransparentCasing.CasingType> {
-    public GATransparentCasing() {
-        super(Material.IRON);
-        setTranslationKey("ga_transparent_casing");
-        setHardness(5.0f);
-        setResistance(5000.0f);
-        setSoundType(SoundType.GLASS);
-        setHarvestLevel("wrench", 2);
-        setDefaultState(getState(CasingType.REINFORCED_GLASS));
-    }
+	public GATransparentCasing() {
+		super(Material.IRON);
+		setTranslationKey("ga_transparent_casing");
+		setHardness(5.0f);
+		setResistance(5000.0f);
+		setSoundType(SoundType.GLASS);
+		setHarvestLevel("wrench", 2);
+		setDefaultState(getState(CasingType.REINFORCED_GLASS));
+	}
 
-    @Override
-    public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, EntityLiving.SpawnPlacementType type) {
-        return false;
-    }
+	@Override
+	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, EntityLiving.SpawnPlacementType type) {
+		return false;
+	}
 
+	public BlockRenderLayer getBlockLayer() {
+		return BlockRenderLayer.TRANSLUCENT;
+	}
 
-    public BlockRenderLayer getBlockLayer() {
-        return BlockRenderLayer.TRANSLUCENT;
-    }
-
-    @Override
+	@Override
 	@SideOnly(Side.CLIENT)
-    public boolean isOpaqueCube(IBlockState state) {
-        return false;
-    }
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
 
-    @Override
+	@Override
 	@SideOnly(Side.CLIENT)
-    @Deprecated
-    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-        IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
-        Block block = iblockstate.getBlock();
+	@Deprecated
+	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+		IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
+		Block block = iblockstate.getBlock();
 
-        return block != this && super.shouldSideBeRendered(blockState, blockAccess, pos, side);
-    }
+		return block != this && super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+	}
 
-    public enum CasingType implements IStringSerializable {
+	public enum CasingType implements IStringSerializable {
 
-        REINFORCED_GLASS("reinforced_glass");
+		REINFORCED_GLASS("reinforced_glass");
 
-        private final String name;
+		private final String name;
 
-        CasingType(String name) {
-            this.name = name;
-        }
+		CasingType(String name) {
+			this.name = name;
+		}
 
-        @Override
-        public String getName() {
-            return this.name;
-        }
+		@Override
+		public String getName() {
+			return this.name;
+		}
 
-    }
+	}
 }

@@ -12,48 +12,40 @@ import mezz.jei.gui.recipes.RecipeLayout;
 import net.minecraft.client.resources.I18n;
 
 public class GAMultiblockInfoCategory implements IRecipeCategory<MultiblockInfoRecipeWrapper> {
-    private final IDrawable background;
+	private final IDrawable background;
 
-    public GAMultiblockInfoCategory(IJeiHelpers helpers) {
-        this.background = helpers.getGuiHelper().createBlankDrawable(176, 166);
-    }
+	public GAMultiblockInfoCategory(IJeiHelpers helpers) {
+		this.background = helpers.getGuiHelper().createBlankDrawable(176, 166);
+	}
 
-    public static void registerRecipes(IModRegistry registry) {
-        registry.addRecipes(Lists.newArrayList(
-                new MultiblockInfoRecipeWrapper(new CokeOvenInfo()),
-                new MultiblockInfoRecipeWrapper(new AssemblyLineInfo()),
-                new MultiblockInfoRecipeWrapper(new CrackerUnitInfo()),
-                new MultiblockInfoRecipeWrapper(new DistillTowerInfo()),
-                new MultiblockInfoRecipeWrapper(new FusionReactor1Info()),
-                new MultiblockInfoRecipeWrapper(new FusionReactor2Info()),
-                new MultiblockInfoRecipeWrapper(new FusionReactor3Info())
+	public static void registerRecipes(IModRegistry registry) {
+		registry.addRecipes(Lists.newArrayList(new MultiblockInfoRecipeWrapper(new CokeOvenInfo()), new MultiblockInfoRecipeWrapper(new AssemblyLineInfo()), new MultiblockInfoRecipeWrapper(new CrackerUnitInfo()), new MultiblockInfoRecipeWrapper(new DistillTowerInfo()), new MultiblockInfoRecipeWrapper(new FusionReactor1Info()), new MultiblockInfoRecipeWrapper(new FusionReactor2Info()), new MultiblockInfoRecipeWrapper(new FusionReactor3Info())
 
-        ), "gtadditions:multiblock_info");
-    }
+		), "gtadditions:multiblock_info");
+	}
 
-    @Override
+	@Override
 	public String getUid() {
-        return "gtadditions:multiblock_info";
-    }
+		return "gtadditions:multiblock_info";
+	}
 
-    @Override
+	@Override
 	public String getTitle() {
-        return I18n.format("gregtech.multiblock.title", new Object[0]);
-    }
+		return I18n.format("gregtech.multiblock.title", new Object[0]);
+	}
 
-    @Override
+	@Override
 	public String getModName() {
-        return "gtadditions";
-    }
+		return "gtadditions";
+	}
 
-    @Override
+	@Override
 	public IDrawable getBackground() {
-        return this.background;
-    }
+		return this.background;
+	}
 
-    @Override
+	@Override
 	public void setRecipe(IRecipeLayout recipeLayout, MultiblockInfoRecipeWrapper recipeWrapper, IIngredients ingredients) {
-        recipeWrapper.setRecipeLayout((RecipeLayout) recipeLayout);
-    }
+		recipeWrapper.setRecipeLayout((RecipeLayout) recipeLayout);
+	}
 }
-

@@ -31,112 +31,107 @@ import java.util.List;
 
 public class TileEntityCrate extends MetaTileEntity {
 
-    private final SolidMaterial material;
-    private final int inventorySize;
-    private ItemStackHandler inventory;
+	private final SolidMaterial material;
+	private final int inventorySize;
+	private ItemStackHandler inventory;
 
-    public TileEntityCrate(ResourceLocation metaTileEntityId, SolidMaterial material, int inventorySize) {
-        super(metaTileEntityId);
-        this.material = material;
-        this.inventorySize = inventorySize;
-        initializeInventory();
-    }
+	public TileEntityCrate(ResourceLocation metaTileEntityId, SolidMaterial material, int inventorySize) {
+		super(metaTileEntityId);
+		this.material = material;
+		this.inventorySize = inventorySize;
+		initializeInventory();
+	}
 
-    @Override
-    public MetaTileEntity createMetaTileEntity(MetaTileEntityHolder holder) {
-        return new TileEntityCrate(metaTileEntityId, material, inventorySize);
-    }
+	@Override
+	public MetaTileEntity createMetaTileEntity(MetaTileEntityHolder holder) {
+		return new TileEntityCrate(metaTileEntityId, material, inventorySize);
+	}
 
-    @Override
-    public boolean hasFrontFacing() {
-        return false;
-    }
+	@Override
+	public boolean hasFrontFacing() {
+		return false;
+	}
 
-    @Override
-    public int getLightOpacity() {
-        return 1;
-    }
+	@Override
+	public int getLightOpacity() {
+		return 1;
+	}
 
-    @Override
-    public String getHarvestTool() {
-        return material.toString().contains("wood") ? "axe" : "pickaxe";
-    }
+	@Override
+	public String getHarvestTool() {
+		return material.toString().contains("wood") ? "axe" : "pickaxe";
+	}
 
-    @Override
-    protected void initializeInventory() {
-        super.initializeInventory();
-        this.inventory = new ItemStackHandler(inventorySize) {
-            @Override
-            protected void onContentsChanged(int slot) {
-                super.onContentsChanged(slot);
-                updateComparatorValue(true);
-            }
-        };
-        this.itemInventory = inventory;
-        updateComparatorValue(true);
-    }
+	@Override
+	protected void initializeInventory() {
+		super.initializeInventory();
+		this.inventory = new ItemStackHandler(inventorySize) {
+			@Override
+			protected void onContentsChanged(int slot) {
+				super.onContentsChanged(slot);
+				updateComparatorValue(true);
+			}
+		};
+		this.itemInventory = inventory;
+		updateComparatorValue(true);
+	}
 
-    @Override
-    public int getComparatorValue() {
-        return ItemHandlerHelper.calcRedstoneFromInventory(inventory);
-    }
+	@Override
+	public int getComparatorValue() {
+		return ItemHandlerHelper.calcRedstoneFromInventory(inventory);
+	}
 
-    @Override
-    public void clearMachineInventory(NonNullList<ItemStack> itemBuffer) {
-        clearInventory(itemBuffer, inventory);
-    }
+	@Override
+	public void clearMachineInventory(NonNullList<ItemStack> itemBuffer) {
+		clearInventory(itemBuffer, inventory);
+	}
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public TextureAtlasSprite getParticleTexture() {
-        return material.toString().contains("wood") ? Textures.WOODEN_CHEST.getParticleTexture() :
-                ClientHandler.METAL_CRATE.getParticleTexture();
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public TextureAtlasSprite getParticleTexture() {
+		return material.toString().contains("wood") ? Textures.WOODEN_CHEST.getParticleTexture() : ClientHandler.METAL_CRATE.getParticleTexture();
+	}
 
-    @Override
-    public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
-        if(material.toString().contains("wood")) {
-            ClientHandler.WOODEN_CRATE.render(renderState, translation, GTUtility.convertRGBtoOpaqueRGBA_CL(getPaintingColorForRendering()), pipeline);
-        } else {
-            int baseColor = ColourRGBA.multiply(
-                    GTUtility.convertRGBtoOpaqueRGBA_CL(material.materialRGB),
-                    GTUtility.convertRGBtoOpaqueRGBA_CL(getPaintingColorForRendering()));
-            ClientHandler.METAL_CRATE.render(renderState, translation, baseColor, pipeline);
-        }
-    }
+	@Override
+	public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
+		if (material.toString().contains("wood")) {
+			ClientHandler.WOODEN_CRATE.render(renderState, translation, GTUtility.convertRGBtoOpaqueRGBA_CL(getPaintingColorForRendering()), pipeline);
+		} else {
+			int baseColor = ColourRGBA.multiply(GTUtility.convertRGBtoOpaqueRGBA_CL(material.materialRGB), GTUtility.convertRGBtoOpaqueRGBA_CL(getPaintingColorForRendering()));
+			ClientHandler.METAL_CRATE.render(renderState, translation, baseColor, pipeline);
+		}
+	}
 
-    @Override
-    protected ModularUI createUI(EntityPlayer entityPlayer) {
-        Builder builder = ModularUI.builder(GuiTextures.BACKGROUND, 338,
-                8 + inventorySize + 104)
-                .label(5, 5, getMetaFullName());
-        for (int i = 0; i < inventorySize; i++) {
-            builder.slot(inventory, i, 8 + (i % 18) * 18, 18 + (i / 18) * 18, GuiTextures.SLOT);
-        }
-        builder.bindPlayerInventory(entityPlayer.inventory, GuiTextures.SLOT, 90, 18 + inventorySize + 12);
-        return builder.build(getHolder(), entityPlayer);
-    }
+	@Override
+	protected ModularUI createUI(EntityPlayer entityPlayer) {
+		Builder builder = ModularUI.builder(GuiTextures.BACKGROUND, 338, 8 + inventorySize + 104).label(5, 5, getMetaFullName());
+		for (int i = 0; i < inventorySize; i++) {
+			builder.slot(inventory, i, 8 + (i % 18) * 18, 18 + (i / 18) * 18, GuiTextures.SLOT);
+		}
+		builder.bindPlayerInventory(entityPlayer.inventory, GuiTextures.SLOT, 90, 18 + inventorySize + 12);
+		return builder.build(getHolder(), entityPlayer);
+	}
 
-    @Override
-    public NBTTagCompound writeToNBT(NBTTagCompound data) {
-        super.writeToNBT(data);
-        data.setTag("Inventory", inventory.serializeNBT());
-        return data;
-    }
+	@Override
+	public NBTTagCompound writeToNBT(NBTTagCompound data) {
+		super.writeToNBT(data);
+		data.setTag("Inventory", inventory.serializeNBT());
+		return data;
+	}
 
-    @Override
-    public void readFromNBT(NBTTagCompound data) {
-        super.readFromNBT(data);
-        this.inventory.deserializeNBT(data.getCompoundTag("Inventory"));
-    }
+	@Override
+	public void readFromNBT(NBTTagCompound data) {
+		super.readFromNBT(data);
+		this.inventory.deserializeNBT(data.getCompoundTag("Inventory"));
+	}
 
-    @Override
-    protected boolean shouldSerializeInventories() {
-        return false;
-    }
+	@Override
+	protected boolean shouldSerializeInventories() {
+		return false;
+	}
 
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
-        tooltip.add(I18n.format("gregtech.universal.tooltip.item_storage_capacity", inventorySize));
-    }
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
+		tooltip.add(I18n.format("gregtech.universal.tooltip.item_storage_capacity", inventorySize));
+	}
 }
