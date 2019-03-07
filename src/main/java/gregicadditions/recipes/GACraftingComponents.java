@@ -16,6 +16,60 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
 public enum GACraftingComponents {
+	CIRCUIT {
+		@Override
+		Object getIngredient(int tier) {
+			switch (tier) {
+			case 0:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Primitive);
+			case 1:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Basic);
+			case 2:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Good);
+			case 3:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Advanced);
+			case 4:
+				return new UnificationEntry(OrePrefix.circuit, GAMaterials.EXTREME);
+			case 5:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Elite);
+			case 6:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Master);
+			case 7:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Ultimate);
+			case 8:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Superconductor);
+			default:
+				return new UnificationEntry(OrePrefix.circuit, GAMaterials.INFINITE);
+			}
+		}
+	},
+	BETTER_CIRCUIT {
+		@Override
+		Object getIngredient(int tier) {
+			switch (tier + 1) {
+			case 0:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Primitive);
+			case 1:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Basic);
+			case 2:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Good);
+			case 3:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Advanced);
+			case 4:
+				return new UnificationEntry(OrePrefix.circuit, GAMaterials.EXTREME);
+			case 5:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Elite);
+			case 6:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Master);
+			case 7:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Ultimate);
+			case 8:
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Superconductor);
+			default:
+				return new UnificationEntry(OrePrefix.circuit, GAMaterials.INFINITE);
+			}
+		}
+	},
 	PUMP {
 		@Override
 		Object getIngredient(int tier) {
