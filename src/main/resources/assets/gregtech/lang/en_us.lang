@@ -26,8 +26,7 @@ metaitem.boule.naquadah.name=Naquadah doped Monocrystalline Silicon Boule
 metaitem.boule.naquadah.tooltip=Raw Circuit
 metaitem.ga_brick.coke.name=Coke Oven Brick
 metaitem.ga_brick.fireclay.name=Firebrick
-metaitem.circuit.advanced.regular.name=Advanced Circuit
-metaitem.circuit.advanced.regular.tooltip=An Advanced Circuit
+metaitem.circuit.advanced.regular.name=Advanced Electronic Circuit
 metaitem.circuit.good.regular.name=Good Integrated Circuit
 metaitem.circuit.good.regular.tooltip=A Good Circuit
 metaitem.circuit.basic.regular.name=Basic Circuit
@@ -152,7 +151,7 @@ metaitem.crystal.lapotron.name=Lapotron Crystal
 metaitem.plate.iridium.alloy.name=Iridium Alloy Plate
 metaitem.plate.iridium.alloy.uncompressed.name=Uncompressed Iridium Alloy Plate
 metaitem.neutron.reflector.name=Neutron Reflector
-metaitem.computer.normal.name=Integrated Computer
+metaitem.computer.normal.name=Extreme Computer
 metaitem.computer.normal.tooltip=An Extreme Circuit
 metaitem.processor.neuro.name=Neuro Processing Unit
 metaitem.processor.neuro.tooltip=Neuto CPU
@@ -219,12 +218,12 @@ gtadditions.machine.arc_furnace.luv.name=Advanced Arc Furnace V
 gtadditions.machine.arc_furnace.zpm.name=Advanced Arc Furnace VI
 gtadditions.machine.arc_furnace.uv.name=Advanced Arc Furnace VII
 
-gtadditions.machine.assembler.iv.name=Advanced Assembling Machine IV
+gregtech.machine.assembler.iv.name=Advanced Assembling Machine IV
 gtadditions.machine.assembler.luv.name=Advanced Assembling Machine V
 gtadditions.machine.assembler.zpm.name=Advanced Assembling Machine VI
 gtadditions.machine.assembler.uv.name=Advanced Assembling Machine VII
 
-gtadditions.machine.autoclave.iv.name=Advanced Autoclave IV
+gregtech.machine.autoclave.iv.name=Advanced Autoclave IV
 gtadditions.machine.autoclave.luv.name=Advanced Autoclave V
 gtadditions.machine.autoclave.zpm.name=Advanced Autoclave VI
 gtadditions.machine.autoclave.uv.name=Advanced Autoclave VII
@@ -373,7 +372,7 @@ gtadditions.machine.polarizer.luv.name=Advanced Polarizer V
 gtadditions.machine.polarizer.zpm.name=Advanced Polarizer VI
 gtadditions.machine.polarizer.uv.name=Advanced Polarizer VII
 
-gtadditions.machine.laser_engraver.iv.name=Advanced Precision Laser Engraver IV
+gregtech.machine.laser_engraver.iv.name=Advanced Precision Laser Engraver IV
 gtadditions.machine.laser_engraver.luv.name=Advanced Precision Laser Engraver V
 gtadditions.machine.laser_engraver.zpm.name=Advanced Precision Laser Engraver VI
 gtadditions.machine.laser_engraver.uv.name=Advanced Precision Laser Engraver VII
@@ -691,3 +690,8 @@ gtadditions.machine.drum.tungstensteel.name=Tungstensteel Drum
 
 fluid.tile.water=Water
 fluid.tile.lava=Lava
+
+metaitem.schematic.name=Blank Schematic
+metaitem.schematic.dust.name=Dust Schematic
+metaitem.schematic.2by2.name=2x2 Schematic
+metaitem.schematic.3by3.name=3x3 Schematic
