@@ -21,25 +21,25 @@ public enum GACraftingComponents {
         Object getIngredient(int tier) {
             switch (tier) {
                 case 0:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Primitive);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Primitive);
                 case 1:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Basic);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Basic);
                 case 2:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Good);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Good);
                 case 3:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Advanced);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Advanced);
                 case 4:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), GAMaterials.Extreme);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Extreme);
                 case 5:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Elite);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Elite);
                 case 6:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Master);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Master);
                 case 7:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Ultimate);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Ultimate);
                 case 8:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Superconductor);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Superconductor);
                 default:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), GAMaterials.Infinite);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Infinite);
             }
         }
     },
@@ -48,25 +48,25 @@ public enum GACraftingComponents {
         Object getIngredient(int tier) {
             switch (tier + 1) {
                 case 0:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Primitive);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Primitive);
                 case 1:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Basic);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Basic);
                 case 2:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Good);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Good);
                 case 3:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Advanced);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Advanced);
                 case 4:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), GAMaterials.Extreme);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Extreme);
                 case 5:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Elite);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Elite);
                 case 6:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Master);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Master);
                 case 7:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Ultimate);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Ultimate);
                 case 8:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), MarkerMaterials.Tier.Superconductor);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Superconductor);
                 default:
-                    return new UnificationEntry(OrePrefix.valueOf("circuitGA"), GAMaterials.Infinite);
+                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Infinite);
             }
         }
     },

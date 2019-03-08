@@ -73,13 +73,6 @@ public class GATileEntities {
     public static TileEntityDrum TITANIUM_DRUM;
     public static TileEntityDrum TUNGSTENSTEEL_DRUM;
 
-    public static TileEntityCrate WOODEN_CRATE;
-    public static TileEntityCrate BRONZE_CRATE;
-    public static TileEntityCrate STEEL_CRATE;
-    public static TileEntityCrate STAINLESS_STEEL_CRATE;
-    public static TileEntityCrate TITANIUM_CRATE;
-    public static TileEntityCrate TUNGSTENSTEEL_CRATE;
-
     public static TileEntityRockBreaker[] ROCK_BREAKER = new TileEntityRockBreaker[8];
 
     public static MetaTileEntityPump[] PUMP = new MetaTileEntityPump[8];
@@ -137,14 +130,12 @@ public class GATileEntities {
         }
 
         if (GAConfig.GT5U.highTierAssemblers) {
-            ASSEMBLER[4] = GregTechAPI.registerMetaTileEntity(2036, new SimpleMachineMetaTileEntity(location("assembler.iv"), RecipeMaps.ASSEMBLER_RECIPES, Textures.ASSEMBLER_OVERLAY, 5));
             ASSEMBLER[5] = GregTechAPI.registerMetaTileEntity(2037, new SimpleMachineMetaTileEntity(location("assembler.luv"), RecipeMaps.ASSEMBLER_RECIPES, Textures.ASSEMBLER_OVERLAY, 6));
             ASSEMBLER[6] = GregTechAPI.registerMetaTileEntity(2038, new SimpleMachineMetaTileEntity(location("assembler.zpm"), RecipeMaps.ASSEMBLER_RECIPES, Textures.ASSEMBLER_OVERLAY, 7));
             ASSEMBLER[7] = GregTechAPI.registerMetaTileEntity(2039, new SimpleMachineMetaTileEntity(location("assembler.uv"), RecipeMaps.ASSEMBLER_RECIPES, Textures.ASSEMBLER_OVERLAY, 8));
         }
 
         if (GAConfig.GT5U.highTierAutoclaves) {
-            AUTOCLAVE[4] = GregTechAPI.registerMetaTileEntity(2040, new SimpleMachineMetaTileEntity(location("autoclave.iv"), RecipeMaps.AUTOCLAVE_RECIPES, Textures.AUTOCLAVE_OVERLAY, 5));
             AUTOCLAVE[5] = GregTechAPI.registerMetaTileEntity(2041, new SimpleMachineMetaTileEntity(location("autoclave.luv"), RecipeMaps.AUTOCLAVE_RECIPES, Textures.AUTOCLAVE_OVERLAY, 6));
             AUTOCLAVE[6] = GregTechAPI.registerMetaTileEntity(2042, new SimpleMachineMetaTileEntity(location("autoclave.zpm"), RecipeMaps.AUTOCLAVE_RECIPES, Textures.AUTOCLAVE_OVERLAY, 7));
             AUTOCLAVE[7] = GregTechAPI.registerMetaTileEntity(2043, new SimpleMachineMetaTileEntity(location("autoclave.uv"), RecipeMaps.AUTOCLAVE_RECIPES, Textures.AUTOCLAVE_OVERLAY, 8));
@@ -347,7 +338,6 @@ public class GATileEntities {
         }
 
         if (GAConfig.GT5U.highTierLaserEngravers) {
-            LASER_ENGRAVER[4] = GregTechAPI.registerMetaTileEntity(2156, new SimpleMachineMetaTileEntity(location("laser_engraver.iv"), RecipeMaps.LASER_ENGRAVER_RECIPES, Textures.LASER_ENGRAVER_OVERLAY, 5));
             LASER_ENGRAVER[5] = GregTechAPI.registerMetaTileEntity(2157, new SimpleMachineMetaTileEntity(location("laser_engraver.luv"), RecipeMaps.LASER_ENGRAVER_RECIPES, Textures.LASER_ENGRAVER_OVERLAY, 6));
             LASER_ENGRAVER[6] = GregTechAPI.registerMetaTileEntity(2158, new SimpleMachineMetaTileEntity(location("laser_engraver.zpm"), RecipeMaps.LASER_ENGRAVER_RECIPES, Textures.LASER_ENGRAVER_OVERLAY, 7));
             LASER_ENGRAVER[7] = GregTechAPI.registerMetaTileEntity(2159, new SimpleMachineMetaTileEntity(location("laser_engraver.uv"), RecipeMaps.LASER_ENGRAVER_RECIPES, Textures.LASER_ENGRAVER_OVERLAY, 8));
@@ -432,16 +422,6 @@ public class GATileEntities {
             AIR_COLLECTOR[4] = GregTechAPI.registerMetaTileEntity(2205, new MetaTileEntityAirCollector(location("air_collector.iv"), 5));
             AIR_COLLECTOR[5] = GregTechAPI.registerMetaTileEntity(2206, new MetaTileEntityAirCollector(location("air_collector.luv"), 6));
         }
-
-        if (GAConfig.Misc.registerCrates) {
-            WOODEN_CRATE = GregTechAPI.registerMetaTileEntity(2207, new TileEntityCrate(location("crate.wood"), Materials.Wood, 36));
-            BRONZE_CRATE = GregTechAPI.registerMetaTileEntity(2208, new TileEntityCrate(location("crate.bronze"), Materials.Bronze, 54));
-            STEEL_CRATE = GregTechAPI.registerMetaTileEntity(2209, new TileEntityCrate(location("crate.steel"), Materials.Steel, 72));
-            STAINLESS_STEEL_CRATE = GregTechAPI.registerMetaTileEntity(2210, new TileEntityCrate(location("crate.stainless_steel"), Materials.StainlessSteel, 90));
-            TITANIUM_CRATE = GregTechAPI.registerMetaTileEntity(2211, new TileEntityCrate(location("crate.titanium"), Materials.Titanium, 108));
-            TUNGSTENSTEEL_CRATE = GregTechAPI.registerMetaTileEntity(2212, new TileEntityCrate(location("crate.tungstensteel"), Materials.TungstenSteel, 126));
-        }
-
 
         ROCK_BREAKER[0] = GregTechAPI.registerMetaTileEntity(2213, new TileEntityRockBreaker(location("rock_breaker.lv"), GATextures.BREAKER_OVERLAY, 1));
         ROCK_BREAKER[1] = GregTechAPI.registerMetaTileEntity(2214, new TileEntityRockBreaker(location("rock_breaker.mv"), GATextures.BREAKER_OVERLAY, 2));

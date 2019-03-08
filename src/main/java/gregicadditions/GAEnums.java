@@ -35,11 +35,6 @@ public class GAEnums {
                 new Class[]{String.class, long.class, Material.class, MaterialIconType.class, long.class, Predicate.class},
                 "Round", GTValues.M, null, MaterialIconType.valueOf("round"), OrePrefix.Flags.ENABLE_UNIFICATION,
                 pred((mat) -> mat instanceof IngotMaterial && mat.hasFlag(DustMaterial.MatFlags.GENERATE_PLATE)));
-
-        EnumHelper.addEnum(OrePrefix.class, "circuitGA",
-                new Class[]{String.class, long.class, Material.class, MaterialIconType.class, long.class, Predicate.class},
-                "GA Circuits", -1L, null, null, OrePrefix.Flags.ENABLE_UNIFICATION | OrePrefix.Flags.DISALLOW_RECYCLING,
-                null);
     }
 
     private static Predicate<Material> pred(Predicate<Material> in) {

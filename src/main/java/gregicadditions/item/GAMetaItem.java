@@ -1,7 +1,6 @@
 package gregicadditions.item;
 
 import gregicadditions.GAConfig;
-import gregicadditions.GAMaterials;
 import gregtech.api.items.materialitem.MaterialMetaItem;
 import gregtech.api.items.metaitem.ElectricStats;
 import gregtech.api.items.metaitem.stats.IMetaItemStats;
@@ -24,148 +23,65 @@ public class GAMetaItem extends MaterialMetaItem {
     }
 
     public void registerSubItems() {
-        GAMetaItems.NANO_ASSEMBLY = addItem(0, "assembly.nano").setUnificationData(OrePrefix.valueOf("circuitGA"), GAMaterials.Extreme);
-        GAMetaItems.INTEGRATED_ASSEMBLY = addItem(1, "assembly.normal").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Advanced);
-        GAMetaItems.WETWARE_ASSEMBLY = addItem(2, "assembly.wetware").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Ultimate);
-        GAMetaItems.COATED_BOARD = addItem(3, "board.coated");
-        GAMetaItems.EPOXY_BOARD = addItem(4, "board.epoxy");
-        GAMetaItems.FIBER_BOARD = addItem(5, "board.fiber-reinforced");
-        GAMetaItems.MULTILAYER_FIBER_BOARD = addItem(6, "board.multilayer.fiber-reinforced");
-        GAMetaItems.PHENOLIC_BOARD = addItem(7, "board.phenolic");
-        GAMetaItems.PLASTIC_BOARD = addItem(8, "board.plastic");
-        GAMetaItems.WETWARE_BOARD = addItem(9, "board.wetware");
-        GAMetaItems.GLOWSTONE_BOULE = addItem(10, "boule.glowstone");
-        GAMetaItems.NAQUADAH_BOULE = addItem(11, "boule.naquadah");
-        GAMetaItems.SILICON_BOULE = addItem(12, "boule.silicon");
-        GAMetaItems.COKE_BRICK = addItem(13, "ga_brick.coke");
-        GAMetaItems.FIRECLAY_BRICK = addItem(14, "ga_brick.fireclay").setUnificationData(OrePrefix.ingot, Materials.Fireclay);
-        GAMetaItems.ADVANCED_CIRCUIT = addItem(15, "circuit.advanced.regular").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Advanced);
-        GAMetaItems.GOOD_CIRCUIT = addItem(16, "circuit.good.regular").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Good);
-        GAMetaItems.BASIC_CIRCUIT = addItem(17, "circuit.basic.regular").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
-        GAMetaItems.VACUUM_TUBE = addItem(18, "circuit.vacuum.tube").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Primitive);
-        GAMetaItems.DIODE = addItem(19, "component.diode");
-        GAMetaItems.CAPACITOR = addItem(20, "component.capacitor");
-        GAMetaItems.GLASS_FIBER = addItem(21, "component.glass.fiber");
-        GAMetaItems.GLASS_TUBE = addItem(22, "component.glass.tube");
-        GAMetaItems.PETRI_DISH = addItem(23, "component.petri.dish");
-        GAMetaItems.RESISTOR = addItem(24, "component.resistor");
-        GAMetaItems.SMALL_COIL = addItem(25, "component.small.coil");
-        GAMetaItems.SMD_DIODE = addItem(26, "component.smd.diode");
-        GAMetaItems.SMD_CAPACITOR = addItem(27, "component.smd.capacitor");
-        GAMetaItems.SMD_RESISTOR = addItem(28, "component.smd.resistor");
-        GAMetaItems.SMD_TRANSISTOR = addItem(29, "component.smd.transistor");
-        GAMetaItems.TRANSISTOR = addItem(30, "component.transistor");
-        GAMetaItems.COMPRESSED_CLAY = addItem(31, "ga_compressed.clay");
-        GAMetaItems.COMPRESSED_COKE_CLAY = addItem(32, "ga_compressed.coke.clay");
-        GAMetaItems.COMPRESSED_FIRECLAY = addItem(33, "ga_compressed.fireclay");
-        GAMetaItems.CRYSTAL_COMPUTER = addItem(34, "computer.crystal").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Ultimate);
-        GAMetaItems.NANO_COMPUTER = addItem(35, "computer.nano").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Elite);
-        GAMetaItems.QUANTUM_COMPUTER = addItem(36, "computer.quantum").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Master);
-        GAMetaItems.WETWARE_COMPUTER = addItem(37, "computer.wetware").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Superconductor);
-        GAMetaItems.CRYSTAL_MAINFRAME = addItem(38, "mainframe.crystal").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Superconductor);
-        GAMetaItems.NANO_MAINFRAME = addItem(39, "mainframe.nano").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Master);
-        GAMetaItems.INTEGRATED_MAINFRAME = addItem(40, "mainframe.normal").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Elite);
-        GAMetaItems.QUANTUM_MAINFRAME = addItem(41, "mainframe.quantum").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Ultimate);
-        GAMetaItems.WETWARE_MAINFRAME = addItem(42, "mainframe.wetware").setUnificationData(OrePrefix.valueOf("circuitGA"), GAMaterials.Infinite);
-        GAMetaItems.ASOC = addItem(43, "plate.asoc");
-        GAMetaItems.LOGIC_CIRCUIT = addItem(44, "plate.circuit");
-        GAMetaItems.CPU = addItem(45, "plate.cpu");
-        GAMetaItems.HPIC = addItem(46, "plate.hpic");
-        GAMetaItems.NAND = addItem(47, "plate.nand");
-        GAMetaItems.NANOCPU = addItem(48, "plate.nanocpu");
-        GAMetaItems.NOR = addItem(49, "plate.nor");
-        GAMetaItems.PIC = addItem(50, "plate.pic");
-        GAMetaItems.QBIT_CPU = addItem(51, "plate.qbit");
-        GAMetaItems.RAM = addItem(52, "plate.ram");
-        GAMetaItems.SOC = addItem(53, "plate.soc");
-        GAMetaItems.CRYSTALPROCESSOR = addItem(54, "processor.crystal").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Elite);
-        GAMetaItems.NANOPROCESSOR = addItem(55, "processor.nano").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Advanced);
-        GAMetaItems.QUANTUMPROCESSOR = addItem(56, "processor.quantum").setUnificationData(OrePrefix.valueOf("circuitGA"), GAMaterials.Extreme);
-        GAMetaItems.WETWAREPROCESSOR = addItem(57, "processor.wetware").setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Master);
-        GAMetaItems.ASOC_WAFER = addItem(58, "wafer.asoc");
-        GAMetaItems.LOGIC_CIRCUIT_WAFER = addItem(59, "wafer.circuit");
-        GAMetaItems.CPU_WAFER = addItem(60, "wafer.cpu");
-        GAMetaItems.GLOWSTONE_WAFER = addItem(61, "wafer.glowstone");
-        GAMetaItems.HPIC_WAFER = addItem(62, "wafer.hpic");
-        GAMetaItems.NAND_WAFER = addItem(63, "wafer.nand");
-        GAMetaItems.NANOCPU_WAFER = addItem(64, "wafer.nanocpu");
-        GAMetaItems.NAQUADAH_WAFER = addItem(65, "wafer.naquadah");
-        GAMetaItems.NOR_WAFER = addItem(66, "wafer.nor");
-        GAMetaItems.PIC_WAFER = addItem(67, "wafer.pic");
-        GAMetaItems.QBIT_CPU_WAFER = addItem(68, "wafer.qbit");
-        GAMetaItems.RAM_WAFER = addItem(69, "wafer.ram");
-        GAMetaItems.SILICON_WAFER = addItem(70, "wafer.silicon");
-        GAMetaItems.SOC_WAFER = addItem(71, "wafer.soc");
-        GAMetaItems.RAW_CARBON_FIBERS = addItem(79, "carbon.fibers");
-        GAMetaItems.MIXED_METAL_PLATE = addItem(80, "plate.mixed.metal");
-        GAMetaItems.ADVANCED_ALLOY_PLATE = addItem(81, "plate.advanced.alloy");
-        GAMetaItems.RAW_CRYSTAL_CHIP = addItem(82, "crystal.raw");
-        GAMetaItems.CRYSTAL_CPU = addItem(83, "crystal.cpu");
-        GAMetaItems.CRYSTAL_SOC = addItem(84, "crystal.soc");
-        GAMetaItems.STEMCELLS = addItem(85, "stemcells");
-        GAMetaItems.PLATE_IRIDIUM_ALLOY = addItem(105, "plate.iridium.alloy");
-        GAMetaItems.PLATE_IRIDIUM_ALLOY_UNCOMPRESSED = addItem(106, "plate.iridium.alloy.uncompressed");
-        GAMetaItems.NEUTRON_REFLECTOR = addItem(107, "neutron.reflector");
+        GAMetaItems.COKE_BRICK = addItem(0, "ga_brick.coke");
+        GAMetaItems.FIRECLAY_BRICK = addItem(1, "ga_brick.fireclay").setUnificationData(OrePrefix.ingot, Materials.Fireclay);
+        GAMetaItems.ADVANCED_CIRCUIT = addItem(2, "circuit.advanced.regular").setUnificationData(OrePrefix.circuit, Tier.Advanced);
+        GAMetaItems.GOOD_CIRCUIT = addItem(3, "circuit.good.regular").setUnificationData(OrePrefix.circuit, Tier.Good);
+        GAMetaItems.PETRI_DISH = addItem(4, "component.petri.dish");
+        GAMetaItems.COMPRESSED_CLAY = addItem(5, "ga_compressed.clay");
+        GAMetaItems.COMPRESSED_COKE_CLAY = addItem(6, "ga_compressed.coke.clay");
+        GAMetaItems.COMPRESSED_FIRECLAY = addItem(7, "ga_compressed.fireclay");
+        GAMetaItems.CRYSTAL_COMPUTER = addItem(8, "computer.crystal").setUnificationData(OrePrefix.circuit, Tier.Ultimate);
+        GAMetaItems.NANO_COMPUTER = addItem(9, "computer.nano").setUnificationData(OrePrefix.circuit, Tier.Elite);
+        GAMetaItems.QUANTUM_COMPUTER = addItem(10, "computer.quantum").setUnificationData(OrePrefix.circuit, Tier.Master);
+        GAMetaItems.CRYSTAL_MAINFRAME = addItem(11, "mainframe.crystal").setUnificationData(OrePrefix.circuit, Tier.Superconductor);
+        GAMetaItems.NANO_MAINFRAME = addItem(12, "mainframe.nano").setUnificationData(OrePrefix.circuit, Tier.Master);
+        GAMetaItems.INTEGRATED_MAINFRAME = addItem(13, "mainframe.normal").setUnificationData(OrePrefix.circuit, Tier.Elite);
+        GAMetaItems.QUANTUM_MAINFRAME = addItem(14, "mainframe.quantum").setUnificationData(OrePrefix.circuit, Tier.Ultimate);
+        GAMetaItems.NEURO_PROCESSOR = addItem(15, "processor.neuro");
+        GAMetaItems.INTEGRATED_COMPUTER = addItem(16, "computer.normal").setUnificationData(OrePrefix.circuit, Tier.Extreme);
+        GAMetaItems.RAW_CRYSTAL_CHIP = addItem(17, "crystal.raw");
+        GAMetaItems.STEMCELLS = addItem(18, "stemcells");
 
         if (Loader.isModLoaded("forestry") && GAConfig.GT6.electrodes) {
-            GAMetaItems.ELECTRODE_APATITE = addItem(108, "electrode.apatite");
-            GAMetaItems.ELECTRODE_BLAZE = addItem(109, "electrode.blaze");
-            GAMetaItems.ELECTRODE_BRONZE = addItem(110, "electrode.bronze");
-            GAMetaItems.ELECTRODE_COPPER = addItem(111, "electrode.copper");
-            GAMetaItems.ELECTRODE_DIAMOND = addItem(112, "electrode.diamond");
-            GAMetaItems.ELECTRODE_EMERALD = addItem(113, "electrode.emerald");
-            GAMetaItems.ELECTRODE_ENDER = addItem(114, "electrode.ender");
-            GAMetaItems.ELECTRODE_GOLD = addItem(115, "electrode.gold");
+            GAMetaItems.ELECTRODE_APATITE = addItem(100, "electrode.apatite");
+            GAMetaItems.ELECTRODE_BLAZE = addItem(101, "electrode.blaze");
+            GAMetaItems.ELECTRODE_BRONZE = addItem(102, "electrode.bronze");
+            GAMetaItems.ELECTRODE_COPPER = addItem(103, "electrode.copper");
+            GAMetaItems.ELECTRODE_DIAMOND = addItem(104, "electrode.diamond");
+            GAMetaItems.ELECTRODE_EMERALD = addItem(105, "electrode.emerald");
+            GAMetaItems.ELECTRODE_ENDER = addItem(106, "electrode.ender");
+            GAMetaItems.ELECTRODE_GOLD = addItem(107, "electrode.gold");
             if (Loader.isModLoaded("ic2") || Loader.isModLoaded("binniecore"))
-                GAMetaItems.ELECTRODE_IRON = addItem(116, "electrode.iron");
-            GAMetaItems.ELECTRODE_LAPIS = addItem(117, "electrode.lapis");
-            GAMetaItems.ELECTRODE_OBSIDIAN = addItem(118, "electrode.obsidian");
+                GAMetaItems.ELECTRODE_IRON = addItem(108, "electrode.iron");
+            GAMetaItems.ELECTRODE_LAPIS = addItem(109, "electrode.lapis");
+            GAMetaItems.ELECTRODE_OBSIDIAN = addItem(110, "electrode.obsidian");
             if (Loader.isModLoaded("extrautils2"))
-                GAMetaItems.ELECTRODE_ORCHID = addItem(119, "electrode.orchid");
+                GAMetaItems.ELECTRODE_ORCHID = addItem(111, "electrode.orchid");
             if (Loader.isModLoaded("ic2") || Loader.isModLoaded("techreborn") || Loader.isModLoaded("binniecore"))
-                GAMetaItems.ELECTRODE_RUBBER = addItem(120, "electrode.rubber");
-            GAMetaItems.ELECTRODE_TIN = addItem(121, "electrode.tin");
+                GAMetaItems.ELECTRODE_RUBBER = addItem(112, "electrode.rubber");
+            GAMetaItems.ELECTRODE_TIN = addItem(113, "electrode.tin");
         }
 
         if (GAConfig.GT5U.enableZPMandUVBats) {
-            GAMetaItems.ENERGY_MODULE = addItem(122, "energy.module").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(10000000000L, 7)}).setModelAmount(8);
-            GAMetaItems.ENERGY_CLUSTER = addItem(123, "energy.cluster").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(100000000000L, 8)}).setModelAmount(8);
+            GAMetaItems.ENERGY_MODULE = addItem(19, "energy.module").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(10000000000L, 7)}).setModelAmount(8);
+            GAMetaItems.ENERGY_CLUSTER = addItem(20, "energy.cluster").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(100000000000L, 8)}).setModelAmount(8);
         }
 
         if (GAConfig.GT5U.replaceUVwithMAXBat) {
-            GAMetaItems.MAX_BATTERY = addItem(124, "max.battery").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(9223372036854775807L, 9)}).setModelAmount(8);
+            GAMetaItems.MAX_BATTERY = addItem(21, "max.battery").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(9223372036854775807L, 9)}).setModelAmount(8);
             MetaItems.ZPM2.setInvisible();
         }
 
-        GAMetaItems.SCHEMATIC = addItem(131, "schematic")
-                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)))
-        ;
-        GAMetaItems.SCHEMATIC_2X2 = addItem(132, "schematic.2by2")
-                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)))
-        ;
-        GAMetaItems.SCHEMATIC_3X3 = addItem(133, "schematic.3by3")
-                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)))
-        ;
-        GAMetaItems.SCHEMATIC_DUST = addItem(134, "schematic.dust")
-                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)))
-        ;
+        GAMetaItems.SCHEMATIC = addItem(22, "schematic")
+                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
+        GAMetaItems.SCHEMATIC_2X2 = addItem(23, "schematic.2by2")
+                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
+        GAMetaItems.SCHEMATIC_3X3 = addItem(24, "schematic.3by3")
+                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
+        GAMetaItems.SCHEMATIC_DUST = addItem(25, "schematic.dust")
+                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
 
-        MetaItems.CIRCUIT_BASIC.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
-        MetaItems.CIRCUIT_PARTS_ADVANCED.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Basic);
-        MetaItems.CIRCUIT_GOOD.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Good);
-        MetaItems.CIRCUIT_ADVANCED.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Good);
-        MetaItems.CIRCUIT_DATA.setUnificationData(OrePrefix.valueOf("circuitGA"), GAMaterials.Extreme);
-        MetaItems.CIRCUIT_ELITE.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Elite);
-        MetaItems.CIRCUIT_MASTER.setUnificationData(OrePrefix.valueOf("circuitGA"), Tier.Master);
-
-        MetaItems.EMPTY_BOARD_BASIC.setInvisible();
-        MetaItems.EMPTY_BOARD_ELITE.setInvisible();
-        MetaItems.CIRCUIT_BOARD_BASIC.setInvisible();
-        MetaItems.CIRCUIT_BOARD_ADVANCED.setInvisible();
-        MetaItems.CIRCUIT_PARTS_WIRING_BASIC.setInvisible();
-        MetaItems.CIRCUIT_PARTS_WIRING_ADVANCED.setInvisible();
-        MetaItems.CIRCUIT_PARTS_WIRING_ELITE.setInvisible();
-        MetaItems.CIRCUIT_PRIMITIVE.setInvisible();
         MetaItems.COMPRESSED_CLAY.setInvisible();
         MetaItems.COMPRESSED_FIRECLAY.setInvisible();
         MetaItems.COKE_OVEN_BRICK.setInvisible();
