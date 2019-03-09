@@ -7,6 +7,7 @@ import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.machines.GATileEntities;
 import gregtech.api.GTValues;
 import gregtech.api.items.OreDictNames;
+import gregtech.api.metatileentity.ITieredMetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.OreDictUnifier;
@@ -353,10 +354,10 @@ public class MachineCraftingRecipes {
         registerMachineRecipe(GATileEntities.ROCK_BREAKER, "QPQ", "CMC", "GGG", 'M', HULL, 'Q', CABLE, 'C', CIRCUIT, 'P', PISTON, 'G', GLASS);
     }
 
-    public static <T extends MetaTileEntity> void registerMachineRecipe(T[] metaTileEntities, Object... recipe) {
-        for (int i = 0; i < metaTileEntities.length; i++) {
-            if (metaTileEntities[i] != null)
-                ModHandler.addShapedRecipe(String.format("ga_%s", metaTileEntities[i].getMetaName()), metaTileEntities[i].getStackForm(), prepareRecipe(i + 1, Arrays.copyOf(recipe, recipe.length)));
+    public static <T extends MetaTileEntity & ITieredMetaTileEntity> void registerMachineRecipe(T[] metaTileEntities, Object... recipe) {
+        for (T te : metaTileEntities) {
+            if (te != null)
+                ModHandler.addShapedRecipe(String.format("ga_%s", te.getMetaName()), te.getStackForm(), prepareRecipe(te.getTier(), Arrays.copyOf(recipe, recipe.length)));
         }
     }
 

@@ -54,12 +54,6 @@ public class GAMachineRecipeRemoval {
                 ModHandler.removeRecipeByName(new ResourceLocation(String.format("gregtech:wrench_%s", m.toString())));
             }
 
-            //Remove GTCE's weird fine wire recipes
-            if (!OreDictUnifier.get(OrePrefix.wireFine, m).isEmpty() && !OreDictUnifier.get(OrePrefix.stick, m).isEmpty() && GAConfig.GT5U.OldFineWireRecipes) {
-                removeRecipesByInputs(RecipeMaps.WIREMILL_RECIPES, OreDictUnifier.get(OrePrefix.stick, m));
-            }
-
-
             //Remove EV+ Cable Recipes
             if (GAConfig.GT5U.CablesGT5U) {
                 removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES,
@@ -164,11 +158,6 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, OreDictUnifier.get(OrePrefix.plate, Materials.Darmstadtium, 8), IntCircuitIngredient.getIntegratedCircuit(8));
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.MAX), OreDictUnifier.get(OrePrefix.wireGtSingle, MarkerMaterials.Tier.Superconductor, 2)}, new FluidStack[]{Materials.Polytetrafluoroethylene.getFluid(288)});
 
-        //Remove Default Recipes Without Circuits
-        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dust, Materials.Carbon)}, new FluidStack[]{Materials.Hydrogen.getFluid(4000)});
-        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Nitrogen.getFluid(1000), Materials.Oxygen.getFluid(2000));
-        removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.Oxygen.getFluid(2000), Materials.Nitrogen.getFluid(1000));
-
         //Fix Seed Oil Recipe
         removeRecipesByInputs(RecipeMaps.FLUID_EXTRACTION_RECIPES, new ItemStack(Items.WHEAT_SEEDS));
         removeRecipesByInputs(RecipeMaps.FLUID_EXTRACTION_RECIPES, new ItemStack(Items.MELON_SEEDS));
@@ -199,9 +188,6 @@ public class GAMachineRecipeRemoval {
         //For Forestry Support
         if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration) {
             removeRecipesByInputs(RecipeMaps.DISTILLERY_RECIPES, Materials.SeedOil.getFluid(24));
-            removeRecipesByInputs(RecipeMaps.DISTILLERY_RECIPES, Materials.WoodVinegar.getFluid(1000));
-            removeRecipesByInputs(RecipeMaps.DISTILLERY_RECIPES, Materials.FermentedBiomass.getFluid(1000));
-            removeRecipesByInputs(RecipeMaps.DISTILLERY_RECIPES, Materials.Biomass.getFluid(1000));
             removeRecipesByInputs(RecipeMaps.EXTRACTOR_RECIPES, new ItemStack(Items.WHEAT_SEEDS));
             removeRecipesByInputs(RecipeMaps.EXTRACTOR_RECIPES, new ItemStack(Items.MELON_SEEDS));
             removeRecipesByInputs(RecipeMaps.EXTRACTOR_RECIPES, new ItemStack(Items.PUMPKIN_SEEDS));
@@ -211,7 +197,6 @@ public class GAMachineRecipeRemoval {
             removeRecipesByInputs(RecipeMaps.MIXER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dust, Materials.Talc)}, new FluidStack[]{Materials.SeedOil.getFluid(750)});
             removeRecipesByInputs(RecipeMaps.MIXER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dust, Materials.Soapstone)}, new FluidStack[]{Materials.SeedOil.getFluid(750)});
             removeRecipesByInputs(RecipeMaps.MIXER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dust, Materials.Redstone)}, new FluidStack[]{Materials.SeedOil.getFluid(750)});
-            removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.SulfuricAcid.getFluid(1000), Materials.Ethanol.getFluid(1000));
         }
     }
 
