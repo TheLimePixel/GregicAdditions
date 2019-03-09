@@ -175,10 +175,9 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.CUTTER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.block, Materials.CertusQuartz)}, new FluidStack[]{Materials.Lubricant.getFluid(18)});
 
         //GTCE Coke And Firebrick recipes
-        removeRecipesByInputs(RecipeMaps.COMPRESSOR_RECIPES, MetaItems.COMPRESSED_FIRECLAY.getStackForm());
-        ModHandler.removeRecipes(MetaItems.COMPRESSED_CLAY.getStackForm());
-        ModHandler.removeFurnaceSmelting(MetaItems.FIRECLAY_BRICK.getStackForm());
-        ModHandler.removeFurnaceSmelting(MetaItems.COKE_OVEN_BRICK.getStackForm());
+        removeRecipesByInputs(RecipeMaps.COMPRESSOR_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Fireclay));
+        ModHandler.removeFurnaceSmelting(MetaItems.COMPRESSED_FIRECLAY.getStackForm());
+        ModHandler.removeFurnaceSmelting(MetaItems.COMPRESSED_CLAY.getStackForm());
 
         //Remove Simple Superconductor recipe
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtSingle, Materials.YttriumBariumCuprate, 3), OreDictUnifier.get(OrePrefix.plate, Materials.TungstenSteel, 3), MetaItems.ELECTRIC_PUMP_LV.getStackForm()});

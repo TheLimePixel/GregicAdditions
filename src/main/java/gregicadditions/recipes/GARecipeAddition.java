@@ -929,14 +929,14 @@ public class GARecipeAddition {
                 OreDictUnifier.get(OrePrefix.plate, Materials.HSSG, 6),
                 MetaItems.QUANTUM_STAR.getStackForm(),
                 MetaItems.EMITTER_LUV.getStackForm(4),
-                GAMetaItems.QUANTUM_COMPUTER.getStackForm(8),
-                MetaItems.CRYSTAL_PROCESSOR_IV.getStackForm(8),
                 GAMetaItems.NEURO_PROCESSOR.getStackForm(8),
                 OreDictUnifier.get(OrePrefix.wireFine, Materials.Osmium, 64),
                 OreDictUnifier.get(OrePrefix.wireFine, Materials.Osmium, 64),
                 OreDictUnifier.get(OrePrefix.wireFine, Materials.Osmium, 64),
                 OreDictUnifier.get(OrePrefix.wireFine, Materials.Osmium, 64),
-                OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.YttriumBariumCuprate, 8)).fluidInputs(
+                OreDictUnifier.get(OrePrefix.cableGtSingle, Materials.YttriumBariumCuprate, 8))
+                .input(OrePrefix.circuit, Tier.Master, 8)
+                .input(OrePrefix.circuit, Tier.Elite, 8).fluidInputs(
                 Materials.SolderingAlloy.getFluid(576))
                 .outputs(MetaItems.FIELD_GENERATOR_LUV.getStackForm()).duration(600).EUt(30720)
                 .buildAndRegister();
@@ -956,7 +956,8 @@ public class GARecipeAddition {
                 OreDictUnifier.get(OrePrefix.wireFine, Materials.Osmium, 64),
                 OreDictUnifier.get(OrePrefix.wireFine, Materials.Osmium, 64),
                 OreDictUnifier.get(OrePrefix.wireFine, Materials.Osmium, 64),
-                OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.VanadiumGallium, 8)).fluidInputs(
+                OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.VanadiumGallium, 8))
+                .input(OrePrefix.circuit, Tier.Elite, 16).fluidInputs(
                 Materials.SolderingAlloy.getFluid(1152))
                 .outputs(MetaItems.FIELD_GENERATOR_ZPM.getStackForm()).duration(600).EUt(122880)
                 .buildAndRegister();
@@ -1158,8 +1159,6 @@ public class GARecipeAddition {
 
         ModHandler.addShapedRecipe("fusion_coil", MetaBlocks.WIRE_COIL.getItemVariant(BlockWireCoil.CoilType.FUSION_COIL), "CRC", "FSF", "CRC", 'C', "circuitMaster", 'R', MetaItems.NEUTRON_REFLECTOR.getStackForm(), 'F', MetaItems.FIELD_GENERATOR_MV.getStackForm(), 'S', MetaBlocks.WIRE_COIL.getItemVariant(BlockWireCoil.CoilType.SUPERCONDUCTOR));
 
-        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(4000).EUt(120).inputs(MetaItems.PLATE_IRIDIUM_ALLOY.getStackForm()).input(OrePrefix.plate, Materials.Beryllium, 30).input(OrePrefix.plate, Materials.TungstenCarbide, 3).fluidInputs(Materials.TinAlloy.getFluid(13824)).outputs(MetaItems.NEUTRON_REFLECTOR.getStackForm()).buildAndRegister();
-
         //Explosive Recipes
         ModHandler.removeRecipes(new ItemStack(Blocks.TNT));
         ModHandler.removeRecipes(MetaItems.DYNAMITE.getStackForm());
@@ -1188,16 +1187,6 @@ public class GARecipeAddition {
             ModHandler.addShapedRecipe("lapotron_crystal_shaped_with_crystal" + gem.toString(), MetaItems.LAPOTRON_CRYSTAL.getStackForm(), "PCP", "RFR", "PCP", 'P', new UnificationEntry(OrePrefix.plate, gem), 'C', "circuitExtreme", 'R', OreDictUnifier.get(OrePrefix.stick, gem), 'F', MetaItems.ENERGY_CRYSTAL.getStackForm());
             ModHandler.addShapelessRecipe("lapotron_crystal_shapeless" + gem.toString(), MetaItems.LAPOTRON_CRYSTAL.getStackForm(), OreDictUnifier.get(OrePrefix.gemExquisite, Materials.Sapphire), OreDictUnifier.get(OrePrefix.stick, gem), MetaItems.CAPACITOR.getStackForm());
         }
-
-        //Add Missing Superconducter Wire Tiering Recipes
-        ModHandler.addShapelessRecipe("superonducter_wire_gtsingle_doubling", OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor));
-        ModHandler.addShapelessRecipe("superonducter_wire_gtdouble_doubling", OreDictUnifier.get(OrePrefix.wireGtQuadruple, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor));
-        ModHandler.addShapelessRecipe("superonducter_wire_gtquadruple_doubling", OreDictUnifier.get(OrePrefix.wireGtOctal, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtQuadruple, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtQuadruple, Tier.Superconductor));
-        ModHandler.addShapelessRecipe("superonducter_wire_gtoctal_doubling", OreDictUnifier.get(OrePrefix.wireGtHex, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtOctal, Tier.Superconductor), OreDictUnifier.get(OrePrefix.wireGtOctal, Tier.Superconductor));
-        ModHandler.addShapelessRecipe("superonducter_wire_gtdouble_splitting", OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor, 2), OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor));
-        ModHandler.addShapelessRecipe("superonducter_wire_gtquadruple_splitting", OreDictUnifier.get(OrePrefix.wireGtDouble, Tier.Superconductor, 2), OreDictUnifier.get(OrePrefix.wireGtQuadruple, Tier.Superconductor));
-        ModHandler.addShapelessRecipe("superonducter_wire_gtoctal_splitting", OreDictUnifier.get(OrePrefix.wireGtQuadruple, Tier.Superconductor, 2), OreDictUnifier.get(OrePrefix.wireGtOctal, Tier.Superconductor));
-        ModHandler.addShapelessRecipe("superonducter_wire_gthex_splitting", OreDictUnifier.get(OrePrefix.wireGtOctal, Tier.Superconductor, 2), OreDictUnifier.get(OrePrefix.wireGtHex, Tier.Superconductor));
 
         //Dust Packing
         for (Material m : DustMaterial.MATERIAL_REGISTRY) {

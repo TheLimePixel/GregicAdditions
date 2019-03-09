@@ -3,6 +3,7 @@ package gregicadditions;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.machines.GATileEntities;
+import gregicadditions.recipes.GAMachineRecipeRemoval;
 import gregicadditions.recipes.GARecipeAddition;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -43,10 +44,6 @@ public class GregicAdditions {
         GAMetaBlocks.init();
         GATileEntities.init();
         proxy.preInit();
-    }
-
-    @EventHandler
-    public void init(FMLInitializationEvent event) {
     }
 
     @EventHandler

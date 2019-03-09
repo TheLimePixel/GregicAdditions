@@ -20,7 +20,6 @@ import java.util.function.Function;
 public class CommonProxy {
 
     public void preInit() {
-
     }
 
     public void postInit() {
