@@ -48,10 +48,6 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class GARecipeAddition {
 
-	private static final MaterialStack[] solderingList = { new MaterialStack(Materials.Tin, 2L), new MaterialStack(Materials.SolderingAlloy, 1L), new MaterialStack(Materials.Lead, 4L) };
-
-	private static final MaterialStack[] sawLubricants = { new MaterialStack(Materials.Lubricant, 1L), new MaterialStack(Materials.DistilledWater, 3L), new MaterialStack(Materials.Water, 4L) };
-
 	private static final MaterialStack[] cableFluids = { new MaterialStack(Materials.Rubber, 144), new MaterialStack(Materials.StyreneButadieneRubber, 108), new MaterialStack(Materials.SiliconeRubber, 72) };
 
 	private static final MaterialStack[] cableDusts = { new MaterialStack(Materials.Polydimethylsiloxane, 1), new MaterialStack(Materials.PolyvinylChloride, 1) };

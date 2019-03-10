@@ -40,6 +40,18 @@ public class GAConfig {
 		@Config.Comment("Set this to false to disable the support for Forestry Electron Tubes")
 		@Config.Name("Should Electrodes be registered?")
 		public boolean electrodes = true;
+
+		@Config.Comment("Set this to false to disable rounds")
+		@Config.Name("Should rounds be registered?")
+		public boolean addRounds = true;
+
+		@Config.Comment("Set this to false to disable double ingots")
+		@Config.Name("Should double ingots be registered?")
+		public boolean addDoubleIngots = true;
+
+		@Config.Comment("Set this to false to disable curved plates")
+		@Config.Name("Should curved plates be registered?")
+		public boolean addCurvedPlates = true;
 	}
 
 	@Config.Comment("Config options for GT5U features")
