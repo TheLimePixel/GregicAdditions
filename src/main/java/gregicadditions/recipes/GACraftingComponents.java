@@ -192,11 +192,11 @@ public enum GACraftingComponents {
                 case 5:
                     return new UnificationEntry(OrePrefix.pipeMedium, Materials.TungstenSteel);
                 case 6:
-                    return new UnificationEntry(OrePrefix.pipeSmall, GAMaterials.Ultimate);
+                    return new UnificationEntry(OrePrefix.pipeMedium, Materials.NiobiumTitanium);
                 case 7:
-                    return new UnificationEntry(OrePrefix.pipeMedium, GAMaterials.Ultimate);
+                    return new UnificationEntry(OrePrefix.pipeMedium,GAMaterials.Enderium);
                 default:
-                    return new UnificationEntry(OrePrefix.pipeLarge, GAMaterials.Ultimate);
+                    return new UnificationEntry(OrePrefix.pipeMedium, Materials.Naquadah);
 
             }
         }

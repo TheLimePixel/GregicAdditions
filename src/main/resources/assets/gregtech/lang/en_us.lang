@@ -175,6 +175,10 @@ metaitem.energy.module.name=Energy Module
 metaitem.energy.cluster.name=Energy Cluster
 metaitem.max.battery.name=MAX Battery
 
+metaitem.mica_sheet.name=Mica Based Sheet
+metaitem.mica_insulator_sheet.name=Mica Insulator Sheet
+metaitem.mica_insulator_foil.name=Mica Insulator Foil
+
 gtadditions.machine.circuit_assembler.lv.name=Basic Circuit Assembling Machine
 gtadditions.machine.circuit_assembler.mv.name=Advanced Circuit Assembling Machine
 gtadditions.machine.circuit_assembler.hv.name=Advanced Circuit Assembling Machine II
@@ -589,6 +593,23 @@ material.positive_matter=Positive Matter
 material.neutronium=Neutronium
 material.plasma=Plasma Confinement
 material.lignite_coke=Lignite Coke
+material.mv_superconductor_base=MV Superconductor Base
+material.hv_superconductor_base=HV Superconductor Base
+material.ev_superconductor_base=EV Superconductor Base
+material.iv_superconductor_base=IV Superconductor Base
+material.luv_superconductor_base=LuV Superconductor Base
+material.zpm_superconductor_base=ZPM Superconductor Base
+material.mv_superconductor=MV Superconductor
+material.hv_superconductor=HV Superconductor
+material.ev_superconductor=EV Superconductor
+material.iv_superconductor=IV Superconductor
+material.luv_superconductor=LuV Superconductor
+material.zpm_superconductor=ZPM Superconductor
+material.enderium=Enderium
+material.alumino_silicate_wool=Alumino Silicate Wool
+item.alumino_silicate_wool.dust=Alumino Silicate Wool
+material.mica_based=Mica Based Pulp
+item.mica_based.dust=Mica Based Pulp
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp

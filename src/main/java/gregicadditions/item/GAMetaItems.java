@@ -41,6 +41,10 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem NEURO_PROCESSOR;
     public static MetaItem<?>.MetaValueItem INTEGRATED_COMPUTER;
 
+    public static MetaItem<?>.MetaValueItem MICA_SHHET;
+    public static MetaItem<?>.MetaValueItem MICA_INSULATOR_SHHET;
+    public static MetaItem<?>.MetaValueItem MICA_INSULATOR_FOI;
+
     public static MetaItem<?>.MetaValueItem ELECTRODE_APATITE;
     public static MetaItem<?>.MetaValueItem ELECTRODE_BLAZE;
     public static MetaItem<?>.MetaValueItem ELECTRODE_BRONZE;

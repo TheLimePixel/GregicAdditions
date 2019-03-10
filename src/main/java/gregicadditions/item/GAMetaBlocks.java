@@ -2,6 +2,7 @@ package gregicadditions.item;
 
 import gregicadditions.GAMaterials;
 import gregtech.common.blocks.MetaBlocks;
+import gregtech.common.pipelike.cable.WireProperties;
 import gregtech.common.pipelike.fluidpipe.FluidPipeProperties;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
@@ -31,8 +32,14 @@ public class GAMetaBlocks {
         TRANSPARENT_CASING = new GATransparentCasing();
         TRANSPARENT_CASING.setRegistryName("ga_transparent_casing");
 
-        MetaBlocks.FLUID_PIPE.addPipeMaterial(GAMaterials.Ultimate, new FluidPipeProperties(1500, 12000, true));
         MetaBlocks.FLUID_PIPE.addPipeMaterial(GAMaterials.Plasma, new FluidPipeProperties(1000000, 30, true));
+
+        MetaBlocks.CABLE.addCableMaterial(GAMaterials.MVSuperconductor, new WireProperties(128, 2, 0));
+        MetaBlocks.CABLE.addCableMaterial(GAMaterials.HVSuperconductor, new WireProperties(512, 2, 0));
+        MetaBlocks.CABLE.addCableMaterial(GAMaterials.EVSuperconductor, new WireProperties(2048, 4, 0));
+        MetaBlocks.CABLE.addCableMaterial(GAMaterials.IVSuperconductor, new WireProperties(8192, 4, 0));
+        MetaBlocks.CABLE.addCableMaterial(GAMaterials.LuVSuperconductor, new WireProperties(32768, 8, 0));
+        MetaBlocks.CABLE.addCableMaterial(GAMaterials.ZPMSuperconductor, new WireProperties(131072, 8, 0));
     }
 
     @SideOnly(Side.CLIENT)

@@ -42,6 +42,9 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.INTEGRATED_COMPUTER = addItem(16, "computer.normal").setUnificationData(OrePrefix.circuit, Tier.Extreme);
         GAMetaItems.RAW_CRYSTAL_CHIP = addItem(17, "crystal.raw");
         GAMetaItems.STEMCELLS = addItem(18, "stemcells");
+        GAMetaItems.MICA_SHHET = addItem(26, "mica_sheet");
+        GAMetaItems.MICA_INSULATOR_SHHET = addItem(27, "mica_insulator_sheet");
+        GAMetaItems.MICA_INSULATOR_FOI = addItem(28, "mica_insulator_foil");
 
         if (Loader.isModLoaded("forestry") && GAConfig.GT6.electrodes) {
             GAMetaItems.ELECTRODE_APATITE = addItem(100, "electrode.apatite");
