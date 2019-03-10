@@ -610,6 +610,7 @@ material.alumino_silicate_wool=Alumino Silicate Wool
 item.alumino_silicate_wool.dust=Alumino Silicate Wool
 material.mica_based=Mica Based Pulp
 item.mica_based.dust=Mica Based Pulp
+material.ultima=Ultima Alloy
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp

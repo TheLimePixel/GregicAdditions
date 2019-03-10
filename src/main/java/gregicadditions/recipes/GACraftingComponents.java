@@ -46,28 +46,7 @@ public enum GACraftingComponents {
     BETTER_CIRCUIT {
         @Override
         Object getIngredient(int tier) {
-            switch (tier + 1) {
-                case 0:
-                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Primitive);
-                case 1:
-                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Basic);
-                case 2:
-                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Good);
-                case 3:
-                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Advanced);
-                case 4:
-                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Extreme);
-                case 5:
-                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Elite);
-                case 6:
-                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Master);
-                case 7:
-                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Ultimate);
-                case 8:
-                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Superconductor);
-                default:
-                    return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Infinite);
-            }
+            return CIRCUIT.getIngredient(tier + 1);
         }
     },
     PUMP {
@@ -115,7 +94,7 @@ public enum GACraftingComponents {
                 case 7:
                     return new UnificationEntry(OrePrefix.cableGtSingle, Materials.Naquadah);
                 case 8:
-                    return new UnificationEntry(OrePrefix.wireGtQuadruple, Materials.NaquadahAlloy);
+                    return new UnificationEntry(OrePrefix.cableGtSingle, GAMaterials.Ultima);
                 default:
                     return new UnificationEntry(OrePrefix.wireGtSingle, MarkerMaterials.Tier.Superconductor);
             }
@@ -192,11 +171,11 @@ public enum GACraftingComponents {
                 case 5:
                     return new UnificationEntry(OrePrefix.pipeMedium, Materials.TungstenSteel);
                 case 6:
-                    return new UnificationEntry(OrePrefix.pipeMedium, Materials.NiobiumTitanium);
+                    return new UnificationEntry(OrePrefix.pipeMedium, GAMaterials.Enderium);
                 case 7:
-                    return new UnificationEntry(OrePrefix.pipeMedium,GAMaterials.Enderium);
-                default:
                     return new UnificationEntry(OrePrefix.pipeMedium, Materials.Naquadah);
+                default:
+                    return new UnificationEntry(OrePrefix.pipeMedium, GAMaterials.Neutronium);
 
             }
         }
@@ -235,7 +214,6 @@ public enum GACraftingComponents {
                     return new UnificationEntry(OrePrefix.plate, Materials.HSSE);
                 default:
                     return new UnificationEntry(OrePrefix.plate, GAMaterials.Neutronium);
-
             }
         }
     },
@@ -470,9 +448,9 @@ public enum GACraftingComponents {
                 case 6:
                     return new UnificationEntry(OrePrefix.wireGtQuadruple, Materials.YttriumBariumCuprate);
                 case 7:
-                    return new UnificationEntry(OrePrefix.wireGtOctal, MarkerMaterials.Tier.Superconductor);
+                    return new UnificationEntry(OrePrefix.wireGtOctal, Materials.YttriumBariumCuprate);
                 default:
-                    return new UnificationEntry(OrePrefix.wireGtHex, MarkerMaterials.Tier.Superconductor);
+                    return new UnificationEntry(OrePrefix.wireGtHex, Materials.YttriumBariumCuprate);
             }
         }
     },
