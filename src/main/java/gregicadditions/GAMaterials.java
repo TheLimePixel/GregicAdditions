@@ -2,7 +2,6 @@ package gregicadditions;
 
 import com.google.common.collect.ImmutableList;
 import gregicadditions.item.BasicMaterial;
-import gregtech.api.GTValues;
 import gregtech.api.unification.Element;
 import gregtech.api.unification.material.IMaterialHandler;
 import gregtech.api.unification.material.MaterialIconSet;
@@ -90,6 +89,13 @@ public class GAMaterials {
         Enderium.setFluidPipeProperties(650, 1500, true);
         Materials.Naquadah.setFluidPipeProperties(1000, 19000, true);
         Neutronium.setFluidPipeProperties(2800, 1000000, true);
+
+        Materials.Diatomite.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.GarnetSand.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.Mica.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.Asbestos.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.Kyanite.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.Pollucite.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
 
         Materials.Naquadah.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
         Materials.NaquadahEnriched.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
