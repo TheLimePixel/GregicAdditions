@@ -578,7 +578,7 @@ public class GARecipeAddition {
             GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder().duration(1600).EUt(7680).inputs(OreDictUnifier.get(OrePrefix.frameGt, Materials.Aluminium), GAMetaItems.QUANTUM_COMPUTER.getStackForm(4), MetaItems.SMALL_COIL.getStackForm(4), MetaItems.SMD_CAPACITOR.getStackForm(24), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(16), OreDictUnifier.get(OrePrefix.wireGtSingle, Materials.AnnealedCopper, 12)).fluidInputs(material.getFluid(288 * multiplier)).outputs(GAMetaItems.QUANTUM_MAINFRAME.getStackForm()).buildAndRegister();
             GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder().duration(400).EUt(9600).inputs(MetaItems.MULTILAYER_FIBER_BOARD.getStackForm(2), MetaItems.ENERGY_FLOW_CIRCUIT_LUV.getStackForm(3), MetaItems.SMD_DIODE.getStackForm(4), MetaItems.NOR_MEMORY_CHIP.getStackForm(4), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(4), OreDictUnifier.get(OrePrefix.wireFine, Materials.NiobiumTitanium, 6)).fluidInputs(material.getFluid(144 * multiplier)).outputs(GAMetaItems.CRYSTAL_COMPUTER.getStackForm()).buildAndRegister();
             GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder().duration(400).EUt(38400).inputs(MetaItems.WETWARE_BOARD.getStackForm(), MetaItems.WETWARE_PROCESSOR_LUV.getStackForm(2), MetaItems.SMALL_COIL.getStackForm(4), MetaItems.SMD_CAPACITOR.getStackForm(4), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(4), OreDictUnifier.get(OrePrefix.wireFine, Materials.YttriumBariumCuprate, 6)).fluidInputs(material.getFluid(144 * multiplier)).outputs(MetaItems.WETWARE_PROCESSOR_ASSEMBLY_ZPM.getStackForm()).buildAndRegister();
-            GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder().duration(1600).EUt(30720).inputs(OreDictUnifier.get(OrePrefix.frameGt, Materials.Aluminium), GAMetaItems.CRYSTAL_COMPUTER.getStackForm(4), MetaItems.SMALL_COIL.getStackForm(4), MetaItems.SMD_CAPACITOR.getStackForm(24), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(16), OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor, 12)).fluidInputs(material.getFluid(288 * multiplier)).outputs(GAMetaItems.CRYSTAL_MAINFRAME.getStackForm()).buildAndRegister();
+            GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder().duration(1600).EUt(30720).inputs(OreDictUnifier.get(OrePrefix.frameGt, Materials.Aluminium), GAMetaItems.CRYSTAL_COMPUTER.getStackForm(4), MetaItems.SMALL_COIL.getStackForm(4), MetaItems.SMD_CAPACITOR.getStackForm(24), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(16), OreDictUnifier.get(OrePrefix.wireGtSingle, GAMaterials.LuVSuperconductor, 12)).fluidInputs(material.getFluid(288 * multiplier)).outputs(GAMetaItems.CRYSTAL_MAINFRAME.getStackForm()).buildAndRegister();
             GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder().duration(400).EUt(38400).inputs(MetaItems.WETWARE_BOARD.getStackForm(2), MetaItems.WETWARE_PROCESSOR_ASSEMBLY_ZPM.getStackForm(3), MetaItems.SMD_DIODE.getStackForm(4), MetaItems.NOR_MEMORY_CHIP.getStackForm(4), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(4), OreDictUnifier.get(OrePrefix.wireFine, Materials.YttriumBariumCuprate, 6)).fluidInputs(material.getFluid(144 * multiplier)).outputs(MetaItems.WETWARE_SUPER_COMPUTER_UV.getStackForm()).buildAndRegister();
             GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder().duration(512).EUt(1024).inputs(MetaItems.FIBER_BOARD.getStackForm(), MetaItems.POWER_INTEGRATED_CIRCUIT.getStackForm(4), MetaItems.ENGRAVED_LAPOTRON_CHIP.getStackForm(18), MetaItems.NANO_CENTRAL_PROCESSING_UNIT.getStackForm(), OreDictUnifier.get(OrePrefix.wireFine, Materials.Platinum, 16)).fluidInputs(material.getFluid(144 * multiplier)).outputs(MetaItems.ENERGY_LAPOTRONIC_ORB.getStackForm()).buildAndRegister();
             GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder().duration(1024).EUt(4096).inputs(MetaItems.FIBER_BOARD.getStackForm(), MetaItems.HIGH_POWER_INTEGRATED_CIRCUIT.getStackForm(4), MetaItems.ENERGY_LAPOTRONIC_ORB.getStackForm(8), MetaItems.QBIT_CENTRAL_PROCESSING_UNIT.getStackForm(), OreDictUnifier.get(OrePrefix.wireFine, Materials.Platinum, 16)).input(OrePrefix.plate, Materials.Europium, 4).fluidInputs(material.getFluid(144 * multiplier)).outputs(MetaItems.ENERGY_LAPOTRONIC_ORB2.getStackForm()).buildAndRegister();
@@ -659,10 +659,10 @@ public class GARecipeAddition {
                 OreDictUnifier.get(OrePrefix.stickLong, GAMaterials.Neutronium, 4),
                 OreDictUnifier.get(OrePrefix.ring, GAMaterials.Neutronium, 4),
                 OreDictUnifier.get(OrePrefix.valueOf("round"), GAMaterials.Neutronium, 16),
-                OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor, 64),
-                OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor, 64),
-                OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor, 64),
-                OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor, 64),
+                OreDictUnifier.get(OrePrefix.wireGtSingle, GAMaterials.ZPMSuperconductor, 64),
+                OreDictUnifier.get(OrePrefix.wireGtSingle, GAMaterials.ZPMSuperconductor, 64),
+                OreDictUnifier.get(OrePrefix.wireGtSingle, GAMaterials.ZPMSuperconductor, 64),
+                OreDictUnifier.get(OrePrefix.wireGtSingle, GAMaterials.ZPMSuperconductor, 64),
                 OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.NiobiumTitanium, 2)).fluidInputs(
                 Materials.SolderingAlloy.getFluid(1296),
                 Materials.Lubricant.getFluid(2000))
@@ -997,7 +997,7 @@ public class GARecipeAddition {
                 MetaItems.SMD_TRANSISTOR.getStackForm(32),
                 MetaItems.SMD_DIODE.getStackForm(16),
                 MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(16),
-                OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor, 32),
+                OreDictUnifier.get(OrePrefix.wireGtSingle, GAMaterials.ZPMSuperconductor, 32),
                 OreDictUnifier.get(OrePrefix.foil, Materials.SiliconeRubber, 64)).fluidInputs(
                 Materials.SolderingAlloy.getFluid(2880), Materials.Water.getFluid(10000))
                 .outputs(MetaItems.WETWARE_MAINFRAME_MAX.getStackForm()).duration(2000).EUt(300000)
@@ -1080,7 +1080,7 @@ public class GARecipeAddition {
                 OreDictUnifier.get(OrePrefix.plate, Materials.NetherStar),
                 MetaItems.FIELD_GENERATOR_IV.getStackForm(2),
                 MetaItems.HIGH_POWER_INTEGRATED_CIRCUIT.getStackForm(32),
-                OreDictUnifier.get(OrePrefix.wireGtSingle, Tier.Superconductor, 32))
+                OreDictUnifier.get(OrePrefix.wireGtSingle, GAMaterials.ZPMSuperconductor, 32))
                 .input(OrePrefix.circuit, Tier.Ultimate)
                 .input(OrePrefix.circuit, Tier.Ultimate)
                 .input(OrePrefix.circuit, Tier.Ultimate)
