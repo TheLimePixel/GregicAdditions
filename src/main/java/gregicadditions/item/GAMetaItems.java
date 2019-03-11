@@ -17,17 +17,10 @@ public class GAMetaItems {
 
 	private static List<MetaItem<?>> ITEMS = MetaItem.getMetaItems();
 
-	public static MetaItem<?>.MetaValueItem NANO_ASSEMBLY;
-	public static MetaItem<?>.MetaValueItem INTEGRATED_ASSEMBLY;
-	public static MetaItem<?>.MetaValueItem WETWARE_ASSEMBLY;
 	public static MetaItem<?>.MetaValueItem GLASS_FIBER;
 	public static MetaItem<?>.MetaValueItem PETRI_DISH;
 	public static MetaItem<?>.MetaValueItem COMPRESSED_CLAY;
 	public static MetaItem<?>.MetaValueItem COMPRESSED_COKE_CLAY;
-	public static MetaItem<?>.MetaValueItem CRYSTALPROCESSOR;
-	public static MetaItem<?>.MetaValueItem NANOPROCESSOR;
-	public static MetaItem<?>.MetaValueItem QUANTUMPROCESSOR;
-	public static MetaItem<?>.MetaValueItem WETWAREPROCESSOR;
 	public static MetaItem<?>.MetaValueItem ACACIA_FORM;
 	public static MetaItem<?>.MetaValueItem BIRCH_FORM;
 	public static MetaItem<?>.MetaValueItem DARK_OAK_FORM;

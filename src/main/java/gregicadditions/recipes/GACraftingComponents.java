@@ -29,7 +29,7 @@ public enum GACraftingComponents {
 			case 3:
 				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Advanced);
 			case 4:
-				return new UnificationEntry(OrePrefix.circuit, GAMaterials.EXTREME);
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Extreme);
 			case 5:
 				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Elite);
 			case 6:
@@ -39,7 +39,7 @@ public enum GACraftingComponents {
 			case 8:
 				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Superconductor);
 			default:
-				return new UnificationEntry(OrePrefix.circuit, GAMaterials.INFINITE);
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Infinite);
 			}
 		}
 	},
@@ -56,7 +56,7 @@ public enum GACraftingComponents {
 			case 3:
 				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Advanced);
 			case 4:
-				return new UnificationEntry(OrePrefix.circuit, GAMaterials.EXTREME);
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Extreme);
 			case 5:
 				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Elite);
 			case 6:
@@ -66,7 +66,7 @@ public enum GACraftingComponents {
 			case 8:
 				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Superconductor);
 			default:
-				return new UnificationEntry(OrePrefix.circuit, GAMaterials.INFINITE);
+				return new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.Infinite);
 			}
 		}
 	},
