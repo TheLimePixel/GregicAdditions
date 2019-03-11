@@ -179,6 +179,14 @@ metaitem.mica_sheet.name=Mica Based Sheet
 metaitem.mica_insulator_sheet.name=Mica Insulator Sheet
 metaitem.mica_insulator_foil.name=Mica Insulator Foil
 
+metaitem.board.basic.name=Basic Circuit Board
+metaitem.board.good.phenolic.name=Good Phenolic Circuit Board
+metaitem.board.good.plastic.name=Good Plastic Circuit Board
+metaitem.board.advanced.name=Advanced Circuit Board
+metaitem.board.extreme.name=Extreme Circuit Board
+metaitem.board.elite.name=Elite Circuit Board
+metaitem.board.master.name=Master Circuit Board
+
 gtadditions.machine.circuit_assembler.lv.name=Basic Circuit Assembling Machine
 gtadditions.machine.circuit_assembler.mv.name=Advanced Circuit Assembling Machine
 gtadditions.machine.circuit_assembler.hv.name=Advanced Circuit Assembling Machine II
@@ -611,6 +619,7 @@ item.alumino_silicate_wool.dust=Alumino Silicate Wool
 material.mica_based=Mica Based Pulp
 item.mica_based.dust=Mica Based Pulp
 material.ultima=Ultima Alloy
+material.iron_chloride=Iron III Chloride
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp

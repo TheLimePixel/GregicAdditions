@@ -45,6 +45,14 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem MICA_INSULATOR_SHHET;
     public static MetaItem<?>.MetaValueItem MICA_INSULATOR_FOI;
 
+    public static MetaItem<?>.MetaValueItem BASIC_BOARD;
+    public static MetaItem<?>.MetaValueItem GOOD_PHENOLIC_BOARD;
+    public static MetaItem<?>.MetaValueItem GOOD_PLASTIC_BOARD;
+    public static MetaItem<?>.MetaValueItem ADVANCED_BOARD;
+    public static MetaItem<?>.MetaValueItem EXTREME_BOARD;
+    public static MetaItem<?>.MetaValueItem ELITE_BOARD;
+    public static MetaItem<?>.MetaValueItem MASTER_BOARD;
+
     public static MetaItem<?>.MetaValueItem ELECTRODE_APATITE;
     public static MetaItem<?>.MetaValueItem ELECTRODE_BLAZE;
     public static MetaItem<?>.MetaValueItem ELECTRODE_BRONZE;

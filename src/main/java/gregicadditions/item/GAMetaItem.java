@@ -45,6 +45,13 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.MICA_SHHET = addItem(26, "mica_sheet");
         GAMetaItems.MICA_INSULATOR_SHHET = addItem(27, "mica_insulator_sheet");
         GAMetaItems.MICA_INSULATOR_FOI = addItem(28, "mica_insulator_foil");
+        GAMetaItems.BASIC_BOARD = addItem(29, "board.basic");
+        GAMetaItems.GOOD_PHENOLIC_BOARD = addItem(30, "board.good.phenolic");
+        GAMetaItems.GOOD_PLASTIC_BOARD = addItem(31, "board.good.plastic");
+        GAMetaItems.ADVANCED_BOARD = addItem(32, "board.advanced");
+        GAMetaItems.EXTREME_BOARD = addItem(33, "board.extreme");
+        GAMetaItems.ELITE_BOARD = addItem(34, "board.elite");
+        GAMetaItems.MASTER_BOARD = addItem(35, "board.master");
 
         if (Loader.isModLoaded("forestry") && GAConfig.GT6.electrodes) {
             GAMetaItems.ELECTRODE_APATITE = addItem(100, "electrode.apatite");

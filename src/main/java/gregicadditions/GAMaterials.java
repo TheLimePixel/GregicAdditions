@@ -38,6 +38,7 @@ public class GAMaterials {
     public static DustMaterial AluminoSilicateWool;
     public static DustMaterial MicaPulp;
     public static IngotMaterial Ultima;
+    public static FluidMaterial IronChloride;
 
     static {
         long STD_SOLID = DustMaterial.MatFlags.GENERATE_PLATE |
@@ -79,6 +80,7 @@ public class GAMaterials {
         AluminoSilicateWool = new DustMaterial(975, "alumino_silicate_wool", 0xbbbbbb, MaterialIconSet.SAND, 1, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
         MicaPulp = new DustMaterial(974, "mica_based", 0x917445, MaterialIconSet.SAND, 1, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
         Ultima = new IngotMaterial(973, "ultima", 0x443d4f, MaterialIconSet.SHINY, 3, ImmutableList.of(new MaterialStack(Materials.TinAlloy,1), new MaterialStack(Materials.Ultimet,1), new MaterialStack(Materials.Magnalium,1), new MaterialStack(Materials.BlueSteel, 1), new MaterialStack(Materials.VanadiumSteel, 1), new MaterialStack(Materials.NiobiumNitride, 1), new MaterialStack(Materials.NaquadahAlloy, 1)), EXT2_METAL | Material.MatFlags.DISABLE_DECOMPOSITION, null, 9000);
+        IronChloride = new FluidMaterial(972, "iron_chloride", 0x060b0b, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Iron, 1), new MaterialStack(Materials.Chlorine, 3)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
 
         MVSuperconductorBase.setCableProperties(128, 1, 2);
         HVSuperconductorBase.setCableProperties(512, 1, 2);

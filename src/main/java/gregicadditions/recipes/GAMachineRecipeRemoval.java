@@ -208,6 +208,12 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, OreDictUnifier.get(OrePrefix.wireGtDouble, Materials.NaquadahAlloy, 8), IntCircuitIngredient.getIntegratedCircuit(8));
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, OreDictUnifier.get(OrePrefix.wireGtDouble, MarkerMaterials.Tier.Superconductor, 8), IntCircuitIngredient.getIntegratedCircuit(8));
 
+        //Remove Circuit Component Recipes
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.plate, Materials.Wood, 8), MetaItems.RUBBER_DROP.getStackForm()}, new FluidStack[]{Materials.Glue.getFluid(100)});
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.wireFine, Materials.AnnealedCopper, 4), OreDictUnifier.get(OrePrefix.dustSmall, Materials.Gallium)}, new FluidStack[]{Materials.Plastic.getFluid(288)});
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.wireFine, Materials.Platinum, 4), OreDictUnifier.get(OrePrefix.dustSmall, Materials.Gallium)}, new FluidStack[]{Materials.Plastic.getFluid(288)});
+        removeRecipesByInputs(RecipeMaps.BLAST_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Silicon, 32), OreDictUnifier.get(OrePrefix.dustTiny, Materials.Gallium), IntCircuitIngredient.getIntegratedCircuit(1));
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, OreDictUnifier.get(OrePrefix.wireFine, Materials.Copper,4), OreDictUnifier.get(OrePrefix.dust, Materials.Coal));
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {
