@@ -1,5 +1,6 @@
 package gregicadditions.recipes;
 
+import codechicken.lib.fluid.FluidUtils;
 import forestry.core.ModuleCore;
 import forestry.core.fluids.Fluids;
 import forestry.core.items.EnumElectronTube;
@@ -37,6 +38,7 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ForgeModContainer;
+import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.UniversalBucket;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
@@ -127,12 +129,11 @@ public class GARecipeAddition {
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:casing_primitive_bricks"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:brick_to_dust"));
         ModHandler.removeRecipeByName(new ResourceLocation("gregtech:brick_block_to_dust"));
-        ModHandler.addShapedRecipe("fireclay_bricks", MetaBlocks.METAL_CASING.getItemVariant(BlockMetalCasing.MetalCasingType.PRIMITIVE_BRICKS), "BGB", "BCB", "BGB", 'B', GAMetaItems.FIRECLAY_BRICK.getStackForm(), 'G', "dustGypsum", 'C', UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, Materials.Concrete.getMaterialFluid()));
         ModHandler.addSmeltingRecipe(GAMetaItems.COMPRESSED_FIRECLAY.getStackForm(), GAMetaItems.FIRECLAY_BRICK.getStackForm());
         RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().input(OrePrefix.dust, Materials.Fireclay).outputs(GAMetaItems.COMPRESSED_FIRECLAY.getStackForm()).duration(100).EUt(2).buildAndRegister();
         ModHandler.addShapedRecipe("quartz_sand", OreDictUnifier.get(OrePrefix.dust, GAMaterials.QuartzSand), "S", "m", 'S', "sand");
         RecipeMaps.MACERATOR_RECIPES.recipeBuilder().duration(200).EUt(8).input("sand", 1).outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.QuartzSand)).chancedOutput(OreDictUnifier.get(OrePrefix.dust, GAMaterials.QuartzSand), 2500).chancedOutput(OreDictUnifier.get(OrePrefix.dust, GAMaterials.QuartzSand), 2000).buildAndRegister();
-        ModHandler.addShapelessRecipe("glass_dust_ga", OreDictUnifier.get(OrePrefix.dust, Materials.Glass), "dustSand", "dustTinyFlint");
+        ModHandler.addShapelessRecipe("glass_dust_ga", OreDictUnifier.get(OrePrefix.dust, Materials.Glass), "dustSand", "dustFlint");
         RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(200).EUt(8).input(OrePrefix.dustSmall, Materials.Flint).input(OrePrefix.dust, GAMaterials.QuartzSand, 4).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Glass, 4)).buildAndRegister();
         RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(160).EUt(8).input(OrePrefix.dustSmall, Materials.Flint).input(OrePrefix.dust, GAMaterials.QuartzSand, 4).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Glass, 4)).buildAndRegister();
         RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(100).EUt(16).input(OrePrefix.dust, Materials.Calcite, 2).input(OrePrefix.dust, Materials.Stone).input(OrePrefix.dust, Materials.Clay).input(OrePrefix.dust, GAMaterials.QuartzSand).fluidInputs(Materials.Water.getFluid(2000)).fluidOutputs(Materials.Concrete.getFluid(2304)).buildAndRegister();

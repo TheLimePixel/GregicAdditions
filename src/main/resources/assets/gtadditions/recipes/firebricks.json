@@ -1,0 +1,26 @@
+{
+	"type": "gtadditions:fluid_recipe",
+	"result": {
+		"item": "gregtech:metal_casing",
+		"data": 1
+	},
+	"pattern":[
+		"BGB",
+		"BCB",
+		"BGB"
+	],
+	"key":  {
+		"G": {
+			"type": "forge:ore_dict",
+			"ore": "dustGypsum"
+		},
+		"B": {
+			"item": "gtadditions:ga_meta_item",
+			"data": 32001
+		},
+		"C": {
+			"type": "gtadditions:fluid",
+			"fluid": "concrete"
+		}
+	}
+}
