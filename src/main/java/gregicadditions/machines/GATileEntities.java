@@ -62,6 +62,8 @@ public class GATileEntities {
 
     public static TileEntityAssemblyLine ASSEMBLY_LINE;
 
+    public static TileEntitySteamMixer STEAM_MIXER;
+
     public static TileEntityCokeOven COKE_OVEN;
     public static TileEntityCokeFluidHatch COKE_FLUID_HATCH;
     public static TileEntityCokeItemBus COKE_ITEM_BUS;
@@ -401,6 +403,8 @@ public class GATileEntities {
 
         COKE_FLUID_HATCH = GregTechAPI.registerMetaTileEntity(2507, new TileEntityCokeFluidHatch(location("ga_coke_fluid_hatch")));
         COKE_ITEM_BUS = GregTechAPI.registerMetaTileEntity(2508, new TileEntityCokeItemBus(location("ga_coke_item_bus")));
+
+        STEAM_MIXER = GregTechAPI.registerMetaTileEntity(2221, new TileEntitySteamMixer(location("steam_mixer")));
 
         if (GAConfig.GT6.registerDums) {
             WOODEN_DRUM = GregTechAPI.registerMetaTileEntity(2195, new TileEntityDrum(location("drum.wood"), Materials.Wood, 16000));

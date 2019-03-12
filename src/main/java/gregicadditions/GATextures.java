@@ -23,6 +23,8 @@ public class GATextures {
 
     public static OrientedOverlayRenderer FUSION_REACTOR_OVERLAY;
 
+    public static OrientedOverlayRenderer STEAM_MIXER_OVERLAY;
+
     public static DrumRenderer BARREL = new DrumRenderer("storage/drums/barrel");
     public static DrumRenderer DRUM = new DrumRenderer("storage/drums/drum");
 
@@ -50,5 +52,7 @@ public class GATextures {
         FUSION_REACTOR_OVERLAY = new OrientedOverlayRenderer("machines/fusion_reactor", new OverlayFace[]{OverlayFace.FRONT});
 
         BREAKER_OVERLAY = new OrientedOverlayRenderer("machines/rock_breaker", new OverlayFace[]{OverlayFace.BACK});
+
+        STEAM_MIXER_OVERLAY = new OrientedOverlayRenderer("machines/steam_mixer", new OverlayFace[]{OverlayFace.FRONT, OverlayFace.SIDE, OverlayFace.TOP});
     }
 }

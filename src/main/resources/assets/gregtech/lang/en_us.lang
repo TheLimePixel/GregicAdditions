@@ -404,10 +404,10 @@ gtadditions.machine.wiremill.luv.name=Advanced Wiremill V
 gtadditions.machine.wiremill.zpm.name=Advanced Wiremill VI
 gtadditions.machine.wiremill.uv.name=Advanced Wiremill VII
 
-gtadditions.machine.distill_tower.name=Distillation Tower
 gtadditions.machine.assembly_line.name=Assembly Line
 gtadditions.machine.ga_coke_oven.name=Coke Oven
-gtadditions.machine.cracker_unit.name=Cracking Unit
+
+gtadditions.machine.steam_mixer.name=Steam Mixer
 
 gtadditions.machine.naquadah_reactor.mk1.name=Naquadah Reactor Mk. 1
 gtadditions.machine.naquadah_reactor.mk2.name=Naquadah Reactor Mk. 2
@@ -620,6 +620,7 @@ material.mica_based=Mica Based Pulp
 item.mica_based.dust=Mica Based Pulp
 material.ultima=Ultima Alloy
 material.iron_chloride=Iron III Chloride
+material.sand=Quartz Sand
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp

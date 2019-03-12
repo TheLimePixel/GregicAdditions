@@ -184,20 +184,6 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtSingle, Materials.NiobiumTitanium, 3), OreDictUnifier.get(OrePrefix.plate, Materials.TungstenSteel, 3), MetaItems.ELECTRIC_PUMP_LV.getStackForm()}, new FluidStack[]{Materials.Nitrogen.getFluid(2000)});
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.wireGtSingle, Materials.VanadiumGallium, 3), OreDictUnifier.get(OrePrefix.plate, Materials.TungstenSteel, 3), MetaItems.ELECTRIC_PUMP_LV.getStackForm()}, new FluidStack[]{Materials.Nitrogen.getFluid(2000)});
 
-        //For Forestry Support
-        if (Loader.isModLoaded("forestry") && GAConfig.Misc.ForestryIntegration) {
-            removeRecipesByInputs(RecipeMaps.DISTILLERY_RECIPES, Materials.SeedOil.getFluid(24));
-            removeRecipesByInputs(RecipeMaps.EXTRACTOR_RECIPES, new ItemStack(Items.WHEAT_SEEDS));
-            removeRecipesByInputs(RecipeMaps.EXTRACTOR_RECIPES, new ItemStack(Items.MELON_SEEDS));
-            removeRecipesByInputs(RecipeMaps.EXTRACTOR_RECIPES, new ItemStack(Items.PUMPKIN_SEEDS));
-            removeRecipesByInputs(RecipeMaps.EXTRACTOR_RECIPES, new ItemStack(Items.BEETROOT_SEEDS));
-            removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dustTiny, Materials.SodiumHydroxide)}, new FluidStack[]{Materials.SeedOil.getFluid(6000), Materials.Methanol.getFluid(1000)});
-            removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dustTiny, Materials.SodiumHydroxide)}, new FluidStack[]{Materials.SeedOil.getFluid(6000), Materials.Ethanol.getFluid(1000)});
-            removeRecipesByInputs(RecipeMaps.MIXER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dust, Materials.Talc)}, new FluidStack[]{Materials.SeedOil.getFluid(750)});
-            removeRecipesByInputs(RecipeMaps.MIXER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dust, Materials.Soapstone)}, new FluidStack[]{Materials.SeedOil.getFluid(750)});
-            removeRecipesByInputs(RecipeMaps.MIXER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dust, Materials.Redstone)}, new FluidStack[]{Materials.SeedOil.getFluid(750)});
-        }
-
         //Remove Simple Coil Recipes
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, OreDictUnifier.get(OrePrefix.wireGtDouble, Materials.Cupronickel, 8), IntCircuitIngredient.getIntegratedCircuit(8));
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, OreDictUnifier.get(OrePrefix.wireGtDouble, Materials.Kanthal, 8), IntCircuitIngredient.getIntegratedCircuit(8));
@@ -214,6 +200,9 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.wireFine, Materials.Platinum, 4), OreDictUnifier.get(OrePrefix.dustSmall, Materials.Gallium)}, new FluidStack[]{Materials.Plastic.getFluid(288)});
         removeRecipesByInputs(RecipeMaps.BLAST_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Silicon, 32), OreDictUnifier.get(OrePrefix.dustTiny, Materials.Gallium), IntCircuitIngredient.getIntegratedCircuit(1));
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, OreDictUnifier.get(OrePrefix.wireFine, Materials.Copper,4), OreDictUnifier.get(OrePrefix.dust, Materials.Coal));
+
+        //Concrete
+        removeRecipesByInputs(RecipeMaps.MIXER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dust, Materials.Stone, 3), OreDictUnifier.get(OrePrefix.dust, Materials.Clay)}, new FluidStack[]{Materials.Water.getFluid(500)});
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {
