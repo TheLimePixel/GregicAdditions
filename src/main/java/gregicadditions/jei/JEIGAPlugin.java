@@ -18,6 +18,5 @@ public class JEIGAPlugin implements IModPlugin {
 	public void register(IModRegistry registry) {
 		GAMultiblockInfoCategory.registerRecipes(registry);
 
-		registry.addRecipeCatalyst(GATileEntities.COKE_OVEN.getStackForm(), "gregtech:coke_oven");
 	}
 }
