@@ -95,7 +95,7 @@ public class GAMachineRecipeRemoval {
 			IngotMaterial material = (IngotMaterial) stack.material;
 			int multiplier = (int) stack.amount;
 
-			ModHandler.removeRecipeByName(new ResourceLocation("gregtech:basic_circuit"));
+			//ModHandler.removeRecipeByName(new ResourceLocation("gregtech:basic_circuit"));
 			removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[] { OreDictUnifier.get(OrePrefix.plate, Materials.Plastic), OreDictUnifier.get(OrePrefix.wireGtSingle, Materials.RedAlloy) }, new FluidStack[] { material.getFluid(18 * multiplier) });
 			removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[] { OreDictUnifier.get(OrePrefix.wireGtSingle, Materials.RedAlloy, 2), OreDictUnifier.get(OrePrefix.plate, Materials.Steel) }, new FluidStack[] { material.getFluid(18 * multiplier) });
 			ModHandler.removeRecipeByName(new ResourceLocation("gregtech:primitive_circuit"));
