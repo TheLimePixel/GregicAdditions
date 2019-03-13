@@ -11,6 +11,7 @@ import gregicadditions.GAConfig;
 import gregicadditions.GAMaterials;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
+import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.item.GATransparentCasing;
 import gregicadditions.machines.GATileEntities;
 import gregtech.api.GTValues;
@@ -661,12 +662,13 @@ public class GARecipeAddition {
 		RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(100).EUt(10000).inputs(MetaItems.CIRCUIT_PARTS_CRYSTAL_CHIP_ELITE.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Lime).outputs(GAMetaItems.CRYSTAL_CPU.getStackForm()).buildAndRegister();
 		RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().duration(256).EUt(480).inputs(GAMetaItems.LAPOTRON_CRYSTAL.getStackForm()).notConsumable(OrePrefix.craftingLens, Color.Blue).outputs(MetaItems.CIRCUIT_PARTS_CRYSTAL_CHIP_MASTER.getStackForm(3)).buildAndRegister();
 		RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(30).EUt(480).fluidInputs(GAMaterials.POSITIVE_MATTER.getFluid(10), GAMaterials.NEUTRAL_MATTER.getFluid(10)).fluidOutputs(Materials.UUMatter.getFluid(20)).buildAndRegister();
-		*
+		*/
 		//Assline Casing
 		ModHandler.addShapedRecipe("assline_casing", GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.TUNGSTENSTEEL_GEARBOX_CASING, 2), "PhP", "AFA", "PwP", 'P', "plateSteel", 'A', MetaItems.ROBOT_ARM_IV.getStackForm(), 'F', OreDictUnifier.get(OrePrefix.frameGt, Materials.TungstenSteel));
 		ModHandler.removeRecipeByName(new ResourceLocation("gregtech:casing_assembler_casing"));
 		ModHandler.addShapedRecipe("ga_assmbler_casing", MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.ASSEMBLER_CASING, 3), "CCC", "CFC", "CMC", 'C', "circuitElite", 'F', "frameGtTungstenSteel", 'M', MetaItems.ELECTRIC_MOTOR_IV.getStackForm());
 		
+		/*
 		//Cutting Machine Recipes
 		for (MaterialStack stack : sawLubricants) {
 			FluidMaterial material = (FluidMaterial) stack.material;
