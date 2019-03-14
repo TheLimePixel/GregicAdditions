@@ -29,9 +29,7 @@ import static gregicadditions.recipes.GACraftingComponents.WIRE;
 import java.util.Arrays;
 
 import gregicadditions.GAConfig;
-import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
-import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.machines.GATileEntities;
 import gregtech.api.GTValues;
 import gregtech.api.items.OreDictNames;
@@ -46,7 +44,6 @@ import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.BlockMultiblockCasing;
-import gregtech.common.blocks.BlockWireCoil;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.items.MetaItems;
 import gregtech.common.metatileentities.MetaTileEntities;

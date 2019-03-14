@@ -1,6 +1,5 @@
 package gregicadditions.jei;
 
-import gregicadditions.machines.GATileEntities;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
