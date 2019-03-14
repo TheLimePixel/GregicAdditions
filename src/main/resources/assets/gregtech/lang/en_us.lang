@@ -695,3 +695,19 @@ gtadditions.machine.crate.tungstensteel.name=Tungstensteel Crate
 
 fluid.tile.water=Water
 fluid.tile.lava=Lava
+
+gregtech.machine.assembler.iv.name=Assembler IV
+gregtech.machine.autoclave.iv.name=Autoclave IV
+gregtech.machine.laser_engraver.iv.name=Laser Engraver IV
+
+metaitem.plank.jungle.name=Jungle Plank
+metaitem.plank.acacia.name=Acacia Plank
+metaitem.plank.darkoak.name=Dark Oak Plank
+metaitem.plank.birch.name=Birch Plank
+metaitem.plank.spruce.name=Spruce Plank
+metaitem.plank.oak.name=Oak Plank
+metaitem.compressed.coke.clay.name=Compressed Coke Clay
+metaitem.schematic.dust.name=Schematic (Dust)
+metaitem.schematic.3by3.name=Schematic (3x3)
+metaitem.schematic.2by2.name=Schematic (2x2)
+metaitem.schematic.name=Blank Schematic
