@@ -32,7 +32,6 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.JUNGLE_FORM = addItem(75, "form.jungle").addOreDict("formWood").setMaxStackSize(1);
 		GAMetaItems.OAK_FORM = addItem(76, "form.oak").addOreDict("formWood").setMaxStackSize(1);
 		GAMetaItems.SPRUCE_FORM = addItem(77, "form.spruce").addOreDict("formWood").setMaxStackSize(1);
-		GAMetaItems.NEUTRON_REFLECTOR = addItem(107, "neutron.reflector");
 
 		if (Loader.isModLoaded("forestry") && GAConfig.GT6.electrodes) {
 			GAMetaItems.ELECTRODE_APATITE = addItem(108, "electrode.apatite");

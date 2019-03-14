@@ -27,7 +27,6 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem JUNGLE_FORM;
 	public static MetaItem<?>.MetaValueItem OAK_FORM;
 	public static MetaItem<?>.MetaValueItem SPRUCE_FORM;
-	public static MetaItem<?>.MetaValueItem NEUTRON_REFLECTOR;
 	public static MetaItem<?>.MetaValueItem ENERGY_MODULE;
 	public static MetaItem<?>.MetaValueItem ENERGY_CLUSTER;
 	public static MetaItem<?>.MetaValueItem MAX_BATTERY;
