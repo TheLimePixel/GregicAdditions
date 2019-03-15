@@ -1,8 +1,8 @@
 [
 {
   "modid": "gtadditions",
-  "name": "Gregic Additions",
-  "description": " An addon for GregTech Community Edition with the goal of making it much more complicated and realistic through the use of GregTech 5 Unofficial and GregTech 6 features.",
+  "name": "Shadows of Greg",
+  "description": "The big spook takes your lunch money.  Who reads these?",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
