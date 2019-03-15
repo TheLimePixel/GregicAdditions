@@ -15,6 +15,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class GATransparentCasing extends VariantBlock<GATransparentCasing.CasingType> {
+
 	public GATransparentCasing() {
 		super(Material.IRON);
 		setTranslationKey("ga_transparent_casing");
@@ -30,7 +31,8 @@ public class GATransparentCasing extends VariantBlock<GATransparentCasing.Casing
 		return false;
 	}
 
-	public BlockRenderLayer getBlockLayer() {
+	@Override
+	public BlockRenderLayer getRenderLayer() {
 		return BlockRenderLayer.TRANSLUCENT;
 	}
 

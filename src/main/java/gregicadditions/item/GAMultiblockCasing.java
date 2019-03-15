@@ -10,6 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 public class GAMultiblockCasing extends VariantBlock<GAMultiblockCasing.CasingType> {
+
 	public GAMultiblockCasing() {
 		super(Material.IRON);
 		setTranslationKey("ga_multiblock_casing");
