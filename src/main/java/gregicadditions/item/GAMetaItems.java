@@ -42,17 +42,13 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem BENDING_CYLINDER;
 	public static MetaItem<?>.MetaValueItem SMALL_BENDING_CYLINDER;
 
-	public static MetaItem<?>.MetaValueItem PLANK_OAK;
-	public static MetaItem<?>.MetaValueItem PLANK_SPRUCE;
-	public static MetaItem<?>.MetaValueItem PLANK_BIRCH;
-	public static MetaItem<?>.MetaValueItem PLANK_JUNGLE;
-	public static MetaItem<?>.MetaValueItem PLANK_ACACIA;
-	public static MetaItem<?>.MetaValueItem PLANK_DARKOAK;
-
 	public static MetaItem<?>.MetaValueItem SCHEMATIC;
 	public static MetaItem<?>.MetaValueItem SCHEMATIC_2X2;
 	public static MetaItem<?>.MetaValueItem SCHEMATIC_3X3;
 	public static MetaItem<?>.MetaValueItem SCHEMATIC_DUST;
+
+	public static MetaItem<?>.MetaValueItem NEURO_PROCESSOR;
+	public static MetaItem<?>.MetaValueItem STEM_CELLS;
 
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();

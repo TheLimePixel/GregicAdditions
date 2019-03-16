@@ -51,17 +51,13 @@ public class GAMetaItem extends MaterialMetaItem {
 			MetaItems.ZPM2.setInvisible();
 		}
 
-		GAMetaItems.PLANK_OAK = addItem(125, "plank.oak").setBurnValue(75);
-		GAMetaItems.PLANK_SPRUCE = addItem(126, "plank.spruce").setBurnValue(75);
-		GAMetaItems.PLANK_BIRCH = addItem(127, "plank.birch").setBurnValue(75);
-		GAMetaItems.PLANK_JUNGLE = addItem(128, "plank.jungle").setBurnValue(75);
-		GAMetaItems.PLANK_ACACIA = addItem(129, "plank.acacia").setBurnValue(75);
-		GAMetaItems.PLANK_DARKOAK = addItem(130, "plank.darkoak").setBurnValue(75);
-
 		GAMetaItems.SCHEMATIC = addItem(131, "schematic").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
 		GAMetaItems.SCHEMATIC_2X2 = addItem(132, "schematic.2by2").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
 		GAMetaItems.SCHEMATIC_3X3 = addItem(133, "schematic.3by3").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
 		GAMetaItems.SCHEMATIC_DUST = addItem(134, "schematic.dust").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
+
+		GAMetaItems.NEURO_PROCESSOR = addItem(15, "processor.neuro");
+		GAMetaItems.STEM_CELLS = addItem(18, "stemcells");
 	}
 
 	@Override
