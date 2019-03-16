@@ -19,14 +19,7 @@ public class GAMetaItems {
 
 	public static MetaItem<?>.MetaValueItem GLASS_FIBER;
 	public static MetaItem<?>.MetaValueItem PETRI_DISH;
-	public static MetaItem<?>.MetaValueItem COMPRESSED_CLAY;
 	public static MetaItem<?>.MetaValueItem COMPRESSED_COKE_CLAY;
-	public static MetaItem<?>.MetaValueItem ACACIA_FORM;
-	public static MetaItem<?>.MetaValueItem BIRCH_FORM;
-	public static MetaItem<?>.MetaValueItem DARK_OAK_FORM;
-	public static MetaItem<?>.MetaValueItem JUNGLE_FORM;
-	public static MetaItem<?>.MetaValueItem OAK_FORM;
-	public static MetaItem<?>.MetaValueItem SPRUCE_FORM;
 	public static MetaItem<?>.MetaValueItem ENERGY_MODULE;
 	public static MetaItem<?>.MetaValueItem ENERGY_CLUSTER;
 	public static MetaItem<?>.MetaValueItem MAX_BATTERY;

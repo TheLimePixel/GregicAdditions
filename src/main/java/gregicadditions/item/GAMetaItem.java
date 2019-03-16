@@ -1,7 +1,5 @@
 package gregicadditions.item;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 import gregicadditions.GAConfig;
 import gregtech.api.items.materialitem.MaterialMetaItem;
 import gregtech.api.items.metaitem.ElectricStats;
@@ -24,14 +22,7 @@ public class GAMetaItem extends MaterialMetaItem {
 	public void registerSubItems() {
 		GAMetaItems.GLASS_FIBER = addItem(21, "component.glass.fiber");
 		GAMetaItems.PETRI_DISH = addItem(23, "component.petri.dish");
-		GAMetaItems.COMPRESSED_CLAY = addItem(31, "compressed.clay");
 		GAMetaItems.COMPRESSED_COKE_CLAY = addItem(32, "compressed.coke.clay");
-		GAMetaItems.ACACIA_FORM = addItem(72, "form.acacia").addOreDict("formWood").setMaxStackSize(1);
-		GAMetaItems.BIRCH_FORM = addItem(73, "form.birch").addOreDict("formWood").setMaxStackSize(1);
-		GAMetaItems.DARK_OAK_FORM = addItem(74, "form.darkoak").addOreDict("formWood").setMaxStackSize(1);
-		GAMetaItems.JUNGLE_FORM = addItem(75, "form.jungle").addOreDict("formWood").setMaxStackSize(1);
-		GAMetaItems.OAK_FORM = addItem(76, "form.oak").addOreDict("formWood").setMaxStackSize(1);
-		GAMetaItems.SPRUCE_FORM = addItem(77, "form.spruce").addOreDict("formWood").setMaxStackSize(1);
 
 		if (Loader.isModLoaded("forestry") && GAConfig.GT6.electrodes) {
 			GAMetaItems.ELECTRODE_APATITE = addItem(108, "electrode.apatite");
@@ -71,14 +62,6 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.SCHEMATIC_2X2 = addItem(132, "schematic.2by2").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
 		GAMetaItems.SCHEMATIC_3X3 = addItem(133, "schematic.3by3").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
 		GAMetaItems.SCHEMATIC_DUST = addItem(134, "schematic.dust").setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
-	}
-
-	@Override
-	public boolean hasContainerItem(ItemStack stack) {
-
-		int[] idsToKeepInGrid = new int[] { GAMetaItems.ACACIA_FORM.getStackForm().getMetadata(), GAMetaItems.BIRCH_FORM.getStackForm().getMetadata(), GAMetaItems.DARK_OAK_FORM.getStackForm().getMetadata(), GAMetaItems.JUNGLE_FORM.getStackForm().getMetadata(), GAMetaItems.OAK_FORM.getStackForm().getMetadata(), GAMetaItems.SPRUCE_FORM.getStackForm().getMetadata() };
-
-		return ArrayUtils.contains(idsToKeepInGrid, stack.getMetadata());
 	}
 
 	@Override
