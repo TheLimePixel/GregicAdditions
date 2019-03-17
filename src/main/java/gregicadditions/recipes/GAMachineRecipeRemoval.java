@@ -10,10 +10,12 @@ import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.DustMaterial;
+import gregtech.api.unification.material.type.GemMaterial;
 import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
+import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.items.MetaItems;
@@ -22,7 +24,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fml.common.Loader;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -131,6 +132,7 @@ public class GAMachineRecipeRemoval {
         }
 
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{MetaItems.MULTILAYER_FIBER_BOARD.getStackForm(), OreDictUnifier.get(OrePrefix.circuit, MarkerMaterials.Tier.Good)}, new FluidStack[]{Materials.Polystyrene.getFluid(144)});
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{MetaItems.CENTRAL_PROCESSING_UNIT_WAFER.getStackForm(), MetaItems.CARBON_FIBERS.getStackForm(16)}, new FluidStack[]{Materials.Glowstone.getFluid(576)});
 
         //Remove GTCE's Engraved Crystal Chip recipes
         removeRecipesByInputs(RecipeMaps.BLAST_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.plate, Materials.Emerald, 10), OreDictUnifier.get(OrePrefix.gemExquisite, Materials.Emerald)}, new FluidStack[]{Materials.Helium.getFluid(5000)});
@@ -199,10 +201,25 @@ public class GAMachineRecipeRemoval {
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.wireFine, Materials.AnnealedCopper, 4), OreDictUnifier.get(OrePrefix.dustSmall, Materials.Gallium)}, new FluidStack[]{Materials.Plastic.getFluid(288)});
         removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.wireFine, Materials.Platinum, 4), OreDictUnifier.get(OrePrefix.dustSmall, Materials.Gallium)}, new FluidStack[]{Materials.Plastic.getFluid(288)});
         removeRecipesByInputs(RecipeMaps.BLAST_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Silicon, 32), OreDictUnifier.get(OrePrefix.dustTiny, Materials.Gallium), IntCircuitIngredient.getIntegratedCircuit(1));
-        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, OreDictUnifier.get(OrePrefix.wireFine, Materials.Copper,4), OreDictUnifier.get(OrePrefix.dust, Materials.Coal));
+        removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, OreDictUnifier.get(OrePrefix.wireFine, Materials.Copper, 4), OreDictUnifier.get(OrePrefix.dust, Materials.Coal));
 
         //Concrete
         removeRecipesByInputs(RecipeMaps.MIXER_RECIPES, new ItemStack[]{OreDictUnifier.get(OrePrefix.dust, Materials.Stone, 3), OreDictUnifier.get(OrePrefix.dust, Materials.Clay)}, new FluidStack[]{Materials.Water.getFluid(500)});
+
+        //Remove ore to dust smelting
+        for (Material mat : Material.MATERIAL_REGISTRY) {
+            if (mat instanceof DustMaterial && !(mat instanceof IngotMaterial) && !(mat instanceof GemMaterial)) {
+                ModHandler.removeFurnaceSmelting(new UnificationEntry(OrePrefix.ore, mat));
+                ModHandler.removeFurnaceSmelting(new UnificationEntry(OrePrefix.oreBasalt, mat));
+                ModHandler.removeFurnaceSmelting(new UnificationEntry(OrePrefix.oreBlackgranite, mat));
+                ModHandler.removeFurnaceSmelting(new UnificationEntry(OrePrefix.oreEndstone, mat));
+                ModHandler.removeFurnaceSmelting(new UnificationEntry(OrePrefix.oreGravel, mat));
+                ModHandler.removeFurnaceSmelting(new UnificationEntry(OrePrefix.oreMarble, mat));
+                ModHandler.removeFurnaceSmelting(new UnificationEntry(OrePrefix.oreNetherrack, mat));
+                ModHandler.removeFurnaceSmelting(new UnificationEntry(OrePrefix.oreRedgranite, mat));
+                ModHandler.removeFurnaceSmelting(new UnificationEntry(OrePrefix.oreSand, mat));
+            }
+        }
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack... itemInputs) {

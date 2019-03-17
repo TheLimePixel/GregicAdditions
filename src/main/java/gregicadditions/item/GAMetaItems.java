@@ -71,11 +71,6 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem BENDING_CYLINDER;
     public static MetaItem<?>.MetaValueItem SMALL_BENDING_CYLINDER;
 
-    public static MetaItem<?>.MetaValueItem SCHEMATIC;
-    public static MetaItem<?>.MetaValueItem SCHEMATIC_2X2;
-    public static MetaItem<?>.MetaValueItem SCHEMATIC_3X3;
-    public static MetaItem<?>.MetaValueItem SCHEMATIC_DUST;
-
     public static void init() {
         GAMetaItem item = new GAMetaItem();
         item.setRegistryName("ga_meta_item");

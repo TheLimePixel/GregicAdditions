@@ -431,13 +431,11 @@ metaitem.tool.bending_cylinder_small.name=小型%s弯曲绕筒
 
 recipemap.cluster_mill.name=多辊式轧机
 recipemap.circuit_assembler.name=电路组装机
-recipemap.coke_oven.name=工业焦炉
-recipemap.distill_tower.name=蒸馏塔
+recipemap.ga_coke_oven.name=工业焦炉
 recipemap.assembly_line.name=装配线
 recipemap.naquadah_reactor.name=硅岩反应堆燃料
 recipemap.replicator.name=复制机
 recipemap.mass_fab.name=质量发生器
-recipemap.cracker_unit.name=石油裂化机
 
 recipemap.plasma_generator.name=等离子涡轮燃料
 

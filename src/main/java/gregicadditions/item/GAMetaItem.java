@@ -83,15 +83,6 @@ public class GAMetaItem extends MaterialMetaItem {
             MetaItems.ZPM2.setInvisible();
         }
 
-        GAMetaItems.SCHEMATIC = addItem(22, "schematic")
-                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
-        GAMetaItems.SCHEMATIC_2X2 = addItem(23, "schematic.2by2")
-                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
-        GAMetaItems.SCHEMATIC_3X3 = addItem(24, "schematic.3by3")
-                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
-        GAMetaItems.SCHEMATIC_DUST = addItem(25, "schematic.dust")
-                .setMaterialInfo(new ItemMaterialInfo(new MaterialStack(Materials.StainlessSteel, 7257600L)));
-
         MetaItems.COMPRESSED_CLAY.setInvisible();
         MetaItems.COMPRESSED_FIRECLAY.setInvisible();
         MetaItems.COKE_OVEN_BRICK.setInvisible();

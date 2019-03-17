@@ -16,7 +16,6 @@ public class GAMaterials {
     public static FluidMaterial RawGrowthMedium;
     public static FluidMaterial SterilizedGrowthMedium;
     public static DustMaterial Meat;
-    public static DustMaterial GASodiumSulfide;
     public static FluidMaterial NeutralMatter;
     public static FluidMaterial PositiveMatter;
     public static IngotMaterial Neutronium;
@@ -40,6 +39,13 @@ public class GAMaterials {
     public static IngotMaterial Ultima;
     public static FluidMaterial IronChloride;
     public static DustMaterial QuartzSand;
+    public static DustMaterial Massicot;
+    public static DustMaterial AntimonyTrioxide;
+    public static DustMaterial Zincite;
+    public static DustMaterial CobaltOxide;
+    public static DustMaterial ArsenicTrioxide;
+    public static DustMaterial CupricOxide;
+    public static DustMaterial Ferrosilite;
 
     static {
         long STD_SOLID = DustMaterial.MatFlags.GENERATE_PLATE |
@@ -59,7 +65,6 @@ public class GAMaterials {
         RawGrowthMedium = new FluidMaterial(997, "raw_growth_medium", 10777425, MaterialIconSet.FLUID, ImmutableList.of(), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         SterilizedGrowthMedium = new FluidMaterial(996, "sterilized_growth_medium", 11306862, MaterialIconSet.FLUID, ImmutableList.of(), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
         Meat = new DustMaterial(995, "meat", 12667980, MaterialIconSet.SAND, 1, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
-        GASodiumSulfide = new DustMaterial(994, "ga_sodium_sulfide", 8944452, MaterialIconSet.SAND, 1, ImmutableList.of(new MaterialStack(Materials.Sodium, 2), new MaterialStack(Materials.Sulfur, 1)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         NeutralMatter = new FluidMaterial(993, "neutral_matter", 3956968, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
         PositiveMatter = new FluidMaterial(992, "positive_matter", 11279131, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
         Plasma = new BasicMaterial(990, "plasma", 15389725, MaterialIconSet.SHINY);
@@ -83,6 +88,13 @@ public class GAMaterials {
         Ultima = new IngotMaterial(973, "ultima", 0x443d4f, MaterialIconSet.SHINY, 3, ImmutableList.of(new MaterialStack(Materials.TinAlloy,1), new MaterialStack(Materials.Ultimet,1), new MaterialStack(Materials.Magnalium,1), new MaterialStack(Materials.BlueSteel, 1), new MaterialStack(Materials.VanadiumSteel, 1), new MaterialStack(Materials.NiobiumNitride, 1), new MaterialStack(Materials.NaquadahAlloy, 1)), EXT2_METAL | Material.MatFlags.DISABLE_DECOMPOSITION, null, 9000);
         IronChloride = new FluidMaterial(972, "iron_chloride", 0x060b0b, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Iron, 1), new MaterialStack(Materials.Chlorine, 3)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         QuartzSand = new DustMaterial(971, "sand", 0xd2cfbc, MaterialIconSet.SAND, 1, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
+        Massicot = new DustMaterial(970, "massicot", 8943149, MaterialIconSet.SAND, 1, ImmutableList.of(new MaterialStack(Materials.Lead, 1), new MaterialStack(Materials.Oxygen, 1)), 0);
+        AntimonyTrioxide = new DustMaterial(969, "antimony_trioxide", 8092544, MaterialIconSet.SAND, 1, ImmutableList.of(new MaterialStack(Materials.Antimony, 2), new MaterialStack(Materials.Oxygen, 3)), 0);
+        Zincite = new DustMaterial(968, "zincite", 8947843, MaterialIconSet.SAND, 1, ImmutableList.of(new MaterialStack(Materials.Zinc, 1), new MaterialStack(Materials.Oxygen, 1)), 0);
+        CobaltOxide = new DustMaterial(967, "cobalt_oxide", 3556352, MaterialIconSet.SAND, 1, ImmutableList.of(new MaterialStack(Materials.Cobalt, 1), new MaterialStack(Materials.Oxygen, 1)), 0);
+        ArsenicTrioxide = new DustMaterial(966, "arsenic_trioxide", 15856113, MaterialIconSet.ROUGH, 1, ImmutableList.of(new MaterialStack(Materials.Arsenic, 2), new MaterialStack(Materials.Oxygen, 3)), 0);
+        CupricOxide = new DustMaterial(964, "cupric_oxide", 526344, MaterialIconSet.SAND, 1, ImmutableList.of(new MaterialStack(Materials.Copper, 1), new MaterialStack(Materials.Oxygen, 1)), 0);
+        Ferrosilite = new DustMaterial(963, "ferrosilite", 5256470, MaterialIconSet.SAND, 1, ImmutableList.of(new MaterialStack(Materials.Iron, 1), new MaterialStack(Materials.Silicon, 1), new MaterialStack(Materials.Oxygen, 3)), 0);
 
         MVSuperconductorBase.setCableProperties(128, 1, 2);
         HVSuperconductorBase.setCableProperties(512, 1, 2);
