@@ -109,6 +109,8 @@ public class GAConfig {
         public boolean highTierExtruders = true;
         @Config.Name("Should higher tier Fermenters be registered?")
         public boolean highTierFermenters = true;
+        @Config.Name("Should higher tier Fishers be registered?")
+        public boolean highTierFishers = true;
         @Config.Name("Should higher tier Eluid Canners be registered?")
         public boolean highTierFluidCanners = true;
         @Config.Name("Should higher tier Fluid Extractors be registered?")

@@ -180,6 +180,7 @@ public class MachineCraftingRecipes {
         if (GAConfig.Misc.highTierCollector)
             registerMachineRecipe(GATileEntities.AIR_COLLECTOR, "WFW", "PHP", "WCW", 'W', Blocks.IRON_BARS, 'F', MetaItems.ITEM_FILTER, 'P', PUMP, 'H', HULL, 'C', CIRCUIT);
         registerMachineRecipe(GATileEntities.ROCK_BREAKER, "QPQ", "CMC", "GGG", 'M', HULL, 'Q', CABLE, 'C', CIRCUIT, 'P', PISTON, 'G', GLASS);
+        registerMachineRecipe(GATileEntities.FISHER, "QCQ", "RMR", "FCF", 'M', HULL, 'Q', CABLE, 'C', CIRCUIT, 'R', ROBOT_ARM, 'F', Items.FISHING_ROD);
     }
 
     public static <T extends MetaTileEntity & ITieredMetaTileEntity> void registerMachineRecipe(T[] metaTileEntities, Object... recipe) {

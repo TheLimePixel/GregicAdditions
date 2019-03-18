@@ -459,6 +459,15 @@ gtadditions.machine.rock_breaker.luv.name=Rock Destroyer
 gtadditions.machine.rock_breaker.zpm.name=Rock Destroyer
 gtadditions.machine.rock_breaker.uv.name=Rock Destroyer
 
+gtadditions.machine.fisher_lv.name=Basic Fisher
+gtadditions.machine.fisher_mv.name=Advanced Fisher
+gtadditions.machine.fisher_hv.name=Advanced Fisher II
+gtadditions.machine.fisher_ev.name=Advanced Fisher III
+gtadditions.machine.fisher_iv.name=Advanced Fisher VI
+gtadditions.machine.fisher_luv.name=Advanced Fisher V
+gtadditions.machine.fisher_zpm.name=Advanced Fisher VI
+gtadditions.machine.fisher_uv.name=Fish Exterminator
+
 gregtech.machine.rock_breaker.tooltip=Put Water and Lava adjacent
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 tile.ga_multiblock_casing.tungstensteel_gearbox_casing.name=Assembly Line Casing

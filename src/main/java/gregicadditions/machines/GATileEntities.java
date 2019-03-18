@@ -80,6 +80,8 @@ public class GATileEntities {
     public static MetaTileEntityPump[] PUMP = new MetaTileEntityPump[8];
     public static MetaTileEntityAirCollector[] AIR_COLLECTOR = new MetaTileEntityAirCollector[8];
 
+    public static TileEntityFisher[] FISHER = new TileEntityFisher[8];
+
     public static void init() {
         CIRCUITASSEMBLER[0] = GregTechAPI.registerMetaTileEntity(2000, new SimpleMachineMetaTileEntity(location("circuit_assembler.lv"), GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES, Textures.ASSEMBLER_OVERLAY, 1));
         CIRCUITASSEMBLER[1] = GregTechAPI.registerMetaTileEntity(2001, new SimpleMachineMetaTileEntity(location("circuit_assembler.mv"), GARecipeMaps.CIRCUIT_ASSEMBLER_RECIPES, Textures.ASSEMBLER_OVERLAY, 2));
@@ -436,6 +438,17 @@ public class GATileEntities {
             ROCK_BREAKER[5] = GregTechAPI.registerMetaTileEntity(2218, new TileEntityRockBreaker(location("rock_breaker.luv"), GATextures.BREAKER_OVERLAY, 6));
             ROCK_BREAKER[6] = GregTechAPI.registerMetaTileEntity(2219, new TileEntityRockBreaker(location("rock_breaker.zpm"), GATextures.BREAKER_OVERLAY, 7));
             ROCK_BREAKER[7] = GregTechAPI.registerMetaTileEntity(2220, new TileEntityRockBreaker(location("rock_breaker.uv"), GATextures.BREAKER_OVERLAY, 8));
+        }
+
+        FISHER[0] = GregTechAPI.registerMetaTileEntity(2222, new TileEntityFisher(location("fisher_lv"), 1));
+        FISHER[1] = GregTechAPI.registerMetaTileEntity(2223, new TileEntityFisher(location("fisher_mv"), 2));
+        FISHER[2] = GregTechAPI.registerMetaTileEntity(2224, new TileEntityFisher(location("fisher_hv"), 3));
+        FISHER[3] = GregTechAPI.registerMetaTileEntity(2225, new TileEntityFisher(location("fisher_ev"), 4));
+        if (GAConfig.GT5U.highTierFishers) {
+            FISHER[4] = GregTechAPI.registerMetaTileEntity(2226, new TileEntityFisher(location("fisher_iv"), 5));
+            FISHER[5] = GregTechAPI.registerMetaTileEntity(2227, new TileEntityFisher(location("fisher_luv"), 6));
+            FISHER[6] = GregTechAPI.registerMetaTileEntity(2228, new TileEntityFisher(location("fisher_zpm"), 7));
+            FISHER[7] = GregTechAPI.registerMetaTileEntity(2229, new TileEntityFisher(location("fisher_uv"), 8));
         }
     }
 

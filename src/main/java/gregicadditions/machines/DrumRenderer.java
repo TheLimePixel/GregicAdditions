@@ -47,5 +47,4 @@ public class DrumRenderer implements TextureUtils.IIconRegister {
     public TextureAtlasSprite getParticleTexture() {
         return textures[0];
     }
-
 }
