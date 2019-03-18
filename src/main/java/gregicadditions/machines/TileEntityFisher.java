@@ -75,6 +75,7 @@ public class TileEntityFisher extends TieredMetaTileEntity {
             int waitTime = (int) Math.ceil(256 / (Math.pow(2, getTier())));
             if (hasPool() && getTimer() % waitTime == 0 && energyContainer.getEnergyStored() >= energyToConsume) {
                 for (ItemStack output : result) {
+                    if (slotToOutput(output) != 4)
                     exportItems.insertItem(slotToOutput(output), output, false);
                     energyContainer.removeEnergy(energyToConsume);
                 }
@@ -116,7 +117,7 @@ public class TileEntityFisher extends TieredMetaTileEntity {
             if ((exportItems.getStackInSlot(i).getItem() == stack.getItem() || exportItems.getStackInSlot(i).isEmpty()) && exportItems.getStackInSlot(i).getCount() < exportItems.getStackInSlot(i).getMaxStackSize())
                 return i;
         }
-        return 0;
+        return 4;
     }
 
     @SuppressWarnings("SuspiciousMethodCalls")
