@@ -176,12 +176,14 @@ public class GAConfig {
         public boolean Packager3x3Recipes = true;
         @Config.Name("Packaging - 2x2 recipes can automated with the Packagers")
         public boolean Packager2x2Recipes = true;
-        @Config.Name("Packaging - Dust compressing can automated with the Packagers")
-        public boolean PackagerDustRecipes = true;
 
         @Config.Comment("Set this to false to disable the Forestry Integration")
-        @Config.Name("Forestry's Ethanol and Seed Oil are used in recipes instead of GTCE's")
+        @Config.Name("Adds recipes for Forestry's Electrodes")
         public boolean ForestryIntegration = true;
+
+        @Config.Comment("Set this to false to disable the Tinkers' Construct Integration")
+        @Config.Name("Changes the Molds and Extruder Shapes' recipes to require a Smeltery")
+        public boolean TiCIntegration = true;
 
         @Config.Comment("Set this to false to disable the high tier Air Collectors")
         @Config.Name("Air Collector have IV and LuV version")

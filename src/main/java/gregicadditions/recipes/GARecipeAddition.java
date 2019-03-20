@@ -42,6 +42,11 @@ import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.UniversalBucket;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
+import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.smeltery.Cast;
+import slimeknights.tconstruct.library.smeltery.CastingRecipe;
+import slimeknights.tconstruct.shared.TinkerCommons;
+import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -284,6 +289,112 @@ public class GARecipeAddition {
                     ModHandler.addShapedRecipe("pipe_ga_small_" + m.toString(), OreDictUnifier.get(OrePrefix.pipeSmall, m, 4), "PwP", "PCP", "PhP", 'P', OreDictUnifier.get(OrePrefix.valueOf("plateCurved"), m), 'C', "craftingToolBendingCylinder");
                 }
             }
+        }
+
+        //Tinker support
+        if (Loader.isModLoaded("tconstruct") && GAConfig.Misc.TiCIntegration) {
+            ModHandler.removeRecipes(MetaItems.SHAPE_EMPTY.getStackForm());
+            TinkerRegistry.registerTableCasting(new CastingRecipe(MetaItems.SHAPE_EMPTY.getStackForm(), Materials.Steel.getMaterialFluid(), 576, 160));
+            ModHandler.removeRecipes(MetaItems.SHAPE_MOLD_ANVIL.getStackForm());
+            ModHandler.addShapedRecipe("anvil_mold_form", GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), "fx ", " M ", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_MOLD_BALL.getStackForm());
+            ModHandler.addShapedRecipe("ball_mold_form", GAMetaItems.MOLD_FORM_BALL.getStackForm(), "f x", " M ", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_BALL.getStackForm(), GAMetaItems.MOLD_FORM_BALL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_MOLD_BLOCK.getStackForm());
+            ModHandler.addShapedRecipe("block_mold_form", GAMetaItems.MOLD_FORM_BLOCK.getStackForm(), "f  ", "xM ", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_BLOCK.getStackForm(), GAMetaItems.MOLD_FORM_BLOCK.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_MOLD_BOTTLE.getStackForm());
+            ModHandler.addShapedRecipe("bottle_mold_form", GAMetaItems.MOLD_FORM_BOTTLE.getStackForm(), "f  ", " Mx", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_BOTTLE.getStackForm(), GAMetaItems.MOLD_FORM_BOTTLE.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_MOLD_CREDIT.getStackForm());
+            ModHandler.addShapedRecipe("coinage_mold_form", GAMetaItems.MOLD_FORM_COINAGE.getStackForm(), "f  ", " M ", "x  ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_CREDIT.getStackForm(), GAMetaItems.MOLD_FORM_COINAGE.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_MOLD_GEAR.getStackForm());
+            ModHandler.addShapedRecipe("gear_mold_form", GAMetaItems.MOLD_FORM_GEAR.getStackForm(), "f  ", " M ", " x ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_GEAR.getStackForm(), GAMetaItems.MOLD_FORM_GEAR.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_MOLD_INGOT.getStackForm());
+            ModHandler.addShapedRecipe("ingot_mold_form", GAMetaItems.MOLD_FORM_INGOT.getStackForm(), "f  ", " M ", "  x", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_INGOT.getStackForm(), GAMetaItems.MOLD_FORM_INGOT.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_MOLD_NAME.getStackForm());
+            ModHandler.addShapedRecipe("name_mold_form", GAMetaItems.MOLD_FORM_NAME.getStackForm(), "xf ", " M ", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_NAME.getStackForm(), GAMetaItems.MOLD_FORM_NAME.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_MOLD_NUGGET.getStackForm());
+            ModHandler.addShapedRecipe("nugget_mold_form", GAMetaItems.MOLD_FORM_NUGGETS.getStackForm(), " fx", " M ", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_NUGGET.getStackForm(), GAMetaItems.MOLD_FORM_NUGGETS.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_MOLD_PLATE.getStackForm());
+            ModHandler.addShapedRecipe("plate_mold_form", GAMetaItems.MOLD_FORM_PLATE.getStackForm(), " f ", "xM ", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_PLATE.getStackForm(), GAMetaItems.MOLD_FORM_PLATE.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_MOLD_GEAR_SMALL.getStackForm());
+            ModHandler.addShapedRecipe("small_gear_mold_form", GAMetaItems.MOLD_FORM_SMALL_GEAR.getStackForm(), " f ", " Mx", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_GEAR_SMALL.getStackForm(), GAMetaItems.MOLD_FORM_SMALL_GEAR.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_AXE.getStackForm());
+            ModHandler.addShapedRecipe("axe_shape", GAMetaItems.SHAPE_AXE_HEAD.getStackForm(), " f ", " M ", "x  ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_AXE.getStackForm(), GAMetaItems.SHAPE_AXE_HEAD.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_BLOCK.getStackForm());
+            ModHandler.addShapedRecipe("block_shape", GAMetaItems.SHAPE_BLOCK.getStackForm(), " f ", " M ", " x ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_BLOCK.getStackForm(), GAMetaItems.SHAPE_BLOCK.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_BOLT.getStackForm());
+            ModHandler.addShapedRecipe("bolt_shape", GAMetaItems.SHAPE_BOLT.getStackForm(), " f ", " M ", "  x", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_BOLT.getStackForm(), GAMetaItems.SHAPE_BOLT.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_BOTTLE.getStackForm());
+            ModHandler.addShapedRecipe("bottle_shape", GAMetaItems.SHAPE_BOTTLE.getStackForm(), "x f", " M ", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_BOTTLE.getStackForm(), GAMetaItems.SHAPE_BOTTLE.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_CELL.getStackForm());
+            ModHandler.addShapedRecipe("cell_shape", GAMetaItems.SHAPE_CELL.getStackForm(), " xf", " M ", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_CELL.getStackForm(), GAMetaItems.SHAPE_CELL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_FILE.getStackForm());
+            ModHandler.addShapedRecipe("file_shape", GAMetaItems.SHAPE_FILE_HEAD.getStackForm(), "  f", "xM ", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_FILE.getStackForm(), GAMetaItems.SHAPE_FILE_HEAD.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_GEAR.getStackForm());
+            ModHandler.addShapedRecipe("gear_shape", GAMetaItems.SHAPE_GEAR.getStackForm(), "  f", " Mx", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_GEAR.getStackForm(), GAMetaItems.SHAPE_GEAR.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_HAMMER.getStackForm());
+            ModHandler.addShapedRecipe("hammer_shape", GAMetaItems.SHAPE_HAMMER_HEAD.getStackForm(), "  f", " M ", "x  ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_HAMMER.getStackForm(), GAMetaItems.SHAPE_HAMMER_HEAD.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_HOE.getStackForm());
+            ModHandler.addShapedRecipe("hoe_shape", GAMetaItems.SHAPE_HOE_HEAD.getStackForm(), "  f", " M ", " x ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_HOE.getStackForm(), GAMetaItems.SHAPE_HOE_HEAD.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_INGOT.getStackForm());
+            ModHandler.addShapedRecipe("ingot_shape", GAMetaItems.SHAPE_INGOT.getStackForm(), "  f", " M ", "  x", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_INGOT.getStackForm(), GAMetaItems.SHAPE_INGOT.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_PIPE_LARGE.getStackForm());
+            ModHandler.addShapedRecipe("large_pipe_shape", GAMetaItems.SHAPE_LARGE_PIPE.getStackForm(), "x  ", "fM ", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_PIPE_LARGE.getStackForm(), GAMetaItems.SHAPE_LARGE_PIPE.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_PIPE_MEDIUM.getStackForm());
+            ModHandler.addShapedRecipe("medium_pipe_shape", GAMetaItems.SHAPE_NORMAL_PIPE.getStackForm(), " x ", "fM ", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_PIPE_MEDIUM.getStackForm(), GAMetaItems.SHAPE_NORMAL_PIPE.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_PICKAXE.getStackForm());
+            ModHandler.addShapedRecipe("pickaxe_shape", GAMetaItems.SHAPE_PICKAXE_HEAD.getStackForm(), "  x", "fM ", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_PICKAXE.getStackForm(), GAMetaItems.SHAPE_PICKAXE_HEAD.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_PLATE.getStackForm());
+            ModHandler.addShapedRecipe("plate_shape", GAMetaItems.SHAPE_PLATE.getStackForm(), "   ", "fMx", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_PLATE.getStackForm(), GAMetaItems.SHAPE_PLATE.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_RING.getStackForm());
+            ModHandler.addShapedRecipe("ring_shape", GAMetaItems.SHAPE_RING.getStackForm(), "   ", "fM ", "x  ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_RING.getStackForm(), GAMetaItems.SHAPE_RING.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_ROD.getStackForm());
+            ModHandler.addShapedRecipe("rod_shape", GAMetaItems.SHAPE_ROD.getStackForm(), "   ", "fM ", " x ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_ROD.getStackForm(), GAMetaItems.SHAPE_ROD.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_SAW.getStackForm());
+            ModHandler.addShapedRecipe("saw_shape", GAMetaItems.SHAPE_SAW_BLADE.getStackForm(), "   ", "fM ", "  x", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_SAW.getStackForm(), GAMetaItems.SHAPE_SAW_BLADE.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_SHOVEL.getStackForm());
+            ModHandler.addShapedRecipe("shovel_shape", GAMetaItems.SHAPE_SHOVEL_HEAD.getStackForm(), "x  ", " Mf", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_SHOVEL.getStackForm(), GAMetaItems.SHAPE_SHOVEL_HEAD.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_PIPE_SMALL.getStackForm());
+            ModHandler.addShapedRecipe("small_pipe_shape", GAMetaItems.SHAPE_SMALL_PIPE.getStackForm(), " x ", " Mf", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_PIPE_SMALL.getStackForm(), GAMetaItems.SHAPE_SMALL_PIPE.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_SWORD.getStackForm());
+            ModHandler.addShapedRecipe("sword_shape", GAMetaItems.SHAPE_SWORD_BLADE.getStackForm(), "  x", " Mf", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_SWORD.getStackForm(), GAMetaItems.SHAPE_SWORD_BLADE.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_PIPE_TINY.getStackForm());
+            ModHandler.addShapedRecipe("tiny_pipe_shape", GAMetaItems.SHAPE_TINY_PIPE.getStackForm(), "   ", "xMf", "   ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_PIPE_TINY.getStackForm(), GAMetaItems.SHAPE_TINY_PIPE.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
+            ModHandler.removeRecipes(MetaItems.SHAPE_EXTRUDER_WIRE.getStackForm());
+            ModHandler.addShapedRecipe("wire_shape", GAMetaItems.SHAPE_WIRE.getStackForm(), "   ", " Mf", "x  ", 'M', new ItemStack(TinkerSmeltery.cast));
+            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_EXTRUDER_WIRE.getStackForm(), GAMetaItems.SHAPE_WIRE.getStackForm(), Materials.Steel.getMaterialFluid(), 576);            TinkerRegistry.registerTableCasting(MetaItems.SHAPE_MOLD_ANVIL.getStackForm(), GAMetaItems.MOLD_FORM_ANVIL.getStackForm(), Materials.Steel.getMaterialFluid(), 576);
         }
 
         //Reinforced Glass
@@ -1344,6 +1455,13 @@ public class GARecipeAddition {
     }
 
     public static void generatedRecipes() {
+        //Tinker's Support
+        if (Loader.isModLoaded("tconstruct") && GAConfig.Misc.TiCIntegration) {
+            ModHandler.removeFurnaceSmelting(TinkerCommons.grout);
+            ModHandler.addShapelessRecipe("seared_brick", GAMetaItems.COMPRESSED_GROUT.getStackForm(), TinkerCommons.grout, MetaItems.WOODEN_FORM_BRICK);
+            ModHandler.addShapedRecipe("eight_seared_brick", GAMetaItems.COMPRESSED_GROUT.getStackForm(8), "BBB", "BFB", "BBB", 'B', TinkerCommons.grout, 'F', MetaItems.WOODEN_FORM_BRICK);
+        }
+
         List<ResourceLocation> recipesToRemove = new ArrayList<>();
 
         for (IRecipe recipe : CraftingManager.REGISTRY) {

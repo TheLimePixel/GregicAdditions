@@ -7,8 +7,6 @@ import gregtech.api.items.metaitem.stats.IMetaItemStats;
 import gregtech.api.unification.material.MarkerMaterials.Tier;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
-import gregtech.api.unification.stack.ItemMaterialInfo;
-import gregtech.api.unification.stack.MaterialStack;
 import gregtech.common.items.MetaItems;
 import net.minecraftforge.fml.common.Loader;
 
@@ -82,6 +80,42 @@ public class GAMetaItem extends MaterialMetaItem {
             GAMetaItems.MAX_BATTERY = addItem(21, "max.battery").addStats(new IMetaItemStats[]{ElectricStats.createRechargeableBattery(9223372036854775807L, 9)}).setModelAmount(8);
             MetaItems.ZPM2.setInvisible();
         }
+
+        if (Loader.isModLoaded("tconstruct") && GAConfig.Misc.TiCIntegration)
+        GAMetaItems.COMPRESSED_GROUT = addItem(22, "ga_compressed.grout");
+        GAMetaItems.MOLD_FORM_ANVIL = addItem(36, "mold.form.anvil");
+        GAMetaItems.MOLD_FORM_BALL = addItem(37, "mold.form.ball");
+        GAMetaItems.MOLD_FORM_BLOCK = addItem(38, "mold.form.block");
+        GAMetaItems.MOLD_FORM_BOTTLE = addItem(39, "mold.form.bottle");
+        GAMetaItems.MOLD_FORM_COINAGE = addItem(40, "mold.form.coinage");
+        GAMetaItems.MOLD_FORM_GEAR = addItem(41, "mold.form.gear");
+        GAMetaItems.MOLD_FORM_INGOT = addItem(42, "mold.form.ingot");
+        GAMetaItems.MOLD_FORM_NAME = addItem(43, "mold.form.name");
+        GAMetaItems.MOLD_FORM_NUGGETS = addItem(44, "mold.form.nuggets");
+        GAMetaItems.MOLD_FORM_PLATE = addItem(45, "mold.form.plate");
+        GAMetaItems.MOLD_FORM_SMALL_GEAR = addItem(46, "mold.form.small_gear");
+        GAMetaItems.SHAPE_AXE_HEAD = addItem(47, "shape.axe_head");
+        GAMetaItems.SHAPE_BLOCK = addItem(48, "shape.block");
+        GAMetaItems.SHAPE_BOLT = addItem(49, "shape.bolt");
+        GAMetaItems.SHAPE_BOTTLE = addItem(50, "shape.bottle");
+        GAMetaItems.SHAPE_CELL = addItem(51, "shape.cell");
+        GAMetaItems.SHAPE_FILE_HEAD = addItem(52, "shape.file_head");
+        GAMetaItems.SHAPE_GEAR = addItem(53, "shape.gear");
+        GAMetaItems.SHAPE_HAMMER_HEAD = addItem(54, "shape.hammer_head");
+        GAMetaItems.SHAPE_HOE_HEAD = addItem(55, "shape.hoe_head");
+        GAMetaItems.SHAPE_INGOT = addItem(56, "shape.ingot");
+        GAMetaItems.SHAPE_LARGE_PIPE = addItem(57, "shape.large_pipe");
+        GAMetaItems.SHAPE_NORMAL_PIPE = addItem(58, "shape.normal_pipe");
+        GAMetaItems.SHAPE_PICKAXE_HEAD = addItem(59, "shape.pickaxe_head");
+        GAMetaItems.SHAPE_PLATE = addItem(60, "shape.plate");
+        GAMetaItems.SHAPE_RING = addItem(61, "shape.ring");
+        GAMetaItems.SHAPE_ROD = addItem(62, "shape.rod");
+        GAMetaItems.SHAPE_SAW_BLADE = addItem(63, "shape.saw_blade");
+        GAMetaItems.SHAPE_SHOVEL_HEAD = addItem(64, "shape.shovel_head");
+        GAMetaItems.SHAPE_SMALL_PIPE = addItem(65, "shape.small_pipe");
+        GAMetaItems.SHAPE_SWORD_BLADE = addItem(66, "shape.sword_blade");
+        GAMetaItems.SHAPE_TINY_PIPE = addItem(67, "shape.tiny_pipe");
+        GAMetaItems.SHAPE_WIRE = addItem(68, "shape.wire");
 
         MetaItems.COMPRESSED_CLAY.setInvisible();
         MetaItems.COMPRESSED_FIRECLAY.setInvisible();

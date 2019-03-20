@@ -208,7 +208,7 @@ public class GAMachineRecipeRemoval {
 
         //Remove ore to dust smelting
         for (Material mat : Material.MATERIAL_REGISTRY) {
-            if (mat instanceof DustMaterial && !(mat instanceof IngotMaterial) && !(mat instanceof GemMaterial)) {
+            if (mat instanceof DustMaterial && ((DustMaterial) mat).directSmelting == null && !(mat instanceof IngotMaterial) && !(mat instanceof GemMaterial)) {
                 ModHandler.removeFurnaceSmelting(new UnificationEntry(OrePrefix.ore, mat));
                 ModHandler.removeFurnaceSmelting(new UnificationEntry(OrePrefix.oreBasalt, mat));
                 ModHandler.removeFurnaceSmelting(new UnificationEntry(OrePrefix.oreBlackgranite, mat));
