@@ -88,6 +88,7 @@ public class GAMetaItem extends MaterialMetaItem {
         GAMetaItems.MOLD_FORM_BLOCK = addItem(38, "mold.form.block");
         GAMetaItems.MOLD_FORM_BOTTLE = addItem(39, "mold.form.bottle");
         GAMetaItems.MOLD_FORM_COINAGE = addItem(40, "mold.form.coinage");
+        GAMetaItems.MOLD_FORM_CYLINDER = addItem(23, "mold.form.cylinder");
         GAMetaItems.MOLD_FORM_GEAR = addItem(41, "mold.form.gear");
         GAMetaItems.MOLD_FORM_INGOT = addItem(42, "mold.form.ingot");
         GAMetaItems.MOLD_FORM_NAME = addItem(43, "mold.form.name");

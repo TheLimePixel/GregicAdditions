@@ -75,6 +75,7 @@ public class GAMetaItems {
     public static MetaItem<?>.MetaValueItem MOLD_FORM_BLOCK;
     public static MetaItem<?>.MetaValueItem MOLD_FORM_BOTTLE;
     public static MetaItem<?>.MetaValueItem MOLD_FORM_COINAGE;
+    public static MetaItem<?>.MetaValueItem MOLD_FORM_CYLINDER;
     public static MetaItem<?>.MetaValueItem MOLD_FORM_GEAR;
     public static MetaItem<?>.MetaValueItem MOLD_FORM_INGOT;
     public static MetaItem<?>.MetaValueItem MOLD_FORM_NAME;

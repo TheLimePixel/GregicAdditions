@@ -14,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 @Mod(modid = GregicAdditions.MODID,
         name = GregicAdditions.NAME,
         version = GregicAdditions.VERSION,
-        dependencies = "required-after:gregtech;after:gtcebees;after:tconstruct"
+        dependencies = "required-after:gregtech;after:tconstruct"
 )
 public class GregicAdditions {
     public static final String MODID = "gtadditions";
