@@ -48,11 +48,6 @@ public class GAMaterials {
     public static DustMaterial Ferrosilite;
 
     static {
-        long STD_SOLID = DustMaterial.MatFlags.GENERATE_PLATE |
-                gregtech.api.unification.material.type.SolidMaterial.MatFlags.GENERATE_ROD |
-                gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_BOLT_SCREW;
-        long STD_GEM = DustMaterial.MatFlags.GENERATE_ORE | STD_SOLID |
-                gregtech.api.unification.material.type.GemMaterial.MatFlags.GENERATE_LENSE;
         long STD_METAL = DustMaterial.MatFlags.GENERATE_PLATE;
         long EXT_METAL = STD_METAL | gregtech.api.unification.material.type.SolidMaterial.MatFlags.GENERATE_ROD |
                 gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_BOLT_SCREW;
@@ -85,7 +80,7 @@ public class GAMaterials {
         Enderium = new IngotMaterial(976, "enderium", 0x23524a, MaterialIconSet.METALLIC, 3, ImmutableList.of(new MaterialStack(Materials.Lead, 3), new MaterialStack(Materials.Platinum, 1), new MaterialStack(Materials.EnderPearl, 1)), EXT_METAL | Material.MatFlags.DISABLE_DECOMPOSITION, null, 8.0F, 3.0F, 1280, 4500);
         AluminoSilicateWool = new DustMaterial(975, "alumino_silicate_wool", 0xbbbbbb, MaterialIconSet.SAND, 1, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
         MicaPulp = new DustMaterial(974, "mica_based", 0x917445, MaterialIconSet.SAND, 1, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
-        Ultima = new IngotMaterial(973, "ultima", 0x443d4f, MaterialIconSet.SHINY, 3, ImmutableList.of(new MaterialStack(Materials.TinAlloy,1), new MaterialStack(Materials.Ultimet,1), new MaterialStack(Materials.Magnalium,1), new MaterialStack(Materials.BlueSteel, 1), new MaterialStack(Materials.VanadiumSteel, 1), new MaterialStack(Materials.NiobiumNitride, 1), new MaterialStack(Materials.NaquadahAlloy, 1)), EXT2_METAL | Material.MatFlags.DISABLE_DECOMPOSITION, null, 9000);
+        Ultima = new IngotMaterial(973, "ultima", 0x443d4f, MaterialIconSet.SHINY, 3, ImmutableList.of(new MaterialStack(Materials.TinAlloy, 1), new MaterialStack(Materials.Ultimet, 1), new MaterialStack(Materials.Magnalium, 1), new MaterialStack(Materials.BlueSteel, 1), new MaterialStack(Materials.VanadiumSteel, 1), new MaterialStack(Materials.NiobiumNitride, 1), new MaterialStack(Materials.NaquadahAlloy, 1)), EXT2_METAL | Material.MatFlags.DISABLE_DECOMPOSITION, null, 9000);
         IronChloride = new FluidMaterial(972, "iron_chloride", 0x060b0b, MaterialIconSet.FLUID, ImmutableList.of(new MaterialStack(Materials.Iron, 1), new MaterialStack(Materials.Chlorine, 3)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING);
         QuartzSand = new DustMaterial(971, "sand", 0xd2cfbc, MaterialIconSet.SAND, 1, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
         Massicot = new DustMaterial(970, "massicot", 8943149, MaterialIconSet.SAND, 1, ImmutableList.of(new MaterialStack(Materials.Lead, 1), new MaterialStack(Materials.Oxygen, 1)), 0);
@@ -119,6 +114,15 @@ public class GAMaterials {
         Materials.GraniticMineralSand.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
         Materials.FullersEarth.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
         Materials.Gypsum.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.Zeolite.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.Kaolinite.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.Dolomite.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.Wollastonite.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.Trona.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.Andradite.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.Vermiculite.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.Alunite.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
+        Materials.GlauconiteSand.addFlag(DustMaterial.MatFlags.GENERATE_ORE);
 
         Materials.Naquadah.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
         Materials.NaquadahEnriched.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
