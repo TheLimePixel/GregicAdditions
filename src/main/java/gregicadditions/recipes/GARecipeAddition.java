@@ -70,6 +70,8 @@ public class GARecipeAddition {
 		RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(120).EUt(120).fluidInputs(Materials.Redstone.getFluid(144 * 2)).inputs(CountableIngredient.from(OrePrefix.ingot, Materials.Copper)).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.RedAlloy)).buildAndRegister();
 		RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(160).EUt(240).fluidInputs(Materials.Redstone.getFluid(144)).inputs(CountableIngredient.from(OrePrefix.ingot, Materials.AnnealedCopper)).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.RedAlloy)).buildAndRegister();
 
+		RecipeMaps.FLUID_SOLIDFICATION_RECIPES.recipeBuilder().fluidInputs(Materials.Glass.getFluid(144)).notConsumable(MetaItems.SHAPE_MOLD_BALL.getStackForm()).outputs(MetaItems.GLASS_TUBE.getStackForm()).EUt(16).duration(80).buildAndRegister();
+
 		//GTNH Bricks
 		ModHandler.removeFurnaceSmelting(new ItemStack(Items.CLAY_BALL, 1, OreDictionary.WILDCARD_VALUE));
 		ModHandler.removeFurnaceSmelting(MetaItems.COMPRESSED_CLAY.getStackForm());
