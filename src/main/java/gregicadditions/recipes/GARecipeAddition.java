@@ -65,6 +65,11 @@ public class GARecipeAddition {
 	private static final MaterialStack[] lapisLike = { new MaterialStack(Materials.Lapis, 1), new MaterialStack(Materials.Lazurite, 1), new MaterialStack(Materials.Sodalite, 1) };
 
 	public static void init() {
+
+		RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(80).EUt(32).fluidInputs(Materials.Redstone.getFluid(144 * 3), Materials.Copper.getFluid(144)).fluidOutputs(Materials.RedAlloy.getFluid(144)).buildAndRegister();
+		RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(120).EUt(120).fluidInputs(Materials.Redstone.getFluid(144 * 2)).inputs(CountableIngredient.from(OrePrefix.ingot, Materials.Copper)).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.RedAlloy)).buildAndRegister();
+		RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(160).EUt(240).fluidInputs(Materials.Redstone.getFluid(144)).inputs(CountableIngredient.from(OrePrefix.ingot, Materials.AnnealedCopper)).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.RedAlloy)).buildAndRegister();
+
 		//GTNH Bricks
 		ModHandler.removeFurnaceSmelting(new ItemStack(Items.CLAY_BALL, 1, OreDictionary.WILDCARD_VALUE));
 		ModHandler.removeFurnaceSmelting(MetaItems.COMPRESSED_CLAY.getStackForm());
@@ -1082,7 +1087,7 @@ public class GARecipeAddition {
 		RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Blocks.BROWN_MUSHROOM, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
 		RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Blocks.RED_MUSHROOM, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
 		RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(300).EUt(2).inputs(new ItemStack(Items.BEETROOT, 8)).outputs(MetaItems.PLANT_BALL.getStackForm()).buildAndRegister();
-				
+
 		//Food To Methane
 		RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(72).EUt(5).inputs(new ItemStack(Items.BREAD)).fluidOutputs(Materials.Methane.getFluid(9)).buildAndRegister();
 		RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(72).EUt(5).inputs(new ItemStack(Items.COOKIE)).fluidOutputs(Materials.Methane.getFluid(9)).buildAndRegister();
