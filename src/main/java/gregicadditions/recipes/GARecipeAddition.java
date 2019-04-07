@@ -72,6 +72,8 @@ public class GARecipeAddition {
 
 		RecipeMaps.FLUID_SOLIDFICATION_RECIPES.recipeBuilder().fluidInputs(Materials.Glass.getFluid(144)).notConsumable(MetaItems.SHAPE_MOLD_BALL.getStackForm()).outputs(MetaItems.GLASS_TUBE.getStackForm()).EUt(16).duration(80).buildAndRegister();
 
+		RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().inputs(new ItemStack(Items.GLOWSTONE_DUST, 4)).outputs(new ItemStack(Blocks.GLOWSTONE)).EUt(16).duration(40).buildAndRegister();
+
 		//GTNH Bricks
 		ModHandler.removeFurnaceSmelting(new ItemStack(Items.CLAY_BALL, 1, OreDictionary.WILDCARD_VALUE));
 		ModHandler.removeFurnaceSmelting(MetaItems.COMPRESSED_CLAY.getStackForm());
