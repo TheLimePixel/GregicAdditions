@@ -69,15 +69,15 @@ public class TileEntityCrate extends MetaTileEntity {
 			@Override
 			protected void onContentsChanged(int slot) {
 				super.onContentsChanged(slot);
-				updateComparatorValue(true);
+				updateComparatorValue();
 			}
 		};
 		this.itemInventory = inventory;
-		updateComparatorValue(true);
+		updateComparatorValue();
 	}
 
 	@Override
-	public int getComparatorValue() {
+	public int getActualComparatorValue() {
 		return ItemHandlerHelper.calcRedstoneFromInventory(inventory);
 	}
 
