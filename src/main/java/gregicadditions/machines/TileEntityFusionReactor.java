@@ -38,7 +38,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 
 	public TileEntityFusionReactor(ResourceLocation metaTileEntityId, int tier) {
 		super(metaTileEntityId, RecipeMaps.FUSION_RECIPES);
-		this.recipeMapWorkable = new MultiblockRecipeMapWorkable(this) {
+		this.recipeMapWorkable = new MultiblockRecipeLogic(this) {
 			@Override
 			protected int getOverclockingTier(long voltage) {
 				return 0;
@@ -137,42 +137,42 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 
 			if (this.recipeMapWorkable.isWorkingEnabled()) {
 				if (this.recipeMapWorkable.isHasNotEnoughEnergy()) {
-					ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, 0, "progressTime");
+					ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, 0, "progressTime");
 					recipeMapWorkable.setMaxProgress(0);
-					ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, 0, "recipeEUt");
-					ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, null, "fluidOutputs");
-					ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, null, "itemOutputs");
-					ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, false, "hasNotEnoughEnergy");
-					ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, true, "wasActiveAndNeedsUpdate");
+					ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, 0, "recipeEUt");
+					ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, null, "fluidOutputs");
+					ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, null, "itemOutputs");
+					ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, false, "hasNotEnoughEnergy");
+					ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, true, "wasActiveAndNeedsUpdate");
 					return;
 				}
-				Recipe previousRecipe = ObfuscationReflectionHelper.getPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, "previousRecipe");
+				Recipe previousRecipe = ObfuscationReflectionHelper.getPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, "previousRecipe");
 				this.recipeMapWorkable.updateWorkable();
-				Recipe recipe = ObfuscationReflectionHelper.getPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, "previousRecipe");
+				Recipe recipe = ObfuscationReflectionHelper.getPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, "previousRecipe");
 				if (previousRecipe != recipe) {
 					if (recipe != null) {
 						long euToStart = ((Integer) recipe.getProperty("eu_to_start")).intValue();
 						if (this.energyContainer.getEnergyStored() < euToStart) {
-							ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, 0, "progressTime");
+							ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, 0, "progressTime");
 							recipeMapWorkable.setMaxProgress(0);
-							ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, 0, "recipeEUt");
-							ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, null, "fluidOutputs");
-							ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, null, "itemOutputs");
-							ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, false, "hasNotEnoughEnergy");
-							ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, false, "hasNotEnoughEnergy");
-							ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, true, "wasActiveAndNeedsUpdate");
+							ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, 0, "recipeEUt");
+							ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, null, "fluidOutputs");
+							ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, null, "itemOutputs");
+							ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, false, "hasNotEnoughEnergy");
+							ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, false, "hasNotEnoughEnergy");
+							ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, true, "wasActiveAndNeedsUpdate");
 						} else {
 							this.energyContainer.addEnergy(-euToStart);
 						}
 					} else {
-						ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, 0, "progressTime");
+						ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, 0, "progressTime");
 						recipeMapWorkable.setMaxProgress(0);
-						ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, 0, "recipeEUt");
-						ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, null, "fluidOutputs");
-						ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, null, "itemOutputs");
-						ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, false, "hasNotEnoughEnergy");
-						ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, false, "hasNotEnoughEnergy");
-						ObfuscationReflectionHelper.setPrivateValue(RecipeMapWorkableHandler.class, recipeMapWorkable, true, "wasActiveAndNeedsUpdate");
+						ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, 0, "recipeEUt");
+						ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, null, "fluidOutputs");
+						ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, null, "itemOutputs");
+						ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, false, "hasNotEnoughEnergy");
+						ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, false, "hasNotEnoughEnergy");
+						ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, true, "wasActiveAndNeedsUpdate");
 					}
 				}
 			}
