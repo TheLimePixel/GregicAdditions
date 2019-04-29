@@ -196,14 +196,14 @@ public class GAMachineRecipeRemoval {
 		List<ItemStack> inputs = new ArrayList<>();
 		for (ItemStack s : itemInputs)
 			inputs.add(s);
-		map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, inputs, Collections.emptyList()));
+		map.removeRecipe(map.findRecipe(Long.MAX_VALUE, inputs, Collections.emptyList(), Integer.MAX_VALUE));
 	}
 
 	private static <R extends RecipeBuilder<R>> void removeRecipesByInputs(RecipeMap<R> map, FluidStack... fluidInputs) {
 		List<FluidStack> inputs = new ArrayList<>();
 		for (FluidStack s : fluidInputs)
 			inputs.add(s);
-		map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, Collections.emptyList(), inputs));
+		map.removeRecipe(map.findRecipe(Long.MAX_VALUE, Collections.emptyList(), inputs, Integer.MAX_VALUE));
 	}
 
 	private static <R extends RecipeBuilder<R>> void removeRecipesByInputs(RecipeMap<R> map, ItemStack[] itemInputs, FluidStack[] fluidInputs) {
@@ -213,7 +213,7 @@ public class GAMachineRecipeRemoval {
 		List<FluidStack> fluidIn = new ArrayList<>();
 		for (FluidStack s : fluidInputs)
 			fluidIn.add(s);
-		map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, itemIn, fluidIn));
+		map.removeRecipe(map.findRecipe(Long.MAX_VALUE, itemIn, fluidIn, Integer.MAX_VALUE));
 	}
 
 	private static <R extends RecipeBuilder<R>> void removeAllRecipes(RecipeMap<R> map) {
