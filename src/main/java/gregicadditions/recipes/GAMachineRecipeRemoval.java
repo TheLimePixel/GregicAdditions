@@ -104,11 +104,6 @@ public class GAMachineRecipeRemoval {
 		//Circuit Rabbit Hole-Related Recipe Removal
 		removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, new ItemStack[] { OreDictUnifier.get(OrePrefix.dust, Materials.Silicon) }, new FluidStack[] { Materials.Epichlorhydrin.getFluid(144) });
 
-		//Remove Cracker recipe
-		removeAllRecipes(RecipeMaps.CRACKING_RECIPES);
-		removeAllRecipes(RecipeMaps.DISTILLERY_RECIPES);
-		removeAllRecipes(RecipeMaps.DISTILLATION_RECIPES);
-
 		//Remove Pyrolise Oven Recipes
 		removeAllRecipes(RecipeMaps.PYROLYSE_RECIPES);
 
