@@ -95,7 +95,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
     private boolean tryPickNewRecipe() {
         ItemStack inputStack = importItems.getStackInSlot(0);
         if (inputStack.isEmpty()) return false;
-        Recipe recipe = GARecipeMaps.COKE_OVEN_RECIPES.findRecipe(Integer.MAX_VALUE, Collections.singletonList(inputStack), Collections.EMPTY_LIST);
+        Recipe recipe = GARecipeMaps.COKE_OVEN_RECIPES.findRecipe(Integer.MAX_VALUE, Collections.singletonList(inputStack), Collections.EMPTY_LIST, Integer.MAX_VALUE);
         if (recipe == null) return false;
         NonNullList<ItemStack> outputs = NonNullList.create();
         outputs.add(recipe.getOutputs().get(0).copy());
@@ -254,7 +254,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
                 .widget(new SlotWidget(exportItems, 0, 85, 24, true, false)
                         .setBackgroundTexture(GuiTextures.BRONZE_SLOT, GATextures.COAL_OVERLAY))
                 .widget(new TankWidget(exportFluids.getTankAt(0), 102, 23, 18, 18)
-                        .setBackgroundTexture(GATextures.BRONZE_FLUID_SLOT).setAlwaysShowFull(true).setContainerIO(true, false))
+                        .setBackgroundTexture(GATextures.BRONZE_FLUID_SLOT).setAlwaysShowFull(true).setContainerClicking(true, false))
                 .bindPlayerInventory(entityPlayer.inventory, GuiTextures.BRONZE_SLOT)
                 .build(getHolder(), entityPlayer);
     }
