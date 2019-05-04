@@ -62,7 +62,7 @@ public class TileEntityDrum extends MetaTileEntity {
     }
 
     @Override
-    public int getComparatorValue() {
+    public int getActualComparatorValue() {
         FluidTank fluidTank = this.fluidTank;
         int fluidAmount = fluidTank.getFluidAmount();
         int maxCapacity = fluidTank.getCapacity();
@@ -90,7 +90,7 @@ public class TileEntityDrum extends MetaTileEntity {
         super.initializeInventory();
         this.fluidTank = new SyncFluidTank(tankSize);
         this.fluidInventory = fluidTank;
-        updateComparatorValue(true);
+        updateComparatorValue();
     }
 
     @Override
@@ -241,7 +241,7 @@ public class TileEntityDrum extends MetaTileEntity {
 
         @Override
         protected void onFluidChanged(FluidStack newFluidStack, FluidStack oldFluidStack) {
-            updateComparatorValue(true);
+            updateComparatorValue();
             if (getWorld() != null && !getWorld().isRemote) {
                 onContentsChangedOnServer(newFluidStack, oldFluidStack);
             }
