@@ -60,7 +60,7 @@ public class TileEntityDrum extends MetaTileEntity {
     public int getLightOpacity() {
         return 1;
     }
-
+  
     @Override
     public int getActualComparatorValue() {
         FluidTank fluidTank = this.fluidTank;

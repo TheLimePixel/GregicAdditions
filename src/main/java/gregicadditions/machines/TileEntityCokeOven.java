@@ -95,7 +95,7 @@ public class TileEntityCokeOven extends MultiblockControllerBase {
     private boolean tryPickNewRecipe() {
         ItemStack inputStack = importItems.getStackInSlot(0);
         if (inputStack.isEmpty()) return false;
-        Recipe recipe = GARecipeMaps.COKE_OVEN_RECIPES.findRecipe(Integer.MAX_VALUE, Collections.singletonList(inputStack), Collections.EMPTY_LIST);
+        Recipe recipe = GARecipeMaps.COKE_OVEN_RECIPES.findRecipe(Integer.MAX_VALUE, Collections.singletonList(inputStack), Collections.EMPTY_LIST, Integer.MAX_VALUE);
         if (recipe == null) return false;
         NonNullList<ItemStack> outputs = NonNullList.create();
         outputs.add(recipe.getOutputs().get(0).copy());

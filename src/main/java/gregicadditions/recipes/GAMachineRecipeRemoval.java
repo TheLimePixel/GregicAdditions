@@ -227,14 +227,14 @@ public class GAMachineRecipeRemoval {
         List<ItemStack> inputs = new ArrayList<>();
         for (ItemStack s : itemInputs)
             inputs.add(s);
-        map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, inputs, Collections.EMPTY_LIST));
+        map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, inputs, Collections.EMPTY_LIST, Integer.MAX_VALUE));
     }
 
     private static void removeRecipesByInputs(RecipeMap map, FluidStack... fluidInputs) {
         List<FluidStack> inputs = new ArrayList<>();
         for (FluidStack s : fluidInputs)
             inputs.add(s);
-        map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, Collections.EMPTY_LIST, inputs));
+        map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, Collections.EMPTY_LIST, inputs, Integer.MAX_VALUE));
     }
 
     private static void removeRecipesByInputs(RecipeMap map, ItemStack[] itemInputs, FluidStack[] fluidInputs) {
@@ -244,7 +244,7 @@ public class GAMachineRecipeRemoval {
         List<FluidStack> fluidIn = new ArrayList<>();
         for (FluidStack s : fluidInputs)
             fluidIn.add(s);
-        map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, itemIn, fluidIn));
+        map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, itemIn, fluidIn, Integer.MAX_VALUE));
     }
 
     private static void removeAllRecipes(RecipeMap map) {
