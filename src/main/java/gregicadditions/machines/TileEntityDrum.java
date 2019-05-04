@@ -60,16 +60,15 @@ public class TileEntityDrum extends MetaTileEntity {
     public int getLightOpacity() {
         return 1;
     }
-
-    /* Broken by GregTech Community Edition - need to wait for method to be flagged unfinal */
-    /*@Override
-    public int getComparatorValue() {
+  
+    @Override
+    public int getActualComparatorValue() {
         FluidTank fluidTank = this.fluidTank;
         int fluidAmount = fluidTank.getFluidAmount();
         int maxCapacity = fluidTank.getCapacity();
         float f = fluidAmount / (maxCapacity * 1.0f);
         return MathHelper.floor(f * 14.0f) + (fluidAmount > 0 ? 1 : 0);
-    }*/
+    }
 
     @Override
     public boolean isOpaqueCube() {

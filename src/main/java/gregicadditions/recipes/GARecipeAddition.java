@@ -1478,6 +1478,7 @@ public class GARecipeAddition {
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_compress_nether_quartz"));
             ModHandler.removeRecipeByName(new ResourceLocation("gregtech:block_decompress_nether_quartz"));
             RecipeMaps.FORGE_HAMMER_RECIPES.recipeBuilder().duration(100).EUt(24).inputs(OreDictUnifier.get(OrePrefix.block, Materials.NetherQuartz)).outputs(OreDictUnifier.get(OrePrefix.gem, Materials.NetherQuartz, 4)).buildAndRegister();
+            RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).input(OrePrefix.gem, Materials.NetherQuartz, 4).outputs(new ItemStack(Blocks.QUARTZ_BLOCK)).buildAndRegister();
         }
 
         //Generate Plank Recipes
