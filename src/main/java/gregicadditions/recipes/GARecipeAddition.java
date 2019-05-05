@@ -743,8 +743,6 @@ public class GARecipeAddition {
 				ModHandler.addShapedRecipe("hoe_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadHoe, material), "GGf", 'G', new UnificationEntry(OrePrefix.gem, material));
 				ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadPickaxe, material));
 				ModHandler.addShapedRecipe("pickaxe_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadPickaxe, material), "GGG", "f  ", 'G', new UnificationEntry(OrePrefix.gem, material));
-				ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadPlow, material));
-				ModHandler.addShapedRecipe("flow_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadPlow, material), "GG", "GG", " f", 'G', new UnificationEntry(OrePrefix.gem, material));
 				ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadSaw, material));
 				ModHandler.addShapedRecipe("saw_head_" + material.toString(), OreDictUnifier.get(OrePrefix.toolHeadSaw, material), "GG", "f ", 'G', new UnificationEntry(OrePrefix.gem, material));
 				ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.toolHeadSense, material));
