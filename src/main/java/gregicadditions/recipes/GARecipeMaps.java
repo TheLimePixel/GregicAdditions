@@ -5,15 +5,27 @@ import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.api.recipes.machines.FuelRecipeMap;
+import stanhebben.zenscript.annotations.ZenClass;
+import crafttweaker.annotations.ZenRegister;
+import stanhebben.zenscript.annotations.ZenProperty;
+
+@ZenClass("mods.gtadditions.recipe.GARecipeMaps")
+@ZenRegister
 
 public class GARecipeMaps {
-
+	@ZenProperty
 	public static final RecipeMap<SimpleRecipeBuilder> CLUSTER_MILL_RECIPES;
+	@ZenProperty
 	public static final RecipeMapAssemblyLine<SimpleRecipeBuilder> ASSEMBLY_LINE_RECIPES;
+	@ZenProperty
 	public static final FuelRecipeMap NAQUADAH_REACTOR_FUELS;
+	@ZenProperty
 	public static final RecipeMap<SimpleRecipeBuilder> MASS_FAB_RECIPES;
+	@ZenProperty
 	public static final RecipeMap<SimpleRecipeBuilder> REPLICATOR_RECIPES;
+	@ZenProperty
 	public static final RecipeMap<SimpleRecipeBuilder> CRACKER_UNIT_RECIPES;
+	@ZenProperty
 	public static final RecipeMap<NoEURecipeBuilder> COKE_OVEN_RECIPES;
 
 	static {
