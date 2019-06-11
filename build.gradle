@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "1.12.2-2.7.0"
+version = "1.12.2-2.8.0"
 group = "gregicadditions"
 archivesBaseName = "Shadows_of_Greg"
 
@@ -21,30 +21,32 @@ compileJava {
 
 minecraft {
     version = "1.12.2-14.23.5.2838"
-
+	runDir = "run"
     mappings = "stable_39"
 	makeObfSourceJar = false
-
     replace("@VERSION@",project.version)
     replaceIn("GregicAdditions.java")
 }
 
 repositories {
     maven {
-        name = "Progwml6 maven"
         url = "http://dvs1.progwml6.com/files/maven/"
     }
     maven {
-        name = "CraftTweaker Maven"
         url = "https://maven.blamejared.com/"
     }
     maven {
-        name = "Forestry Maven"
         url = "http://maven.ic2.player.to"
     }
 	maven {
 		url "http://tehnut.info/maven"
 	}
+	maven {
+		url "https://minecraft.curseforge.com/api/maven"
+	}
+	maven {
+	   url = "http://chickenbones.net/maven/"
+    }
 }
 
 dependencies {
@@ -52,6 +54,10 @@ dependencies {
     deobfCompile "mezz.jei:jei_1.12.2:+"
 	deobfCompile "mcp.mobius.waila:Hwyla:1.8+"
     deobfCompile "net.sengir.forestry:forestry_1.12.2:+"
+	deobfCompile "gregtechce:gregtech:1.12.2:1.8.1.404"
+	deobfCompile "codechicken:ChickenASM:1.12-+"
+    deobfCompile "codechicken:CodeChickenLib:1.12.2-+:deobf"
+    deobfCompile "codechicken:ForgeMultipart:1.12.2-+:deobf"
 }
 
 processResources {
