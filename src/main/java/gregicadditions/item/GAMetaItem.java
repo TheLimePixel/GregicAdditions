@@ -3,7 +3,7 @@ package gregicadditions.item;
 import gregicadditions.GAConfig;
 import gregtech.api.items.materialitem.MaterialMetaItem;
 import gregtech.api.items.metaitem.ElectricStats;
-import gregtech.api.items.metaitem.stats.IMetaItemStats;
+import gregtech.api.items.metaitem.stats.IItemComponent;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.ItemMaterialInfo;
@@ -42,12 +42,12 @@ public class GAMetaItem extends MaterialMetaItem {
 		}
 
 		if (GAConfig.GT5U.enableZPMandUVBats) {
-			GAMetaItems.ENERGY_MODULE = addItem(122, "energy.module").addStats(new IMetaItemStats[] { ElectricStats.createRechargeableBattery(10000000000L, 7) }).setModelAmount(8);
-			GAMetaItems.ENERGY_CLUSTER = addItem(123, "energy.cluster").addStats(new IMetaItemStats[] { ElectricStats.createRechargeableBattery(100000000000L, 8) }).setModelAmount(8);
+			GAMetaItems.ENERGY_MODULE = addItem(122, "energy.module").addComponents(new IItemComponent[] { ElectricStats.createRechargeableBattery(10000000000L, 7) }).setModelAmount(8);
+			GAMetaItems.ENERGY_CLUSTER = addItem(123, "energy.cluster").addComponents(new IItemComponent[] { ElectricStats.createRechargeableBattery(100000000000L, 8) }).setModelAmount(8);
 		}
 
 		if (GAConfig.GT5U.replaceUVwithMAXBat) {
-			GAMetaItems.MAX_BATTERY = addItem(124, "max.battery").addStats(new IMetaItemStats[] { ElectricStats.createRechargeableBattery(9223372036854775807L, 9) }).setModelAmount(8);
+			GAMetaItems.MAX_BATTERY = addItem(124, "max.battery").addComponents(new IItemComponent[] { ElectricStats.createRechargeableBattery(9223372036854775807L, 9) }).setModelAmount(8);
 			MetaItems.ZPM2.setInvisible();
 		}
 
