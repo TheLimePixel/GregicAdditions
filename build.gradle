@@ -47,6 +47,9 @@ repositories {
 	maven {
 	   url = "http://chickenbones.net/maven/"
     }
+    maven {
+        url = "https://mod-buildcraft.com/maven/"
+    }
 }
 
 dependencies {
@@ -56,8 +59,9 @@ dependencies {
     deobfCompile "net.sengir.forestry:forestry_1.12.2:+"
 	deobfCompile "gregtechce:gregtech:1.12.2:1.8.5.436"
 	deobfCompile "codechicken:ChickenASM:1.12-+"
-    deobfCompile "codechicken:CodeChickenLib:1.12.2-+:deobf"
-    deobfCompile "codechicken:ForgeMultipart:1.12.2-+:deobf"
+    deobfCompile "codechicken-lib-1-8:CodeChickenLib-1.12.2:3.2.3.357:universal"
+    deobfCompile "forge-multipart-cbe:ForgeMultipart-1.12.2:2.6.2.83:universal"
+    deobfCompile "com.mod-buildcraft:buildcraft-api:+"
 }
 
 processResources {
