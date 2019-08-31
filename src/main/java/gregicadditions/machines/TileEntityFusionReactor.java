@@ -62,7 +62,29 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 	@Override
 	protected BlockPattern createStructurePattern() {
 		FactoryBlockPattern.start();
-		return FactoryBlockPattern.start(LEFT, DOWN, BACK).aisle("###############", "######OCO######", "###############").aisle("######ICI######", "####CCcccCC####", "######ICI######").aisle("####CC###CC####", "###EccOCOccE###", "####CC###CC####").aisle("###C#######C###", "##EcEC###CEcE##", "###C#######C###").aisle("##C#########C##", "#CcE#######EcC#", "##C#########C##").aisle("##C#########C##", "#CcC#######CcC#", "##C#########C##").aisle("#I###########I#", "OcO#########OcO", "#I###########I#").aisle("#C###########C#", "CcC#########CcC", "#C###########C#").aisle("#I###########I#", "OcO#########OcO", "#I###########I#").aisle("##C#########C##", "#CcC#######CcC#", "##C#########C##").aisle("##C#########C##", "#CcE#######EcC#", "##C#########C##").aisle("###C#######C###", "##EcEC###CEcE##", "###C#######C###").aisle("####CC###CC####", "###EccOCOccE###", "####CC###CC####").aisle("######ICI######", "####CCcccCC####", "######ICI######").aisle("###############", "######OSO######", "###############").where('S', selfPredicate()).where('C', statePredicate(getCasingState())).where('c', statePredicate(getCoilState())).where('O', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.EXPORT_FLUIDS))).where('E', statePredicate(getCasingState()).or(tilePredicate((state, tile) -> {
+		return FactoryBlockPattern.start(LEFT, DOWN, BACK)
+				.aisle("###############", "######OCO######", "###############").
+				aisle("######ICI######", "####CCcccCC####", "######ICI######").
+				aisle("####CC###CC####", "###EccOCOccE###", "####CC###CC####").
+				aisle("###C#######C###", "##EcEC###CEcE##", "###C#######C###").
+				aisle("##C#########C##", "#CcE#######EcC#", "##C#########C##").
+				aisle("##C#########C##", "#CcC#######CcC#", "##C#########C##").
+				aisle("#I###########I#", "OcO#########OcO", "#I###########I#").
+				aisle("#C###########C#", "CcC#########CcC", "#C###########C#").
+				aisle("#I###########I#", "OcO#########OcO", "#I###########I#").
+				aisle("##C#########C##", "#CcC#######CcC#", "##C#########C##").
+				aisle("##C#########C##", "#CcE#######EcC#", "##C#########C##").
+				aisle("###C#######C###", "##EcEC###CEcE##", "###C#######C###").
+				aisle("####CC###CC####", "###EccOCOccE###", "####CC###CC####").
+				aisle("######ICI######", "####CCcccCC####", "######ICI######").
+				aisle("###############", "######OSO######", "###############").
+				where('S', selfPredicate()).
+				where('C', statePredicate(getCasingState())).
+				where('c', statePredicate(getCoilState())).
+				where('O', statePredicate(getCasingState()).
+				or(abilityPartPredicate(MultiblockAbility.EXPORT_FLUIDS))).
+				where('E', statePredicate(getCasingState()).
+				or(tilePredicate((state, tile) -> {
 			for (int i = tier; i < GTValues.V.length; i++) {
 				if (tile.metaTileEntityId.equals(MetaTileEntities.ENERGY_INPUT_HATCH[i].metaTileEntityId)) return true;
 			}
@@ -102,7 +124,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 
 	private long getMaxEU() {
 		List<IEnergyContainer> eConts = ObfuscationReflectionHelper.getPrivateValue(EnergyContainerList.class, this.inputEnergyContainers, "energyContainerList");
-		return eConts.size() * 100000L * (tier - 5);
+		return eConts.size() * 10000000L * ((long)Math.pow ( 2 , tier - 6));
 	}
 
 	@Override
