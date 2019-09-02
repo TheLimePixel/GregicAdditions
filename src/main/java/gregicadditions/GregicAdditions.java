@@ -2,6 +2,9 @@ package gregicadditions;
 
 import java.util.function.Function;
 
+import gregicadditions.bees.CommonProxy;
+import gregicadditions.bees.GTBees;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,6 +23,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -34,10 +38,19 @@ public class GregicAdditions {
 	public static final String NAME = "Shadows of Greg";
 	public static final String VERSION = "@VERSION@";
 
+	@SidedProxy(
+			modId = MODID,
+			clientSide = "gregicadditions.bees.ClientProxy",
+			serverSide = "gregicadditions.bees.CommonProxy"
+	)
+	public static CommonProxy proxy;
+
+
 	public static final Logger LOGGER = LogManager.getLogger(MODID);
 
 	public GregicAdditions() {
 		GAEnums.preInit();
+
 	}
 
 	@EventHandler
@@ -49,8 +62,14 @@ public class GregicAdditions {
 	}
 
 	@EventHandler
+	public void init(FMLInitializationEvent event) {
+		GTBees.initBees();
+	}
+
+	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		GARecipeAddition.generatedRecipes();
+		proxy.postInit();
 	}
 
 	@SubscribeEvent
