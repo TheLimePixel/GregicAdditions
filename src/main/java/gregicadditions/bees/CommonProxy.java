@@ -15,6 +15,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -31,6 +32,7 @@ public class CommonProxy {
     }
 
     public void postInit() {
+        if(!GAConfig.GTBees.EnableGTCEBees || !Loader.isModLoaded("forestry"))return;
         if (GAConfig.GTBees.GenerateCentrifugeRecipes)
             for (ICentrifugeRecipe recipe : RecipeManagers.centrifugeManager.recipes()) {
                 SimpleRecipeBuilder builder = RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder();

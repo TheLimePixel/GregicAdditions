@@ -4,6 +4,7 @@ import java.util.function.Function;
 
 import gregicadditions.bees.CommonProxy;
 import gregicadditions.bees.GTBees;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -63,13 +64,15 @@ public class GregicAdditions {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		GTBees.initBees();
+		if(GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry"))
+			GTBees.initBees();
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		GARecipeAddition.generatedRecipes();
-		proxy.postInit();
+		if(GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry"))
+			proxy.postInit();
 	}
 
 	@SubscribeEvent
