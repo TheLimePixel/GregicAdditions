@@ -47,7 +47,7 @@ public class ClientProxy extends CommonProxy {
         @Override
         public int colorMultiplier(ItemStack stack, int tintIndex) {
             Item item = stack.getItem();
-            if (item instanceof IColoredItem) {
+            if (item instanceof IColoredItem && Loader.isModLoaded("forestry")) {
                 return ((IColoredItem) item).getColorFromItemstack(stack, tintIndex);
             }
             return 0xffffff;

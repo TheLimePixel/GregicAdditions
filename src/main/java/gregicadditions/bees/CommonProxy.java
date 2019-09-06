@@ -68,11 +68,13 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        if(!GAConfig.GTBees.EnableGTCEBees || !Loader.isModLoaded("forestry"))return;
         IForgeRegistry<Block> registry = event.getRegistry();
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
+        if(!GAConfig.GTBees.EnableGTCEBees || !Loader.isModLoaded("forestry"))return;
         IForgeRegistry<Item> registry = event.getRegistry();
         registry.register(GTCombs.combItem);
     }
@@ -85,6 +87,7 @@ public class CommonProxy {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+        if(!GAConfig.GTBees.EnableGTCEBees || !Loader.isModLoaded("forestry"))return;
         ForestryMachineRecipes.init();
     }
 }
