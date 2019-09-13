@@ -109,7 +109,7 @@ public class TileEntityCrate extends MetaTileEntity {
 	protected ModularUI createUI(EntityPlayer entityPlayer) {
 		Builder builder = ModularUI.builder(GuiTextures.BACKGROUND, 338, 8 + inventorySize + 104).label(5, 5, getMetaFullName());
 		for (int i = 0; i < inventorySize; i++) {
-			builder.slot(inventory, i, 8 + (i % 18) * 18, 18 + (i / 18) * 18, GuiTextures.SLOT);
+			builder.slot(inventory, i, 8 + i % 18 * 18, 18 + i / 18 * 18, GuiTextures.SLOT);
 		}
 		builder.bindPlayerInventory(entityPlayer.inventory, GuiTextures.SLOT, 90, 18 + inventorySize + 12);
 		return builder.build(getHolder(), entityPlayer);

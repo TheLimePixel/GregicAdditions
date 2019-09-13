@@ -67,7 +67,7 @@ public class SingleLimitBlockPattern extends BlockPattern {
 		int minZ = -centerOffset[4];
 		for (int c = 0, z = minZ++, r; c < this.getFingerLength(); c++) {
 
-			loop: for (r = 0; (findFirstAisle ? r < aisleRepetitions[c][1] : z <= -centerOffset[3]); r++) {//Checking repeatable slices
+			loop: for (r = 0; findFirstAisle ? r < aisleRepetitions[c][1] : z <= -centerOffset[3]; r++) {//Checking repeatable slices
 				boolean hasBlock = false;
 
 				for (int b = 0, y = -centerOffset[1]; b < this.getThumbLength(); b++, y++) {//Checking single slice

@@ -15,42 +15,41 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
-    public void preInit() {
-        super.preInit();
-    }
+	@Override
+	public void preInit() {
+		super.preInit();
+	}
 
-    public void postInit() {
+	@Override
+	public void postInit() {
 
-        ItemColors itemColors = Minecraft.getMinecraft().getItemColors();
-        if(GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry"))
-            itemColors.registerItemColorHandler(ColoredItemItemColor.INSTANCE, GTCombs.combItem);
-        super.postInit();
-    }
+		ItemColors itemColors = Minecraft.getMinecraft().getItemColors();
+		if (GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry")) itemColors.registerItemColorHandler(ColoredItemItemColor.INSTANCE, GTCombs.combItem);
+		super.postInit();
+	}
 
-    @SubscribeEvent
-    public static void registerModels(ModelRegistryEvent event) {
-        if(GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry"))
-            GTCombs.combItem.registerModel(GTCombs.combItem, ForestryAPI.modelManager);
-    }
+	@SubscribeEvent
+	public static void registerModels(ModelRegistryEvent event) {
+		if (GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry")) GTCombs.combItem.registerModel(GTCombs.combItem, ForestryAPI.modelManager);
+	}
 
-    @SideOnly(Side.CLIENT)
-    private static class ColoredItemItemColor implements IItemColor {
-        public static final ClientProxy.ColoredItemItemColor INSTANCE = new ClientProxy.ColoredItemItemColor();
+	@SideOnly(Side.CLIENT)
+	private static class ColoredItemItemColor implements IItemColor {
+		public static final ClientProxy.ColoredItemItemColor INSTANCE = new ClientProxy.ColoredItemItemColor();
 
-        private ColoredItemItemColor() {
+		private ColoredItemItemColor() {
 
-        }
+		}
 
-        @Override
-        public int colorMultiplier(ItemStack stack, int tintIndex) {
-            Item item = stack.getItem();
-            if (item instanceof IColoredItem && Loader.isModLoaded("forestry")) {
-                return ((IColoredItem) item).getColorFromItemstack(stack, tintIndex);
-            }
-            return 0xffffff;
-        }
-    }
+		@Override
+		public int colorMultiplier(ItemStack stack, int tintIndex) {
+			Item item = stack.getItem();
+			if (item instanceof IColoredItem && Loader.isModLoaded("forestry")) {
+				return ((IColoredItem) item).getColorFromItemstack(stack, tintIndex);
+			}
+			return 0xffffff;
+		}
+	}
 }

@@ -1,6 +1,9 @@
 package gregicadditions.jei;
 
+import java.util.List;
+
 import com.google.common.collect.Lists;
+
 import gregicadditions.machines.GATileEntities;
 import gregtech.api.metatileentity.multiblock.MultiblockControllerBase;
 import gregtech.common.blocks.BlockMultiblockCasing;
@@ -12,8 +15,6 @@ import gregtech.integration.jei.multiblock.MultiblockShapeInfo;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
-
-import java.util.List;
 
 public class FusionReactor3Info extends MultiblockInfoPage {
 

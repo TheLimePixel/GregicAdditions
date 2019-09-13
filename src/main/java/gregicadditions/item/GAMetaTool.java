@@ -44,7 +44,7 @@ public class GAMetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> 
 			if (!OreDictUnifier.get(OrePrefix.gem, material).isEmpty() && !OreDictUnifier.get(OrePrefix.toolHeadHammer, material).isEmpty() && material != Materials.Flint) {
 				//                GemMaterial toolMaterial = (GemMaterial) material;
 				SolidMaterial toolMaterial = (SolidMaterial) material;
-				ModHandler.addMirroredShapedRecipe(String.format("gem_hammer_%s", material.toString()), (MetaItems.HARD_HAMMER).getStackForm(toolMaterial, 1), "GG ", "GGS", "GG ", 'G', new UnificationEntry(OrePrefix.gem, toolMaterial), 'S', new UnificationEntry(OrePrefix.stick, Materials.Wood));
+				ModHandler.addMirroredShapedRecipe(String.format("gem_hammer_%s", material.toString()), MetaItems.HARD_HAMMER.getStackForm(toolMaterial, 1), "GG ", "GGS", "GG ", 'G', new UnificationEntry(OrePrefix.gem, toolMaterial), 'S', new UnificationEntry(OrePrefix.stick, Materials.Wood));
 			}
 		}
 	}

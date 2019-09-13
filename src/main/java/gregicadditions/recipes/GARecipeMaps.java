@@ -1,12 +1,12 @@
 package gregicadditions.recipes;
 
+import crafttweaker.annotations.ZenRegister;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.api.recipes.machines.FuelRecipeMap;
 import stanhebben.zenscript.annotations.ZenClass;
-import crafttweaker.annotations.ZenRegister;
 import stanhebben.zenscript.annotations.ZenProperty;
 
 @ZenClass("mods.gtadditions.recipe.GARecipeMaps")

@@ -1,6 +1,7 @@
 package gregicadditions.jei;
 
 import com.google.common.collect.Lists;
+
 import gregtech.integration.jei.multiblock.MultiblockInfoRecipeWrapper;
 import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.IModRegistry;

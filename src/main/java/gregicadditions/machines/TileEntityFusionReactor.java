@@ -1,12 +1,23 @@
 package gregicadditions.machines;
 
+import static gregtech.api.multiblock.BlockPattern.RelativeDirection.BACK;
+import static gregtech.api.multiblock.BlockPattern.RelativeDirection.DOWN;
+import static gregtech.api.multiblock.BlockPattern.RelativeDirection.LEFT;
+
+import java.util.List;
+
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
 import gregicadditions.client.ClientHandler;
 import gregtech.api.GTValues;
 import gregtech.api.capability.IEnergyContainer;
-import gregtech.api.capability.impl.*;
+import gregtech.api.capability.impl.AbstractRecipeLogic;
+import gregtech.api.capability.impl.EnergyContainerHandler;
+import gregtech.api.capability.impl.EnergyContainerList;
+import gregtech.api.capability.impl.FluidTankList;
+import gregtech.api.capability.impl.ItemHandlerList;
+import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -25,12 +36,12 @@ import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.*;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
-
-import java.util.List;
-
-import static gregtech.api.multiblock.BlockPattern.RelativeDirection.*;
 
 public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 	private final int tier;
@@ -62,29 +73,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 	@Override
 	protected BlockPattern createStructurePattern() {
 		FactoryBlockPattern.start();
-		return FactoryBlockPattern.start(LEFT, DOWN, BACK)
-				.aisle("###############", "######OCO######", "###############").
-				aisle("######ICI######", "####CCcccCC####", "######ICI######").
-				aisle("####CC###CC####", "###EccOCOccE###", "####CC###CC####").
-				aisle("###C#######C###", "##EcEC###CEcE##", "###C#######C###").
-				aisle("##C#########C##", "#CcE#######EcC#", "##C#########C##").
-				aisle("##C#########C##", "#CcC#######CcC#", "##C#########C##").
-				aisle("#I###########I#", "OcO#########OcO", "#I###########I#").
-				aisle("#C###########C#", "CcC#########CcC", "#C###########C#").
-				aisle("#I###########I#", "OcO#########OcO", "#I###########I#").
-				aisle("##C#########C##", "#CcC#######CcC#", "##C#########C##").
-				aisle("##C#########C##", "#CcE#######EcC#", "##C#########C##").
-				aisle("###C#######C###", "##EcEC###CEcE##", "###C#######C###").
-				aisle("####CC###CC####", "###EccOCOccE###", "####CC###CC####").
-				aisle("######ICI######", "####CCcccCC####", "######ICI######").
-				aisle("###############", "######OSO######", "###############").
-				where('S', selfPredicate()).
-				where('C', statePredicate(getCasingState())).
-				where('c', statePredicate(getCoilState())).
-				where('O', statePredicate(getCasingState()).
-				or(abilityPartPredicate(MultiblockAbility.EXPORT_FLUIDS))).
-				where('E', statePredicate(getCasingState()).
-				or(tilePredicate((state, tile) -> {
+		return FactoryBlockPattern.start(LEFT, DOWN, BACK).aisle("###############", "######OCO######", "###############").aisle("######ICI######", "####CCcccCC####", "######ICI######").aisle("####CC###CC####", "###EccOCOccE###", "####CC###CC####").aisle("###C#######C###", "##EcEC###CEcE##", "###C#######C###").aisle("##C#########C##", "#CcE#######EcC#", "##C#########C##").aisle("##C#########C##", "#CcC#######CcC#", "##C#########C##").aisle("#I###########I#", "OcO#########OcO", "#I###########I#").aisle("#C###########C#", "CcC#########CcC", "#C###########C#").aisle("#I###########I#", "OcO#########OcO", "#I###########I#").aisle("##C#########C##", "#CcC#######CcC#", "##C#########C##").aisle("##C#########C##", "#CcE#######EcC#", "##C#########C##").aisle("###C#######C###", "##EcEC###CEcE##", "###C#######C###").aisle("####CC###CC####", "###EccOCOccE###", "####CC###CC####").aisle("######ICI######", "####CCcccCC####", "######ICI######").aisle("###############", "######OSO######", "###############").where('S', selfPredicate()).where('C', statePredicate(getCasingState())).where('c', statePredicate(getCoilState())).where('O', statePredicate(getCasingState()).or(abilityPartPredicate(MultiblockAbility.EXPORT_FLUIDS))).where('E', statePredicate(getCasingState()).or(tilePredicate((state, tile) -> {
 			for (int i = tier; i < GTValues.V.length; i++) {
 				if (tile.metaTileEntityId.equals(MetaTileEntities.ENERGY_INPUT_HATCH[i].metaTileEntityId)) return true;
 			}
@@ -124,7 +113,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 
 	private long getMaxEU() {
 		List<IEnergyContainer> eConts = ObfuscationReflectionHelper.getPrivateValue(EnergyContainerList.class, this.inputEnergyContainers, "energyContainerList");
-		return eConts.size() * 10000000L * ((long)Math.pow ( 2 , tier - 6));
+		return eConts.size() * 10000000L * (long) Math.pow(2, tier - 6);
 	}
 
 	@Override
@@ -205,7 +194,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 	@Override
 	protected void addDisplayText(List<ITextComponent> textList) {
 		if (!this.isStructureFormed()) {
-			textList.add((new TextComponentTranslation("gregtech.multiblock.invalid_structure", new Object[0])).setStyle((new Style()).setColor(TextFormatting.RED)));
+			textList.add(new TextComponentTranslation("gregtech.multiblock.invalid_structure", new Object[0]).setStyle(new Style().setColor(TextFormatting.RED)));
 		}
 		if (this.isStructureFormed()) {
 			if (!this.recipeMapWorkable.isWorkingEnabled()) {
@@ -225,7 +214,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 			}
 
 			if (this.recipeMapWorkable.isHasNotEnoughEnergy()) {
-				textList.add((new TextComponentTranslation("gregtech.multiblock.not_enough_energy", new Object[0])).setStyle((new Style()).setColor(TextFormatting.RED)));
+				textList.add(new TextComponentTranslation("gregtech.multiblock.not_enough_energy", new Object[0]).setStyle(new Style().setColor(TextFormatting.RED)));
 			}
 		}
 

@@ -58,7 +58,7 @@ public class RecipeMapAssemblyLine<R extends RecipeBuilder<R>> extends RecipeMap
 		int[] inputSlotGrid = determineSlotsGrid(itemInputsCount);
 		int itemSlotsToLeft = inputSlotGrid[0];
 		int itemSlotsToDown = inputSlotGrid[1];
-		int startInputsX = isOutputs ? 138 : (101 - itemSlotsToLeft * 18);
+		int startInputsX = isOutputs ? 138 : 101 - itemSlotsToLeft * 18;
 		int startInputsY = 32 - (int) (itemSlotsToDown / 2.0 * 18);
 		for (int i = 0; i < itemSlotsToDown; i++) {
 			for (int j = 0; j < itemSlotsToLeft; j++) {

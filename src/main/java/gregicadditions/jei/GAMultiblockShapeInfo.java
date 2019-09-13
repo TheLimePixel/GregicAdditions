@@ -1,5 +1,10 @@
 package gregicadditions.jei;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.util.BlockInfo;
@@ -7,11 +12,6 @@ import gregtech.common.blocks.MetaBlocks;
 import gregtech.integration.jei.multiblock.MultiblockShapeInfo;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class GAMultiblockShapeInfo extends MultiblockShapeInfo {
 

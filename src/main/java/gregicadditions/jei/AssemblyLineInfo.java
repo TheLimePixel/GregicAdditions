@@ -1,5 +1,8 @@
 package gregicadditions.jei;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.item.GATransparentCasing;
@@ -14,9 +17,6 @@ import gregtech.integration.jei.multiblock.MultiblockShapeInfo;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AssemblyLineInfo extends MultiblockInfoPage {
 

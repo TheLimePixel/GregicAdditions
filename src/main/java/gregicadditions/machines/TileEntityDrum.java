@@ -1,5 +1,13 @@
 package gregicadditions.machines;
 
+import java.io.IOException;
+import java.util.List;
+
+import javax.annotation.Nullable;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.tuple.Pair;
+
 import codechicken.lib.colour.ColourRGBA;
 import codechicken.lib.raytracer.CuboidRayTraceResult;
 import codechicken.lib.render.CCRenderState;
@@ -33,12 +41,6 @@ import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.capability.templates.FluidHandlerItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.tuple.Pair;
-
-import javax.annotation.Nullable;
-import java.io.IOException;
-import java.util.List;
 
 public class TileEntityDrum extends MetaTileEntity {
 	private final int tankSize;

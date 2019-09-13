@@ -1,12 +1,8 @@
 package gregicadditions.machines;
 
-import com.google.common.base.Joiner;
-import gregtech.api.multiblock.BlockPattern;
-import gregtech.api.multiblock.BlockWorldState;
-import gregtech.api.util.IntRange;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
+import static gregtech.api.multiblock.BlockPattern.RelativeDirection.BACK;
+import static gregtech.api.multiblock.BlockPattern.RelativeDirection.RIGHT;
+import static gregtech.api.multiblock.BlockPattern.RelativeDirection.UP;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -15,7 +11,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import static gregtech.api.multiblock.BlockPattern.RelativeDirection.*;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
+
+import com.google.common.base.Joiner;
+
+import gregtech.api.multiblock.BlockPattern;
+import gregtech.api.multiblock.BlockWorldState;
+import gregtech.api.util.IntRange;
 
 public class SingleLimitFactory {
 	private static final Joiner COMMA_JOIN = Joiner.on(",");
@@ -67,7 +71,9 @@ public class SingleLimitFactory {
 				throw new IllegalArgumentException("Expected aisle with height of " + this.aisleHeight + ", but was given one with a height of " + aisle.length + ")");
 			} else {
 				for (String s : aisle) {
-					if (s.length() != this.rowWidth) { throw new IllegalArgumentException("Not all rows in the given aisle are the correct width (expected " + this.rowWidth + ", found one with " + s.length() + ")"); }
+					if (s.length() != this.rowWidth) {
+						throw new IllegalArgumentException("Not all rows in the given aisle are the correct width (expected " + this.rowWidth + ", found one with " + s.length() + ")");
+					}
 
 					for (char c0 : s.toCharArray()) {
 						if (!this.symbolMap.containsKey(c0)) {
@@ -159,7 +165,9 @@ public class SingleLimitFactory {
 			}
 		}
 
-		if (!list.isEmpty()) { throw new IllegalStateException("Predicates for character(s) " + COMMA_JOIN.join(list) + " are missing"); }
+		if (!list.isEmpty()) {
+			throw new IllegalStateException("Predicates for character(s) " + COMMA_JOIN.join(list) + " are missing");
+		}
 	}
 
 	private List<Pair<Predicate<BlockWorldState>, IntRange>> makeCountLimitsList() {

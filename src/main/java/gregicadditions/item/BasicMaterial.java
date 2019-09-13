@@ -1,6 +1,7 @@
 package gregicadditions.item;
 
 import com.google.common.collect.ImmutableList;
+
 import gregtech.api.unification.Element;
 import gregtech.api.unification.material.MaterialIconSet;
 import gregtech.api.unification.material.type.Material;

@@ -387,7 +387,6 @@ public class GATileEntities {
 		FUSION_REACTOR[1] = GregTechAPI.registerMetaTileEntity(2505, new TileEntityFusionReactor(location("fusion_reactor.zpm"), 7));
 		FUSION_REACTOR[2] = GregTechAPI.registerMetaTileEntity(2506, new TileEntityFusionReactor(location("fusion_reactor.uv"), 8));
 
-
 		if (GAConfig.GT6.registerDums) {
 			WOODEN_DRUM = GregTechAPI.registerMetaTileEntity(2195, new TileEntityDrum(location("drum.wood"), Materials.Wood, 16000));
 			BRONZE_DRUM = GregTechAPI.registerMetaTileEntity(2196, new TileEntityDrum(location("drum.bronze"), Materials.Bronze, 32000));

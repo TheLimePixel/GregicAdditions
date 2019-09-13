@@ -178,9 +178,9 @@ public class GAConfig {
 	}
 
 	@Config.Comment("Config options of GTCE Bees features")
-	public  static GTBees GTBees = new GTBees();
+	public static GTBees GTBees = new GTBees();
 
-	public  static class GTBees {
+	public static class GTBees {
 		@Config.Comment("Enable/Disable all GT Bees features")
 		public boolean EnableGTCEBees = true;
 

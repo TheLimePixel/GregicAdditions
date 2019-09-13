@@ -2,13 +2,11 @@ package gregicadditions;
 
 import java.util.function.Function;
 
-import gregicadditions.bees.CommonProxy;
-import gregicadditions.bees.GTBees;
-import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import gregicadditions.bees.CommonProxy;
+import gregicadditions.bees.GTBees;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.machines.GATileEntities;
@@ -24,9 +22,11 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -39,13 +39,8 @@ public class GregicAdditions {
 	public static final String NAME = "Shadows of Greg";
 	public static final String VERSION = "@VERSION@";
 
-	@SidedProxy(
-			modId = MODID,
-			clientSide = "gregicadditions.bees.ClientProxy",
-			serverSide = "gregicadditions.bees.CommonProxy"
-	)
+	@SidedProxy(modId = MODID, clientSide = "gregicadditions.bees.ClientProxy", serverSide = "gregicadditions.bees.CommonProxy")
 	public static CommonProxy proxy;
-
 
 	public static final Logger LOGGER = LogManager.getLogger(MODID);
 
@@ -64,15 +59,13 @@ public class GregicAdditions {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		if(GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry"))
-			GTBees.initBees();
+		if (GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry")) GTBees.initBees();
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		GARecipeAddition.generatedRecipes();
-		if(GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry"))
-			proxy.postInit();
+		if (GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry")) proxy.postInit();
 	}
 
 	@SubscribeEvent
