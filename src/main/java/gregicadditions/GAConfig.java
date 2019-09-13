@@ -177,6 +177,29 @@ public class GAConfig {
 		public boolean replaceUVwithMAXBat = false;
 	}
 
+	@Config.Comment("Config options of GTCE Bees features")
+	public  static GTBees GTBees = new GTBees();
+
+	public  static class GTBees {
+		@Config.Comment("Enable/Disable all GT Bees features")
+		public boolean EnableGTCEBees = true;
+
+		@Config.Comment("Generate a recipe in the GT Centrifuge for every recipe in the Forestry Centrifuge")
+		public boolean GenerateCentrifugeRecipes = true;
+
+		@Config.Comment("Generate a recipe in the Fluid Extractor for every recipe in the Squeezer")
+		public boolean GenerateExtractorRecipes = true;
+
+		@Config.Comment("Add Autoclave recipes for the Combs")
+		public boolean AutoclaverRecipes = true;
+
+		@Config.Comment("Add Chemical Reactor recipes for the Combs")
+		public boolean ReactorRecipes = true;
+
+		@Config.Comment("Add Assembling Machine recipes for Impregnated items")
+		public boolean AssemblerRecipes = true;
+	}
+
 	@Config.Comment("Config options of miscellaneous features")
 	public static Misc Misc = new Misc();
 
