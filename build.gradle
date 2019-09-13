@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "1.12.2-2.9.0"
+version = "1.12.2-2.9.1"
 group = "gregicadditions"
 archivesBaseName = "Shadows_of_Greg"
 
@@ -57,7 +57,7 @@ dependencies {
     deobfCompile "mezz.jei:jei_1.12.2:+"
 	deobfCompile "mcp.mobius.waila:Hwyla:1.8+"
     deobfCompile "net.sengir.forestry:forestry_1.12.2:+"
-	deobfCompile "gregtechce:gregtech:1.12.2:1.8.5.436"
+	deobfCompile "gregtechce:gregtech:1.12.2:1.8.6.437"
 	deobfCompile "codechicken:ChickenASM:1.12-+"
     deobfCompile "codechicken-lib-1-8:CodeChickenLib-1.12.2:3.2.3.357:universal"
     deobfCompile "forge-multipart-cbe:ForgeMultipart-1.12.2:2.6.2.83:universal"
