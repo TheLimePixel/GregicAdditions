@@ -1,5 +1,6 @@
 package gregicadditions.tconstruct;
 
+import gregicadditions.GAConfig;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Materials;
@@ -15,9 +16,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class GtRecipes {
+public class TinkersGtRecipes {
     public static void init() {
         //Glass
+        if(!GAConfig.GregsConstruct.GregsConstructGlassProcessing) return;
         removeRecipesByInputs(new ItemStack(Blocks.GLASS));
         removeRecipesByInputs(new ItemStack(Blocks.STAINED_GLASS));
         removeRecipesByInputs(new ItemStack(Blocks.GLASS_PANE));
