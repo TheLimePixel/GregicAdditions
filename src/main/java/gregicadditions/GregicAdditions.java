@@ -2,6 +2,9 @@ package gregicadditions;
 
 import java.util.function.Function;
 
+import gregicadditions.tconstruct.GtRecipes;
+import gregicadditions.tconstruct.Materials;
+import net.minecraft.util.NonNullList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,6 +19,10 @@ import gregicadditions.recipes.GeneratorFuels;
 import gregicadditions.recipes.MachineCraftingRecipes;
 import gregicadditions.recipes.MatterReplication;
 import gregtech.common.blocks.VariantItemBlock;
+import gregtech.api.unification.OreDictUnifier;
+import gregtech.api.unification.material.type.IngotMaterial;
+import gregtech.api.unification.material.type.Material;
+import gregtech.api.unification.ore.OrePrefix;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -33,7 +40,9 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
-@Mod(modid = GregicAdditions.MODID, name = GregicAdditions.NAME, version = GregicAdditions.VERSION, dependencies = "required-after:gregtech@[1.8.6.437,);after:forestry")
+import slimeknights.tconstruct.library.events.TinkerRegisterEvent;
+
+@Mod(modid = GregicAdditions.MODID, name = GregicAdditions.NAME, version = GregicAdditions.VERSION, dependencies = "required-after:gregtech@[1.8.6.437,);after:forestry;after:tconstruct")
 public class GregicAdditions {
 	public static final String MODID = "gtadditions";
 	public static final String NAME = "Shadows of Greg";
@@ -54,6 +63,7 @@ public class GregicAdditions {
 		GAMetaItems.init();
 		GAMetaBlocks.init();
 		GATileEntities.init();
+		Materials.preInit();
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -99,5 +109,30 @@ public class GregicAdditions {
 		ItemBlock itemBlock = producer.apply(block);
 		itemBlock.setRegistryName(block.getRegistryName());
 		return itemBlock;
+	}
+
+	@Mod.EventBusSubscriber
+	public static class events {
+		@SubscribeEvent(priority = EventPriority.LOW)
+		public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+			GtRecipes.init();
+		}
+
+		@SubscribeEvent(priority = EventPriority.HIGH)
+		public static void smeltingRemoval(TinkerRegisterEvent.MeltingRegisterEvent event) {
+			for (Material mat : Material.MATERIAL_REGISTRY)
+				if (mat instanceof IngotMaterial && ((IngotMaterial) mat).blastFurnaceTemperature > 0 && (matches(event, OrePrefix.ore, mat) || matches(event, OrePrefix.dust, mat) || matches(event, OrePrefix.dustSmall, mat) || matches(event, OrePrefix.dustTiny, mat)))
+					event.setCanceled(true);
+		}
+
+		@SubscribeEvent(priority = EventPriority.HIGH)
+		public static void alloyRemoval(TinkerRegisterEvent.AlloyRegisterEvent event) {
+			if (event.getRecipe().getResult() == gregtech.api.unification.material.Materials.Brass.getFluid(3))
+				event.setCanceled(true);
+		}
+
+		private static boolean matches(TinkerRegisterEvent.MeltingRegisterEvent e, OrePrefix prefix, Material mat) {
+			return e.getRecipe().input.matches(NonNullList.withSize(1, OreDictUnifier.get(prefix, mat))).isPresent();
+		}
 	}
 }
