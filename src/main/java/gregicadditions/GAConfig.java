@@ -203,26 +203,26 @@ public class GAConfig {
 	@Config.Comment("Config options for GregsConstruct features")
 	public static GregsConstruct GregsConstruct = new GregsConstruct();
 
-	public static class GregsConstruct{
+	public static class GregsConstruct {
 
-	    @Config.Comment("Enable/Disable all GregsConstruct features")
-	    public boolean EnableGregsConstruct = true;
+		@Config.Comment("Enable/Disable all GregsConstruct features")
+		public boolean EnableGregsConstruct = true;
 
-	    @Config.Comment("Add Tools with GT Metals to Tinkers")
-        public  boolean TinkersMetalTools = true;
+		@Config.Comment("Add Tools with GT Metals to Tinkers")
+		public boolean TinkersMetalTools = true;
 
-	    @Config.Comment("Add Tools with GT Gems to Tinkers")
-        public  boolean TinkersGemTools = true;
+		@Config.Comment("Add Tools with GT Gems to Tinkers")
+		public boolean TinkersGemTools = true;
 
-	    @Config.Comment("Add Smelting for GT Materials to Tinkers Smeltery")
-        public  boolean TinkersMaterialsSmelting = true;
+		@Config.Comment("Add Smelting for GT Materials to Tinkers Smeltery")
+		public boolean TinkersMaterialsSmelting = true;
 
-	    @Config.Comment("Add Alloying of GT Materials to Tinkers Smeltery")
-        public  boolean TinkersMaterialAlloying = true;
+		@Config.Comment("Add Alloying of GT Materials to Tinkers Smeltery")
+		public boolean TinkersMaterialAlloying = true;
 
-	    @Config.Comment("Enable Glass recipe changes")
-        public  boolean GregsConstructGlassProcessing = true;
-    }
+		@Config.Comment("Enable Glass recipe changes")
+		public boolean GregsConstructGlassProcessing = true;
+	}
 
 	@Config.Comment("Config options of miscellaneous features")
 	public static Misc Misc = new Misc();

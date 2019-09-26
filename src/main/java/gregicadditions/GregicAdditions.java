@@ -2,9 +2,6 @@ package gregicadditions;
 
 import java.util.function.Function;
 
-import gregicadditions.tconstruct.TinkersGtRecipes;
-import gregicadditions.tconstruct.TinkersMaterials;
-import net.minecraft.util.NonNullList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,11 +15,8 @@ import gregicadditions.recipes.GARecipeAddition;
 import gregicadditions.recipes.GeneratorFuels;
 import gregicadditions.recipes.MachineCraftingRecipes;
 import gregicadditions.recipes.MatterReplication;
+import gregicadditions.tconstruct.TinkersMaterials;
 import gregtech.common.blocks.VariantItemBlock;
-import gregtech.api.unification.OreDictUnifier;
-import gregtech.api.unification.material.type.IngotMaterial;
-import gregtech.api.unification.material.type.Material;
-import gregtech.api.unification.ore.OrePrefix;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -39,8 +33,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
-
-import slimeknights.tconstruct.library.events.TinkerRegisterEvent;
 
 @Mod(modid = GregicAdditions.MODID, name = GregicAdditions.NAME, version = GregicAdditions.VERSION, dependencies = "required-after:gregtech@[1.8.6.437,);after:forestry;after:tconstruct")
 public class GregicAdditions {
@@ -63,7 +55,7 @@ public class GregicAdditions {
 		GAMetaItems.init();
 		GAMetaBlocks.init();
 		GATileEntities.init();
-		if(GAConfig.GregsConstruct.EnableGregsConstruct && Loader.isModLoaded("tconstruct")) TinkersMaterials.preInit();
+		if (GAConfig.GregsConstruct.EnableGregsConstruct && Loader.isModLoaded("tconstruct")) TinkersMaterials.preInit();
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
