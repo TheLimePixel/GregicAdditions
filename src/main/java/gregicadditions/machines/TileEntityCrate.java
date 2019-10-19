@@ -72,11 +72,9 @@ public class TileEntityCrate extends MetaTileEntity {
 			@Override
 			protected void onContentsChanged(int slot) {
 				super.onContentsChanged(slot);
-				updateComparatorValue();
 			}
 		};
 		this.itemInventory = inventory;
-		updateComparatorValue();
 	}
 
 	@Override

@@ -93,7 +93,6 @@ public class TileEntityDrum extends MetaTileEntity {
 		super.initializeInventory();
 		this.fluidTank = new SyncFluidTank(tankSize);
 		this.fluidInventory = fluidTank;
-		updateComparatorValue();
 	}
 
 	@Override
@@ -235,7 +234,6 @@ public class TileEntityDrum extends MetaTileEntity {
 
 		@Override
 		protected void onFluidChanged(FluidStack newFluidStack, FluidStack oldFluidStack) {
-			updateComparatorValue();
 			if (getWorld() != null && !getWorld().isRemote) {
 				onContentsChangedOnServer(newFluidStack, oldFluidStack);
 			}
