@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "1.12.2-2.11.0"
+version = "1.12.2-2.12.0"
 group = "gregicadditions"
 archivesBaseName = "Shadows_of_Greg"
 
@@ -20,7 +20,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.5.2838"
+    version = "1.12.2-14.23.5.2847"
 	runDir = "run"
     mappings = "stable_39"
 	makeObfSourceJar = false
@@ -57,7 +57,7 @@ dependencies {
     deobfCompile "mezz.jei:jei_1.12.2:+"
 	deobfCompile "mcp.mobius.waila:Hwyla:1.8+"
     deobfCompile "net.sengir.forestry:forestry_1.12.2:+"
-	deobfCompile "gregtechce:gregtech:1.12.2:1.8.6.437"
+	deobfCompile "gregtechce:gregtech:1.12.2:1.8.13.465"
 	deobfCompile "codechicken:ChickenASM:1.12-+"
     deobfCompile "codechicken-lib-1-8:CodeChickenLib-1.12.2:3.2.3.357:universal"
     deobfCompile "forge-multipart-cbe:ForgeMultipart-1.12.2:2.6.2.83:universal"
