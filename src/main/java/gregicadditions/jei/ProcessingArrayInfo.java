@@ -35,8 +35,10 @@ public class ProcessingArrayInfo extends MultiblockInfoPage {
 	}
 	@Override
 	public List<MultiblockShapeInfo> getMatchingShapes() {
-		MultiblockShapeInfo shapeInfo = MultiblockShapeInfo.builder().aisle("XXX", "XXX", "XXX").aisle("XXX", "X#X", "XXX")
-				.aisle("XXX", "XSX", "XXX")
+		MultiblockShapeInfo shapeInfo = MultiblockShapeInfo.builder()
+				.aisle("XXX", "XXX", "XXX")
+				.aisle("IXX", "X#X", "XXX")
+				.aisle("OXX", "XSX", "XXX")
 				.where('S', GATileEntities.PROCESSING_ARRAY, EnumFacing.SOUTH)
 				.where('X', MetaBlocks.METAL_CASING.getState(MetalCasingType.TUNGSTENSTEEL_ROBUST))
 				.where('#', Blocks.AIR.getDefaultState())
