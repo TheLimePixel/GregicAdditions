@@ -22,7 +22,10 @@ import gregtech.api.render.ICubeRenderer;
 import gregtech.api.render.Textures;
 import gregtech.api.util.GTUtility;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidTank;
+import net.minecraftforge.fluids.IFluidTank;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.items.IItemHandlerModifiable;
@@ -30,12 +33,15 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import gregicadditions.GAEnums;
 import gregicadditions.recipes.GARecipeMaps;
@@ -86,10 +92,11 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 
 	protected class ProcessingArrayWorkable extends MultiblockRecipeLogic {
 
-		String machineName = "";
+
 		int machineTierVoltage = 0;
 		int numberOfMachines = 0;
 		int numberOfOperations = 0;
+		String machineName = "";
 		Field isActiveField = null;
 		Field wasActiveAndNeedsUpdateField = null;
 		Field hasNotEnoughEnergyField = null;
@@ -202,7 +209,7 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 		@Override
 		protected Recipe findRecipe(long maxVoltage, IItemHandlerModifiable inputs, IMultipleTankHandler fluidInputs) {
 
-			findMachine(inputs, fluidInputs);
+			String machineName = findMachine(inputs, fluidInputs);
 			RecipeMap recipeM = getRecipeMaps(machineName);
 
 			if (recipeM == null) {
@@ -210,10 +217,12 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 			}
 
 			Recipe r = recipeM.findRecipe(machineTierVoltage, inputs, fluidInputs,
-					this.getMinTankCapacity(this.getOutputTank()));
+					this.getMinTankCapacity(this.getOutputTank()));		
 			return r;
 
 		}
+		
+
 
 		protected String findMachine(IItemHandlerModifiable inputs, IMultipleTankHandler fluidInputs) {
 
@@ -223,13 +232,12 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 
 				String unlocalizedName = wholeItemStack.getItem().getUnlocalizedNameInefficiently(wholeItemStack);
 				if (unlocalizedName.contains("gregtech.machine") || unlocalizedName.contains("gtadditions.machine")) {
-					numberOfMachines = Math.min(16, wholeItemStack.getCount());
+					this.numberOfMachines = Math.min(16, wholeItemStack.getCount());
 					String trimmedName = "";
 					String voltage = unlocalizedName.substring(unlocalizedName.lastIndexOf(".") + 1);
 					trimmedName = unlocalizedName.substring(0, unlocalizedName.lastIndexOf("."));
-					machineName = trimmedName.substring(trimmedName.lastIndexOf(".") + 1);
-
-					machineTierVoltage = GAEnums.voltageMap.get(voltage);
+					this.machineName = trimmedName.substring(trimmedName.lastIndexOf(".") + 1);
+					this.machineTierVoltage = GAEnums.voltageMap.get(voltage);
 					break;
 				}
 			}
@@ -238,14 +246,36 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 
 		@Override
 		protected boolean setupAndConsumeRecipeInputs(Recipe recipe) {
-			int[] resultOverclock = calculateOverclock(recipe.getEUt(), machineTierVoltage, recipe.getDuration());
-			int totalEUt = resultOverclock[0] * resultOverclock[1] * numberOfMachines;
+			
 
 			IItemHandlerModifiable importInventory = getInputInventory();
 			IItemHandlerModifiable exportInventory = getOutputInventory();
 			IMultipleTankHandler importFluids = getInputTank();
 			IMultipleTankHandler exportFluids = getOutputTank();
 
+			
+			this.numberOfOperations = 0;
+
+			for (int i = 0; i < numberOfMachines; i++) {
+				if (MetaTileEntity.addItemsToItemHandler(exportInventory, true,
+						recipe.getAllItemOutputs(exportInventory.getSlots()))
+						&& MetaTileEntity.addFluidsToFluidHandler(exportFluids, true, recipe.getFluidOutputs())) {
+
+				
+					if (recipe.matches(true, importInventory, importFluids)) {
+						numberOfOperations++;
+					} else {
+						break;
+					}
+				}
+			}
+			
+			
+			int[] resultOverclock = calculateOverclock(recipe.getEUt(), machineTierVoltage, recipe.getDuration());
+			int totalEUt = resultOverclock[0] * resultOverclock[1] * this.numberOfOperations;
+
+			
+			
 			boolean enoughPower = totalEUt >= 0
 					? getEnergyStored() >= (totalEUt > getEnergyCapacity() / 2 ? resultOverclock[0] : totalEUt)
 					: (getEnergyStored() - resultOverclock[0] <= getEnergyCapacity());
@@ -254,21 +284,8 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 				return false;
 			}
 
-			boolean startMachine = false;
-			this.numberOfOperations = 0;
-
-			for (int i = 0; i < numberOfMachines; i++) {
-				if (MetaTileEntity.addItemsToItemHandler(exportInventory, true,
-						recipe.getAllItemOutputs(exportInventory.getSlots()))
-						&& MetaTileEntity.addFluidsToFluidHandler(exportFluids, true, recipe.getFluidOutputs())) {
-
-					if (recipe.matches(true, importInventory, importFluids)) {
-						numberOfOperations++;
-					} else {
-						break;
-					}
-				}
-			}
+		
+		
 
 			return numberOfOperations > 0;
 		}
@@ -294,8 +311,9 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 				outputF.add(fluidCopy);
 			}
 
+			
 			MetaTileEntity.addItemsToItemHandler(getOutputInventory(), false, outputI);
-			MetaTileEntity.addFluidsToFluidHandler(getOutputTank(), false, outputF);
+			MetaTileEntity.addFluidsToFluidHandler(getOutputTank(), false,  outputF);
 			this.progressTime = 0;
 			setMaxProgress(0);
 			this.recipeEUt = 0;
@@ -339,6 +357,8 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 
 		}
 
+	
+		
 		@Override
 		protected void setupRecipe(Recipe recipe) {
 			int[] resultOverclock = calculateOverclock(recipe.getEUt(), machineTierVoltage, recipe.getDuration());
@@ -366,7 +386,9 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 			}
 
 		}
+		
 
+		
 		// hack over the internal AbstractRecipeLogic setActive method
 		private void setActive(boolean active) {
 			ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, active,
@@ -376,6 +398,7 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 				writeCustomData(1, buf -> buf.writeBoolean(active));
 			}
 		}
+		
 
 	}
 }
