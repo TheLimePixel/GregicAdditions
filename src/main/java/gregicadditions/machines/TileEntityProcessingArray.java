@@ -44,8 +44,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import gregicadditions.GAEnums;
 import gregicadditions.recipes.GARecipeMaps;
@@ -99,7 +101,7 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 		int machineTierVoltage = 0;
 		int numberOfMachines = 0;
 		int numberOfOperations = 0;
-		ItemStack machineItemStack=null;
+		ItemStack machineItemStack = null;
 		String machineName = "";
 		Field isActiveField = null;
 		Field wasActiveAndNeedsUpdateField = null;
@@ -226,58 +228,47 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 			}
 
 			int minMultiplier = Integer.MAX_VALUE;
-			
-			Map<String, Integer> countIngredients = new HashMap();
+
+			Set<ItemStack> countIngredients = new HashSet();
 			if (r.getInputs().size() != 0) {
 
 				this.findIngredients(countIngredients, inputs);
-                minMultiplier = Math.min(minMultiplier,this.getMinRatioItem(countIngredients, r, inputs, this.numberOfMachines));
-			
+				minMultiplier = Math.min(minMultiplier,
+						this.getMinRatioItem(countIngredients, r, inputs, this.numberOfMachines));
+
 			}
 
 			Map<String, Integer> countFluid = new HashMap();
 			if (r.getFluidInputs().size() != 0) {
 
-				
-                this.findFluid(countFluid, fluidInputs);
-			    minMultiplier =  Math.min(minMultiplier,this.getMinRatioFluid(countFluid, r, this.numberOfMachines));
+				this.findFluid(countFluid, fluidInputs);
+				minMultiplier = Math.min(minMultiplier, this.getMinRatioFluid(countFluid, r, this.numberOfMachines));
 			}
 
 			if (minMultiplier == Integer.MAX_VALUE) {
-				 GTLog.logger.error("Cannot calculate ratio of items for processing array");
+				GTLog.logger.error("Cannot calculate ratio of items for processing array");
 				return null;
 			}
 
 			this.numberOfOperations = minMultiplier;
-			
+
 			List<CountableIngredient> newRecipeInputs = new ArrayList();
 			List<FluidStack> newFluidInputs = new ArrayList();
 			List<ItemStack> outputI = new ArrayList();
 			List<FluidStack> outputF = new ArrayList();
-            this.multiplyInputsAndOutputs(newRecipeInputs, newFluidInputs, outputI, outputF, r, numberOfOperations);
-		    
+			this.multiplyInputsAndOutputs(newRecipeInputs, newFluidInputs, outputI, outputF, r, numberOfOperations);
 
-       
-      
-
-			RecipeBuilder newRecipe = recipeM.recipeBuilder()
-					.inputsIngredients(newRecipeInputs)
-					.fluidInputs(newFluidInputs)
-					.outputs(outputI)
-					.fluidOutputs(outputF)
-					.EUt(r.getEUt())
+			RecipeBuilder newRecipe = recipeM.recipeBuilder().inputsIngredients(newRecipeInputs)
+					.fluidInputs(newFluidInputs).outputs(outputI).fluidOutputs(outputF).EUt(r.getEUt())
 					.duration(r.getDuration());
-         
-			copyChancedItemOutputs(newRecipe,r,numberOfOperations);
-			newRecipe.notConsumable(this.machineItemStack);   
-		
-	       
+
+			copyChancedItemOutputs(newRecipe, r, numberOfOperations);
+			newRecipe.notConsumable(this.machineItemStack);
 
 			return (Recipe) newRecipe.build().getResult();
 		}
 
-		protected void copyChancedItemOutputs(RecipeBuilder newRecipe,Recipe oldRecipe,int numberOfOperations)
-		{
+		protected void copyChancedItemOutputs(RecipeBuilder newRecipe, Recipe oldRecipe, int numberOfOperations) {
 			for (ChanceEntry s : oldRecipe.getChancedOutputs()) {
 				int chance = s.getChance();
 				ItemStack itemStack = s.getItemStack().copy();
@@ -285,43 +276,51 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 				itemStack.setCount(itemStack.getCount() * numberOfOperations);
 
 				newRecipe.chancedOutput(itemStack, chance, boost);
-				
+
 			}
 		}
-		
-		protected void findIngredients(Map<String, Integer> countIngredients, IItemHandlerModifiable inputs) {
+
+		protected void findIngredients(Set<ItemStack> countIngredients, IItemHandlerModifiable inputs) {
 
 			for (int slot = 0; slot < inputs.getSlots(); slot++) {
 				ItemStack wholeItemStack = inputs.getStackInSlot(slot);
 				String name = wholeItemStack.getItem().getUnlocalizedNameInefficiently(wholeItemStack);
-				if (countIngredients.containsKey(name)) {
-					int existingValue = countIngredients.get(name);
-					countIngredients.put(name, existingValue + wholeItemStack.getCount());
 
-				} else {
-					countIngredients.put(name, wholeItemStack.getCount());
+				// skip empty slots
+				if (name.equals("tile.air")) {
+					continue;
+				}
+
+				boolean found = false;
+				for (ItemStack i : countIngredients) {
+					if (ItemStack.areItemsEqual(i, wholeItemStack)) {
+						i.setCount(i.getCount() + wholeItemStack.getCount());
+						found = true;
+						break;
+					}
+
+				}
+				if (!found) {
+					countIngredients.add(wholeItemStack.copy());
 				}
 
 			}
 		}
-		protected int getMinRatioItem(Map<String, Integer> countIngredients,Recipe r,IItemHandlerModifiable inputs,int numberOfMachines)
-		{
+
+		protected int getMinRatioItem(Set<ItemStack> countIngredients, Recipe r, IItemHandlerModifiable inputs,
+				int numberOfMachines) {
+
 			int minMultiplier = Integer.MAX_VALUE;
 			for (CountableIngredient ci : r.getInputs()) {
 
 				if (ci.getCount() == 0) {
 					continue;
 				}
-                 
-				for (int slot = 0; slot < inputs.getSlots(); slot++) {
 
-					ItemStack wholeItemStack = inputs.getStackInSlot(slot);
-					CountableIngredient ingredient = CountableIngredient.from(wholeItemStack);
+				for (ItemStack wholeItemStack : countIngredients) {
 
 					if (ci.getIngredient().apply(wholeItemStack)) {
-						String name = wholeItemStack.getItem().getUnlocalizedNameInefficiently(wholeItemStack);
-						int totalAmount = countIngredients.get(name);
-						int ratio = Math.min(numberOfMachines, totalAmount / ci.getCount());
+						int ratio = Math.min(numberOfMachines, wholeItemStack.getCount() / ci.getCount());
 						if (ratio < minMultiplier) {
 							minMultiplier = ratio;
 						}
@@ -332,26 +331,28 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 			}
 			return minMultiplier;
 		}
-		protected void findFluid(Map<String, Integer> countFluid,  IMultipleTankHandler fluidInputs) {
+
+		protected void findFluid(Map<String, Integer> countFluid, IMultipleTankHandler fluidInputs) {
 
 			for (IFluidTank tank : fluidInputs) {
 
-				String name = tank.getFluid().getUnlocalizedName();
+				if (tank.getFluid() != null) {
 
-				if (countFluid.containsKey(name)) {
-					int existingValue = countFluid.get(name);
-					countFluid.put(name, existingValue + tank.getFluidAmount());
+					String name = tank.getFluid().getUnlocalizedName();
 
-				} else {
-					countFluid.put(name, tank.getFluidAmount());
+					if (countFluid.containsKey(name)) {
+						int existingValue = countFluid.get(name);
+						countFluid.put(name, existingValue + tank.getFluidAmount());
+
+					} else {
+						countFluid.put(name, tank.getFluidAmount());
+					}
 				}
-
 			}
-			
-			
+
 		}
-		protected int getMinRatioFluid(Map<String, Integer> countFluid,Recipe r,int numberOfMachines)
-		{
+
+		protected int getMinRatioFluid(Map<String, Integer> countFluid, Recipe r, int numberOfMachines) {
 			int minMultiplier = Integer.MAX_VALUE;
 			for (FluidStack fs : r.getFluidInputs()) {
 				String name = fs.getFluid().getUnlocalizedName();
@@ -364,9 +365,10 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 			}
 			return minMultiplier;
 		}
-		
-		protected void multiplyInputsAndOutputs(List<CountableIngredient> newRecipeInputs,List<FluidStack> newFluidInputs,List<ItemStack> outputI,List<FluidStack> outputF,Recipe r,int numberOfOperations)
-		{
+
+		protected void multiplyInputsAndOutputs(List<CountableIngredient> newRecipeInputs,
+				List<FluidStack> newFluidInputs, List<ItemStack> outputI, List<FluidStack> outputF, Recipe r,
+				int numberOfOperations) {
 			for (CountableIngredient ci : r.getInputs()) {
 				CountableIngredient newIngredient = new CountableIngredient(ci.getIngredient(),
 						ci.getCount() * numberOfOperations);
@@ -390,7 +392,7 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 				outputF.add(fluidCopy);
 			}
 		}
-		
+
 		protected String findMachine(IItemHandlerModifiable inputs, IMultipleTankHandler fluidInputs) {
 
 			for (int slot = 0; slot < inputs.getSlots(); slot++) {
@@ -452,31 +454,31 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 		}
 
 		@Override
-	    protected void trySearchNewRecipe() {
-	        long maxVoltage = getMaxVoltage();
-	        Recipe currentRecipe = null;
-	        IItemHandlerModifiable importInventory = getInputInventory();
-	        IMultipleTankHandler importFluids = getInputTank();
-	        if (previousRecipe != null && this.numberOfOperations == this.numberOfMachines && previousRecipe.matches(false, importInventory, importFluids)) {
-	            //if previous recipe still matches inputs, try to use it
-	            currentRecipe = previousRecipe;
-	        } else {
-	            boolean dirty = checkRecipeInputsDirty(importInventory, importFluids);
-	            if (dirty || forceRecipeRecheck) {
-	                this.forceRecipeRecheck = false;
-	                //else, try searching new recipe for given inputs
-	                currentRecipe = findRecipe(maxVoltage, importInventory, importFluids);
-	                if (currentRecipe != null) {
-	                    this.previousRecipe = currentRecipe;
-	                }
-	            }
-	        }
-	        if (currentRecipe != null && setupAndConsumeRecipeInputs(currentRecipe)) {
-	            setupRecipe(currentRecipe);
-	        }
-	    }
-		
-		
+		protected void trySearchNewRecipe() {
+			long maxVoltage = getMaxVoltage();
+			Recipe currentRecipe = null;
+			IItemHandlerModifiable importInventory = getInputInventory();
+			IMultipleTankHandler importFluids = getInputTank();
+
+			boolean dirty = checkRecipeInputsDirty(importInventory, importFluids);
+			if (dirty || forceRecipeRecheck) {
+				this.forceRecipeRecheck = false;
+
+				// else, try searching new recipe for given inputs
+				currentRecipe = findRecipe(maxVoltage, importInventory, importFluids);
+				if (currentRecipe != null) {
+					this.previousRecipe = currentRecipe;
+				}
+			} else if (previousRecipe != null && previousRecipe.matches(false, importInventory, importFluids)) {
+				// if previous recipe still matches inputs, try to use it
+				currentRecipe = previousRecipe;
+			}
+			if (currentRecipe != null && setupAndConsumeRecipeInputs(currentRecipe)) {
+				setupRecipe(currentRecipe);
+			}
+
+		}
+
 		@Override
 		protected void setupRecipe(Recipe recipe) {
 			int[] resultOverclock = calculateOverclock(recipe.getEUt(), machineTierVoltage, recipe.getDuration());
