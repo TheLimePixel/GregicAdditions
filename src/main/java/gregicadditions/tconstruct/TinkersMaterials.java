@@ -78,10 +78,11 @@ public class TinkersMaterials {
 			mat.setFluid(GtMat.getMaterialFluid());
 			mat.addItemIngot(new UnificationEntry(OrePrefix.ingot, GtMat).toString());
 			mat.setRepresentativeItem(OreDictUnifier.get(OrePrefix.ingot, GtMat));
-
-			TinkerRegistry.addMaterial(mat);
-			TinkerRegistry.addMaterialStats(mat, new HeadMaterialStats((int) (GtMat.toolDurability * 0.8), GtMat.toolSpeed, GtMat.toolAttackDamage, GtMat.harvestLevel), new HandleMaterialStats((GtMat.harvestLevel - 0.5f) / 2, GtMat.toolDurability / 3), new ExtraMaterialStats(GtMat.toolDurability / 4));
-			TinkerRegistry.integrate(mat, mat.getFluid(), upperCase(GtMat));
+			if (TinkerRegistry.getMaterial(mat.identifier) == slimeknights.tconstruct.library.materials.Material.UNKNOWN) {
+				TinkerRegistry.addMaterial(mat);
+				TinkerRegistry.addMaterialStats(mat, new HeadMaterialStats((int) (GtMat.toolDurability * 0.8), GtMat.toolSpeed, GtMat.toolAttackDamage, GtMat.harvestLevel), new HandleMaterialStats((GtMat.harvestLevel - 0.5f) / 2, GtMat.toolDurability / 3), new ExtraMaterialStats(GtMat.toolDurability / 4));
+				TinkerRegistry.integrate(mat, mat.getFluid(), upperCase(GtMat));
+			}
 		}
 
 		if (GAConfig.GregsConstruct.TinkersGemTools) for (int i = 0; i < gemMaterials.size(); i++)
@@ -92,9 +93,11 @@ public class TinkersMaterials {
 			mat.addCommonItems(upperCase(GtMat));
 			mat.addItemIngot(new UnificationEntry(OrePrefix.gem, GtMat).toString());
 			mat.setRepresentativeItem(OreDictUnifier.get(OrePrefix.gem, GtMat));
-			TinkerRegistry.addMaterial(mat);
-			TinkerRegistry.addMaterialStats(mat, new HeadMaterialStats(GtMat.toolDurability, GtMat.toolSpeed, GtMat.toolAttackDamage, GtMat.harvestLevel), new HandleMaterialStats(GtMat.harvestLevel - 0.5f, GtMat.toolDurability / 4), new ExtraMaterialStats(GtMat.toolDurability / 100));
-			TinkerRegistry.integrate(mat, upperCase(GtMat));
+			if (TinkerRegistry.getMaterial(mat.identifier) == slimeknights.tconstruct.library.materials.Material.UNKNOWN) {
+				TinkerRegistry.addMaterial(mat);
+				TinkerRegistry.addMaterialStats(mat, new HeadMaterialStats(GtMat.toolDurability, GtMat.toolSpeed, GtMat.toolAttackDamage, GtMat.harvestLevel), new HandleMaterialStats(GtMat.harvestLevel - 0.5f, GtMat.toolDurability / 4), new ExtraMaterialStats(GtMat.toolDurability / 100));
+				TinkerRegistry.integrate(mat, upperCase(GtMat));
+			}
 		}
 
 		if (GAConfig.GregsConstruct.TinkersMaterialAlloying) {
