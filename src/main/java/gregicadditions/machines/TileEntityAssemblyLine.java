@@ -8,6 +8,7 @@ import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.item.GATransparentCasing;
 import gregicadditions.recipes.GARecipeMaps;
+import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -15,6 +16,7 @@ import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.multiblock.BlockPattern;
 import gregtech.api.multiblock.FactoryBlockPattern;
+import gregtech.api.recipes.Recipe;
 import gregtech.api.render.ICubeRenderer;
 import gregtech.api.render.Textures;
 import gregtech.common.blocks.BlockMetalCasing;
@@ -23,6 +25,7 @@ import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.items.IItemHandlerModifiable;
 
 public class TileEntityAssemblyLine extends RecipeMapMultiblockController {
 	public TileEntityAssemblyLine(ResourceLocation metaTileEntityId) {
@@ -58,4 +61,7 @@ public class TileEntityAssemblyLine extends RecipeMapMultiblockController {
 	protected IBlockState getCasingState() {
 		return MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID);
 	}
+
+   
+
 }

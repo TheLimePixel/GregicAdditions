@@ -1,5 +1,6 @@
 package gregicadditions;
 
+import java.util.HashMap;
 import java.util.function.Predicate;
 
 import gregtech.api.GTValues;
@@ -37,6 +38,19 @@ public class GAEnums {
 
 	public static final Predicate<Material> dust = mat -> mat instanceof DustMaterial;
 	public static final Predicate<Material> ingot = mat -> mat instanceof IngotMaterial;
+	public static final HashMap<String,Integer > voltageMap = new HashMap<String,Integer>() {{
+	put("lv",32);
+	put("mv",128);
+	put("hv",512);
+	put("ev",2048);
+	put("iv",8192);
+	put("luv",32768);
+	put("zpm",131072);
+	put("uv",524288);
+	put("max",Integer.MAX_VALUE);
+	
+}};
+	
 
 	private static Predicate<Material> pred(Predicate<Material> in) {
 		return mat -> in.test(mat);
