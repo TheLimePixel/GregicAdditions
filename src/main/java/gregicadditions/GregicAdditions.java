@@ -2,6 +2,8 @@ package gregicadditions;
 
 import java.util.function.Function;
 
+import forestry.api.core.ForestryAPI;
+import net.minecraft.util.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -61,7 +63,7 @@ public class GregicAdditions {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		if (GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry")) GTBees.initBees();
+		if (GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry") && ForestryAPI.enabledModules.contains(new ResourceLocation("forestry", "apiculture"))) GTBees.initBees();
 	}
 
 	@EventHandler

@@ -2,6 +2,7 @@ package gregicadditions.bees;
 
 import java.util.Collections;
 
+import forestry.api.core.ForestryAPI;
 import forestry.api.recipes.ICentrifugeRecipe;
 import forestry.api.recipes.ISqueezerRecipe;
 import forestry.api.recipes.RecipeManagers;
@@ -14,6 +15,7 @@ import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -58,14 +60,14 @@ public class CommonProxy {
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
-		if (!GAConfig.GTBees.EnableGTCEBees || !Loader.isModLoaded("forestry")) return;
+		if (!GAConfig.GTBees.EnableGTCEBees || !Loader.isModLoaded("forestry") || !ForestryAPI.enabledModules.contains(new ResourceLocation("forestry","apiculture"))) return;
 		IForgeRegistry<Item> registry = event.getRegistry();
 		registry.register(GTCombs.combItem);
 	}
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
-		if (!GAConfig.GTBees.EnableGTCEBees || !Loader.isModLoaded("forestry")) return;
+		if (!GAConfig.GTBees.EnableGTCEBees || !Loader.isModLoaded("forestry") || !ForestryAPI.enabledModules.contains(new ResourceLocation("forestry","apiculture"))) return;
 		ForestryMachineRecipes.init();
 	}
 }
