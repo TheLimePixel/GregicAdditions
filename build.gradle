@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "1.12.2-2.13.0"
+version = "1.12.2-2.14.0"
 group = "gregicadditions"
 archivesBaseName = "Shadows_of_Greg"
 
@@ -39,7 +39,7 @@ repositories {
         url = "http://maven.ic2.player.to"
     }
 	maven {
-		url "http://tehnut.info/maven"
+		url "https://maven.tehnut.info"
 	}
 	maven {
 		url "https://minecraft.curseforge.com/api/maven"
