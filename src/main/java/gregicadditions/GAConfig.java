@@ -16,7 +16,7 @@ public class GAConfig {
 		public boolean BendingCurvedPlates = true;
 		@Config.Name("Bending - Rotors require Curved Plates")
 		public boolean BendingRotors = true;
-		@Config.Name("Bending - Rings are crafted with Bending Cyliders")
+		@Config.Name("Bending - Rings are crafted with Bending Cylinders")
 		public boolean BendingRings = true;
 		@Config.Name("Bending - Foils are made with Bending Cylinders")
 		public boolean BendingFoils = true;
@@ -125,13 +125,13 @@ public class GAConfig {
 		public boolean highTierExtruders = true;
 		@Config.Name("Should higher tier Fermenters be registered?")
 		public boolean highTierFermenters = true;
-		@Config.Name("Should higher tier Eluid Canners be registered?")
+		@Config.Name("Should higher tier Fluid Canners be registered?")
 		public boolean highTierFluidCanners = true;
 		@Config.Name("Should higher tier Fluid Extractors be registered?")
 		public boolean highTierFluidExtractors = true;
 		@Config.Name("Should higher tier Fluid Heaters be registered?")
 		public boolean highTierFluidHeaters = true;
-		@Config.Name("Should higher tier Fluid Heaters be registered?")
+		@Config.Name("Should higher tier Fluid Solidifiers be registered?")
 		public boolean highTierFluidSolidifiers = true;
 		@Config.Name("Should higher tier Forge Hammers be registered?")
 		public boolean highTierForgeHammers = true;
@@ -228,8 +228,8 @@ public class GAConfig {
 	public static Misc Misc = new Misc();
 
 	public static class Misc {
-		@Config.Comment("Set these to flase to disable the generated Packager and Unpackaker recipes")
-		@Config.Name("Packaging - 1x1 recipes with 9 outputs can be automated with the Unpackaker")
+		@Config.Comment("Set these to false to disable the generated Packager and Unpackager recipes")
+		@Config.Name("Packaging - 1x1 recipes with 9 outputs can be automated with the Unpackager")
 		public boolean Unpackager3x3Recipes = true;
 		@Config.Name("Packaging - 3x3 recipes can automated with the Packagers")
 		public boolean Packager3x3Recipes = true;
