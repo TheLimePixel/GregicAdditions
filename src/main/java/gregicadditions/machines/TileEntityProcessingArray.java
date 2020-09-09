@@ -65,13 +65,11 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 
 	@Override
 	public ICubeRenderer getBaseTexture(IMultiblockPart arg0) {
-		// TODO Auto-generated method stub
 		return Textures.ROBUST_TUNGSTENSTEEL_CASING;
 	}
 
 	@Override
 	public MetaTileEntity createMetaTileEntity(MetaTileEntityHolder holder) {
-		// TODO Auto-generated method stub
 		return new TileEntityProcessingArray(metaTileEntityId);
 	}
 
@@ -464,7 +462,7 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 		}
 
 		// hack over the internal AbstractRecipeLogic setActive method
-		private void setActive(boolean active) {
+		protected void setActive(boolean active) {
 			ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, active, "isActive");
 			metaTileEntity.markDirty();
 			if (!metaTileEntity.getWorld().isRemote) {
