@@ -107,7 +107,7 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 				return RecipeMaps.CENTRIFUGE_RECIPES;
 			case "electrolyzer":
 				return RecipeMaps.ELECTROLYZER_RECIPES;
-			case "furnace":
+			case "electric_furnace":
 				return RecipeMaps.FURNACE_RECIPES;
 			case "bender":
 				return RecipeMaps.BENDER_RECIPES;
