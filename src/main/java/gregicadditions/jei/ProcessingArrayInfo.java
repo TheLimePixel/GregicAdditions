@@ -30,7 +30,16 @@ public class ProcessingArrayInfo extends MultiblockInfoPage {
 
 	@Override
 	public List<MultiblockShapeInfo> getMatchingShapes() {
-		MultiblockShapeInfo shapeInfo = MultiblockShapeInfo.builder().aisle("XXX", "XXX", "XXX").aisle("IXX", "X#X", "XXX").aisle("OXX", "XSX", "XXX").where('S', GATileEntities.PROCESSING_ARRAY, EnumFacing.SOUTH).where('X', MetaBlocks.METAL_CASING.getState(MetalCasingType.TUNGSTENSTEEL_ROBUST)).where('#', Blocks.AIR.getDefaultState()).where('I', MetaTileEntities.ITEM_IMPORT_BUS[GTValues.LV], EnumFacing.WEST).where('O', MetaTileEntities.ITEM_EXPORT_BUS[GTValues.LV], EnumFacing.WEST).build();
+		MultiblockShapeInfo shapeInfo = MultiblockShapeInfo.builder()
+				.aisle("XIX", "XXX", "XXX")
+				.aisle("XXX", "S#E", "XXX")
+				.aisle("XOX", "XXX", "XXX")
+				.where('S', GATileEntities.PROCESSING_ARRAY, EnumFacing.WEST)
+				.where('X', MetaBlocks.METAL_CASING.getState(MetalCasingType.TUNGSTENSTEEL_ROBUST))
+				.where('#', Blocks.AIR.getDefaultState())
+				.where('I', MetaTileEntities.ITEM_IMPORT_BUS[GTValues.LV], EnumFacing.NORTH)
+				.where('E', MetaTileEntities.ENERGY_INPUT_HATCH[GTValues.LV],EnumFacing.EAST)
+				.where('O', MetaTileEntities.ITEM_EXPORT_BUS[GTValues.LV], EnumFacing.SOUTH).build();
 
 		return Lists.newArrayList(shapeInfo);
 	}
@@ -41,7 +50,6 @@ public class ProcessingArrayInfo extends MultiblockInfoPage {
 
 	@Override
 	public String[] getDescription() {
-		// TODO Auto-generated method stub
 		return new String[] { I18n.format("gregtech.multiblock.processing_array.description") };
 	}
 
