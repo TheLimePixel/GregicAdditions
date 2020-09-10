@@ -368,6 +368,11 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 					String trimmedName = "";
 					String voltage = unlocalizedName.substring(unlocalizedName.lastIndexOf(".") + 1);
 					trimmedName = unlocalizedName.substring(0, unlocalizedName.lastIndexOf("."));
+
+					//Checks if the tile entity is actually a machine
+					if(!GAEnums.voltageMap.containsValue(voltage)) {
+						continue;
+					}
 					this.machineName = trimmedName.substring(trimmedName.lastIndexOf(".") + 1);
 					this.machineTierVoltage = GAEnums.voltageMap.get(voltage);
 					this.machineItemStack = wholeItemStack;
