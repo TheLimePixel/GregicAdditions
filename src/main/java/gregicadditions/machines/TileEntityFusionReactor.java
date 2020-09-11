@@ -158,7 +158,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 		if (!getWorld().isRemote) {
 			if (this.inputEnergyContainers.getEnergyStored() > 0) {
 				long energyAdded = this.energyContainer.addEnergy(this.inputEnergyContainers.getEnergyStored());
-				if (energyAdded > 0) this.inputEnergyContainers.addEnergy(-energyAdded);
+				if (energyAdded > 0) this.inputEnergyContainers.removeEnergy(energyAdded);
 			}
 			super.updateFormedValid();
 		}
@@ -204,6 +204,7 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 	private class FusionRecipeLogic extends MultiblockRecipeLogic {
 		public FusionRecipeLogic(TileEntityFusionReactor tileEntity) {
 			super(tileEntity);
+			this.allowOverclocking = false;
 		}
 
 		@Override
@@ -232,11 +233,6 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 			energyContainer.removeEnergy(heatDiff);
 			heat += heatDiff;
 			return true;
-		}
-
-		@Override
-		protected int getOverclockingTier(long voltage) {
-			return 0;
 		}
 
 		@Override
