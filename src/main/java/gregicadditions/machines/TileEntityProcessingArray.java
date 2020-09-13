@@ -55,7 +55,15 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 	@Override
 	protected BlockPattern createStructurePattern() {
 
-		return FactoryBlockPattern.start().aisle("XXX", "XXX", "XXX").aisle("XXX", "X#X", "XXX").aisle("XXX", "XSX", "XXX").where('S', selfPredicate()).where('X', statePredicate(getCasingState()).or(abilityPartPredicate(ALLOWED_ABILITIES))).where('#', isAirPredicate()).build();
+		return FactoryBlockPattern.start()
+				.aisle("XXX", "XXX", "XXX")
+				.aisle("XXX", "X#X", "XXX")
+				.aisle("XXX", "XSX", "XXX")
+				.setAmountAtLeast('L', 12)
+				.where('L', statePredicate(getCasingState()))
+				.where('S', selfPredicate())
+				.where('X', statePredicate(getCasingState()).or(abilityPartPredicate(ALLOWED_ABILITIES)))
+				.where('#', isAirPredicate()).build();
 
 	}
 
