@@ -93,9 +93,6 @@ public class GAMachineRecipeRemoval {
 		removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.SulfuricHeavyFuel.getFluid(8000), Materials.Hydrogen.getFluid(2000));
 		removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.SulfuricNaphtha.getFluid(12000), Materials.Hydrogen.getFluid(2000));
 
-		//Remove GTCE Titanium Tetrachloride Recipe
-		removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, new ItemStack[] { OreDictUnifier.get(OrePrefix.dust, Materials.Carbon, 2), OreDictUnifier.get(OrePrefix.dust, Materials.Rutile) }, new FluidStack[] { Materials.Chlorine.getFluid(4000) });
-
 		//Remove GT5 Ash Centrifuging
 		removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.DarkAsh, 2));
 		removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Ash));
