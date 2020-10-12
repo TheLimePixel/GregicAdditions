@@ -192,7 +192,6 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 
 		public ProcessingArrayWorkable(RecipeMapMultiblockController tileEntity) {
 			super(tileEntity);
-			// TODO Auto-generated constructor stub
 		}
 
 		@Override
@@ -378,7 +377,7 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 					trimmedName = unlocalizedName.substring(0, unlocalizedName.lastIndexOf("."));
 
 					//Checks if the tile entity is actually a machine
-					if(!GAEnums.voltageMap.containsValue(voltage)) {
+					if(!GAEnums.voltageMap.containsKey(voltage)) {
 						continue;
 					}
 					this.machineName = trimmedName.substring(trimmedName.lastIndexOf(".") + 1);
