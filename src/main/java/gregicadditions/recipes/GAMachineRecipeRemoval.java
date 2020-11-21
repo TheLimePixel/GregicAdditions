@@ -86,13 +86,6 @@ public class GAMachineRecipeRemoval {
 		//Circuit Rabbit Hole-Related Recipe Removal
 		removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, new ItemStack[] { OreDictUnifier.get(OrePrefix.dust, Materials.Silicon) }, new FluidStack[] { Materials.Epichlorhydrin.getFluid(144) });
 
-		//Remove Hydrogen Sulfide Recipes
-		removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.NaturalGas.getFluid(16000), Materials.Hydrogen.getFluid(2000));
-		removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.SulfuricGas.getFluid(16000), Materials.Hydrogen.getFluid(2000));
-		removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.SulfuricLightFuel.getFluid(12000), Materials.Hydrogen.getFluid(2000));
-		removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.SulfuricHeavyFuel.getFluid(8000), Materials.Hydrogen.getFluid(2000));
-		removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, Materials.SulfuricNaphtha.getFluid(12000), Materials.Hydrogen.getFluid(2000));
-
 		//Remove GT5 Ash Centrifuging
 		removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.DarkAsh, 2));
 		removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Ash));
@@ -126,6 +119,8 @@ public class GAMachineRecipeRemoval {
 		removeRecipesByInputs(RecipeMaps.CUTTER_RECIPES, new ItemStack[] { new ItemStack(Blocks.QUARTZ_BLOCK) }, new FluidStack[] { Materials.Lubricant.getFluid(18) });
 		removeRecipesByInputs(RecipeMaps.CUTTER_RECIPES, new ItemStack[] { OreDictUnifier.get(OrePrefix.block, Materials.CertusQuartz) }, new FluidStack[] { Materials.Lubricant.getFluid(18) });
 
+		//Remove expensive Iridium recipe
+		removeRecipesByInputs(RecipeMaps.FUSION_RECIPES, Materials.Lithium.getFluid(16), Materials.Tungsten.getFluid(16));
 	}
 
 	private static <R extends RecipeBuilder<R>> void removeRecipesByInputs(RecipeMap<R> map, ItemStack... itemInputs) {
