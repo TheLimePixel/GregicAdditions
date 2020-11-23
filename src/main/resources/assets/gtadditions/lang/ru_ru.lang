@@ -435,9 +435,9 @@ gtadditions.machine.air_collector.luv.name=Atmosphere Collector
 
 gtadditions.machine.replicator.tooltip=Producing The Purest Of Elements
 
-gtadditions.machine.fusion_reactor.luv.name=Fusion Reactor Computer Mark 1
-gtadditions.machine.fusion_reactor.zpm.name=Fusion Reactor Computer Mark 2
-gtadditions.machine.fusion_reactor.uv.name=Fusion Reactor Computer Mark 3
+gtadditions.machine.fusion_reactor.luv.name=Компьютер термоядерного реактора Марк 1
+gtadditions.machine.fusion_reactor.zpm.name=Компьютер термоядерного реактора Марк 2
+gtadditions.machine.fusion_reactor.uv.name=Компьютер термоядерного реактора Марк 3
 
 gtadditions.machine.coke_item_bus.name=[Deprecated] Coke Oven Chute
 gtadditions.machine.coke_fluid_hatch.name=[Deprecated] Coke Oven Faucet
@@ -651,9 +651,9 @@ gregtech.multiblock.coke_oven.description=Коксовая печь - это м�
 gregtech.multiblock.assembly_line.description=The Assembly Line is a large multiblock structure consisting of 5 to 16 "slices". In theory, it's large Assembling Machine, used for creating advanced crafting components.
 gregtech.multiblock.processing_array.description=The Processing Array combines up to 16 single block machines in a single multiblock, effectively easing automation. 
 gregtech.multiblock.distill_tower.description=The GA Distillation Tower is a multiblock structure consisting of 2-12 layers. It's used for distilling fluids, but unlike the Distillery, gives you multiple outputs per input, including item outputs. Every layer has a different output.
-gregtech.multiblock.fusion_reactor_mk1.description=The Fusion Reactor Mark 1 is a large multiblock structure used for fusing elements into heavier ones. The Mark 1 Fusion Reactor can use LuV, ZPM or UV Energy Hatches. For every Hatch it has its buffer increases by 100k.
-gregtech.multiblock.fusion_reactor_mk2.description=The Fusion Reactor Mark 2 is a large multiblock structure used for fusing elements into heavier ones. The Mark 2 Fusion Reactor can use ZPM or UV Energy Hatches. For every Hatch it has its buffer increases by 200k.
-gregtech.multiblock.fusion_reactor_mk3.description=The Fusion Reactor Mark 3 is a large multiblock structure used for fusing elements into heavier ones. The Mark 3 Fusion Reactor can only use UV Energy Hatches. For every Hatch it has its buffer increases by 400k.
+gregtech.multiblock.fusion_reactor_mk1.description=Термоядерный реактор Марк 1 - это большая многоблочная структура, используемая для слияния веществ и синтеза более тяжёлых элементов. Марк 1 может использовать входные разъемы уровней LuV, ZPM и UV. Каждый разъём увеличивает внутренний буфер энергии на 10 млн. EU.
+gregtech.multiblock.fusion_reactor_mk2.description=Термоядерный реактор Марк 2 - это большая многоблочная структура, используемая для слияния веществ и синтеза более тяжёлых элементов. Марк 2 может использовать входные разъемы уровней ZPM и UV. Каждый разъём увеличивает внутренний буфер энергии на 20 млн. EU.
+gregtech.multiblock.fusion_reactor_mk3.description=Термоядерный реактор Марк 3 - это большая многоблочная структура, используемая для слияния веществ и синтеза более тяжёлых элементов. Марк 3 может использовать входные разъемы уровня UV. Каждый разъём увеличивает внутренний буфер энергии на 40 млн. EU.
 gregtech.multiblock.fusion_reactor.heat=Теплота: %d
 
 item.material.oreprefix.plateCurved=Изогнутая %s пластина
