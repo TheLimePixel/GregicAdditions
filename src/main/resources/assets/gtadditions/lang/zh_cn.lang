@@ -629,9 +629,9 @@ item.meat.dust=肉末
 gregtech.multiblock.coke_oven.description=焦炉是一台用来炼焦的多方块机器。它可以将煤炼成焦煤，褐煤炼成褐焦煤，原木炼成木炭，并同时伴有杂酚油作为副产物。
 gregtech.multiblock.assembly_line.description=装配线是一台大型多方块机器，包含有5到16片相似的重复结构。从理论上来讲，它是一个可以生产高级元件的大型的组装机。
 gregtech.multiblock.distill_tower.description=GA蒸馏塔是一台多方块机器，高度2到12层。它可以用来蒸馏液体，与蒸馏室不同的是，它可以一次性蒸馏出多种产物，并分别从每一层输出。
-gregtech.multiblock.fusion_reactor_mk1.description=核聚变反应堆 Mk I 是一台可以通过聚变生产重元素的大型多方块机器。它可以使用LuV，ZPM或者UV等级的能源仓。每一个能源仓可以增加1MEU的能量缓存。
-gregtech.multiblock.fusion_reactor_mk2.description=核聚变反应堆 Mk II 是一台可以通过聚变生产重元素的大型多方块机器。它可以使用ZPM或者UV等级的能源仓。每一个能源仓可以增加2MEU的能量缓存。
-gregtech.multiblock.fusion_reactor_mk3.description=核聚变反应堆 Mk III 是一台可以通过聚变生产重元素的大型多方块机器。它只能使用UV等级的能源仓。每一个能源仓可以增加4MEU的能量缓存。
+gregtech.multiblock.fusion_reactor_mk1.description=核聚变反应堆 Mk I 是一台可以通过聚变生产重元素的大型多方块机器。它可以使用LuV，ZPM或者UV等级的能源仓。每一个能源仓可以增加10MEU的能量缓存。
+gregtech.multiblock.fusion_reactor_mk2.description=核聚变反应堆 Mk II 是一台可以通过聚变生产重元素的大型多方块机器。它可以使用ZPM或者UV等级的能源仓。每一个能源仓可以增加20MEU的能量缓存。
+gregtech.multiblock.fusion_reactor_mk3.description=核聚变反应堆 Mk III 是一台可以通过聚变生产重元素的大型多方块机器。它只能使用UV等级的能源仓。每一个能源仓可以增加40MEU的能量缓存。
 gregtech.multiblock.fusion_reactor.heat=热力: %d
 
 item.material.oreprefix.plateCurved=弯曲%s板
