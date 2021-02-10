@@ -43,9 +43,6 @@ public class GAMachineRecipeRemoval {
 				removeRecipesByInputs(RecipeMaps.BENDER_RECIPES, OreDictUnifier.get(OrePrefix.plate, m), IntCircuitIngredient.getIntegratedCircuit(0));
 			}
 
-			//Remove Old Rotor Recipe
-			if (!OreDictUnifier.get(OrePrefix.rotor, m).isEmpty() && GAConfig.GT6.BendingRotors && GAConfig.GT6.BendingCylinders) removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, OreDictUnifier.get(OrePrefix.plate, m, 4), OreDictUnifier.get(OrePrefix.ring, m));
-
 			//Remove Old Wrench Recipes
 			if (m instanceof IngotMaterial && !m.hasFlag(DustMaterial.MatFlags.NO_SMASHING) && GAConfig.GT6.ExpensiveWrenches) {
 				ModHandler.removeRecipeByName(new ResourceLocation(String.format("gregtech:wrench_%s", m.toString())));
@@ -83,9 +80,6 @@ public class GAMachineRecipeRemoval {
 		removeRecipesByInputs(RecipeMaps.ASSEMBLER_RECIPES, MetaItems.ENERGY_LAPOTRONIC_ORB2.getStackForm(8), OreDictUnifier.get(OrePrefix.plate, Materials.Darmstadtium, 16));
 		ModHandler.removeRecipeByName(new ResourceLocation("gregtech:primitive_circuit"));
 
-		//Circuit Rabbit Hole-Related Recipe Removal
-		removeRecipesByInputs(RecipeMaps.CHEMICAL_RECIPES, new ItemStack[] { OreDictUnifier.get(OrePrefix.dust, Materials.Silicon) }, new FluidStack[] { Materials.Epichlorhydrin.getFluid(144) });
-
 		//Remove GT5 Ash Centrifuging
 		removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.DarkAsh, 2));
 		removeRecipesByInputs(RecipeMaps.CENTRIFUGE_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Ash));
@@ -103,10 +97,12 @@ public class GAMachineRecipeRemoval {
 		//Remove Cheap Diesel Recipe
 		removeRecipesByInputs(RecipeMaps.MIXER_RECIPES, Materials.LightFuel.getFluid(5000), Materials.HeavyFuel.getFluid(1000));
 
-		//Fix Seed Oil Recipe
-		removeRecipesByInputs(RecipeMaps.FLUID_EXTRACTION_RECIPES, new ItemStack(Items.WHEAT_SEEDS));
-		removeRecipesByInputs(RecipeMaps.FLUID_EXTRACTION_RECIPES, new ItemStack(Items.MELON_SEEDS));
-		removeRecipesByInputs(RecipeMaps.FLUID_EXTRACTION_RECIPES, new ItemStack(Items.PUMPKIN_SEEDS));
+		//Remove duplicate seed oil recipes if we are generating our own
+		if(GAConfig.GTBees.GenerateExtractorRecipes) {
+			removeRecipesByInputs(RecipeMaps.FLUID_EXTRACTION_RECIPES, new ItemStack(Items.WHEAT_SEEDS));
+			removeRecipesByInputs(RecipeMaps.FLUID_EXTRACTION_RECIPES, new ItemStack(Items.MELON_SEEDS));
+			removeRecipesByInputs(RecipeMaps.FLUID_EXTRACTION_RECIPES, new ItemStack(Items.PUMPKIN_SEEDS));
+		}
 
 		//Remove Conflicting Redstone Plate Recipe
 		removeRecipesByInputs(RecipeMaps.COMPRESSOR_RECIPES, OreDictUnifier.get(OrePrefix.dust, Materials.Redstone));
@@ -135,7 +131,7 @@ public class GAMachineRecipeRemoval {
 			GregicAdditions.LOGGER.info("Removed Recipe for Item Input(s): " + names);
 		}
 		else {
-			GregicAdditions.LOGGER.info("Failed to Remove Recipe for Item Input(s): " + names);
+			GregicAdditions.LOGGER.warn("Failed to Remove Recipe for Item Input(s): " + names);
 		}
 	}
 
@@ -151,7 +147,7 @@ public class GAMachineRecipeRemoval {
 			GregicAdditions.LOGGER.info("Removed Recipe for Fluid Input(s): " + names);
 		}
 		else {
-			GregicAdditions.LOGGER.info("Failed to Remove Recipe for Fluid Input(s): " + names);
+			GregicAdditions.LOGGER.warn("Failed to Remove Recipe for Fluid Input(s): " + names);
 		}
 	}
 
