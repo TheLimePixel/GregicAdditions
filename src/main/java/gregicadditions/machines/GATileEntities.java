@@ -390,7 +390,7 @@ public class GATileEntities {
 
 		PROCESSING_ARRAY = GregTechAPI.registerMetaTileEntity(2507, new TileEntityProcessingArray(location("processing_array")));
 
-		if (GAConfig.GT6.registerDums) {
+		if (GAConfig.GT6.registerDrums) {
 			WOODEN_DRUM = GregTechAPI.registerMetaTileEntity(2195, new TileEntityDrum(location("drum.wood"), Materials.Wood, 16000));
 			BRONZE_DRUM = GregTechAPI.registerMetaTileEntity(2196, new TileEntityDrum(location("drum.bronze"), Materials.Bronze, 32000));
 			STEEL_DRUM = GregTechAPI.registerMetaTileEntity(2197, new TileEntityDrum(location("drum.steel"), Materials.Steel, 64000));

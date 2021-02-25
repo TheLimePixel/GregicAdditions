@@ -774,7 +774,7 @@ public class GARecipeAddition {
 
 		for (ItemStack stack : allWoodLogs) {
 			ItemStack smeltingOutput = ModHandler.getSmeltingOutput(stack);
-			if (!smeltingOutput.isEmpty() && smeltingOutput.getItem() == Items.COAL && smeltingOutput.getMetadata() == 1 && GAConfig.GT5U.DisableLogToCharcoalSmeltg) {
+			if (!smeltingOutput.isEmpty() && smeltingOutput.getItem() == Items.COAL && smeltingOutput.getMetadata() == 1 && GAConfig.GT5U.DisableLogToCharcoalSmelting) {
 				ItemStack woodStack = stack.copy();
 				woodStack.setItemDamage(OreDictionary.WILDCARD_VALUE);
 				ModHandler.removeFurnaceSmelting(woodStack);

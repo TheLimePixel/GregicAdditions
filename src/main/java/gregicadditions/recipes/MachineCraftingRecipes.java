@@ -237,7 +237,7 @@ public class MachineCraftingRecipes {
 
 		//Storage
 		
-		if (GAConfig.GT6.registerDums) {
+		if (GAConfig.GT6.registerDrums) {
 			ModHandler.addShapedRecipe("wooden_barrel", GATileEntities.WOODEN_DRUM.getStackForm(), "rSs", "PRP", "PRP", 'S', "slimeball", 'P', "plankWood", 'R', "stickLongIron");
 			if (GAConfig.GT6.BendingCurvedPlates && GAConfig.GT6.BendingCylinders) {
 				ModHandler.addShapedRecipe("bronze_drum", GATileEntities.BRONZE_DRUM.getStackForm(), " h ", "PRP", "PRP", 'P', "plateCurvedBronze", 'R', "stickLongBronze");

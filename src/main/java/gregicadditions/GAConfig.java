@@ -40,7 +40,7 @@ public class GAConfig {
 
 		@Config.Comment("Set this to false to disable Drums")
 		@Config.Name("Should Drums be registered?")
-		public boolean registerDums = true;
+		public boolean registerDrums = true;
 
 		@Config.Comment("Set this to false to disable the support for Forestry Electron Tubes")
 		@Config.Name("Should Electrodes be registered?")
@@ -77,7 +77,7 @@ public class GAConfig {
 
 		@Config.Comment("Set to false to enable Log>Charcoal smelting recipes")
 		@Config.Name("All Log to Charcoal smelting recipes will be removed")
-		public boolean DisableLogToCharcoalSmeltg = true;
+		public boolean DisableLogToCharcoalSmelting = true;
 
 		@Config.Comment("Set to false to disable generated wood sawing recipes")
 		@Config.Name("A saw is required to get 4 Planks per Log")
@@ -194,7 +194,7 @@ public class GAConfig {
 		public boolean GenerateExtractorRecipes = true;
 
 		@Config.Comment("Add Autoclave recipes for the Combs")
-		public boolean AutoclaverRecipes = true;
+		public boolean AutoclaveRecipes = true;
 
 		@Config.Comment("Add Chemical Reactor recipes for the Combs")
 		public boolean ReactorRecipes = true;
