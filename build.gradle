@@ -1,17 +1,29 @@
+import java.util.regex.Pattern
+import groovy.json.JsonSlurper
+
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
+import groovyx.net.http.ContentType
+import groovyx.net.http.HTTPBuilder
+import groovyx.net.http.Method
+
 buildscript {
     repositories {
         mavenCentral()
         maven { url = "http://files.minecraftforge.net/maven" }
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath "org.codehaus.groovy.modules.http-builder:http-builder:0.7"
+        classpath "org.apache.httpcomponents:httpmime:4.5.1"
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-
-version = "1.12.2-2.15.0"
 group = "gregicadditions"
+version = getVersion()
 archivesBaseName = "Shadows_of_Greg"
 
 sourceCompatibility = targetCompatibility = '1.8'
@@ -79,11 +91,195 @@ processResources {
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
+
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
+
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
+    }
+}
+
+/*
+    Fetches the last tag associated with the current branch.
+ */
+def getLastTag() {
+    return run("git describe --abbrev=0 --tags " +
+        (System.env["GIT_TAG_NAME"] ? run("git rev-list --tags --skip=1 --max-count=1") : "")
+    )
+}
+
+/*
+    Runs a command and returns the output.
+ */
+def run(command) {
+    def process = command.execute()
+    def outputStream = new StringBuffer();
+    def errorStream = new StringBuffer();
+    process.waitForProcessOutput(outputStream, errorStream)
+
+    errorStream.toString().with {
+        if (it) {
+            throw new GradleException("Error executing ${command}:\n> ${it}")
+        }
+    }
+
+    return outputStream.toString().trim()
+}
+
+/*
+    Rewrites the version.
+ */
+def getVersion () {
+    def lastTag = getLastTag()
+
+    if (System.env['GIT_TAG_NAME']) {
+        return System.env['GIT_TAG_NAME']
+    } else {
+        def commitNo = run "git rev-list ${lastTag}..HEAD --count"
+
+        return lastTag + "." + commitNo
+    }
+}
+
+task generateChangelog {
+    doLast {
+        /*
+            Create a comprehensive changelog.
+         */
+        def lastTag = getLastTag()
+        print(lastTag)
+
+        def changelog = (run([
+            "git"
+            , "log"
+            , "--date=format:%d %b %Y"
+            , "--pretty=%s - **%an** (%ad)"
+            , "${lastTag}..HEAD"
+        ].plus(
+            /*
+                Collect relevant directories only, them being:
+                * ./src/main/java
+                * ./src/main/resources
+             */
+            sourceSets.main.java.srcDirs
+                .plus(sourceSets.main.resources.srcDirs)
+                .collect { [ "--", it ] }
+        ).flatten()))
+
+        if (changelog) {
+            changelog = "Changes since ${lastTag}:\n${("\n" + changelog).replaceAll("\n", "\n* ")}"
+        }
+
+        def f = new File("build/tmp/changelog.md")
+        f.write(changelog ?: "There have been no changes.", "UTF-8")
+    }
+}
+
+task deployCurseForge {
+    doLast {
+        def final CURSEFORGE_ENDPOINT = "https://minecraft.curseforge.com/"
+
+        /*
+            Helper function for checking environmental variables.
+         */
+        def final checkVariables = { variables ->
+            for (vari in variables) {
+                if (!System.env[vari]) {
+                    throw new GradleException("Environmental variable ${vari} is unset")
+                }
+            }
+        }
+
+        checkVariables([
+            'CURSEFORGE_API_TOKEN', 'CURSEFORGE_PROJECT_ID'
+        ])
+
+        /*
+            Helper function for fetching JSON data.
+         */
+        def final fetch = { url, headers = null ->
+            def connection = new URL(url).openConnection();
+            connection.setRequestProperty("X-Api-Token", System.env["CURSEFORGE_API_TOKEN"])
+            if (headers != null) {
+                for (header in headers) {
+                    connection.setRequestProperty(headers[1], headers[2])
+                }
+            }
+
+            def code = connection.getResponseCode()
+            if (code == 200) {
+                return new JsonSlurper().parseText(connection.getInputStream().getText())
+            } else {
+                throw new GradleException("Fetch failed with code ${code} (${url})")
+            }
+        }
+
+        /*
+            Fetch the list of Minecraft versions from CurseForge.
+         */
+        def targetVersion = project.minecraft.version
+        def version = fetch(CURSEFORGE_ENDPOINT + "api/game/versions").with {
+            def v = it.find { it.name == targetVersion }
+
+            if (!v) {
+                throw new GradleException("Version ${project.minecraft.version} not found on CurseForge")
+            }
+
+            return v
+        }
+
+        /*
+            Fill the papers for CurseForge.
+         */
+        def metadata = new groovy.json.JsonBuilder().with {
+            def versions = [ version.id ]
+
+            /*
+                CurseForge is dumb, so we'll have to prepend two spaces
+                to each newline. This is disgusting, but it works.
+            */
+            def log = new File("build/tmp/changelog.md")
+                .getText("UTF-8")
+                .replaceAll("\n", "  \n")
+                .replaceAll("\n\\*", "\n•")
+
+            def root = it {
+                changelog log
+                changelogType "markdown"
+
+                releaseType System.env['GIT_TAG_NAME'] ? "release" : "beta"
+                gameVersions versions
+
+                // Defined in gradle.properties
+                displayName "${project_fancy_name} ${project.version}"
+            }
+
+            if (project_curseforge_dependencies) {
+                def data = new JsonSlurper().parseText(project_curseforge_dependencies)
+
+                root << [relations: [ projects: data ]]
+            }
+
+            return it.toString()
+        }
+
+        /*
+            Upload the artifact to CurseForge.
+         */
+        new HTTPBuilder(CURSEFORGE_ENDPOINT).request(Method.POST) { req ->
+            requestContentType = "multipart/form-data"
+            headers["X-Api-Token"] = System.env["CURSEFORGE_API_TOKEN"]
+            uri.path = "api/projects/${System.env["CURSEFORGE_PROJECT_ID"]}/upload-file"
+
+            req.entity = new MultipartEntityBuilder().with {
+                addPart("file", new FileBody(
+                    new File("${project.jar.destinationDir}/${project.jar.archiveName}")
+                ))
+                addPart("metadata", new StringBody(metadata))
+
+                return it.build()
+            }
+        }
     }
 }
