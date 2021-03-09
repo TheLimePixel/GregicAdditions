@@ -30,10 +30,8 @@ public class GAEnums {
 			EnumHelper.addEnum(OrePrefix.class, "ingotDouble", new Class[] { String.class, long.class, Material.class, MaterialIconType.class, long.class, Predicate.class }, "Double Ingot", GTValues.M, null, MaterialIconType.valueOf("ingotDouble"), OrePrefix.Flags.ENABLE_UNIFICATION, pred(mat -> ingot.test(mat) && mat.hasFlag(DustMaterial.MatFlags.GENERATE_PLATE)));
 		}
 
-		if (GAConfig.GT6.addRounds) {
-			EnumHelper.addEnum(MaterialIconType.class, "round", new Class[0]);
-			EnumHelper.addEnum(OrePrefix.class, "round", new Class[] { String.class, long.class, Material.class, MaterialIconType.class, long.class, Predicate.class }, "Round", GTValues.M, null, MaterialIconType.valueOf("round"), OrePrefix.Flags.ENABLE_UNIFICATION, pred(mat -> ingot.test(mat) && mat.hasFlag(IngotMaterial.MatFlags.GENERATE_SMALL_GEAR)));
-		}
+		EnumHelper.addEnum(MaterialIconType.class, "round", new Class[0]);
+		EnumHelper.addEnum(OrePrefix.class, "round", new Class[] { String.class, long.class, Material.class, MaterialIconType.class, long.class, Predicate.class }, "Round", GTValues.M, null, MaterialIconType.valueOf("round"), OrePrefix.Flags.ENABLE_UNIFICATION, pred(mat -> ingot.test(mat) && mat.hasFlag(IngotMaterial.MatFlags.GENERATE_SMALL_GEAR)));
 	}
 
 	public static final Predicate<Material> dust = mat -> mat instanceof DustMaterial;

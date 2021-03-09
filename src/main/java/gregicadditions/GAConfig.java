@@ -46,10 +46,6 @@ public class GAConfig {
 		@Config.Name("Should Electrodes be registered?")
 		public boolean electrodes = true;
 
-		@Config.Comment("Set this to false to disable rounds")
-		@Config.Name("Should rounds be registered?")
-		public boolean addRounds = true;
-
 		@Config.Comment("Set this to false to disable double ingots")
 		@Config.Name("Should double ingots be registered?")
 		public boolean addDoubleIngots = true;

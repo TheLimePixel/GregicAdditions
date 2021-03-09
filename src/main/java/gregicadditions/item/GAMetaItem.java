@@ -14,8 +14,8 @@ import net.minecraftforge.fml.common.Loader;
 
 public class GAMetaItem extends MaterialMetaItem {
 
-	public GAMetaItem() {
-		super(OrePrefix.valueOf("plateCurved"), OrePrefix.valueOf("ingotDouble"), OrePrefix.valueOf("round"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+	public GAMetaItem(OrePrefix[] prefixes) {
+		super(prefixes);
 	}
 
 	@Override

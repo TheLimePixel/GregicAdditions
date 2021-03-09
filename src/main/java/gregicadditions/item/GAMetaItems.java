@@ -2,8 +2,10 @@ package gregicadditions.item;
 
 import java.util.List;
 
+import gregicadditions.GAConfig;
 import gregicadditions.GregicAdditions;
 import gregtech.api.items.metaitem.MetaItem;
+import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.MetaItems;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
@@ -51,10 +53,26 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem STEM_CELLS;
 
 	public static void init() {
-		GAMetaItem item = new GAMetaItem();
+		GAMetaItem item = new GAMetaItem(gatherRegisteredPrefixes());
 		item.setRegistryName("ga_meta_item");
 		GAMetaTool tool = new GAMetaTool();
 		tool.setRegistryName("ga_meta_tool");
+	}
+
+	public static OrePrefix[] gatherRegisteredPrefixes() {
+		OrePrefix[] temp = new OrePrefix[32];
+
+		if(GAConfig.GT6.addCurvedPlates) {
+			temp[0] = OrePrefix.valueOf("plateCurved");
+		}
+
+		if(GAConfig.GT6.addDoubleIngots) {
+			temp[1] = OrePrefix.valueOf("ingotDouble");
+		}
+
+		temp[2] = OrePrefix.valueOf("round");
+
+		return temp;
 	}
 
 	public static void registerOreDict() {
