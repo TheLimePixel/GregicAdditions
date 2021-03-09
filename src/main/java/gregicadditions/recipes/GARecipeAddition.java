@@ -534,13 +534,6 @@ public class GARecipeAddition {
 		ModHandler.removeRecipes(MetaItems.DYNAMITE.getStackForm());
 		RecipeMaps.CHEMICAL_RECIPES.recipeBuilder().duration(160).EUt(4).inputs(new ItemStack(Items.PAPER), new ItemStack(Items.STRING)).fluidInputs(Materials.Glyceryl.getFluid(500)).outputs(MetaItems.DYNAMITE.getStackForm()).buildAndRegister();
 
-		//Lapotron Crystal Recipes
-		for (MaterialStack m : lapisLike) {
-			GemMaterial gem = (GemMaterial) m.material;
-			ModHandler.addShapedRecipe("lapotron_crystal_shaped" + gem.toString(), MetaItems.LAPOTRON_CRYSTAL.getStackForm(), "PCP", "RFR", "PCP", 'P', new UnificationEntry(OrePrefix.plate, gem), 'C', "circuitAdvanced", 'R', OreDictUnifier.get(OrePrefix.stick, gem), 'F', OreDictUnifier.get(OrePrefix.gemFlawless, Materials.Sapphire));
-			ModHandler.addShapelessRecipe("lapotron_crystal_shapeless" + gem.toString(), MetaItems.LAPOTRON_CRYSTAL.getStackForm(), OreDictUnifier.get(OrePrefix.gemExquisite, Materials.Sapphire), OreDictUnifier.get(OrePrefix.stick, gem), MetaItems.CAPACITOR.getStackForm());
-		}
-
 		//Dust Packing
 		for (Material m : Material.MATERIAL_REGISTRY) {
 			if (!OreDictUnifier.get(OrePrefix.dust, m).isEmpty() && GAConfig.Misc.PackagerDustRecipes) {
