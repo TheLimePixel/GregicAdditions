@@ -3,6 +3,8 @@ package gregicadditions;
 import java.util.function.Function;
 
 import forestry.api.core.ForestryAPI;
+import forestry.core.config.Constants;
+import forestry.modules.ForestryModuleUids;
 import net.minecraft.util.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -61,15 +63,23 @@ public class GregicAdditions {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
+	public static boolean isForestryBeesDisabled() {
+		return !GAConfig.GTBees.EnableGTCEBees ||
+			!Loader.isModLoaded(Constants.MOD_ID) ||
+			!ForestryAPI.enabledModules.contains(new ResourceLocation(Constants.MOD_ID, ForestryModuleUids.APICULTURE));
+	}
+
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		if (GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry") && ForestryAPI.enabledModules.contains(new ResourceLocation("forestry", "apiculture"))) GTBees.initBees();
+		if (!isForestryBeesDisabled())
+			GTBees.initBees();
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		GARecipeAddition.generatedRecipes();
-		if (GAConfig.GTBees.EnableGTCEBees && Loader.isModLoaded("forestry")) proxy.postInit();
+		if (!isForestryBeesDisabled())
+			proxy.postInit();
 	}
 
 	@SubscribeEvent
