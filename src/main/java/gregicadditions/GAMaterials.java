@@ -33,28 +33,14 @@ public class GAMaterials implements IMaterialHandler {
 	public void onMaterialsInit() {
 		LIGNITE_COKE.setBurnTime(2400);
 
-		Materials.YttriumBariumCuprate.addFlag(IngotMaterial.MatFlags.GENERATE_FINE_WIRE);
-		Materials.Manganese.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
 		Materials.Naquadah.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
 		Materials.NaquadahEnriched.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
 		Materials.Duranium.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
 		Materials.Graphene.addFlag(IngotMaterial.MatFlags.GENERATE_FOIL);
-		Materials.Helium.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
-		Materials.Oxygen.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
-		Materials.Iron.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
-		Materials.Nickel.addFlag(FluidMaterial.MatFlags.GENERATE_PLASMA);
 		Materials.GreenSapphire.addFlag(DustMaterial.MatFlags.GENERATE_PLATE);
-		Materials.GreenSapphire.addFlag(GemMaterial.MatFlags.GENERATE_LENSE);
 		Materials.Tritanium.addFlag(MatFlags.GENERATE_FRAME);
 
 		Materials.Apatite.addFlag(SolidMaterial.MatFlags.GENERATE_ROD);
-
-		Materials.Iron.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
-		Materials.Bronze.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
-		Materials.Steel.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
-		Materials.StainlessSteel.addFlag(SolidMaterial.MatFlags.GENERATE_LONG_ROD);
-
-		Materials.Steel.addFlag(Material.MatFlags.DISABLE_DECOMPOSITION);
 
 		Materials.Rubber.addFlag(IngotMaterial.MatFlags.GENERATE_BOLT_SCREW);
 		Materials.Apatite.addFlag(IngotMaterial.MatFlags.GENERATE_BOLT_SCREW);
@@ -68,6 +54,5 @@ public class GAMaterials implements IMaterialHandler {
 		OrePrefix.gemFlawless.setIgnored(LIGNITE_COKE);
 		OrePrefix.gemExquisite.setIgnored(LIGNITE_COKE);
 
-		Materials.Magnetite.setDirectSmelting(Materials.Iron);
 	}
 }
