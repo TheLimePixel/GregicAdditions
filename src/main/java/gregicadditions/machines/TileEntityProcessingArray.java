@@ -33,8 +33,7 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 
 	public TileEntityProcessingArray(ResourceLocation metaTileEntityId) {
 		super(metaTileEntityId, GARecipeMaps.PROCESSING_ARRAY_RECIPES);
-		this.recipeMapWorkable = new ProcessingArrayWorkable(this,
-															 new MultiblockRecipeLogicWrapper(recipeMapWorkable));
+		this.recipeMapWorkable = new ProcessingArrayWorkable(this);
 	}
 
 	@Override
@@ -73,12 +72,9 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 		int numberOfOperations = 0;
 		ItemStack machineItemStack = null;
 		String machineName = "";
-		final MultiblockRecipeLogicWrapper logicWrapper;
 
-		public ProcessingArrayWorkable(RecipeMapMultiblockController tileEntity,
-									   MultiblockRecipeLogicWrapper logic) {
+		public ProcessingArrayWorkable(RecipeMapMultiblockController tileEntity) {
 			super(tileEntity);
-			this.logicWrapper = logic;
 		}
 
 		// FIXME: there's gotta be a better way to do this
@@ -457,7 +453,10 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 																				   random,
 																				   tier));
 
-			logicWrapper.invertWasActiveAndNeedsUpdate();
+			if(this.wasActiveAndNeedsUpdate)
+				this.wasActiveAndNeedsUpdate = false;
+			else
+				setActive(true);
 		}
 	}
 }
