@@ -115,8 +115,6 @@ public class GAMachineRecipeRemoval {
 		removeRecipesByInputs(RecipeMaps.CUTTER_RECIPES, new ItemStack[] { new ItemStack(Blocks.QUARTZ_BLOCK) }, new FluidStack[] { Materials.Lubricant.getFluid(18) });
 		removeRecipesByInputs(RecipeMaps.CUTTER_RECIPES, new ItemStack[] { OreDictUnifier.get(OrePrefix.block, Materials.CertusQuartz) }, new FluidStack[] { Materials.Lubricant.getFluid(18) });
 
-		//Remove expensive Iridium recipe
-		removeRecipesByInputs(RecipeMaps.FUSION_RECIPES, Materials.Lithium.getFluid(16), Materials.Tungsten.getFluid(16));
 	}
 
 	private static <R extends RecipeBuilder<R>> void removeRecipesByInputs(RecipeMap<R> map, ItemStack... itemInputs) {

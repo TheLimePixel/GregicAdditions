@@ -24,8 +24,6 @@ public class GARecipeMaps {
 	@ZenProperty
 	public static final RecipeMap<SimpleRecipeBuilder> REPLICATOR_RECIPES;
 	@ZenProperty
-	public static final RecipeMap<SimpleRecipeBuilder> CRACKER_UNIT_RECIPES;
-	@ZenProperty
 	public static final RecipeMap<SimpleRecipeBuilder> PROCESSING_ARRAY_RECIPES;
 
 	static {
@@ -35,7 +33,6 @@ public class GARecipeMaps {
 		NAQUADAH_REACTOR_FUELS = new FuelRecipeMap("naquadah_reactor");
 		MASS_FAB_RECIPES = new RecipeMap<>("mass_fab", 0, 1, 0, 0, 0, 1, 1, 2, new SimpleRecipeBuilder()).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
 		REPLICATOR_RECIPES = new RecipeMap<>("replicator", 0, 1, 0, 1, 1, 2, 0, 1, new SimpleRecipeBuilder()).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
-		CRACKER_UNIT_RECIPES = new RecipeMap<>("cracker_unit", 0, 0, 0, 0, 2, 2, 1, 1, new SimpleRecipeBuilder());
 		PROCESSING_ARRAY_RECIPES = new RecipeMap<>("processing_array", 0, 9, 0, 6, 0, 3, 0, 2, new SimpleRecipeBuilder()).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
 	}
 }

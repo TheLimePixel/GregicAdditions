@@ -35,7 +35,7 @@ public class GAMultiblockInfoCategory implements IRecipeCategory<MultiblockInfoR
 
 	@Override
 	public String getTitle() {
-		return I18n.format("gregtech.multiblock.title", new Object[0]);
+		return I18n.format("gregtech.multiblock.title");
 	}
 
 	@Override
