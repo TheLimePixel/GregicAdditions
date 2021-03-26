@@ -102,7 +102,7 @@ processResources {
  */
 def getLastTag() {
     return run("git describe --abbrev=0 --tags " +
-        (System.env["GIT_TAG_NAME"] ? run("git rev-list --tags --skip=1 --max-count=1") : "")
+        (System.env["GITHUB_TAG"] ? run("git rev-list --tags --skip=1 --max-count=1") : "")
     )
 }
 
@@ -130,12 +130,12 @@ def run(command) {
 def getVersion () {
     def lastTag = getLastTag()
 
-    if (System.env['GIT_TAG_NAME']) {
-        return System.env['GIT_TAG_NAME']
+    if (System.env['GITHUB_TAG']) {
+        return System.env['GITHUB_TAG']
     } else {
         def commitNo = run "git rev-list ${lastTag}..HEAD --count"
 
-        return lastTag + "." + commitNo
+        return lastTag
     }
 }
 
@@ -168,7 +168,7 @@ task generateChangelog {
             changelog = "Changes since ${lastTag}:\n${("\n" + changelog).replaceAll("\n", "\n* ")}"
         }
 
-        def f = new File("build/tmp/changelog.md")
+        def f = new File("build/changelog.md")
         f.write(changelog ?: "There have been no changes.", "UTF-8")
     }
 }
@@ -236,7 +236,7 @@ task deployCurseForge {
                 CurseForge is dumb, so we'll have to prepend two spaces
                 to each newline. This is disgusting, but it works.
             */
-            def log = new File("build/tmp/changelog.md")
+            def log = new File("build/changelog.md")
                 .getText("UTF-8")
                 .replaceAll("\n", "  \n")
                 .replaceAll("\n\\*", "\n•")
@@ -245,7 +245,7 @@ task deployCurseForge {
                 changelog log
                 changelogType "markdown"
 
-                releaseType System.env['GIT_TAG_NAME'] ? "release" : "beta"
+                releaseType System.env['GITHUB_TAG'] ? "release" : "beta"
                 gameVersions versions
 
                 // Defined in gradle.properties
