@@ -57,10 +57,10 @@ public class GeneratorFuels {
 
 	private static void removeFuelRecipe(FuelRecipeMap map, FluidStack fluidStack) {
 		if(map.removeRecipe(map.findRecipe(Integer.MAX_VALUE, fluidStack))) {
-			GregicAdditions.LOGGER.info("Removed Generator Recipe for " + map.getLocalizedName() + " for Fluid: " + fluidStack.getLocalizedName());
+			GregicAdditions.LOGGER.info("Removed Generator Recipe for " + map.getUnlocalizedName() + " for Fluid: " + fluidStack.getLocalizedName());
 		}
 		else {
-			GregicAdditions.LOGGER.warn("Failed to remove Generator Recipe for " + map.getLocalizedName() + " for Fluid: " + fluidStack.getLocalizedName());
+			GregicAdditions.LOGGER.warn("Failed to remove Generator Recipe for " + map.getUnlocalizedName() + " for Fluid: " + fluidStack.getLocalizedName());
 		}
 	}
 }
