@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import gregtech.api.recipes.ModHandler;
 import gregtech.api.util.FluidTooltipUtil;
 import net.minecraft.util.text.TextFormatting;
 import org.apache.commons.lang3.ArrayUtils;
@@ -178,7 +179,16 @@ public class TileEntityDrum extends MetaTileEntity {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Pair<TextureAtlasSprite, Integer> getParticleTexture() {
-		return Pair.of(material.toString().contains("wood") ? ClientHandler.BARREL.getParticleTexture() : ClientHandler.DRUM.getParticleTexture(), 16777215);
+		if(ModHandler.isMaterialWood(material)) {
+			return Pair.of(ClientHandler.BARREL.getParticleTexture(), getPaintingColor());
+		}
+		else {
+			int color = ColourRGBA.multiply(
+					GTUtility.convertRGBtoOpaqueRGBA_CL(material.materialRGB),
+					GTUtility.convertRGBtoOpaqueRGBA_CL(getPaintingColor()));
+			color = GTUtility.convertOpaqueRGBA_CLtoRGB(color);
+			return Pair.of(ClientHandler.DRUM.getParticleTexture(), color);
+		}
 	}
 
 	@Override
