@@ -120,7 +120,12 @@ public class TileEntityDrum extends MetaTileEntity {
 
 	@Override
 	public ICapabilityProvider initItemStackCapabilities(ItemStack itemStack) {
-		return new FluidHandlerItemStack(itemStack, tankSize);
+		return new FluidHandlerItemStack(itemStack, tankSize) {
+			@Override
+			protected void setContainerToEmpty() {
+				this.container.setTagCompound(null);
+			}
+		};
 	}
 
 	@Override
