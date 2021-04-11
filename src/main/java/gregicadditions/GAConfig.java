@@ -100,8 +100,6 @@ public class GAConfig {
 		public boolean highTierChemicalBaths = true;
 		@Config.Name("Should higher tier Chemical Reactors be registered?")
 		public boolean highTierChemicalReactors = true;
-		@Config.Name("Should higher tier Circuit Assembling Machines be registered?")
-		public boolean highTierCircuitAssemblers = true;
 		@Config.Name("Should higher tier Compressors be registered?")
 		public boolean highTierCompressors = true;
 		@Config.Name("Should higher tier Cutting Machines be registered?")
