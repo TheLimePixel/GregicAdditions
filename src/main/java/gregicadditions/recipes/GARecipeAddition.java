@@ -402,6 +402,12 @@ public class GARecipeAddition {
 		ModHandler.addShapedRecipe("assline_casing", GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.TUNGSTENSTEEL_GEARBOX_CASING, 2), "PhP", "AFA", "PwP", 'P', "plateSteel", 'A', MetaItems.ROBOT_ARM_IV.getStackForm(), 'F', OreDictUnifier.get(OrePrefix.frameGt, Materials.TungstenSteel));
 		ModHandler.removeRecipeByName(new ResourceLocation("gregtech:casing_assembler_casing"));
 		ModHandler.addShapedRecipe("ga_assmbler_casing", MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.ASSEMBLER_CASING, 3), "CCC", "CFC", "CMC", 'C', "circuitElite", 'F', "frameGtTungstenSteel", 'M', MetaItems.ELECTRIC_MOTOR_IV.getStackForm());
+        //Assembly Line Casing
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+                .inputs(MetaItems.ROBOT_ARM_IV.getStackForm(2), OreDictUnifier.get(OrePrefix.plate, Materials.Steel, 4), OreDictUnifier.get(OrePrefix.frameGt, Materials.TungstenSteel))
+                .outputs(GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.TUNGSTENSTEEL_GEARBOX_CASING, 2))
+                .duration(100).EUt(8000).buildAndRegister();
+
 
 		RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(160).EUt(16).inputs(new ItemStack(Items.SUGAR, 4), OreDictUnifier.get(OrePrefix.dust, GAMaterials.MEAT), OreDictUnifier.get(OrePrefix.dustTiny, Materials.Salt)).fluidInputs(Materials.DistilledWater.getFluid(4000)).fluidOutputs(GAMaterials.RAW_GROWTH_MEDIUM.getFluid(4000)).buildAndRegister();
 
