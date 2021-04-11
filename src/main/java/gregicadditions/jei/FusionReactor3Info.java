@@ -35,4 +35,8 @@ public class FusionReactor3Info extends MultiblockInfoPage {
 		return new String[] { I18n.format("gregtech.multiblock.fusion_reactor_mk3.description") };
 	}
 
+	@Override
+	public float getDefaultZoom() {
+		return 0.5f;
+	}
 }

@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import gregtech.api.util.FluidTooltipUtil;
+import net.minecraft.util.text.TextFormatting;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -195,6 +197,9 @@ public class TileEntityDrum extends MetaTileEntity {
 			FluidStack fluidStack = FluidStack.loadFluidStackFromNBT(tagCompound.getCompoundTag("Fluid"));
 			if (fluidStack == null) return;
 			tooltip.add(I18n.format("gregtech.machine.fluid_tank.fluid", fluidStack.amount, I18n.format(fluidStack.getUnlocalizedName())));
+            String formula = FluidTooltipUtil.getFluidTooltip(fluidStack);
+            if (formula != null)
+                tooltip.add(TextFormatting.GRAY + formula);
 		}
 	}
 

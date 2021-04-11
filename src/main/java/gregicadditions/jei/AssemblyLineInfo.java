@@ -46,4 +46,8 @@ public class AssemblyLineInfo extends MultiblockInfoPage {
 		return new String[] { I18n.format("gregtech.multiblock.assembly_line.description") };
 	}
 
+	@Override
+	public float getDefaultZoom() {
+		return 0.7f;
+	}
 }
