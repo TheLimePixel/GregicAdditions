@@ -247,6 +247,9 @@ public class GAConfig {
 		@Config.Comment("Set this to false to disable the high tier Air Collectors")
 		@Config.Name("Air Collector have IV and LuV version")
 		public boolean highTierCollector = true;
+
+		@Config.Name("Should higher tier Bundlers be registered?")
+		public boolean highTierBundler = true;
 	}
 
 	@SubscribeEvent

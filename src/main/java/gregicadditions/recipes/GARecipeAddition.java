@@ -1,7 +1,11 @@
 package gregicadditions.recipes;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.IntStream;
 import java.util.stream.Collectors;
 
 import forestry.core.ModuleCore;
@@ -18,14 +22,14 @@ import gregtech.api.items.ToolDictNames;
 import gregtech.api.recipes.CountableIngredient;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.recipes.Recipe;
+import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMaps;
+import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.MarkerMaterials.Tier;
 import gregtech.api.unification.material.Materials;
-import gregtech.api.unification.material.type.DustMaterial;
-import gregtech.api.unification.material.type.GemMaterial;
 import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.ore.OrePrefix;
@@ -150,6 +154,25 @@ public class GARecipeAddition {
 				ModHandler.addShapedRecipe("pipe_ga_wood", OreDictUnifier.get(OrePrefix.pipeMedium, Materials.Wood, 2), "PPP", "sCh", "PPP", 'P', "plankWood", 'C', "craftingToolBendingCylinder");
 				ModHandler.addShapedRecipe("pipe_ga_large_wood", OreDictUnifier.get(OrePrefix.pipeLarge, Materials.Wood), "PhP", "PCP", "PsP", 'P', "plankWood", 'C', "craftingToolBendingCylinder");
 				ModHandler.addShapedRecipe("pipe_ga_small_wood", OreDictUnifier.get(OrePrefix.pipeSmall, Materials.Wood, 6), "PsP", "PCP", "PhP", 'P', "plankWood", 'C', "craftingToolBendingCylinder");
+			}
+
+			// Bundler
+			if(!OreDictUnifier.get(OrePrefix.wireGtSingle, m).isEmpty()) {
+
+				OrePrefix[] wirePrefixes = new OrePrefix[]{ OrePrefix.wireGtSingle, OrePrefix.wireGtDouble,
+															OrePrefix.wireGtQuadruple, OrePrefix.wireGtOctal,
+															OrePrefix.wireGtHex };
+
+				for(int startTier = 0; startTier < 4; startTier++) {
+					final int current = startTier; // yay lambdas
+					IntStream.range(1, 5 - startTier).forEach(tier -> {
+						GARecipeMaps.BUNDLER_RECIPES.recipeBuilder()
+													.inputs(OreDictUnifier.get(wirePrefixes[current], m, 1 << tier))
+													.notConsumable(new IntCircuitIngredient(tier))
+													.outputs(OreDictUnifier.get(wirePrefixes[current + tier], m, 1))
+													.buildAndRegister();
+					});
+				}
 			}
 
 			//Cables

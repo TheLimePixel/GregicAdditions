@@ -4,6 +4,7 @@ import gregicadditions.GAConfig;
 import gregicadditions.GregicAdditions;
 import gregicadditions.client.ClientHandler;
 import gregicadditions.recipes.GARecipeMaps;
+import gregtech.api.GTValues;
 import gregtech.api.GregTechAPI;
 import gregtech.api.metatileentity.SimpleGeneratorMetaTileEntity;
 import gregtech.api.metatileentity.SimpleMachineMetaTileEntity;
@@ -13,6 +14,8 @@ import gregtech.api.unification.material.Materials;
 import gregtech.common.metatileentities.electric.MetaTileEntityAirCollector;
 import gregtech.common.metatileentities.electric.MetaTileEntityPump;
 import net.minecraft.util.ResourceLocation;
+
+import java.util.stream.IntStream;
 
 public class GATileEntities {
 	public static SimpleMachineMetaTileEntity[] CLUSTERMILL = new SimpleMachineMetaTileEntity[8];
@@ -58,6 +61,7 @@ public class GATileEntities {
 	public static SimpleMachineMetaTileEntity[] REPLICATOR = new SimpleMachineMetaTileEntity[8];
 	public static SimpleMachineMetaTileEntity[] MASS_FAB = new SimpleMachineMetaTileEntity[8];
 	public static TileEntityFusionReactor[] FUSION_REACTOR = new TileEntityFusionReactor[3];
+	public static SimpleMachineMetaTileEntity[] BUNDLER = new SimpleMachineMetaTileEntity[8];
 
 	public static TileEntityAssemblyLine ASSEMBLY_LINE;
 	public static TileEntityProcessingArray PROCESSING_ARRAY;
@@ -419,6 +423,17 @@ public class GATileEntities {
 			TITANIUM_CRATE = GregTechAPI.registerMetaTileEntity(2211, new TileEntityCrate(location("crate.titanium"), Materials.Titanium, 108));
 			TUNGSTENSTEEL_CRATE = GregTechAPI.registerMetaTileEntity(2212, new TileEntityCrate(location("crate.tungstensteel"), Materials.TungstenSteel, 126));
 		}
+
+		// 2214 - 2221
+		IntStream.range(0, GAConfig.Misc.highTierBundler ? 8 : 4).forEach(tier -> {
+			BUNDLER[tier] =
+				GregTechAPI.registerMetaTileEntity(
+					2214 + tier,
+					new SimpleMachineMetaTileEntity(location("bundler." + GTValues.VN[tier + 1].toLowerCase()),
+													GARecipeMaps.BUNDLER_RECIPES,
+													Textures.PACKER_OVERLAY, // FIXME: need new textures for this machine
+													tier + 1));
+		});
 	}
 
 	private static ResourceLocation location(String name) {
