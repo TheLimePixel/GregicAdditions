@@ -18,7 +18,7 @@ public class GAMultiblockCasing extends VariantBlock<GAMultiblockCasing.CasingTy
 		setResistance(10.0f);
 		setSoundType(SoundType.METAL);
 		setHarvestLevel("wrench", 2);
-		setDefaultState(getState(CasingType.COKE_OVEN_BRICKS));
+		setDefaultState(getState(CasingType.TUNGSTENSTEEL_GEARBOX_CASING));
 	}
 
 	@Override
@@ -28,7 +28,6 @@ public class GAMultiblockCasing extends VariantBlock<GAMultiblockCasing.CasingTy
 
 	public enum CasingType implements IStringSerializable {
 
-		COKE_OVEN_BRICKS("coke_oven_bricks"),
 		TUNGSTENSTEEL_GEARBOX_CASING("tungstensteel_gearbox_casing");
 
 		private final String name;
