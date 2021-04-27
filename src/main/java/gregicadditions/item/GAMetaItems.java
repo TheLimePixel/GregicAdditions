@@ -19,7 +19,6 @@ public class GAMetaItems {
 
 	private static List<MetaItem<?>> ITEMS = MetaItem.getMetaItems();
 
-	public static MetaItem<?>.MetaValueItem GLASS_FIBER;
 	public static MetaItem<?>.MetaValueItem PETRI_DISH;
 	public static MetaItem<?>.MetaValueItem COMPRESSED_COKE_CLAY;
 	public static MetaItem<?>.MetaValueItem ENERGY_MODULE;

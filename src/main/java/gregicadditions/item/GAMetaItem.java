@@ -20,7 +20,6 @@ public class GAMetaItem extends MaterialMetaItem {
 
 	@Override
 	public void registerSubItems() {
-		GAMetaItems.GLASS_FIBER = addItem(21, "component.glass.fiber");
 		GAMetaItems.PETRI_DISH = addItem(23, "component.petri.dish");
 		GAMetaItems.COMPRESSED_COKE_CLAY = addItem(32, "compressed.coke.clay");
 
