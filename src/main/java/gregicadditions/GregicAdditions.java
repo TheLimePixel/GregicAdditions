@@ -5,12 +5,11 @@ import java.util.function.Function;
 import forestry.api.core.ForestryAPI;
 import forestry.core.config.Constants;
 import forestry.modules.ForestryModuleUids;
+import gregicadditions.bees.*;
 import net.minecraft.util.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import gregicadditions.bees.CommonProxy;
-import gregicadditions.bees.GTBees;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.machines.GATileEntities;
@@ -38,7 +37,7 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
-@Mod(modid = GregicAdditions.MODID, name = GregicAdditions.NAME, version = GregicAdditions.VERSION, dependencies = "required-after:gregtech@[1.14.0.689,);after:forestry;after:tconstruct")
+@Mod(modid = GregicAdditions.MODID, name = GregicAdditions.NAME, version = GregicAdditions.VERSION, dependencies = "required-after:gregtech@[1.14.0.689,);after:forestry;after:tconstruct;")
 public class GregicAdditions {
 	public static final String MODID = "gtadditions";
 	public static final String NAME = "Shadows of Greg";
@@ -77,7 +76,6 @@ public class GregicAdditions {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		GARecipeAddition.generatedRecipes();
 		if (!isForestryBeesDisabled())
 			proxy.postInit();
 	}
@@ -94,6 +92,9 @@ public class GregicAdditions {
 		IForgeRegistry<Item> registry = event.getRegistry();
 		registry.register(createItemBlock(GAMetaBlocks.MUTLIBLOCK_CASING, VariantItemBlock::new));
 		registry.register(createItemBlock(GAMetaBlocks.TRANSPARENT_CASING, VariantItemBlock::new));
+		if (!isForestryBeesDisabled()) {
+			registry.register(GTCombs.combItem);
+		}
 	}
 
 	@SubscribeEvent(priority = EventPriority.LOW)
@@ -107,6 +108,10 @@ public class GregicAdditions {
 		GeneratorFuels.init();
 		GAMetaItems.registerOreDict();
 		GAMetaItems.registerRecipes();
+		GARecipeAddition.generatedRecipes();
+		if (!isForestryBeesDisabled()) {
+			GTMachineCombRecipes.init();
+		}
 	}
 
 	private <T extends Block> ItemBlock createItemBlock(T block, Function<T, ItemBlock> producer) {

@@ -8,8 +8,9 @@ import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 
-public class GTMachineRecipes {
-	public static void postInit() {
+public class GTMachineCombRecipes {
+	public static void init() {
+
 		//Impregnated Recipes
 		if (GAConfig.GTBees.AssemblerRecipes) {
 			RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().EUt(8).duration(16).circuitMeta(1).input(OrePrefix.log, Materials.Wood, 8).fluidInputs(Fluids.SEED_OIL.getFluid(250)).outputs(ModuleCore.getItems().impregnatedCasing.getItemStack()).buildAndRegister();
