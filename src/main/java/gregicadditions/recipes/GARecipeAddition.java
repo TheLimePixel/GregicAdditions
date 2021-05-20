@@ -617,14 +617,6 @@ public class GARecipeAddition {
 		RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).input(OrePrefix.dust, Materials.NetherQuartz).outputs(OreDictUnifier.get(OrePrefix.plate, Materials.NetherQuartz)).buildAndRegister();
 		RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().duration(400).EUt(2).input(OrePrefix.dust, Materials.CertusQuartz).outputs(OreDictUnifier.get(OrePrefix.plate, Materials.CertusQuartz)).buildAndRegister();
 
-		//Dust Uncrafting Fixes
-		for (Material m : Material.MATERIAL_REGISTRY) {
-			if (!OreDictUnifier.get(OrePrefix.dustSmall, m).isEmpty()) {
-				ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.dustSmall, m));
-				ModHandler.addShapedRecipe("dust_small_" + m.toString(), OreDictUnifier.get(OrePrefix.dustSmall, m, 4), " D", "  ", 'D', new UnificationEntry(OrePrefix.dust, m));
-			}
-		}
-
 		ModHandler.addShapedRecipe("3x3_schematic", GAMetaItems.SCHEMATIC_3X3.getStackForm(), "  d", " S ", "   ", 'S', GAMetaItems.SCHEMATIC.getStackForm());
 		ModHandler.addShapedRecipe("2x2_schematic", GAMetaItems.SCHEMATIC_2X2.getStackForm(), " d ", " S ", "   ", 'S', GAMetaItems.SCHEMATIC.getStackForm());
 		ModHandler.addShapedRecipe("dust_schematic", GAMetaItems.SCHEMATIC_DUST.getStackForm(), "   ", " S ", "  d", 'S', GAMetaItems.SCHEMATIC.getStackForm());
