@@ -30,12 +30,25 @@ public class AssemblyLineInfo extends MultiblockInfoPage {
 		List<MultiblockShapeInfo> shapes = new ArrayList<>();
 		for (int i = 0; i < 12; i++) {
 			GAMultiblockShapeInfo.Builder builder = GAMultiblockShapeInfo.builder();
-			builder.aisle("COC", "RTR", "GAG", "#Y#");
+			builder.aisle("CIC", "RTR", "GSG", "#Y#");
 			for (int num = 0; num < 3 + i; num++) {
 				if (num == 4 || num == 9) builder.aisle("FIf", "RTR", "GAG", "#Y#");
 				else builder.aisle("CIC", "RTR", "GAG", "#Y#");
 			}
-			builder.aisle("CIC", "RTR", "GSG", "#Y#").where('S', GATileEntities.ASSEMBLY_LINE, EnumFacing.SOUTH).where('C', MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID)).where('F', MetaTileEntities.FLUID_IMPORT_HATCH[4], EnumFacing.WEST).where('f', MetaTileEntities.FLUID_IMPORT_HATCH[4], EnumFacing.EAST).where('O', MetaTileEntities.ITEM_EXPORT_BUS[4], EnumFacing.DOWN).where('Y', MetaTileEntities.ENERGY_INPUT_HATCH[4], EnumFacing.UP).where('I', MetaTileEntities.ITEM_IMPORT_BUS[0], EnumFacing.DOWN).where('G', MetaBlocks.MUTLIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.GRATE_CASING)).where('A', MetaBlocks.MUTLIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.ASSEMBLER_CASING)).where('R', GAMetaBlocks.TRANSPARENT_CASING.getState(GATransparentCasing.CasingType.REINFORCED_GLASS)).where('T', GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.TUNGSTENSTEEL_GEARBOX_CASING)).where('#', Blocks.AIR.getDefaultState());
+			builder.aisle("COC", "RTR", "GAG", "#Y#")
+					.where('S', GATileEntities.ASSEMBLY_LINE, EnumFacing.NORTH)
+					.where('C', MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID))
+					.where('F', MetaTileEntities.FLUID_IMPORT_HATCH[4], EnumFacing.WEST)
+					.where('f', MetaTileEntities.FLUID_IMPORT_HATCH[4], EnumFacing.EAST)
+					.where('O', MetaTileEntities.ITEM_EXPORT_BUS[4], EnumFacing.DOWN)
+					.where('Y', MetaTileEntities.ENERGY_INPUT_HATCH[4], EnumFacing.UP)
+					.where('I', MetaTileEntities.ITEM_IMPORT_BUS[0], EnumFacing.DOWN)
+					.where('G', MetaBlocks.MUTLIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.GRATE_CASING))
+					.where('A', MetaBlocks.MUTLIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.ASSEMBLER_CASING))
+					.where('R', GAMetaBlocks.TRANSPARENT_CASING.getState(GATransparentCasing.CasingType.REINFORCED_GLASS))
+					.where('T', GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.TUNGSTENSTEEL_GEARBOX_CASING))
+					.where('#', Blocks.AIR.getDefaultState());
+
 			shapes.add(builder.build());
 		}
 		return shapes;
