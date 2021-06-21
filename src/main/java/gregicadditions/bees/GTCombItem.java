@@ -48,7 +48,6 @@ public class GTCombItem extends Item implements IColoredItem, IItemModelRegister
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerModel(Item item, IModelManager manager) {
-		manager.registerItemModel(item, 0);
 		for (int i = 0; i < GTCombs.VALUES.length; i++) {
 			manager.registerItemModel(item, i, GregicAdditions.MODID, "comb");
 		}
