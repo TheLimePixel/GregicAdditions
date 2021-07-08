@@ -61,6 +61,8 @@ public class GARecipeAddition {
 
 	private static final MaterialStack[] lapisLike = { new MaterialStack(Materials.Lapis, 1), new MaterialStack(Materials.Lazurite, 1), new MaterialStack(Materials.Sodalite, 1) };
 
+	private static final Material[] circuitTiers = new Material[] {Tier.Master, Tier.Ultimate, Tier.Superconductor };
+
 	public static void init() {
 
 		RecipeMaps.FLUID_SOLIDFICATION_RECIPES.recipeBuilder().fluidInputs(Materials.Glass.getFluid(144)).notConsumable(MetaItems.SHAPE_MOLD_BALL.getStackForm()).outputs(MetaItems.GLASS_TUBE.getStackForm()).EUt(16).duration(80).buildAndRegister();
@@ -550,6 +552,20 @@ public class GARecipeAddition {
 		ModHandler.addShapedRecipe("3x3_schematic", GAMetaItems.SCHEMATIC_3X3.getStackForm(), "  d", " S ", "   ", 'S', GAMetaItems.SCHEMATIC.getStackForm());
 		ModHandler.addShapedRecipe("2x2_schematic", GAMetaItems.SCHEMATIC_2X2.getStackForm(), " d ", " S ", "   ", 'S', GAMetaItems.SCHEMATIC.getStackForm());
 		ModHandler.addShapedRecipe("dust_schematic", GAMetaItems.SCHEMATIC_DUST.getStackForm(), "   ", " S ", "  d", 'S', GAMetaItems.SCHEMATIC.getStackForm());
+
+		/*
+		Fluid Regulators
+		Note, although this loop starts at IV, it registers recipes for LuV-UV Fluid Regulators
+		This is because the PUMPS array starts at LV, while GTValues starts at ULV, so we have to move back
+		an index in PUMPs to match up
+		 */
+		for(int i = GTValues.IV; i <= GTValues.ZPM; i++) {
+			RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+					.inputs(MetaItems.PUMPS[i].getStackForm())
+					.input(OrePrefix.circuit, circuitTiers[i - GTValues.IV], 2)
+					.outputs(MetaItems.FLUID_REGULATORS[i].getStackForm())
+					.EUt((int) (GTValues.V[i + 1] * 30 / 32)).duration(100).buildAndRegister();
+		}
 
 	}
 

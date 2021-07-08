@@ -28,6 +28,7 @@ import gregtech.api.multiblock.FactoryBlockPattern;
 import gregtech.api.multiblock.PatternMatchContext;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMaps;
+import gregtech.api.recipes.recipeproperties.FusionEUToStartProperty;
 import gregtech.api.render.ICubeRenderer;
 import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.BlockMultiblockCasing;
@@ -218,12 +219,12 @@ public class TileEntityFusionReactor extends RecipeMapMultiblockController {
 		@Override
 		protected Recipe findRecipe(long maxVoltage, IItemHandlerModifiable inputs, IMultipleTankHandler fluidInputs) {
 			Recipe recipe = super.findRecipe(maxVoltage, inputs, fluidInputs);
-			return (recipe != null && recipe.getIntegerProperty("eu_to_start") <= energyContainer.getEnergyCapacity()) ? recipe : null;
+			return (recipe != null && (long)recipe.getRecipePropertyStorage().getRecipePropertyValue(FusionEUToStartProperty.getInstance(), 0) <= energyContainer.getEnergyCapacity()) ? recipe : null;
 		}
 
 		@Override
 		protected boolean setupAndConsumeRecipeInputs(Recipe recipe) {
-			int heatDiff = recipe.getIntegerProperty("eu_to_start") - heat;
+			int heatDiff = recipe.getRecipePropertyStorage().getRecipePropertyValue(FusionEUToStartProperty.getInstance(), 0) - heat;
 			if (heatDiff <= 0) {
 				return super.setupAndConsumeRecipeInputs(recipe);
 			}

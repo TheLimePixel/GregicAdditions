@@ -1,11 +1,12 @@
 package gregicadditions.jei;
 
 import gregicadditions.item.*;
+import gregtech.integration.jei.multiblock.MultiblockInfoPage;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
-import net.minecraft.block.*;
 
 @JEIPlugin
 public class JEIGAPlugin implements IModPlugin {
@@ -23,5 +24,15 @@ public class JEIGAPlugin implements IModPlugin {
 		        .getIngredientBlacklist()
 		        .addIngredientToBlacklist(GAMetaBlocks.MUTLIBLOCK_CASING
 			                                  .getItemVariant(GAMultiblockCasing.CasingType.COKE_OVEN_BRICKS));
+
+
+		//Multiblock info page registration
+		GAMultiblockInfoCategory.multiblockRecipes.values().forEach(v -> {
+			MultiblockInfoPage infoPage = v.getInfoPage();
+			registry.addIngredientInfo(infoPage.getController().getStackForm(),
+					VanillaTypes.ITEM,
+					infoPage.getDescription());
+		});
+
 	}
 }
