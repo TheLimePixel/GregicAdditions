@@ -477,6 +477,8 @@ gtadditions.machine.air_collector.luv.name=Elite Air Collector
 
 ## Multiblocks
 
+gtadditions.multiblock.preview.location_end=very end
+
 # Plasma Turbine
 recipemap.plasma_generator.name=Плазменное турбинное топливо
 

@@ -73,7 +73,7 @@ dependencies {
     deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.+"
     deobfCompile "mezz.jei:jei_1.12.2:+"
     deobfCompile "net.sengir.forestry:forestry_1.12.2:+"
-    deobfCompile "gregtechce:gregtech:1.12.2:1.16.1.753"
+    deobfCompile "gregtechce:gregtech:1.12.2:1.17.0.764"
     deobfCompile "codechicken:ChickenASM:1.12-+"
     deobfCompile "codechicken-lib-1-8:CodeChickenLib-1.12.2:3.2.3.357:universal"
     deobfCompile "slimeknights.mantle:Mantle:1.12-1.3.3.42"

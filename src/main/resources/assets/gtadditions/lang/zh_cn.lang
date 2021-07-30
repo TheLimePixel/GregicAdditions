@@ -477,6 +477,8 @@ gtadditions.machine.air_collector.luv.name=大气收集器 II
 
 ## Multiblocks
 
+gtadditions.multiblock.preview.location_end=very end
+
 # Plasma Turbine
 recipemap.plasma_generator.name=等离子涡轮燃料
 
