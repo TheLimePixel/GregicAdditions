@@ -83,6 +83,8 @@ public class GATileEntities {
 	public static MetaTileEntityPump[] PUMP = new MetaTileEntityPump[8];
 	public static MetaTileEntityAirCollector[] AIR_COLLECTOR = new MetaTileEntityAirCollector[8];
 
+	public static MetaTileEntityMachineHolder MACHINE_ACCESS_INTERFACE;
+
 	public static void init() {
 
 		if (GAConfig.GT5U.highTierClusterMills) {
@@ -423,6 +425,10 @@ public class GATileEntities {
 			TITANIUM_CRATE = GregTechAPI.registerMetaTileEntity(2211, new TileEntityCrate(location("crate.titanium"), Materials.Titanium, 108));
 			TUNGSTENSTEEL_CRATE = GregTechAPI.registerMetaTileEntity(2212, new TileEntityCrate(location("crate.tungstensteel"), Materials.TungstenSteel, 126));
 		}
+
+
+		MACHINE_ACCESS_INTERFACE = GregTechAPI.registerMetaTileEntity(2213, new MetaTileEntityMachineHolder(location("machine_access_interface")));
+
 
 		// 2214 - 2221
 		IntStream.range(0, GAConfig.Misc.highTierBundler ? 8 : 4).forEach(tier -> {

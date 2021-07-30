@@ -360,6 +360,9 @@ public class MachineCraftingRecipes {
 		registerMachineRecipe(GATileEntities.MASS_FAB, "CFC", "QMQ", "CFC", 'M', HULL, 'Q', CABLE_QUAD, 'C', BETTER_CIRCUIT, 'F', FIELD_GENERATOR);
 		registerMachineRecipe(GATileEntities.REPLICATOR, "EFE", "CMC", "EQE", 'M', HULL, 'Q', CABLE_QUAD, 'C', BETTER_CIRCUIT, 'F', FIELD_GENERATOR, 'E', EMITTER);
 		if (GAConfig.Misc.highTierCollector) registerMachineRecipe(GATileEntities.AIR_COLLECTOR, "WFW", "PHP", "WCW", 'W', Blocks.IRON_BARS, 'F', MetaItems.ITEM_FILTER, 'P', PUMP, 'H', HULL, 'C', CIRCUIT);
+
+		ModHandler.addShapedRecipe("machine_access_interface", GATileEntities.MACHINE_ACCESS_INTERFACE.getStackForm(), "C", "H", 'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Elite), 'H', MetaTileEntities.ITEM_IMPORT_BUS[GTValues.ULV].getStackForm());
+
 		registerMachineRecipe(GATileEntities.BUNDLER,
 							  "BCB",
 							  "RMV",

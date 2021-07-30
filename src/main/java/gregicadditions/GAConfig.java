@@ -172,6 +172,23 @@ public class GAConfig {
 		public boolean replaceUVwithMAXBat = false;
 	}
 
+	@Config.Comment("Config options of the Processing Array")
+	public static ProcessingArray processingArray = new ProcessingArray();
+
+	public static class ProcessingArray {
+
+		@Config.Comment("Number of machines the Processing Array can use at a time. Default: 16")
+		@Config.RangeInt(min = 1, max = 64)
+		public int processingArrayMachineLimit = 16;
+
+		@Config.Comment({"Blacklist of machines for the Processing Array.",
+						"Add the unlocalized Recipe Map name to blacklist the machine."})
+		public String[] machineBlackList = new String[0];
+
+	}
+
+
+
 	@Config.Comment("Config options of GTCE Bees features")
 	public static GTBees GTBees = new GTBees();
 
