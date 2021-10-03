@@ -1,13 +1,12 @@
 package gregicadditions.machines;
 
-import gregicadditions.GACapabilities;
-import gregicadditions.GAConfig;
+import gregicadditions.*;
 import gregicadditions.recipes.*;
-import gregtech.api.GTValues;
-import gregtech.api.block.machines.MachineItemBlock;
+import gregtech.api.*;
+import gregtech.api.block.machines.*;
 import gregtech.api.capability.*;
 import gregtech.api.capability.impl.*;
-import gregtech.api.gui.Widget;
+import gregtech.api.gui.*;
 import gregtech.api.metatileentity.*;
 import gregtech.api.metatileentity.multiblock.*;
 import gregtech.api.multiblock.*;
@@ -18,28 +17,26 @@ import gregtech.api.render.*;
 import gregtech.api.util.*;
 import gregtech.common.blocks.BlockMetalCasing.*;
 import gregtech.common.blocks.*;
-import gregtech.common.metatileentities.electric.MetaTileEntityMacerator;
+import gregtech.common.metatileentities.electric.*;
 import it.unimi.dsi.fastutil.*;
 import it.unimi.dsi.fastutil.objects.*;
 import net.minecraft.block.state.*;
 import net.minecraft.item.*;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.PacketBuffer;
+import net.minecraft.nbt.*;
+import net.minecraft.network.*;
 import net.minecraft.util.*;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.*;
 import net.minecraftforge.fluids.*;
 import net.minecraftforge.items.*;
 
-import java.util.*;
 import java.util.Arrays;
-import java.util.function.*;
+import java.util.*;
 import java.util.function.Function;
+import java.util.function.*;
 import java.util.stream.*;
 
-import static gregtech.api.gui.widgets.AdvancedTextWidget.withButton;
-import static gregtech.api.gui.widgets.AdvancedTextWidget.withHoverTextTranslate;
-import static gregtech.api.util.Predicates.not;
+import static gregtech.api.gui.widgets.AdvancedTextWidget.*;
+import static gregtech.api.util.Predicates.*;
 
 public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 
@@ -153,7 +150,10 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 	}
 
 	protected static class ProcessingArrayWorkable extends MultiblockRecipeLogic {
-		long voltageTier;
+		/** The voltage this machine operates at */
+		long machineVoltage;
+		/** The GTValues.V tier ordinal for the machine's tier */
+		int machineTier;
 		int numberOfMachines = 0;
 		int numberOfOperations = 0;
 		ItemStack machineItemStack = null;
@@ -184,7 +184,10 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 				return null;
 			}
 
-			return this.recipeMap.findRecipe(maxVoltage, inputs, fluidInputs, this.getMinTankCapacity(this.getOutputTank()));
+			return this.recipeMap.findRecipe(Math.min(this.machineVoltage, maxVoltage),
+			                                 inputs,
+			                                 fluidInputs,
+			                                 this.getMinTankCapacity(this.getOutputTank()));
 		}
 
 
@@ -194,13 +197,6 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 				return null;
 			}
 
-			MetaTileEntity mte = MachineItemBlock.getMetaTileEntity(machineStack);
-			if(mte == null) {
-				return null;
-			}
-
-			//Find the voltage tier of the machine.
-			this.voltageTier = GTValues.V[((ITieredMetaTileEntity) mte).getTier()];
 			//Find the number of machines
 			this.numberOfMachines = Math.min(GAConfig.processingArray.processingArrayMachineLimit, machineStack.getCount());
 
@@ -237,14 +233,13 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 			                                 .EUt(recipe.getEUt())
 			                                 .duration(recipe.getDuration());
 
-			//Don't allow MV or LV macerators to have chanced outputs, because they do not have the slots for chanced outputs
-			if(!(mte instanceof MetaTileEntityMacerator && (((MetaTileEntityMacerator) mte).getTier() == 1 || ((MetaTileEntityMacerator) mte).getTier() == 2))) {
+			//Don't allow MV or LV macerators to have chanced outputs, because they do not have the slots for chanced
+			MetaTileEntity mte = MachineItemBlock.getMetaTileEntity(machineStack);
+			if(!(mte instanceof MetaTileEntityMacerator && this.machineTier < GTValues.HV))
 				copyChancedItemOutputs(newRecipe, recipe, minMultiplier);
-			}
 
 			this.numberOfOperations = minMultiplier;
 			return newRecipe.build().getResult();
-
 		}
 
 		protected static void copyChancedItemOutputs(RecipeBuilder<?> newRecipe,
@@ -462,36 +457,60 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 
 			RecipeMap<?> rmap = findRecipeMapAndCheckValid(machine);
 
+			MetaTileEntity mte = MachineItemBlock.getMetaTileEntity(machine);
+
+			//Find the voltage tier of the machine.
+			this.machineTier = mte instanceof ITieredMetaTileEntity
+				? ((ITieredMetaTileEntity) mte).getTier()
+				: 0;
+
+			this.machineVoltage = GTValues.V[this.machineTier];
+
 			this.machineItemStack = machine;
 			this.recipeMap = rmap;
 		}
 
+		/**
+		 * Sets up and consumes recipe inputs, considering all inputs. Used when Distinct Bus Mode is disabled.
+		 * @param recipe    the recipe to prepare to run
+		 * @return {@code true} if the recipe was successfully set up and ingredients consumed, or
+		 *         {@code false} if the recipe could not be configured and no work was done.
+		 * @see #setupAndConsumeRecipeInputs(Recipe recipe, IItemHandlerModifiable importInventory)
+		 */
 		@Override
 		protected boolean setupAndConsumeRecipeInputs(Recipe recipe) {
+			// use all input buses
+			return setupAndConsumeRecipeInputs(recipe, getInputInventory());
+		}
 
-			IItemHandlerModifiable importInventory = getInputInventory();
+		/**
+		 * Sets up and consumes recipe inputs targeting a predetermined input bus. Used for Distinct Bus mode.
+		 * @param recipe    the recipe to prepare to run
+		 * @param index     the index of the predetermined index bus
+		 * @return {@code true} if the recipe was successfully set up and ingredients consumed, or
+		 *         {@code false} if the recipe could not be configured and no work was done.
+		 * @see #setupAndConsumeRecipeInputs(Recipe recipe, IItemHandlerModifiable importInventory)
+		 */
+		protected boolean setupAndConsumeRecipeInputs(Recipe recipe, int index) {
+			// use the specified input bus
+			return setupAndConsumeRecipeInputs(recipe, getInputBuses().get(index));
+		}
+
+		/**
+		 * If possible, consumes the ingredients for a recipe from the target inventory in preparation for starting the
+		 * craft.
+		 *
+		 * @param recipe          the recipe to prepare to run
+		 * @param importInventory the inventory to check for ingredients
+		 * @return {@code true} if the recipe was successfully set up and ingredients consumed, or
+		 *         {@code false} if the recipe could not be configured and no work was done.
+		 */
+		protected boolean setupAndConsumeRecipeInputs(Recipe recipe, IItemHandlerModifiable importInventory) {
 			IItemHandlerModifiable exportInventory = getOutputInventory();
 			IMultipleTankHandler importFluids = getInputTank();
 			IMultipleTankHandler exportFluids = getOutputTank();
 
-			//Format: EU/t, duration
-			int[] resultOverclock = calculateOverclock(recipe.getEUt(), voltageTier, recipe.getDuration());
-			int totalEUt = resultOverclock[0] * resultOverclock[1] * this.numberOfOperations;
-
-			boolean enoughPower;
-			if(totalEUt >= 0) {
-				int capacity;
-				if(totalEUt > getEnergyCapacity() / 2)
-					capacity = resultOverclock[0];
-				else
-					capacity = totalEUt;
-				enoughPower = getEnergyStored() >= capacity;
-			} else {
-				int power = resultOverclock[0] * this.numberOfOperations;
-				enoughPower = getEnergyStored() - (long) power <= getEnergyCapacity();
-			}
-
-			if(!enoughPower)
+			if(!haveEnoughPowerToProceed(recipe, machineVoltage, this.numberOfOperations))
 				return false;
 
 			return MetaTileEntity.addItemsToItemHandler(exportInventory,
@@ -499,6 +518,37 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 			                                            recipe.getAllItemOutputs(exportInventory.getSlots())) &&
 				MetaTileEntity.addFluidsToFluidHandler(exportFluids, true, recipe.getFluidOutputs()) &&
 				recipe.matches(true, importInventory, importFluids);
+		}
+
+		/**
+		 * Determines if there is sufficient energy buffer to proceed with running a parallelized recipe overclocked to
+		 * a given tier.
+		 *
+		 * @param recipe        the Recipe to perform
+		 * @param voltageTier   the voltage tier to overclock to in the computations
+		 * @param numOperations the number of times this recipe is to be multiplied by
+		 * @return {@code true} if there is enough energy to proceed, {@code false} otherwise.
+		 */
+		protected boolean haveEnoughPowerToProceed(Recipe recipe, long voltageTier, int numOperations) {
+			//Format: EU/t, duration
+			int[] resultOverclock = calculateOverclock(recipe.getEUt(), voltageTier, recipe.getDuration());
+			int totalEU = resultOverclock[0] * resultOverclock[1] * numOperations;
+			int EUt = resultOverclock[0] * numOperations;
+
+			boolean enoughPower;
+			if(totalEU >= 0) {
+				int capacity;
+				if(totalEU > getEnergyCapacity() / 2)
+					capacity = EUt;
+				else
+					capacity = totalEU;
+				enoughPower = getEnergyStored() >= capacity;
+			} else {
+				int power = EUt * numOperations;
+				enoughPower = getEnergyStored() - (long) power <= getEnergyCapacity();
+			}
+
+			return enoughPower;
 		}
 
 		/**
@@ -585,12 +635,16 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 			//Update the stored machine stack and recipe map variables
 			findMachineStack();
 
+			// Cache the old fluid inputs
+			final FluidStack[] cachedLastFluids =
+				(lastFluidInputs == null) ? null : Arrays.copyOf(this.lastFluidInputs, lastFluidInputs.length);
+
 			//Check to see if the machine stack has changed first
 			//TODO Could this machine bus specific check be used in the combined code?
 			boolean machineDirty = checkRecipeInputsDirty(machineBus, importFluids);
 			if(machineDirty || forceRecipeRecheck) {
 				//Check if the machine that the PA is operating on has changed
-				//Is this check needed if machineDirty is true?
+				//TODO Is this check needed if machineDirty is true?
 				if(didMachinesChange(machineItemStack)) {
 					previousRecipe = null;
 					oldMachineStack = null;
@@ -612,6 +666,9 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 			oldMachineStack = null;
 			for (int i = 0; i < importInventory.size(); i++) {
 				IItemHandlerModifiable bus = importInventory.get(i);
+				// Restore the cached fluid inputs before each per-bus dirty check to prevent false negatives
+				lastFluidInputs =
+					(cachedLastFluids == null) ? null : Arrays.copyOf(cachedLastFluids, cachedLastFluids.length);
 				boolean dirty = checkRecipeInputsDirty(bus, importFluids, i);
 				if (dirty || forceRecipeRecheck) {
 					this.forceRecipeRecheck = false;
@@ -674,42 +731,16 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 			return shouldRecheckRecipe;
 		}
 
-
-		protected boolean setupAndConsumeRecipeInputs(Recipe recipe, int index) {
-			RecipeMapMultiblockController controller = (RecipeMapMultiblockController) metaTileEntity;
-			if (controller.checkRecipe(recipe, false)) {
-
-				int[] resultOverclock = calculateOverclock(recipe.getEUt(), recipe.getDuration());
-				int totalEUt = resultOverclock[0] * resultOverclock[1];
-				IItemHandlerModifiable importInventory = getInputBuses().get(index);
-				IItemHandlerModifiable exportInventory = getOutputInventory();
-				IMultipleTankHandler importFluids = getInputTank();
-				IMultipleTankHandler exportFluids = getOutputTank();
-				boolean setup = (totalEUt >= 0 ? getEnergyStored() >= (totalEUt > getEnergyCapacity() / 2 ? resultOverclock[0] : totalEUt) :
-					(getEnergyStored() - resultOverclock[0] <= getEnergyCapacity())) &&
-					MetaTileEntity.addItemsToItemHandler(exportInventory, true, recipe.getAllItemOutputs(exportInventory.getSlots())) &&
-					MetaTileEntity.addFluidsToFluidHandler(exportFluids, true, recipe.getFluidOutputs()) &&
-					recipe.matches(true, importInventory, importFluids);
-
-				if (setup) {
-					controller.checkRecipe(recipe, true);
-					return true;
-				}
-			}
-			return false;
-		}
-
-
 		// ------------------------------- End Distinct Bus Logic ------------------------------------------------
 
 		@Override
 		protected void setupRecipe(Recipe recipe) {
-			int[] resultOverclock = calculateOverclock(recipe.getEUt(), voltageTier, recipe.getDuration());
+			int[] resultOverclock = calculateOverclock(recipe.getEUt(), machineVoltage, recipe.getDuration());
 			this.progressTime = 1;
 			setMaxProgress(resultOverclock[1]);
 			this.recipeEUt = resultOverclock[0] * this.numberOfOperations;
 			this.fluidOutputs = GTUtility.copyFluidList(recipe.getFluidOutputs());
-			int tier = getMachineTierForRecipe(recipe);
+			int tier = Math.min(getMachineTierForRecipe(recipe), machineTier);
 			this.itemOutputs = GTUtility.copyStackList(recipe.getResultItemOutputs(getOutputInventory().getSlots(),
 			                                                                       random,
 			                                                                       tier));
