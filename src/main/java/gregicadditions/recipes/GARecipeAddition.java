@@ -30,6 +30,7 @@ import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
 import gregtech.api.unification.stack.UnificationEntry;
+import gregtech.api.util.GTLog;
 import gregtech.api.util.GTUtility;
 import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.BlockMultiblockCasing.MultiblockCasingType;
@@ -43,6 +44,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
@@ -710,16 +712,55 @@ public class GARecipeAddition {
 		for (IRecipe recipe : CraftingManager.REGISTRY) {
 			if (recipe.getRecipeOutput().isEmpty()) continue;
 			for (int i : OreDictionary.getOreIDs(recipe.getRecipeOutput())) {
-				if (OreDictionary.getOreName(i).equals("plankWood") && recipe.getIngredients().size() == 1 && recipe.getRecipeOutput().getCount() == 4) {
+
+				// First, skip all recipes we don't care about
+				final String odName = OreDictionary.getOreName(i);
+				final boolean isPlank = odName.equals("plankWood");
+				final boolean isSlab = odName.equals("slabWood");
+				if (!(isPlank || isSlab)) {
+					continue;
+				}
+
+				// Skip cursed recipes:
+
+				List<Ingredient> ingredients = recipe.getIngredients();
+				if (ingredients.isEmpty()) {
+					GTLog.logger.warn("Skipping plank/slab recipe with no ingredients: {}", recipe.getRegistryName());
+					continue;
+				}
+
+				ItemStack[] matchingStacks = ingredients.get(0).getMatchingStacks();
+				if (matchingStacks.length == 0) {
+					GTLog.logger.warn("Skipping plank/slab recipe whose own inputs were rejected: {}}",
+					                  recipe.getRegistryName());
+					continue;
+				}
+
+				ItemStack matchingStack = matchingStacks[0];
+
+				if (isPlank && recipe.getIngredients().size() == 1 && recipe.getRecipeOutput().getCount() == 4) {
 					if (GAConfig.GT5U.GeneratedSawingRecipes) {
 						ModHandler.removeRecipeByName(recipe.getRegistryName());
-						ModHandler.addShapelessRecipe("log_to_4_" + recipe.getRecipeOutput().toString(), GTUtility.copyAmount(4, recipe.getRecipeOutput()), recipe.getIngredients().get(0).getMatchingStacks()[0], ToolDictNames.craftingToolSaw);
-						ModHandler.addShapelessRecipe("log_to_2_" + recipe.getRecipeOutput().toString(), GTUtility.copyAmount(2, recipe.getRecipeOutput()), recipe.getIngredients().get(0).getMatchingStacks()[0]);
+						ModHandler.addShapelessRecipe(String.format("log_to_4_%s", recipe.getRecipeOutput()),
+						                              GTUtility.copyAmount(4, recipe.getRecipeOutput()),
+						                              matchingStack,
+						                              ToolDictNames.craftingToolSaw);
+						ModHandler.addShapelessRecipe(String.format("log_to_2_%s", recipe.getRecipeOutput()),
+						                              GTUtility.copyAmount(2, recipe.getRecipeOutput()),
+						                              matchingStack);
 					}
-					RecipeMaps.CUTTER_RECIPES.recipeBuilder().duration(200).EUt(8).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).fluidInputs(Materials.Lubricant.getFluid(1)).outputs(GTUtility.copyAmount(6, recipe.getRecipeOutput()), OreDictUnifier.get(OrePrefix.dust, Materials.Wood, 2)).buildAndRegister();
+					RecipeMaps.CUTTER_RECIPES.recipeBuilder()
+					                         .inputs(matchingStack)
+					                         .fluidInputs(Materials.Lubricant.getFluid(1))
+					                         .outputs(GTUtility.copyAmount(6, recipe.getRecipeOutput()),
+					                                  OreDictUnifier.get(OrePrefix.dust, Materials.Wood, 2))
+					                         .duration(200).EUt(8).buildAndRegister();
 				}
-				if (OreDictionary.getOreName(i).equals("slabWood") && recipe.getRecipeOutput().getCount() == 6) {
-					RecipeMaps.CUTTER_RECIPES.recipeBuilder().duration(50).EUt(4).inputs(recipe.getIngredients().get(0).getMatchingStacks()[0]).outputs(GTUtility.copyAmount(2, recipe.getRecipeOutput())).buildAndRegister();
+				if (isSlab && recipe.getRecipeOutput().getCount() == 6) {
+					RecipeMaps.CUTTER_RECIPES.recipeBuilder()
+					                         .inputs(matchingStack)
+					                         .outputs(GTUtility.copyAmount(2, recipe.getRecipeOutput()))
+					                         .duration(50).EUt(4).buildAndRegister();
 				}
 			}
 		}

@@ -55,9 +55,11 @@ repositories {
         url = "https://maven.blamejared.com/"
     }
     maven {
-        url = "http://maven.ic2.player.to"
+        name "WynPrice's Curse Maven"
+        url "https://cursemaven.com"
     }
     maven {
+        name "CurseForge Maven API"
         url "https://minecraft.curseforge.com/api/maven"
     }
     maven {
@@ -72,7 +74,7 @@ repositories {
 dependencies {
     deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.+"
     deobfCompile "mezz.jei:jei_1.12.2:+"
-    deobfCompile "net.sengir.forestry:forestry_1.12.2:+"
+    deobfCompile "curse.maven:forestry-59751:2918418"
     deobfCompile "gregtechce:gregtech:1.12.2:1.17.0.764"
     deobfCompile "codechicken:ChickenASM:1.12-+"
     deobfCompile "codechicken-lib-1-8:CodeChickenLib-1.12.2:3.2.3.357:universal"
