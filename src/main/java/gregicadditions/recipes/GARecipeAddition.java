@@ -27,6 +27,7 @@ import gregtech.api.unification.material.MarkerMaterials.Tier;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.material.type.Material;
+import gregtech.api.unification.material.type.SolidMaterial;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
 import gregtech.api.unification.stack.UnificationEntry;
@@ -229,6 +230,15 @@ public class GARecipeAddition {
 				ModHandler.removeRecipes(OreDictUnifier.get(OrePrefix.plate, m));
 				ModHandler.addShapedRecipe("ingot_double_" + m.toString(), OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m), "h", "I", "I", 'I', new UnificationEntry(OrePrefix.ingot, m));
 				ModHandler.addShapedRecipe("double_ingot_to_plate_" + m.toString(), OreDictUnifier.get(OrePrefix.plate, m), "h", "I", 'I', OreDictUnifier.get(OrePrefix.valueOf("ingotDouble"), m));
+			}
+
+			if (m instanceof IngotMaterial && !OreDictUnifier.get(OrePrefix.toolHeadBuzzSaw, m).isEmpty() && ((IngotMaterial) m).toolDurability != 0 && m.hasFlag(SolidMaterial.MatFlags.GENERATE_GEAR)) {
+				RecipeMaps.LATHE_RECIPES.recipeBuilder()
+						.input(OrePrefix.gear, m)
+						.output(OrePrefix.toolHeadBuzzSaw, m)
+						.duration((int) m.getAverageMass() * 4)
+						.EUt(8 * (((IngotMaterial) m).blastFurnaceTemperature > 2800 ? 30 : 7))
+						.buildAndRegister();
 			}
 		}
 

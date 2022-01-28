@@ -49,15 +49,12 @@ minecraft {
 
 repositories {
     maven {
-        url = "http://dvs1.progwml6.com/files/maven/"
+        url = "https://dvs1.progwml6.com/files/maven/"
     }
     maven {
         url = "https://maven.blamejared.com/"
     }
-    maven {
-        name "WynPrice's Curse Maven"
-        url "https://cursemaven.com"
-    }
+
     maven {
         name "CurseForge Maven API"
         url "https://minecraft.curseforge.com/api/maven"
@@ -66,15 +63,19 @@ repositories {
        url = "http://chickenbones.net/maven/"
     }
     maven {
+        name = "Forestry Maven"
+        url = "http://maven.ic2.player.to"
+    }
+    maven {
         name = "tterrag maven"
         setUrl("http://maven.tterrag.com/")
     }
 }
 
 dependencies {
-    deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.+"
+    deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.673"
     deobfCompile "mezz.jei:jei_1.12.2:+"
-    deobfCompile "curse.maven:forestry-59751:2918418"
+    deobfCompile "net.sengir.forestry:forestry_1.12.2:5.8.2.422"
     deobfCompile "gregtechce:gregtech:1.12.2:1.17.1.770"
     deobfCompile "codechicken:ChickenASM:1.12-+"
     deobfCompile "codechicken-lib-1-8:CodeChickenLib-1.12.2:3.2.3.357:universal"

@@ -54,5 +54,22 @@ public class GAMaterials implements IMaterialHandler {
 		OrePrefix.gemFlawless.setIgnored(LIGNITE_COKE);
 		OrePrefix.gemExquisite.setIgnored(LIGNITE_COKE);
 
+		// Gears for the new Gear -> Buzzsaw Blade Lathe recipe
+		Materials.Cobalt.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.Manganese.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.Molybdenum.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.Neodymium.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.Thorium.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.Uranium.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.Uranium235.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.PigIron.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.BlackSteel.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.RedSteel.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.BlueSteel.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.DamascusSteel.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.Naquadah.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.NaquadahEnriched.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.Tritanium.addFlag(MatFlags.GENERATE_GEAR);
+		Materials.Duranium.addFlag(MatFlags.GENERATE_GEAR);
 	}
 }
