@@ -156,8 +156,7 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 		int machineTier;
 		int numberOfMachines = 0;
 		int numberOfOperations = 0;
-		ItemStack machineItemStack = null;
-		ItemStack oldMachineStack = null;
+		ItemStack machineItemStack = ItemStack.EMPTY;
 		RecipeMap<?> recipeMap = null;
 		// Fields used for distinct mode
 		protected int lastRecipeIndex = 0;
@@ -175,9 +174,6 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 		protected Recipe findRecipe(long maxVoltage,
 		                            IItemHandlerModifiable inputs,
 		                            IMultipleTankHandler fluidInputs) {
-
-			//Update the machine stack and recipe map
-			findMachineStack();
 
 			// Avoid crashing during load, when GTCE initializes its multiblock previews
 			if(machineItemStack.isEmpty() || this.recipeMap == null) {
@@ -380,6 +376,12 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 
 		public void invalidate() {
 			this.lastRecipeIndex = 0;
+			this.machineItemStack = ItemStack.EMPTY;
+			this.recipeMap = null;
+			this.machineVoltage = 0L;
+			this.machineTier = 0;
+			this.numberOfMachines = 0;
+			this.numberOfOperations = 0;
 		}
 
 		//Finds the Recipe Map of the passed Machine Stack and checks if it is a valid Recipe Map
@@ -449,25 +451,30 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 		}
 
 		public void findMachineStack() {
-
 			RecipeMapMultiblockController controller = (RecipeMapMultiblockController) this.metaTileEntity;
 
 			//The Processing Array is limited to 1 Machine Interface per multiblock, and only has 1 slot
-			ItemStack machine = controller.getAbilities(GACapabilities.PA_MACHINE_CONTAINER).get(0).getStackInSlot(0);
+			ItemStack currentMachine = controller.getAbilities(GACapabilities.PA_MACHINE_CONTAINER).get(0).getStackInSlot(0);
 
-			RecipeMap<?> rmap = findRecipeMapAndCheckValid(machine);
+			if (!ItemStack.areItemStacksEqual(this.machineItemStack, currentMachine)) {
+				RecipeMap<?> rmap = findRecipeMapAndCheckValid(currentMachine);
 
-			MetaTileEntity mte = MachineItemBlock.getMetaTileEntity(machine);
+				MetaTileEntity mte = MachineItemBlock.getMetaTileEntity(currentMachine);
 
-			//Find the voltage tier of the machine.
-			this.machineTier = mte instanceof ITieredMetaTileEntity
-				? ((ITieredMetaTileEntity) mte).getTier()
-				: 0;
+				//Find the voltage tier of the machine.
+				this.machineTier = mte instanceof ITieredMetaTileEntity
+						? ((ITieredMetaTileEntity) mte).getTier()
+						: 0;
 
-			this.machineVoltage = GTValues.V[this.machineTier];
+				this.machineVoltage = GTValues.V[this.machineTier];
 
-			this.machineItemStack = machine;
-			this.recipeMap = rmap;
+				// invalidate the previous recipe
+				previousRecipe = null;
+
+				//we make a copy here to account for changes in the amount of machines in the hatch
+				this.machineItemStack = currentMachine.copy();
+				this.recipeMap = rmap;
+			}
 		}
 
 		/**
@@ -551,71 +558,48 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 			return enoughPower;
 		}
 
-		/**
-		 * Will check if the previous machine stack and the current machine stack are different
-		 * @param newMachineStack - The current machine stack
-		 * @return - true if the machine stacks are not equal, false if they are equal
-		 */
-		protected boolean didMachinesChange(ItemStack newMachineStack) {
-			if(newMachineStack == null || this.oldMachineStack == null)
-				return newMachineStack != this.oldMachineStack;
-
-			return !ItemStack.areItemStacksEqual(this.oldMachineStack, newMachineStack);
-		}
-
 		@Override
 		protected void trySearchNewRecipe() {
-			if(metaTileEntity instanceof TileEntityProcessingArray && ((TileEntityProcessingArray) metaTileEntity).isDistinctInputBusMode) {
+			//Update the stored machine stack and recipe map variables
+			findMachineStack();
+			if (machineItemStack.isEmpty()) return;
+			if (metaTileEntity instanceof TileEntityProcessingArray && ((TileEntityProcessingArray) metaTileEntity).isDistinctInputBusMode) {
 				trySearchNewRecipeDistinct();
-			}
-			else {
+			} else {
 				trySearchNewRecipeCombined();
 			}
 		}
 
 		private void trySearchNewRecipeCombined() {
 			long maxVoltage = getMaxVoltage();
-			Recipe currentRecipe;
+			Recipe currentRecipe = null;
 			Recipe multipliedRecipe = null;
 			IItemHandlerModifiable importInventory = getInputInventory();
 			IMultipleTankHandler importFluids = getInputTank();
 
-			//Update the stored machine stack and recipe map variables
-			findMachineStack();
-
-			boolean dirty = checkRecipeInputsDirty(importInventory, importFluids);
-			if(dirty || forceRecipeRecheck) {
-				//Check if the machine that the PA is operating on has changed
-				if(didMachinesChange(machineItemStack)) {
-					previousRecipe = null;
-					oldMachineStack = null;
-				}
-			}
-
-			if(previousRecipe != null &&
-				previousRecipe.matches(false, importInventory, importFluids)) {
+			if (previousRecipe != null &&
+					previousRecipe.matches(false, importInventory, importFluids)) {
 				currentRecipe = previousRecipe;
 			}
-			else {
+
+			boolean dirty = checkRecipeInputsDirty(importInventory, importFluids);
+			if (dirty || forceRecipeRecheck) {
+				this.forceRecipeRecheck = false;
 				//If the previous recipe was null, or does not match the current recipe, search for a new recipe
 				currentRecipe = findRecipe(maxVoltage, importInventory, importFluids);
-				oldMachineStack = null;
 
 				//Update the previous recipe
-				if(currentRecipe != null) {
+				if (currentRecipe != null) {
 					this.previousRecipe = currentRecipe;
 				}
-
-				this.forceRecipeRecheck = false;
 			}
 
-			if(currentRecipe != null) {
+			if (currentRecipe != null) {
 				multipliedRecipe = multiplyRecipe(importInventory, importFluids, currentRecipe, machineItemStack, recipeMap);
 			}
 
 			//Attempts to run the current recipe, if it is not null
-			if(multipliedRecipe != null && setupAndConsumeRecipeInputs(multipliedRecipe)) {
-				oldMachineStack = machineItemStack;
+			if (multipliedRecipe != null && setupAndConsumeRecipeInputs(multipliedRecipe)) {
 				setupRecipe(multipliedRecipe);
 			}
 		}
@@ -629,27 +613,10 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 			Recipe multipliedRecipe = null;
 			List<IItemHandlerModifiable> importInventory = getInputBuses();
 			IMultipleTankHandler importFluids = getInputTank();
-			RecipeMapMultiblockController controller = (RecipeMapMultiblockController) this.metaTileEntity;
-			IItemHandlerModifiable machineBus = controller.getAbilities(GACapabilities.PA_MACHINE_CONTAINER).get(0);
-
-			//Update the stored machine stack and recipe map variables
-			findMachineStack();
 
 			// Cache the old fluid inputs
 			final FluidStack[] cachedLastFluids =
 				(lastFluidInputs == null) ? null : Arrays.copyOf(this.lastFluidInputs, lastFluidInputs.length);
-
-			//Check to see if the machine stack has changed first
-			//TODO Could this machine bus specific check be used in the combined code?
-			boolean machineDirty = checkRecipeInputsDirty(machineBus, importFluids);
-			if(machineDirty || forceRecipeRecheck) {
-				//Check if the machine that the PA is operating on has changed
-				//TODO Is this check needed if machineDirty is true?
-				if(didMachinesChange(machineItemStack)) {
-					previousRecipe = null;
-					oldMachineStack = null;
-				}
-			}
 
 			//Check if the previous recipe is null, to avoid having to iterate the distinct inputs
 			if(previousRecipe != null && previousRecipe.matches(false, importInventory.get(lastRecipeIndex), importFluids)) {
@@ -657,13 +624,11 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 				multipliedRecipe = multiplyRecipe(importInventory.get(lastRecipeIndex), importFluids, currentRecipe, machineItemStack, recipeMap);
 				if(setupAndConsumeRecipeInputs(multipliedRecipe, lastRecipeIndex)) {
 					setupRecipe(multipliedRecipe);
-					oldMachineStack = machineItemStack;
 					return;
 				}
 			}
 
-			//If the machine stack changed, or the previous recipe is null, check for a new recipe
-			oldMachineStack = null;
+			//If the previous recipe is null, check for a new recipe
 			for (int i = 0; i < importInventory.size(); i++) {
 				IItemHandlerModifiable bus = importInventory.get(i);
 				// Restore the cached fluid inputs before each per-bus dirty check to prevent false negatives
@@ -684,7 +649,6 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 				if(multipliedRecipe != null && setupAndConsumeRecipeInputs(multipliedRecipe, i)) {
 					lastRecipeIndex = i;
 					setupRecipe(multipliedRecipe);
-					oldMachineStack = machineItemStack;
 					break;
 				}
 			}
